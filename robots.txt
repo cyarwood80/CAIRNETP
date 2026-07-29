@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /api/private/
+
+# Sitemap location for Googlebot, Bingbot, DuckDuckBot, YandexBot, Baiduspider
+Sitemap: https://cairnetp.com/sitemap.xml

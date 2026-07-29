@@ -7,7 +7,7 @@ Author: Chris Yarwood
 """
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, Response
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
@@ -59,6 +59,20 @@ async def read_book_page():
         with open(book_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
     return HTMLResponse(content="<h1>CAIRN: Engineering a Sovereign AI Agent Platform</h1>", status_code=200)
+
+@app.get("/robots.txt")
+async def get_robots():
+    robots_path = os.path.join(BASE_DIR, "robots.txt")
+    if os.path.exists(robots_path):
+        return FileResponse(robots_path, media_type="text/plain")
+    return Response(content="User-agent: *\nAllow: /\nSitemap: https://cairnetp.com/sitemap.xml", media_type="text/plain")
+
+@app.get("/sitemap.xml")
+async def get_sitemap():
+    sitemap_path = os.path.join(BASE_DIR, "sitemap.xml")
+    if os.path.exists(sitemap_path):
+        return FileResponse(sitemap_path, media_type="application/xml")
+    return Response(content='<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://cairnetp.com/</loc></url></urlset>', media_type="application/xml")
 
 @app.get("/favicon.ico")
 async def get_favicon():
