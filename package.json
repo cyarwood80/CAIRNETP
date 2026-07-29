@@ -1,0 +1,20 @@
+{
+  "name": "cairn-etp-website",
+  "version": "2.4.0",
+  "description": "Website for CAIRN ETP — The Enterprise Trust Platform for Agentic AI (cairnetp.com)",
+  "main": "index.html",
+  "scripts": {
+    "dev": "npx serve -l 3000",
+    "start": "npx serve -l 3000",
+    "build": "echo 'Static web build ready for Vercel deployment'"
+  },
+  "keywords": [
+    "cairn",
+    "cairn-etp",
+    "agentic-ai",
+    "trust-platform",
+    "ai-governance"
+  ],
+  "author": "Chris Yarwood (cyarwood80)",
+  "license": "MIT"
+}
