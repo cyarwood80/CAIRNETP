@@ -2,17 +2,27 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>CAIRN: Engineering a Sovereign AI Agent Platform — Book by Chris Yarwood</title>
   <meta name="description" content="Official book page for 'CAIRN: Engineering a Sovereign AI Agent Platform — Architecture, Orchestration, Local LLMs and Enterprise Automation' by Chris Yarwood. Available on Amazon.">
   <link rel="canonical" href="https://cairnetp.com/book.html">
   
-  <!-- OpenGraph Meta Tags -->
+  <!-- OpenGraph Social Cards -->
+  <meta property="og:site_name" content="CAIRN ETP">
   <meta property="og:title" content="CAIRN: Engineering a Sovereign AI Agent Platform — Book by Chris Yarwood">
-  <meta property="og:description" content="Architecture, Orchestration, Local LLMs and Enterprise Automation. Order the paperback on Amazon UK.">
+  <meta property="og:description" content="Architecture, Orchestration, Local LLMs and Enterprise Automation by Chris Yarwood. Available on Amazon UK.">
   <meta property="og:image" content="https://cairnetp.com/assets/book-cover.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://cairnetp.com/book.html">
   <meta property="og:type" content="book">
+
+  <!-- Twitter / LinkedIn Social Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@cyarwood">
+  <meta name="twitter:title" content="CAIRN: Engineering a Sovereign AI Agent Platform">
+  <meta name="twitter:description" content="Architecture, Orchestration, Local LLMs and Enterprise Automation by Chris Yarwood. Available on Amazon UK.">
+  <meta name="twitter:image" content="https://cairnetp.com/assets/book-cover.png">
   
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -46,19 +56,22 @@
       <nav>
         <ul class="nav-links">
           <li><a href="index.html" class="nav-link">Platform</a></li>
-          <li><a href="index.html#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="index.html#platform-ui" class="nav-link">Application Interface</a></li>
-          <li><a href="book.html" class="nav-link active"><i class="fas fa-book-open" style="margin-right: 0.3rem;"></i> The Book</a></li>
+          <li><a href="index.html#pillars" class="nav-link">7 Pillars</a></li>
+          <li><a href="index.html#platform-ui" class="nav-link">UI Gallery</a></li>
+          <li><a href="book.html" class="nav-link active"><i class="fas fa-book-open" style="margin-right: 0.25rem;"></i> The Book</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="index.html" class="btn btn-secondary">
-          <i class="fas fa-arrow-left"></i> CAIRN ETP Platform
+        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-linkedin" title="LinkedIn Profile">
+          <i class="fab fa-linkedin"></i> <span style="display: inline-block;">LinkedIn</span>
         </a>
         <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary">
           <i class="fab fa-amazon"></i> Order on Amazon
         </a>
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Menu">
+          <i class="fas fa-bars"></i>
+        </button>
       </div>
     </div>
   </header>
@@ -87,14 +100,17 @@
           </h3>
 
           <p style="font-size: 1.05rem; color: var(--text-secondary); margin-bottom: 2rem; line-height: 1.7;">
-            By <strong>Chris Yarwood</strong>
+            By <strong>Chris Yarwood</strong> (<a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--primary-cyan); text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>)
             <br><br>
             <i>"Whether you are building autonomous agents, designing enterprise automation platforms or simply exploring the future of local AI, I believe the next generation of intelligent systems will be defined less by the models they contain and more by the way those models are orchestrated. This book is my contribution to that conversation."</i>
           </p>
 
-          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
             <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary">
               <i class="fab fa-amazon"></i> Order Book on Amazon UK
+            </a>
+            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-linkedin">
+              <i class="fab fa-linkedin"></i> Connect on LinkedIn
             </a>
             <button class="btn btn-secondary open-reader-btn" data-chapter="ch1">
               <i class="fas fa-eye"></i> Read Chapter Excerpt
@@ -104,7 +120,7 @@
 
         <!-- Real 3D Book Cover Presentation -->
         <div class="book-cover-stage">
-          <img src="assets/book-cover.png" alt="CAIRN: Engineering a Sovereign AI Agent Platform Book Cover" class="book-cover-image" style="max-width: 380px;">
+          <img src="assets/book-cover.png" alt="CAIRN: Engineering a Sovereign AI Agent Platform Book Cover" class="book-cover-image">
         </div>
 
       </div>
@@ -121,7 +137,7 @@
         </p>
       </div>
 
-      <div style="max-width: 860px; margin: 0 auto; background: var(--bg-card); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-highlight); border-radius: var(--radius-lg); padding: 2.5rem; font-size: 1.1rem; line-height: 1.8; color: var(--text-main);">
+      <div style="max-width: 860px; margin: 0 auto; background: var(--bg-card); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-highlight); border-radius: var(--radius-lg); padding: 2.25rem; font-size: 1.05rem; line-height: 1.8; color: var(--text-main);">
         <p style="margin-bottom: 1.25rem;">
           Artificial intelligence is evolving at a pace unlike anything I have experienced during my career in enterprise technology. Almost every week brings a new frontier model, another benchmark, another framework or another promise that the latest release changes everything. It is an exciting time to be an engineer, but it is also an easy time to become distracted by capability while overlooking architecture.
         </p>
@@ -132,12 +148,12 @@
     </div>
   </section>
 
-  <!-- Chapter-by-Chapter Guide -->
+  <!-- Architectural Stack Breakdown -->
   <section id="chapters" class="section-spacing">
     <div class="container">
       <div class="section-title-wrap">
         <h2 class="section-title">Architectural Stack Breakdown</h2>
-        <p class="section-subtitle">Core themes explored throughout the book.</p>
+        <p class="section-subtitle">Core themes and enterprise pillars covered in the book.</p>
       </div>
 
       <div class="chapters-grid">
@@ -146,7 +162,7 @@
         <div class="chapter-card">
           <div class="chapter-number">TIER 01 • SOVEREIGNTY</div>
           <h3>Ownership & Governance</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0.75rem 0 1.25rem 0;">
+          <p style="color: var(--text-secondary); font-size: 0.925rem; margin: 0.65rem 0 1.2rem 0;">
             Establishing total physical sovereignty over AI execution, model fleet orchestration, and enterprise governance bounds.
           </p>
           <button class="btn btn-outline open-reader-btn" data-chapter="ch1" style="width: 100%; font-size: 0.85rem; padding: 0.55rem;">
@@ -158,7 +174,7 @@
         <div class="chapter-card">
           <div class="chapter-number">TIER 02 • MEMORY</div>
           <h3>Memory Fabric & Provenance</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0.75rem 0 1.25rem 0;">
+          <p style="color: var(--text-secondary); font-size: 0.925rem; margin: 0.65rem 0 1.2rem 0;">
             Retrieval relevance, data provenance tracking, confidence metrics, and long-term context retention for enterprise agents.
           </p>
           <button class="btn btn-outline open-reader-btn" data-chapter="ch2" style="width: 100%; font-size: 0.85rem; padding: 0.55rem;">
@@ -170,7 +186,7 @@
         <div class="chapter-card">
           <div class="chapter-number">TIER 03 • REASONING</div>
           <h3>Reasoning & Agent Orchestration</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0.75rem 0 1.25rem 0;">
+          <p style="color: var(--text-secondary); font-size: 0.925rem; margin: 0.65rem 0 1.2rem 0;">
             Model-agnostic reasoning architecture separating cloud intelligence from deterministic local tool execution.
           </p>
           <button class="btn btn-outline open-reader-btn" data-chapter="ch3" style="width: 100%; font-size: 0.85rem; padding: 0.55rem;">
@@ -182,7 +198,7 @@
         <div class="chapter-card">
           <div class="chapter-number">TIER 04 • FLEET</div>
           <h3>Model Fleet & Utilization</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0.75rem 0 1.25rem 0;">
+          <p style="color: var(--text-secondary); font-size: 0.925rem; margin: 0.65rem 0 1.2rem 0;">
             Local GGUF/Ollama model utilization, VRAM throughput balancing, and cloud fallback strategies.
           </p>
           <button class="btn btn-outline open-reader-btn" data-chapter="ch1" style="width: 100%; font-size: 0.85rem; padding: 0.55rem;">
@@ -194,7 +210,7 @@
         <div class="chapter-card">
           <div class="chapter-number">TIER 05 • RUNTIME</div>
           <h3>Execution Runtime & Telemetry</h3>
-          <p style="color: var(--text-secondary); font-size: 0.95rem; margin: 0.75rem 0 1.25rem 0;">
+          <p style="color: var(--text-secondary); font-size: 0.925rem; margin: 0.65rem 0 1.2rem 0;">
             Deterministic execution via PowerShell, Python, and REST with immutable telemetry event logging.
           </p>
           <button class="btn btn-outline open-reader-btn" data-chapter="ch2" style="width: 100%; font-size: 0.85rem; padding: 0.55rem;">
@@ -209,22 +225,23 @@
   <!-- Author Bio Section -->
   <section id="about-author" class="section-spacing">
     <div class="container">
-      <div style="background: var(--bg-card); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-highlight); border-radius: var(--radius-lg); padding: 3rem; display: flex; gap: 2.5rem; align-items: center; flex-wrap: wrap;">
-        <div style="width: 110px; height: 110px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); display: flex; align-items: center; justify-content: center; color: #030712; font-size: 3rem; font-family: var(--font-heading); font-weight: 800; flex-shrink: 0; box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);">
+      <div style="background: var(--bg-card); backdrop-filter: var(--glass-blur); border: 1px solid var(--border-highlight); border-radius: var(--radius-lg); padding: 2.75rem; display: flex; gap: 2rem; align-items: center; flex-wrap: wrap;">
+        <div style="width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--primary-cyan), var(--primary-blue)); display: flex; align-items: center; justify-content: center; color: #030712; font-size: 2.75rem; font-family: var(--font-heading); font-weight: 800; flex-shrink: 0; box-shadow: 0 0 25px rgba(56, 189, 248, 0.4);">
           CY
         </div>
-        <div style="flex: 1; min-width: 280px;">
-          <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">About the Author — Chris Yarwood</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary-cyan); margin-bottom: 1rem;">
-            Enterprise Engineer & Technology Architect
+        <div style="flex: 1; min-width: 260px;">
+          <h3 style="font-size: 1.65rem; margin-bottom: 0.4rem;">About the Author — Chris Yarwood</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--primary-cyan); margin-bottom: 0.85rem; display: flex; align-items: center; gap: 0.5rem; flex-wrap: wrap;">
+            <span>Enterprise Engineer & Technology Architect</span> •
+            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--linkedin-blue); text-decoration: none;"><i class="fab fa-linkedin"></i> LinkedIn Profile</a>
           </div>
-          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1rem;">
+          <p style="color: var(--text-secondary); font-size: 0.975rem; line-height: 1.65; margin-bottom: 0.85rem;">
             Chris Yarwood is an enterprise engineer and technology architect with more than two decades of experience designing, delivering, and operating large-scale enterprise platforms. His work spans virtualisation, end-user computing, automation, infrastructure, and intelligent systems.
           </p>
-          <p style="color: var(--text-secondary); font-size: 1rem; line-height: 1.7; margin-bottom: 1.25rem;">
+          <p style="color: var(--text-secondary); font-size: 0.975rem; line-height: 1.65; margin-bottom: 1.1rem;">
             Through his build of CAIRN, he explores how artificial intelligence can be engineered with the same operational discipline, governance, and architectural rigor that underpin every successful enterprise platform.
           </p>
-          <div style="font-family: var(--font-mono); font-size: 0.9rem; color: var(--primary-cyan); font-weight: 600;">
+          <div style="font-family: var(--font-mono); font-size: 0.875rem; color: var(--primary-cyan); font-weight: 600;">
             "Engineer by profession. Architect by discipline. Curious by nature."
           </div>
         </div>
@@ -235,14 +252,19 @@
   <!-- Order CTA Banner -->
   <section class="section-spacing">
     <div class="container" style="text-align: center;">
-      <div style="background: linear-gradient(135deg, rgba(13, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.4) 100%); border: 1px solid var(--border-highlight); border-radius: var(--radius-lg); padding: 3.5rem 2rem; max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-glow);">
-        <h2 style="font-size: 2.25rem; margin-bottom: 1rem;">Get Your Copy of CAIRN</h2>
-        <p style="color: var(--text-secondary); font-size: 1.1rem; margin-bottom: 2rem;">
+      <div style="background: linear-gradient(135deg, rgba(13, 23, 42, 0.9) 0%, rgba(30, 58, 138, 0.4) 100%); border: 1px solid var(--border-highlight); border-radius: var(--radius-lg); padding: 3rem 1.5rem; max-width: 800px; margin: 0 auto; box-shadow: var(--shadow-glow);">
+        <h2 style="font-size: 2.1rem; margin-bottom: 0.85rem;">Get Your Copy of CAIRN</h2>
+        <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.75rem;">
           Available now in print on Amazon UK.
         </p>
-        <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 2.2rem; font-size: 1.1rem;">
-          <i class="fab fa-amazon"></i> Order Paperback on Amazon
-        </a>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+          <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.85rem 2rem; font-size: 1.05rem;">
+            <i class="fab fa-amazon"></i> Order Paperback on Amazon
+          </a>
+          <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-linkedin" style="padding: 0.85rem 1.75rem; font-size: 1.05rem;">
+            <i class="fab fa-linkedin"></i> Connect on LinkedIn
+          </a>
+        </div>
       </div>
     </div>
   </section>
@@ -252,8 +274,8 @@
     <div class="modal-container">
       <div class="modal-header">
         <div>
-          <h3 id="modal-chapter-title" style="font-size: 1.25rem;">Chapter Excerpt</h3>
-          <div id="modal-chapter-subtitle" style="font-size: 0.85rem; color: var(--primary-cyan); font-family: var(--font-mono);">Subtitle</div>
+          <h3 id="modal-chapter-title" style="font-size: 1.2rem;">Chapter Excerpt</h3>
+          <div id="modal-chapter-subtitle" style="font-size: 0.825rem; color: var(--primary-cyan); font-family: var(--font-mono);">Subtitle</div>
         </div>
         <button id="modal-close-btn" class="modal-close-btn">&times;</button>
       </div>
@@ -281,7 +303,7 @@
           <h4>Platform</h4>
           <ul>
             <li><a href="index.html">CAIRN ETP Homepage</a></li>
-            <li><a href="index.html#architecture">Architecture Stack</a></li>
+            <li><a href="index.html#pillars">7 Enterprise Pillars</a></li>
             <li><a href="index.html#platform-ui">Application Interface</a></li>
           </ul>
         </div>
@@ -296,17 +318,17 @@
         </div>
 
         <div class="footer-col">
-          <h4>Enterprise</h4>
+          <h4>Social & Connect</h4>
           <ul>
-            <li><a href="index.html#simulator">Live Simulator</a></li>
-            <li><a href="index.html#platform-ui">Audit Logs</a></li>
+            <li><a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"><i class="fab fa-linkedin text-accent"></i> Chris Yarwood LinkedIn</a></li>
+            <li><a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener"><i class="fab fa-amazon text-accent"></i> Amazon UK Paperback</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>© 2026 CAIRN ETP. Hosted on Vercel at cairnetp.com.</div>
-        <div>Author: <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" style="color: var(--primary-cyan); text-decoration: none;">Chris Yarwood</a></div>
+        <div>Author: <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--primary-cyan); text-decoration: none;">Chris Yarwood (LinkedIn)</a></div>
       </div>
     </div>
   </footer>

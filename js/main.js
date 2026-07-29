@@ -1,9 +1,10 @@
 /* ==========================================================================
-   CAIRN ETP — Main JavaScript (main.js)
+   CAIRN ETP — Main JavaScript & Mobile Navigation (main.js)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
+  initMobileNavToggle();
   initCopyCodeButtons();
   highlightActiveNavLink();
 });
@@ -14,7 +15,7 @@ function initHeaderScroll() {
   if (!header) return;
 
   window.addEventListener('scroll', () => {
-    if (window.scrollY > 40) {
+    if (window.scrollY > 30) {
       header.classList.add('scrolled');
     } else {
       header.classList.remove('scrolled');
@@ -22,17 +23,48 @@ function initHeaderScroll() {
   });
 }
 
-// Highlight current page in navigation header
+// Mobile drawer menu toggle
+function initMobileNavToggle() {
+  const toggleBtn = document.getElementById('mobile-toggle-btn');
+  const navLinks = document.querySelector('.nav-links');
+
+  if (!toggleBtn || !navLinks) return;
+
+  toggleBtn.addEventListener('click', (e) => {
+    e.stopPropagation();
+    navLinks.classList.toggle('mobile-open');
+    const isOpen = navLinks.classList.contains('mobile-open');
+    toggleBtn.innerHTML = isOpen ? `<i class="fas fa-xmark"></i>` : `<i class="fas fa-bars"></i>`;
+  });
+
+  // Close drawer on link click
+  document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', () => {
+      navLinks.classList.remove('mobile-open');
+      toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
+    });
+  });
+
+  // Close drawer on outside click
+  document.addEventListener('click', (e) => {
+    if (!navLinks.contains(e.target) && !toggleBtn.contains(e.target)) {
+      navLinks.classList.remove('mobile-open');
+      toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
+    }
+  });
+}
+
+// Highlight active page link
 function highlightActiveNavLink() {
   const currentPath = window.location.pathname.split('/').pop() || 'index.html';
   const navLinks = document.querySelectorAll('.nav-link');
 
   navLinks.forEach(link => {
     const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === 'index.html' && href === './') || (currentPath === '' && href === './')) {
+    if (href === currentPath || (currentPath === 'index.html' && (href === './' || href === 'index.html'))) {
       link.classList.add('active');
-    } else {
-      link.classList.remove('active');
+    } else if (currentPath === 'book.html' && href === 'book.html') {
+      link.classList.add('active');
     }
   });
 }
