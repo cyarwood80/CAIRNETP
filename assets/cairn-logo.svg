@@ -1,39 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <defs>
-    <linearGradient id="cairnGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#00f2fe"/>
-      <stop offset="50%" stop-color="#38bdf8"/>
-      <stop offset="100%" stop-color="#3b82f6"/>
-    </linearGradient>
-    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.8"/>
-      <stop offset="100%" stop-color="#1e3a8a" stop-opacity="0.2"/>
-    </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="12" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
-    </filter>
-  </defs>
-  
-  <!-- Outer Shield Hexagon Ring -->
-  <polygon points="256,32 448,128 448,384 256,480 64,384 64,128" fill="url(#shieldGrad)" stroke="url(#cairnGrad)" stroke-width="8" stroke-dasharray="12 6"/>
-  
-  <!-- Stacked CAIRN Beacon Layers -->
-  <!-- Top Beacon Apex -->
-  <polygon points="256,96 320,160 192,160" fill="url(#cairnGrad)" filter="url(#glow)"/>
-  
-  <!-- Tier 2 Governance Block -->
-  <polygon points="176,176 336,176 352,240 160,240" fill="url(#cairnGrad)" opacity="0.9"/>
-  <line x1="176" y1="208" x2="336" y2="208" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+  <!-- Palantir-class Precision Cairn Mark: Solid Bronze Geometric Stacked Survey Stones -->
+  <g fill="none" stroke="#A67C52" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Outer Precision Boundary Ring -->
+    <circle cx="256" cy="256" r="220" stroke-width="6" stroke-dasharray="8 8" opacity="0.4"/>
+    
+    <!-- Tier 1 Apex Stone -->
+    <polygon points="256,90 300,146 212,146" fill="#A67C52" stroke="#A67C52"/>
+    
+    <!-- Tier 2 Governance Block -->
+    <polygon points="190,162 322,162 338,224 174,224" fill="none" stroke="#A67C52" stroke-width="12"/>
+    <line x1="200" y1="193" x2="312" y2="193" stroke="#A67C52" stroke-width="4" opacity="0.6"/>
 
-  <!-- Tier 3 Trust Control Base -->
-  <polygon points="144,256 368,256 384,336 128,336" fill="url(#cairnGrad)" opacity="0.8"/>
-  <line x1="144" y1="296" x2="368" y2="296" stroke="#ffffff" stroke-width="2" opacity="0.5"/>
+    <!-- Tier 3 Trust Control Base -->
+    <polygon points="154,240 358,240 376,316 136,316" fill="none" stroke="#A67C52" stroke-width="12"/>
+    <line x1="166" y1="278" x2="346" y2="278" stroke="#A67C52" stroke-width="4" opacity="0.6"/>
 
-  <!-- Tier 4 Foundation Base -->
-  <polygon points="112,352 400,352 416,416 96,416" fill="url(#cairnGrad)" opacity="0.7"/>
-
-  <!-- Central Trust Node Core -->
-  <circle cx="256" cy="208" r="16" fill="#ffffff" filter="url(#glow)"/>
-  <circle cx="256" cy="208" r="8" fill="#00f2fe"/>
+    <!-- Tier 4 Foundation Base -->
+    <polygon points="118,332 394,332 414,402 98,402" fill="none" stroke="#A67C52" stroke-width="12"/>
+    
+    <!-- Central Survey Datum Point -->
+    <circle cx="256" cy="193" r="6" fill="#F8F8F5" stroke="none"/>
+  </g>
 </svg>

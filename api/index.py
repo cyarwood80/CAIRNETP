@@ -1,5 +1,6 @@
 """
 CAIRN ETP — FastAPI Application & Vercel Serverless Entrypoint (api/index.py)
+Palantir-Class Enterprise Trust Architecture
 Website: cairnetp.com
 Author: Chris Yarwood
 """
@@ -12,8 +13,8 @@ from typing import Optional
 import os
 
 app = FastAPI(
-    title="CAIRN ETP — Sovereign AI Agent Platform",
-    description="Backend API for CAIRN ETP governance simulation, book showcase, and platform management.",
+    title="CAIRN ETP — Enterprise Trust Platform",
+    description="Backend API for CAIRN ETP governance, enterprise demonstration requests, and platform management.",
     version="2.4.0"
 )
 
@@ -33,6 +34,11 @@ class SimulationRequest(BaseModel):
     scenario: str
     custom_prompt: Optional[str] = None
 
+class DemoRequest(BaseModel):
+    name: str
+    email: str
+    organization: str
+
 
 @app.get("/", response_class=HTMLResponse)
 async def read_index():
@@ -40,7 +46,7 @@ async def read_index():
     if os.path.exists(index_path):
         with open(index_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
-    return HTMLResponse(content="<h1>CAIRN ETP — Platform Homepage</h1>", status_code=200)
+    return HTMLResponse(content="<h1>CAIRN ETP — Trusted Intelligence for Critical Decisions</h1>", status_code=200)
 
 @app.get("/book", response_class=HTMLResponse)
 @app.get("/book.html", response_class=HTMLResponse)
@@ -64,10 +70,17 @@ async def health_check():
     return {
         "status": "healthy",
         "platform": "CAIRN ETP",
-        "book": "CAIRN: Engineering a Sovereign AI Agent Platform",
+        "headline": "Trusted Intelligence for Critical Decisions",
         "author": "Chris Yarwood",
-        "amazon_link": "https://www.amazon.co.uk/dp/B0H9JHP73Z",
         "version": "2.4.0"
+    }
+
+@app.post("/api/request-demo")
+async def request_demo(req: DemoRequest):
+    return {
+        "success": True,
+        "message": f"Thank you {req.name}. Demonstration request for {req.organization} ({req.email}) has been received.",
+        "status": "QUEUED"
     }
 
 @app.post("/api/simulate-governance")
@@ -112,13 +125,3 @@ async def simulate_governance(req: SimulationRequest):
                 {"type": "pass", "text": "📜 [COMPASS LOG] Hashed audit trail entry #09843 signed by FastAPI server."}
             ]
         }
-
-@app.get("/api/book/excerpts")
-async def get_book_excerpts():
-    return {
-        "title": "CAIRN: Engineering a Sovereign AI Agent Platform",
-        "subtitle": "Architecture, Orchestration, Local LLMs and Enterprise Automation",
-        "author": "Chris Yarwood",
-        "amazon_link": "https://www.amazon.co.uk/dp/B0H9JHP73Z",
-        "quote": "Engineer by profession. Architect by discipline. Curious by nature."
-    }

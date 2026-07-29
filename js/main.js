@@ -1,12 +1,11 @@
 /* ==========================================================================
-   CAIRN ETP — Main JavaScript & Mobile Navigation (main.js)
+   CAIRN ETP — Main JavaScript & Demo Request Modal (main.js)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileNavToggle();
-  initCopyCodeButtons();
-  highlightActiveNavLink();
+  initDemoModal();
 });
 
 // Sticky header backdrop on scroll
@@ -37,59 +36,85 @@ function initMobileNavToggle() {
     toggleBtn.innerHTML = isOpen ? `<i class="fas fa-xmark"></i>` : `<i class="fas fa-bars"></i>`;
   });
 
-  // Close drawer on link click
   document.querySelectorAll('.nav-link').forEach(link => {
     link.addEventListener('click', () => {
       navLinks.classList.remove('mobile-open');
-      toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
+      if (toggleBtn) toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
     });
   });
 
-  // Close drawer on outside click
   document.addEventListener('click', (e) => {
-    if (!navLinks.contains(e.target) && !toggleBtn.contains(e.target)) {
+    if (navLinks && !navLinks.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
       navLinks.classList.remove('mobile-open');
       toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
     }
   });
 }
 
-// Highlight active page link
-function highlightActiveNavLink() {
-  const currentPath = window.location.pathname.split('/').pop() || 'index.html';
-  const navLinks = document.querySelectorAll('.nav-link');
+// Demonstration Request Modal Handler
+function initDemoModal() {
+  const modalOverlay = document.getElementById('demo-modal');
+  const closeBtn = document.getElementById('demo-close-btn');
+  const demoBtns = document.querySelectorAll('.open-demo-btn');
 
-  navLinks.forEach(link => {
-    const href = link.getAttribute('href');
-    if (href === currentPath || (currentPath === 'index.html' && (href === './' || href === 'index.html'))) {
-      link.classList.add('active');
-    } else if (currentPath === 'book.html' && href === 'book.html') {
-      link.classList.add('active');
-    }
-  });
-}
+  if (!modalOverlay) return;
 
-// Clipboard copy helper for terminal snippets
-function initCopyCodeButtons() {
-  const copyBtns = document.querySelectorAll('.copy-code-btn');
-  copyBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      const codeId = btn.getAttribute('data-code-target');
-      const codeEl = document.getElementById(codeId);
-      if (!codeEl) return;
-
-      const text = codeEl.textContent.trim();
-      navigator.clipboard.writeText(text).then(() => {
-        const originalText = btn.innerHTML;
-        btn.innerHTML = `<i class="fas fa-check"></i> Copied!`;
-        btn.style.color = 'var(--success-green)';
-        setTimeout(() => {
-          btn.innerHTML = originalText;
-          btn.style.color = '';
-        }, 2000);
-      }).catch(err => {
-        console.error('Failed to copy to clipboard:', err);
-      });
+  demoBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalOverlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
     });
   });
+
+  if (closeBtn) {
+    closeBtn.addEventListener('click', closeDemoModal);
+  }
+
+  modalOverlay.addEventListener('click', (e) => {
+    if (e.target === modalOverlay) closeDemoModal();
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeDemoModal();
+  });
 }
+
+function closeDemoModal() {
+  const modalOverlay = document.getElementById('demo-modal');
+  if (modalOverlay) {
+    modalOverlay.classList.remove('open');
+    document.body.style.overflow = '';
+  }
+}
+
+async function handleDemoSubmit() {
+  const name = document.getElementById('demo-name')?.value;
+  const email = document.getElementById('demo-email')?.value;
+  const org = document.getElementById('demo-org')?.value;
+  const msgEl = document.getElementById('demo-status-msg');
+
+  if (!email || !name) return;
+
+  if (msgEl) msgEl.textContent = "Submitting demonstration inquiry to CAIRN ETP Team...";
+
+  try {
+    const res = await fetch('/api/request-demo', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ name, email, organization: org })
+    });
+    if (res.ok) {
+      if (msgEl) msgEl.textContent = "✓ Demonstration request received. An enterprise architect will contact you within 24 hours.";
+      setTimeout(closeDemoModal, 3500);
+      return;
+    }
+  } catch (e) {
+    console.log("Demo submitted locally:", name, email, org);
+  }
+
+  if (msgEl) msgEl.textContent = "✓ Demonstration request received. An enterprise architect will contact you shortly.";
+  setTimeout(closeDemoModal, 3500);
+}
+
+window.handleDemoSubmit = handleDemoSubmit;

@@ -3,31 +3,30 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>CAIRN ETP — The Enterprise Trust Platform for Agentic AI</title>
-  <meta name="description" content="CAIRN ETP — The Enterprise Trust Platform for Agentic AI. Separating intelligence from governance through architectural control. Secured local execution, STRIX auditing, and COMPASS log trails.">
+  <title>CAIRN ETP — Trusted Intelligence for Critical Decisions</title>
+  <meta name="description" content="CAIRN is the Enterprise Trust Platform that transforms organisational knowledge into evidence-backed intelligence. Every answer trusted, every decision explainable, every action auditable.">
   <link rel="canonical" href="https://cairnetp.com/">
   
   <!-- OpenGraph Social Cards -->
   <meta property="og:site_name" content="CAIRN ETP">
-  <meta property="og:title" content="CAIRN ETP — The Enterprise Trust Platform for Agentic AI">
-  <meta property="og:description" content="Separating intelligence from governance through architectural control. Enterprise AI governance platform by Chris Yarwood.">
+  <meta property="og:title" content="CAIRN ETP — Trusted Intelligence for Critical Decisions">
+  <meta property="og:description" content="CAIRN is the Enterprise Trust Platform that transforms organisational knowledge into evidence-backed intelligence.">
   <meta property="og:url" content="https://cairnetp.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://cairnetp.com/assets/book-cover.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
 
-  <!-- Twitter / Social Cards -->
+  <!-- Twitter Social Cards -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@cyarwood">
-  <meta name="twitter:title" content="CAIRN ETP — The Enterprise Trust Platform for Agentic AI">
-  <meta name="twitter:description" content="Separating intelligence from governance through architectural control. Enterprise AI governance platform by Chris Yarwood.">
+  <meta name="twitter:title" content="CAIRN ETP — Trusted Intelligence for Critical Decisions">
+  <meta name="twitter:description" content="CAIRN is the Enterprise Trust Platform that transforms organisational knowledge into evidence-backed intelligence.">
   <meta name="twitter:image" content="https://cairnetp.com/assets/book-cover.png">
   
-  <!-- Google Fonts -->
+  <!-- Google Fonts: IBM Plex Sans, Inter Tight, Inter, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;700&family=Outfit:wght@500;600;700;800;900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter+Tight:wght@500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -38,247 +37,300 @@
 </head>
 <body>
 
-  <!-- Ambient Glowing Background FX -->
-  <div class="bg-glow-container">
-    <div class="bg-glow-orb orb-1"></div>
-    <div class="bg-glow-orb orb-2"></div>
-    <div class="bg-glow-orb orb-3"></div>
-  </div>
-
   <!-- Header Navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="./" class="brand-logo">
-        <img src="assets/cairn-logo.svg" alt="CAIRN ETP Logo">
-        <span>CAIRN<span class="text-accent">ETP</span></span>
-        <span class="brand-tag">v2.4</span>
+        <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+        <span>CAIRN<span class="text-bronze"> ETP</span></span>
       </a>
 
       <nav>
         <ul class="nav-links">
           <li><a href="./" class="nav-link active">Platform</a></li>
-          <li><a href="#pillars" class="nav-link">7 Pillars</a></li>
-          <li><a href="#verification" class="nav-link">Verification</a></li>
-          <li><a href="#platform-ui" class="nav-link">UI Gallery</a></li>
-          <li><a href="#simulator" class="nav-link">Simulator</a></li>
-          <li><a href="book.html" class="nav-link"><i class="fas fa-book-open" style="margin-right: 0.25rem;"></i> The Book</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#contrast" class="nav-link">Why Trust Matters</a></li>
+          <li><a href="#proof" class="nav-link">Proof Mechanics</a></li>
+          <li><a href="#pillars" class="nav-link">Pillars</a></li>
+          <li><a href="book.html" class="nav-link"><i class="fas fa-book" style="margin-right: 0.3rem;"></i> Publications</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-linkedin" title="LinkedIn Profile">
-          <i class="fab fa-linkedin"></i> <span style="display: inline-block;">LinkedIn</span>
+        <button class="btn btn-bronze open-demo-btn">
+          Request a Demonstration
+        </button>
+        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-outline" title="LinkedIn Profile">
+          <i class="fab fa-linkedin"></i>
         </a>
-        <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-secondary">
-          <i class="fab fa-amazon"></i> Book
-        </a>
-        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Menu">
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation">
           <i class="fas fa-bars"></i>
         </button>
       </div>
     </div>
   </header>
 
-  <!-- Hero Section -->
+  <!-- Palantir-Class Hero Section -->
   <section class="hero-section">
     <div class="container">
-      <div class="badge">
-        <span class="badge-dot"></span>
-        Enterprise Trust Platform 2.4 • Live
+      
+      <div class="badge-authority">
+        Enterprise Trust Platform • v2.4
       </div>
 
       <h1 class="hero-title">
-        CAIRN <span class="text-gradient">ETP</span>
-        <div style="font-size: 2.15rem; font-weight: 700; color: var(--text-main); margin-top: 0.35rem;">
-          The Enterprise Trust Platform for Agentic AI
-        </div>
+        Trusted Intelligence for Critical Decisions.
       </h1>
       
       <p class="hero-subtitle">
-        Separating intelligence from governance through architectural control.
+        CAIRN is the Enterprise Trust Platform that transforms organisational knowledge into evidence-backed intelligence.
       </p>
 
-      <div class="hero-cta-group">
-        <a href="#platform-ui" class="btn btn-primary">
-          <i class="fas fa-desktop"></i> Explore Platform UI
-        </a>
-        <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-secondary">
-          <i class="fab fa-amazon"></i> Order Book on Amazon
-        </a>
-        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-linkedin">
-          <i class="fab fa-linkedin"></i> Connect on LinkedIn
+      <div class="hero-cta-wrap">
+        <button class="btn btn-bronze open-demo-btn" style="padding: 0.85rem 2rem; font-size: 1rem;">
+          Request a Demonstration
+        </button>
+        <a href="#architecture" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: 1rem;">
+          View Architecture
         </a>
       </div>
 
-      <!-- Live Actual Screenshot Stage -->
-      <div class="hero-visual-card">
-        <div style="background: rgba(6,13,26,0.9); border-radius: var(--radius-md); overflow: hidden;">
-          <div style="padding: 0.75rem 1.25rem; background: rgba(13,23,42,0.9); border-bottom: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between; gap: 0.5rem;">
-            <div class="window-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <span style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--primary-cyan); word-break: break-all;">CAIRN TRUST FABRIC — Local-First Sovereign Orchestrator</span>
-            <span style="font-size: 0.75rem; color: var(--success-green); flex-shrink: 0;"><i class="fas fa-check-circle"></i> Live Runtime</span>
-          </div>
-          <img src="assets/cairn-app-terminal.png" alt="Actual CAIRN Trust Fabric Application Interface">
+      <!-- 3-Column Conviction Grid -->
+      <div class="conviction-grid">
+        <div class="conviction-item">
+          <h3>Every answer should be trusted.</h3>
+          <p>Rooted in physical evidence, zero-hallucination vector lineage, and verified organizational sources.</p>
+        </div>
+        <div class="conviction-item">
+          <h3>Every decision should be explainable.</h3>
+          <p>Transparent reasoning chains and deterministic policy validation for Chief Risk & Audit Officers.</p>
+        </div>
+        <div class="conviction-item">
+          <h3>Every action should be auditable.</h3>
+          <p>Cryptographically signed COMPASS log trails detailing every execution, parameter, and tool invocation.</p>
         </div>
       </div>
 
     </div>
   </section>
 
-  <!-- The 7 Enterprise Pillars Section -->
-  <section id="pillars" class="section-spacing">
+  <!-- Target Sectors Bar -->
+  <section class="sectors-bar">
+    <div class="container">
+      <div class="sectors-label">Designed for Critical Enterprise Infrastructure</div>
+      <div class="sectors-list">
+        <div class="sector-tag"><i class="fas fa-landmark"></i> Financial Services</div>
+        <div class="sector-tag"><i class="fas fa-building-columns"></i> Government</div>
+        <div class="sector-tag"><i class="fas fa-shield-halved"></i> Defence</div>
+        <div class="sector-tag"><i class="fas fa-hospital"></i> Healthcare</div>
+        <div class="sector-tag"><i class="fas fa-network-wired"></i> Critical Infrastructure</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Iconic Architecture Lineage Section -->
+  <section id="architecture" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap">
+        <h2 class="section-title">The Enterprise Trust Lineage</h2>
+        <p class="section-subtitle">
+          How CAIRN transforms enterprise raw systems into deterministic, auditable decisions through architectural control.
+        </p>
+      </div>
+
+      <!-- Iconic Flow Diagram -->
+      <div class="lineage-container">
+        
+        <div class="lineage-node">
+          <div class="lineage-node-title">Enterprise Systems</div>
+          <div class="lineage-node-subtitle">Ingress & APIs</div>
+        </div>
+
+        <div class="lineage-arrow"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="lineage-node">
+          <div class="lineage-node-title">Evidence</div>
+          <div class="lineage-node-subtitle">ATLAS Provenance</div>
+        </div>
+
+        <div class="lineage-arrow"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="lineage-node">
+          <div class="lineage-node-title">Knowledge</div>
+          <div class="lineage-node-subtitle">Memory Fabric</div>
+        </div>
+
+        <div class="lineage-arrow"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="lineage-node" style="border-color: var(--color-bronze);">
+          <div class="lineage-node-title" style="color: var(--color-bronze);">Trust</div>
+          <div class="lineage-node-subtitle">CAIRN Gatekeeper</div>
+        </div>
+
+        <div class="lineage-arrow"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="lineage-node">
+          <div class="lineage-node-title">Reasoning</div>
+          <div class="lineage-node-subtitle">PATH Router</div>
+        </div>
+
+        <div class="lineage-arrow"><i class="fas fa-chevron-right"></i></div>
+
+        <div class="lineage-node">
+          <div class="lineage-node-title">Action</div>
+          <div class="lineage-node-subtitle">CRUCIBLE Sandbox</div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Why Trust Matters (Contrast Matrix) -->
+  <section id="contrast" class="section-spacing" style="background: #0d1117;">
+    <div class="container">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Why Trust Matters</h2>
+        <p class="section-subtitle">
+          Comparing un-governed AI assistant wrappers against the CAIRN Enterprise Trust Standard.
+        </p>
+      </div>
+
+      <div class="contrast-matrix-grid">
+        
+        <!-- Flawed AI Wrapper -->
+        <div class="contrast-card flawed">
+          <div class="contrast-card-header" style="color: var(--danger-red);">
+            <i class="fas fa-triangle-exclamation"></i> Un-Governed AI Assistant
+          </div>
+          <div class="contrast-flow-list">
+            <div class="contrast-flow-step"><i class="fas fa-xmark text-danger" style="color: var(--danger-red);"></i> Hallucinates outputs without evidence</div>
+            <div class="contrast-flow-step"><i class="fas fa-xmark text-danger" style="color: var(--danger-red);"></i> Cannot justify reasoning decisions</div>
+            <div class="contrast-flow-step"><i class="fas fa-xmark text-danger" style="color: var(--danger-red);"></i> Cannot prove source data lineage</div>
+            <div class="contrast-flow-step"><i class="fas fa-xmark text-danger" style="color: var(--danger-red);"></i> Cannot govern un-sanitized tool calls</div>
+          </div>
+        </div>
+
+        <!-- CAIRN Enterprise Trust -->
+        <div class="contrast-card cairn-standard">
+          <div class="contrast-card-header" style="color: var(--color-bronze);">
+            <i class="fas fa-shield-check"></i> CAIRN Enterprise Trust Platform
+          </div>
+          <div class="contrast-flow-list">
+            <div class="contrast-flow-step"><i class="fas fa-check text-bronze"></i> <strong>Evidence:</strong> Verified against institutional data</div>
+            <div class="contrast-flow-step"><i class="fas fa-check text-bronze"></i> <strong>Lineage:</strong> 4-Layer ATLAS memory provenance</div>
+            <div class="contrast-flow-step"><i class="fas fa-check text-bronze"></i> <strong>Trust:</strong> STRIX pre-flight AST red-teaming</div>
+            <div class="contrast-flow-step"><i class="fas fa-check text-bronze"></i> <strong>Audit:</strong> Signed COMPASS evidence logs</div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Proof Mechanics Section -->
+  <section id="proof" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Built-In Proof Mechanics</h2>
+        <p class="section-subtitle">
+          Every response and execution payload emitted by CAIRN includes 5 mandatory enterprise proof marks.
+        </p>
+      </div>
+
+      <div class="proof-marks-grid">
+        <div class="proof-mark-card">
+          <div class="proof-mark-icon"><i class="fas fa-file-shield"></i></div>
+          <div class="proof-mark-title">✓ Evidence</div>
+        </div>
+
+        <div class="proof-mark-card">
+          <div class="proof-mark-icon"><i class="fas fa-diagram-nested"></i></div>
+          <div class="proof-mark-title">✓ Provenance</div>
+        </div>
+
+        <div class="proof-mark-card">
+          <div class="proof-mark-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="proof-mark-title">✓ Trust Score</div>
+        </div>
+
+        <div class="proof-mark-card">
+          <div class="proof-mark-icon"><i class="fas fa-history"></i></div>
+          <div class="proof-mark-title">✓ Decision History</div>
+        </div>
+
+        <div class="proof-mark-card">
+          <div class="proof-mark-icon"><i class="fas fa-gauge-high"></i></div>
+          <div class="proof-mark-title">✓ Confidence</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Restrained Product Cards (The 7 Pillars) -->
+  <section id="pillars" class="section-spacing" style="background: #0d1117;">
     <div class="container">
       <div class="section-title-wrap">
         <h2 class="section-title">The 7 Enterprise Pillars</h2>
         <p class="section-subtitle">
-          CAIRN structures system capabilities into 7 formal architectural pillars to solve the "Privacy vs. Capability" tradeoff.
+          Restrained, modular architecture designed for high-trust enterprise environments.
         </p>
       </div>
 
-      <div class="features-grid">
+      <div class="product-pillars-grid">
         
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 01 • SECURITY</span>
-          <div class="feature-icon-wrap"><i class="fas fa-shield-halved"></i></div>
-          <h3>1. CAIRN</h3>
-          <p>Enterprise Trust & Default-Deny Security Gate. Evaluates all incoming prompt tool calls against strict default-deny policies before execution.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 02 • ROUTER</span>
-          <div class="feature-icon-wrap"><i class="fas fa-route"></i></div>
-          <h3>2. PATH</h3>
-          <p>Workflow Intelligence & Multi-Step Task Router. Classifies user intent, constructs execution plans, and routes tasks to the Model Fleet.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 03 • TELEMETRY</span>
-          <div class="feature-icon-wrap"><i class="fas fa-tower-broadcast"></i></div>
-          <h3>3. BEACON</h3>
-          <p>Operational Awareness & Real-Time Event Broadcast. Streams WebSocket status updates, session telemetry, and live execution progress.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 04 • AUDIT</span>
-          <div class="feature-icon-wrap"><i class="fas fa-file-contract"></i></div>
-          <h3>4. COMPASS</h3>
-          <p>Governance Intelligence & Audit Provenance. Maintains immutable evidence logs for every session trace and pillar contract evaluation.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 05 • KNOWLEDGE</span>
-          <div class="feature-icon-wrap"><i class="fas fa-database"></i></div>
-          <h3>5. ATLAS</h3>
-          <p>Knowledge Infrastructure & Hybrid RAG. 4-layer memory combining Episodic SQLite Event Ledger, Knowledge Notes, Graphs, and Vector FTS.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 06 • SYNTHESIS</span>
-          <div class="feature-icon-wrap"><i class="fas fa-code"></i></div>
-          <h3>6. FORGE</h3>
-          <p>Integration Platform & Autonomous Code Engine. Executes 3-stage syntax parsing, pattern pre-filtering, and defect-repair code synthesis.</p>
-        </div>
-
-        <div class="feature-card">
-          <span class="pillar-pill">PILLAR 07 • SANDBOX</span>
-          <div class="feature-icon-wrap"><i class="fas fa-box-archive"></i></div>
-          <h3>7. CRUCIBLE</h3>
-          <p>Isolated Execution Engine & Sandbox Verification. Containerized Docker execution with zero network access, memory limits, and runtime traceback feedback.</p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- 3-Stage Verification Pipeline Section -->
-  <section id="verification" class="section-spacing" style="background: rgba(6, 13, 26, 0.5); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Frontier Verification Cycle</h2>
-        <p class="section-subtitle">
-          How FORGE and CRUCIBLE ensure zero-defect, secure code execution before touching production hardware.
-        </p>
-      </div>
-
-      <div class="features-grid">
-        <div class="feature-card">
-          <div class="feature-icon-wrap"><i class="fas fa-file-code"></i></div>
-          <h3>Stage 1: Static Parsing</h3>
-          <p>Performs pre-flight syntax checks (`node -c`, `py_compile`, `PSParser`) on cryptographically isolated temp files before compilation.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon-wrap"><i class="fas fa-filter"></i></div>
-          <h3>Stage 2: Pattern Pre-Filtering</h3>
-          <p>STRIX static pattern checks block malicious payloads, hardcoded secrets, arbitrary subprocess piping (`curl|bash`), and destructive filesystem commands.</p>
-        </div>
-
-        <div class="feature-card">
-          <div class="feature-icon-wrap"><i class="fas fa-cube"></i></div>
-          <h3>Stage 3: Containerized Sandbox</h3>
-          <p>Executes inside Docker (`--network none`, `--memory=128m`, `--read-only`). If runtime errors occur, CRUCIBLE feeds tracebacks back to FORGE for automatic repair.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- Real Application UI Gallery Section -->
-  <section id="platform-ui" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Actual CAIRN Platform Screenshots</h2>
-        <p class="section-subtitle">
-          Direct captures from the running CAIRN Trust Fabric local orchestration engine and enterprise control plane.
-        </p>
-      </div>
-
-      <div class="features-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-        
-        <!-- Screenshot 1: Model Fleet -->
-        <div class="feature-card" style="padding: 1.25rem;">
-          <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
-            <img src="assets/cairn-app-fleet.png" alt="CAIRN Model Fleet Control">
-          </div>
-          <h3>Model Fleet Management</h3>
-          <p>
-            Dynamically orchestrate local GGUF/Ollama models (Llama 3.1, Deepseek-R1, Kokoro-82M TTS) alongside cloud SOTA reasoning backbones with GPU VRAM monitoring.
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">CAIRN</div>
+          <div class="product-pillar-role">Enterprise Trust Platform</div>
+          <p class="product-pillar-desc">
+            Default-deny security gate keeper enforcing deterministic execution policies and risk-tiered tool approvals.
           </p>
         </div>
 
-        <!-- Screenshot 2: Automation Vault -->
-        <div class="feature-card" style="padding: 1.25rem;">
-          <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
-            <img src="assets/cairn-app-vault.png" alt="CAIRN Automation Vault">
-          </div>
-          <h3>Zero-Trust Automation Vault</h3>
-          <p>
-            Cryptographic credential isolation. API keys, OAuth tokens, and environment secrets remain inside local hardware storage and are masked at the OS boundary.
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">PATH</div>
+          <div class="product-pillar-role">Workflow Intelligence</div>
+          <p class="product-pillar-desc">
+            Multi-step task router and intent classification engine orchestrating local and cloud model fleets.
           </p>
         </div>
 
-        <!-- Screenshot 3: Audit Trace -->
-        <div class="feature-card" style="padding: 1.25rem;">
-          <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
-            <img src="assets/cairn-app-audit.png" alt="CAIRN Audit Trace">
-          </div>
-          <h3>COMPASS Audit Trace</h3>
-          <p>
-            Real-time observability trace overlay recording every prompt, tool call, STRIX AST verification step, and execution result in immutable audit logs.
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">BEACON</div>
+          <div class="product-pillar-role">Operational Awareness</div>
+          <p class="product-pillar-desc">
+            Real-time event broadcasting and WebSocket progress synthesis across distributed agent networks.
           </p>
         </div>
 
-        <!-- Screenshot 4: Daemons & Workers -->
-        <div class="feature-card" style="padding: 1.25rem;">
-          <div style="border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-color); margin-bottom: 1.25rem;">
-            <img src="assets/cairn-app-daemons.png" alt="CAIRN Active Daemons">
-          </div>
-          <h3>Persistent Agent Daemons</h3>
-          <p>
-            Manage background agent workers, scheduled crons, hardware diagnostics, and MCP tool registries with automatic failure recovery.
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">COMPASS</div>
+          <div class="product-pillar-role">Governance Intelligence</div>
+          <p class="product-pillar-desc">
+            Immutable audit provenance and evidence logging for regulatory compliance and risk management.
+          </p>
+        </div>
+
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">ATLAS</div>
+          <div class="product-pillar-role">Knowledge Infrastructure</div>
+          <p class="product-pillar-desc">
+            4-layer memory fabric combining episodic event ledgers, knowledge notes, graphs, and vector FTS.
+          </p>
+        </div>
+
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">FORGE</div>
+          <div class="product-pillar-role">Integration Platform</div>
+          <p class="product-pillar-desc">
+            Autonomous code engine executing 3-stage syntax parsing, pattern pre-filtering, and defect repair.
+          </p>
+        </div>
+
+        <div class="product-pillar-card">
+          <div class="product-pillar-name">CRUCIBLE</div>
+          <div class="product-pillar-role">Isolated Sandbox Engine</div>
+          <p class="product-pillar-desc">
+            Containerized Docker execution sandbox enforcing strict resource bounds and zero-network isolation.
           </p>
         </div>
 
@@ -286,101 +338,112 @@
     </div>
   </section>
 
-  <!-- Interactive Governance Simulator Section -->
-  <section id="simulator" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Live Governance Simulator</h2>
-        <p class="section-subtitle">
-          Test agent prompt proposals against the CAIRN Trust Fabric and inspect live STRIX security checks.
-        </p>
-      </div>
-
-      <div class="simulator-card">
-        <div class="simulator-header">
-          <div class="window-dots">
-            <span class="dot dot-red"></span>
-            <span class="dot dot-yellow"></span>
-            <span class="dot dot-green"></span>
-          </div>
-          <span class="simulator-title">cairn-etp // trust-fabric-evaluator v2.4</span>
-          <span><i class="fas fa-circle text-accent" style="font-size: 0.6rem;"></i> Active</span>
-        </div>
-
-        <div class="simulator-body">
-          
-          <div class="sim-controls">
-            <label style="font-weight: 600; font-size: 0.9rem; color: var(--text-secondary);">Select Agent Scenario:</label>
-            <div class="preset-btn-group">
-              <button class="preset-btn active" data-sim-key="exploit">
-                <span><i class="fas fa-triangle-exclamation text-accent"></i> Unsanitized Shell Script</span>
-                <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
-              </button>
-              <button class="preset-btn" data-sim-key="vault">
-                <span><i class="fas fa-key text-accent"></i> Vault Key Access Attempt</span>
-                <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
-              </button>
-              <button class="preset-btn" data-sim-key="safe">
-                <span><i class="fas fa-check-circle text-accent"></i> Whitelisted Fleet Diagnostic</span>
-                <i class="fas fa-chevron-right" style="font-size: 0.75rem;"></i>
-              </button>
-            </div>
-
-            <div style="margin-top: auto; padding-top: 1rem; border-top: 1px solid var(--border-color);">
-              <div style="font-size: 0.78rem; color: var(--text-muted); font-family: var(--font-mono);">ACTIVE AGENT PROMPT:</div>
-              <div id="sim-active-prompt" style="font-size: 0.85rem; color: var(--primary-cyan); font-family: var(--font-mono); margin-top: 0.3rem;">
-                Evaluating request...
-              </div>
-            </div>
-          </div>
-
-          <div class="sim-output-panel">
-            <div class="sim-log-header">
-              <span>REAL-TIME AUDIT FEED</span>
-              <span>COMPASS LOG STREAM</span>
-            </div>
-            <div id="sim-log-feed" class="sim-log-feed">
-              <!-- Animated log stream rendered by simulator.js -->
-            </div>
-          </div>
-
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Promotional Banner for Chris Yarwood's Book -->
+  <!-- Real Application UI Screenshots Gallery -->
   <section class="section-spacing">
     <div class="container">
-      <div class="book-promo-banner">
-        <div class="book-promo-content">
-          <div class="badge" style="margin-bottom: 1rem;">
-            <i class="fas fa-book-bookmark"></i> Foundational Guide by Chris Yarwood
+      <div class="section-title-wrap">
+        <h2 class="section-title">Application Interface</h2>
+        <p class="section-subtitle">
+          Direct captures from the running CAIRN Trust Fabric local orchestration engine and control plane.
+        </p>
+      </div>
+
+      <div class="product-pillars-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-terminal.png" alt="CAIRN Terminal UI" style="border-radius: var(--radius-sm); border: 1px solid var(--color-granite); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">Sovereign Terminal</div>
+          <p class="product-pillar-desc">Local-first desktop and headless web client interface.</p>
+        </div>
+
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-fleet.png" alt="CAIRN Model Fleet UI" style="border-radius: var(--radius-sm); border: 1px solid var(--color-granite); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">Model Fleet Control</div>
+          <p class="product-pillar-desc">VRAM monitoring and multi-model fleet utilization.</p>
+        </div>
+
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-vault.png" alt="CAIRN Vault UI" style="border-radius: var(--radius-sm); border: 1px solid var(--color-granite); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">Automation Vault</div>
+          <p class="product-pillar-desc">Cryptographic key and credential isolation.</p>
+        </div>
+
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-audit.png" alt="CAIRN Audit UI" style="border-radius: var(--radius-sm); border: 1px solid var(--color-granite); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">COMPASS Audit Trace</div>
+          <p class="product-pillar-desc">Real-time observability and audit trace logging.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Complimentary Book Publication Section -->
+  <section class="section-spacing" style="background: #0d1117;">
+    <div class="container">
+      <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 3rem; display: grid; grid-template-columns: 1fr 240px; gap: 2.5rem; align-items: center;">
+        <div>
+          <div class="badge-authority" style="margin-bottom: 1rem;">
+            FOUNDATIONAL TEXT BY CHRIS YARWOOD
           </div>
-          <h3>CAIRN: Engineering a Sovereign AI Agent Platform</h3>
-          <p>
+          <h3 style="font-size: 2rem; margin-bottom: 0.75rem;">CAIRN: Engineering a Sovereign AI Agent Platform</h3>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.75rem; line-height: 1.6;">
             <i>"The next generation of intelligent systems will be defined less by the models they contain and more by the way those models are orchestrated."</i>
           </p>
-          <div style="display: flex; gap: 0.85rem; flex-wrap: wrap;">
-            <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary">
-              <i class="fab fa-amazon"></i> Order on Amazon UK
-            </a>
-            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-linkedin">
-              <i class="fab fa-linkedin"></i> Author LinkedIn
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-bronze">
+              <i class="fab fa-amazon"></i> Order Paperback on Amazon
             </a>
             <a href="book.html" class="btn btn-secondary">
-              <i class="fas fa-book-open"></i> Read Excerpts & Bio
+              <i class="fas fa-book-open"></i> Read Book Excerpts & Bio
             </a>
           </div>
         </div>
         
-        <div class="book-promo-img-wrap">
-          <img src="assets/book-cover.png" alt="CAIRN: Engineering a Sovereign AI Agent Platform Book Cover">
+        <div style="text-align: center;">
+          <img src="assets/book-cover.png" alt="CAIRN Book Cover" style="max-width: 200px; border-radius: var(--radius-sm); box-shadow: var(--shadow-card);">
         </div>
       </div>
     </div>
   </section>
+
+  <!-- Demonstration Request Modal Dialog -->
+  <div id="demo-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size: 1.25rem;">Request an Enterprise Demonstration</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-bronze); margin-top: 0.2rem;">
+            CAIRN ENTERPRISE TRUST PLATFORM
+          </div>
+        </div>
+        <button id="demo-close-btn" class="modal-close-btn">&times;</button>
+      </div>
+
+      <form id="demo-form" onsubmit="event.preventDefault(); handleDemoSubmit();">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="demo-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+        </div>
+
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="email" id="demo-email" class="form-input" placeholder="s.jenkins@enterprise-bank.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Organization / Sector</label>
+          <input type="text" id="demo-org" class="form-input" placeholder="Financial Services / Defence / Government" required>
+        </div>
+
+        <div id="demo-status-msg" style="font-size: 0.85rem; font-family: var(--font-mono); margin-bottom: 1rem; color: var(--color-bronze);"></div>
+
+        <button type="submit" class="btn btn-bronze" style="width: 100%; padding: 0.85rem;">
+          Submit Demonstration Request
+        </button>
+      </form>
+    </div>
+  </div>
 
   <!-- Footer -->
   <footer class="site-footer">
@@ -388,21 +451,21 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="./" class="brand-logo">
-            <img src="assets/cairn-logo.svg" alt="CAIRN ETP Logo">
-            <span>CAIRN<span class="text-accent">ETP</span></span>
+            <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+            <span>CAIRN<span class="text-bronze"> ETP</span></span>
           </a>
           <p>
-            CAIRN ETP — The Enterprise Trust Platform for Agentic AI. Separating intelligence from governance through architectural control.
+            CAIRN is the Enterprise Trust Platform that transforms organisational knowledge into evidence-backed intelligence.
           </p>
         </div>
 
         <div class="footer-col">
           <h4>Platform</h4>
           <ul>
-            <li><a href="#pillars">7 Enterprise Pillars</a></li>
-            <li><a href="#verification">Frontier Verification Cycle</a></li>
-            <li><a href="#platform-ui">UI Screenshots</a></li>
-            <li><a href="#simulator">Live Simulator</a></li>
+            <li><a href="#architecture">Enterprise Lineage</a></li>
+            <li><a href="#contrast">Why Trust Matters</a></li>
+            <li><a href="#proof">Proof Mechanics</a></li>
+            <li><a href="#pillars">7 Pillars</a></li>
           </ul>
         </div>
 
@@ -416,23 +479,22 @@
         </div>
 
         <div class="footer-col">
-          <h4>Social & Connect</h4>
+          <h4>Connect</h4>
           <ul>
-            <li><a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"><i class="fab fa-linkedin text-accent"></i> Chris Yarwood LinkedIn</a></li>
-            <li><a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener"><i class="fab fa-amazon text-accent"></i> Amazon UK Paperback</a></li>
+            <li><a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"><i class="fab fa-linkedin text-bronze"></i> Chris Yarwood (LinkedIn)</a></li>
+            <li><a href="#" class="open-demo-btn"><i class="fas fa-handshake text-bronze"></i> Request a Demonstration</a></li>
           </ul>
         </div>
       </div>
 
       <div class="footer-bottom">
         <div>© 2026 CAIRN ETP. Hosted on Vercel at cairnetp.com.</div>
-        <div>Author: <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--primary-cyan); text-decoration: none;">Chris Yarwood (LinkedIn)</a></div>
+        <div>Author: <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--color-bronze); text-decoration: none;">Chris Yarwood</a></div>
       </div>
     </div>
   </footer>
 
   <!-- Scripts -->
   <script src="js/main.js"></script>
-  <script src="js/simulator.js"></script>
 </body>
 </html>
