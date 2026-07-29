@@ -16,5 +16,8 @@
     "ai-governance"
   ],
   "author": "Chris Yarwood (cyarwood80)",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "@vercel/speed-insights": "^2.0.0"
+  }
 }
