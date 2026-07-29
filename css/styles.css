@@ -467,7 +467,7 @@ h1, h2, h3, h4, h5, h6 {
   font-size: 0.85rem;
 }
 
-/* Gartner-Report Style Pillar Sections */
+/* Pillar Architecture Cards */
 .gartner-pillar-card {
   background: var(--bg-graphite);
   border: 1px solid var(--bg-slate-card);
@@ -504,6 +504,71 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: var(--radius-sm);
   overflow: hidden;
   border: 1px solid var(--bg-slate-card);
+}
+
+/* ==========================================================================
+   Book Showcase & Author Layout (book.html)
+   ========================================================================== */
+.book-hero {
+  padding-top: 11rem;
+  padding-bottom: 6rem;
+}
+
+.book-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 4rem;
+  align-items: center;
+}
+
+.book-cover-stage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg-graphite);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.book-cover-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--radius-sm);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+  transition: transform var(--transition-normal);
+}
+
+.book-cover-image:hover {
+  transform: translateY(-4px);
+}
+
+.author-card {
+  background: var(--bg-graphite);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 3.5rem;
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 3rem;
+  align-items: flex-start;
+  box-shadow: var(--shadow-card);
+}
+
+.author-avatar {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  background: var(--color-oxide-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #0d100d;
+  font-size: 2.75rem;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  box-shadow: 0 8px 20px rgba(91, 111, 90, 0.3);
 }
 
 /* Modal Dialog for Demonstration Request */
@@ -652,6 +717,8 @@ h1, h2, h3, h4, h5, h6 {
   .problem-list { grid-template-columns: 1fr; }
   .trust-plane-comparison { grid-template-columns: 1fr; }
   .gartner-pillar-card { grid-template-columns: 1fr; }
+  .book-hero-grid { grid-template-columns: 1fr; gap: 2.5rem; }
+  .author-card { grid-template-columns: 1fr; gap: 1.75rem; padding: 2.25rem; }
   .footer-grid { grid-template-columns: 1fr 1fr; }
 }
 
