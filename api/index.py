@@ -74,6 +74,13 @@ async def get_sitemap():
         return FileResponse(sitemap_path, media_type="application/xml")
     return Response(content='<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"><url><loc>https://cairnetp.com/</loc></url></urlset>', media_type="application/xml")
 
+@app.get("/google8eb8f6cf1990c7bc.html")
+async def get_google_verification():
+    verification_path = os.path.join(BASE_DIR, "google8eb8f6cf1990c7bc.html")
+    if os.path.exists(verification_path):
+        return FileResponse(verification_path, media_type="text/html")
+    return HTMLResponse(content="google-site-verification: google8eb8f6cf1990c7bc.html", status_code=200)
+
 @app.get("/favicon.ico")
 async def get_favicon():
     favicon_path = os.path.join(ASSETS_DIR, "cairn-logo.svg")
