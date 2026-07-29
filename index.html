@@ -51,8 +51,8 @@
           <li><a href="./" class="nav-link active">Platform</a></li>
           <li><a href="#problem" class="nav-link">The Problem</a></li>
           <li><a href="#trust-plane" class="nav-link">The Trust Layer</a></li>
-          <li><a href="#pillars" class="nav-link">7 Pillars</a></li>
-          <li><a href="#architecture" class="nav-link">Gartner Reports</a></li>
+          <li><a href="#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="#platform-ui" class="nav-link">UI Gallery</a></li>
           <li><a href="book.html" class="nav-link"><i class="fas fa-book" style="margin-right: 0.3rem;"></i> Publications</a></li>
         </ul>
       </nav>
@@ -134,7 +134,7 @@
     </div>
   </section>
 
-  <!-- Category Definition: The Trust Layer Diagram (Including 7th Pillar CRUCIBLE) -->
+  <!-- Category Definition: The Trust Layer Diagram (All 7 Pillars Integrated) -->
   <section id="trust-plane" class="section-spacing">
     <div class="container">
       <div class="section-title-wrap">
@@ -168,19 +168,21 @@
           <div class="diagram-flow-chain">
             <div class="flow-step-box"><span>1. Institutional Ingress</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight"><span>2. ATLAS Memory Fabric & Provenance</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 5</span></div>
+            <div class="flow-step-box highlight"><span>2. CAIRN Default-Deny Gatekeeper</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 1</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight"><span>3. CAIRN Default-Deny Gatekeeper</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 1</span></div>
+            <div class="flow-step-box"><span>3. PATH Workflow Router</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 2</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box"><span>4. PATH Workflow Router</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 2</span></div>
+            <div class="flow-step-box"><span>4. BEACON Operational Awareness</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 3</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box"><span>5. BEACON Operational Awareness</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 3</span></div>
+            <div class="flow-step-box highlight"><span>5. COMPASS Governance Audit</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 4</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight"><span>6. FORGE Code Synthesis</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 6</span></div>
+            <div class="flow-step-box highlight"><span>6. ATLAS Memory Fabric & Provenance</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 5</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight" style="border-color: var(--color-oxide-green); font-weight: 700;"><span>7. CRUCIBLE Docker Sandbox Verification</span> <span style="font-size: 0.725rem; color: var(--color-oxide-green);">Pillar 7</span></div>
+            <div class="flow-step-box highlight"><span>7. FORGE Code Synthesis</span> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 6</span></div>
             <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box" style="border-color: var(--color-oxide-green); color: var(--color-limestone);"><span>8. Signed COMPASS Audited Answer</span> <i class="fas fa-check text-oxide"></i> <span style="font-size: 0.725rem; opacity: 0.7;">Pillar 4</span></div>
+            <div class="flow-step-box highlight" style="border-color: var(--color-oxide-green); font-weight: 700;"><span>8. CRUCIBLE Docker Sandbox Verification</span> <span style="font-size: 0.725rem; color: var(--color-oxide-green);">Pillar 7</span></div>
+            <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
+            <div class="flow-step-box" style="border-color: var(--color-oxide-green); color: var(--color-limestone);"><span>9. Signed Audited Answer</span> <i class="fas fa-check text-oxide"></i></div>
           </div>
         </div>
 
@@ -188,85 +190,13 @@
     </div>
   </section>
 
-  <!-- Restrained Product Cards (The 7 Pillars) -->
-  <section id="pillars" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">The 7 Enterprise Pillars</h2>
-        <p class="section-subtitle">
-          Restrained, modular architecture designed for high-trust enterprise environments.
-        </p>
-      </div>
-
-      <div class="product-pillars-grid">
-        
-        <div class="product-pillar-card">
-          <div class="product-pillar-name">CAIRN <span style="font-size: 0.75rem; color: var(--color-stone-muted);">Pillar 1</span></div>
-          <div class="product-pillar-role">Enterprise Trust Gatekeeper</div>
-          <p class="product-pillar-desc">
-            Default-deny security gate keeper enforcing deterministic execution policies and risk-tiered tool approvals.
-          </p>
-        </div>
-
-        <div class="product-pillar-card">
-          <div class="product-pillar-name">PATH <span style="font-size: 0.75rem; color: var(--color-stone-muted);">Pillar 2</span></div>
-          <div class="product-pillar-role">Workflow Intelligence</div>
-          <p class="product-pillar-desc">
-            Multi-step task router and intent classification engine orchestrating local and cloud model fleets.
-          </p>
-        </div>
-
-        <div class="product-pillar-card">
-          <div class="product-pillar-name">BEACON <span style="font-size: 0.75rem; color: var(--color-stone-muted);">Pillar 3</span></div>
-          <div class="product-pillar-role">Operational Awareness</div>
-          <p class="product-pillar-desc">
-            Real-time event broadcasting and WebSocket progress synthesis across distributed agent networks.
-          </p>
-        </div>
-
-        <div class="product-pillar-card">
-          <div class="product-pillar-name">COMPASS <span style="font-size: 0.75rem; color: var(--color-stone-muted);">Pillar 4</span></div>
-          <div class="product-pillar-role">Governance Intelligence</div>
-          <p class="product-pillar-desc">
-            Immutable audit provenance and evidence logging for regulatory compliance and risk management.
-          </p>
-        </div>
-
-        <div class="product-pillar-card">
-          <div class="product-pillar-name">ATLAS <span style="font-size: 0.75rem; color: var(--color-stone-muted);">Pillar 5</span></div>
-          <div class="product-pillar-role">Knowledge Infrastructure</div>
-          <p class="product-pillar-desc">
-            4-layer memory fabric combining episodic event ledgers, knowledge notes, graphs, and vector FTS.
-          </p>
-        </div>
-
-        <div class="product-pillar-card">
-          <div class="product-pillar-name">FORGE <span style="font-size: 0.75rem; color: var(--color-stone-muted);">Pillar 6</span></div>
-          <div class="product-pillar-role">Integration Platform</div>
-          <p class="product-pillar-desc">
-            Autonomous code engine executing 3-stage syntax parsing, pattern pre-filtering, and code synthesis.
-          </p>
-        </div>
-
-        <div class="product-pillar-card" style="border-color: var(--border-highlight);">
-          <div class="product-pillar-name" style="color: var(--color-oxide-green);">CRUCIBLE <span style="font-size: 0.75rem; color: var(--color-oxide-green);">Pillar 7</span></div>
-          <div class="product-pillar-role">Isolated Sandbox Engine</div>
-          <p class="product-pillar-desc">
-            Execution & Sandbox Containment boundary. Pairs with FORGE: FORGE shapes code; CRUCIBLE proves and tempers code under strict Docker container isolation before execution is trusted.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Gartner-Style Pillar Architectural Deep-Dives -->
+  <!-- Enterprise Pillar Architecture Deep-Dives (Ordered Pillars 1 to 7) -->
   <section id="architecture" class="section-spacing" style="background: #14171c;">
     <div class="container">
       <div class="section-title-wrap">
-        <h2 class="section-title">Enterprise Pillar Architecture Reports</h2>
+        <h2 class="section-title">Enterprise Pillar Architecture</h2>
         <p class="section-subtitle">
-          Gartner-grade architectural evaluation across CAIRN's core governance modules.
+          Core architectural evaluation across CAIRN's 7 enterprise governance pillars.
         </p>
       </div>
 
@@ -296,7 +226,7 @@
       <div class="gartner-pillar-card">
         <div class="gartner-pillar-content">
           <h3>PATH</h3>
-          <div class="gartner-pillar-role">Pillar 2 • Workflow Intelligence & Router</div>
+          <div class="gartner-pillar-role">Pillar 2 • Workflow Intelligence & Task Router</div>
           <div class="gartner-pillar-desc">
             <p>
               PATH is the intent classification and task orchestration layer. It inspects user prompts alongside institutional context to decompose complex goals into multi-step execution plans.
@@ -314,7 +244,29 @@
         </div>
       </div>
 
-      <!-- Pillar 3: COMPASS -->
+      <!-- Pillar 3: BEACON -->
+      <div class="gartner-pillar-card">
+        <div class="gartner-pillar-content">
+          <h3>BEACON</h3>
+          <div class="gartner-pillar-role">Pillar 3 • Operational Awareness & Real-Time Event Broadcast</div>
+          <div class="gartner-pillar-desc">
+            <p>
+              BEACON maintains real-time operational awareness across active agent daemons, streaming live WebSocket progress telemetry directly to enterprise dashboards.
+            </p>
+            <p>
+              Synthesizes intermediate execution updates without exposing sensitive payload data, ensuring enterprise risk teams maintain total visibility over background tasks.
+            </p>
+            <p>
+              Acts as the central event bus connecting local hardware workers with enterprise monitoring infrastructure.
+            </p>
+          </div>
+        </div>
+        <div class="gartner-pillar-visual">
+          <img src="assets/cairn-app-settings.png" alt="BEACON Operational Awareness Capture">
+        </div>
+      </div>
+
+      <!-- Pillar 4: COMPASS -->
       <div class="gartner-pillar-card">
         <div class="gartner-pillar-content">
           <h3>COMPASS</h3>
@@ -336,7 +288,29 @@
         </div>
       </div>
 
-      <!-- Pillar 6 & 7: FORGE & CRUCIBLE -->
+      <!-- Pillar 5: ATLAS -->
+      <div class="gartner-pillar-card">
+        <div class="gartner-pillar-content">
+          <h3>ATLAS</h3>
+          <div class="gartner-pillar-role">Pillar 5 • Knowledge Infrastructure & Memory Fabric</div>
+          <div class="gartner-pillar-desc">
+            <p>
+              ATLAS synthesizes unstructured enterprise data into a 4-layer memory fabric combining Episodic SQLite Event Ledgers, Knowledge Notes, Entity-Relationship Graphs, and Semantic Vector FTS.
+            </p>
+            <p>
+              Delivers zero-hallucination context hydration, verifying document freshness and provenance before feeding knowledge into model reasoning windows.
+            </p>
+            <p>
+              Indexes saved automation scripts to prevent re-inventing institutional workflows.
+            </p>
+          </div>
+        </div>
+        <div class="gartner-pillar-visual">
+          <img src="assets/cairn-app-vault.png" alt="ATLAS Vault & Memory Capture">
+        </div>
+      </div>
+
+      <!-- Pillars 6 & 7: FORGE & CRUCIBLE -->
       <div class="gartner-pillar-card" style="border-color: var(--border-highlight);">
         <div class="gartner-pillar-content">
           <h3 style="color: var(--color-oxide-green);">FORGE & CRUCIBLE</h3>
@@ -361,8 +335,48 @@
     </div>
   </section>
 
+  <!-- Real Application UI Screenshots Gallery -->
+  <section id="platform-ui" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap">
+        <h2 class="section-title">Application Interface</h2>
+        <p class="section-subtitle">
+          Direct captures from the running CAIRN Trust Fabric local orchestration engine and control plane.
+        </p>
+      </div>
+
+      <div class="product-pillars-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-terminal.png" alt="CAIRN Terminal UI" style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">Sovereign Terminal</div>
+          <p class="product-pillar-desc">Local-first desktop and headless web client interface.</p>
+        </div>
+
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-fleet.png" alt="CAIRN Model Fleet UI" style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">Model Fleet Control</div>
+          <p class="product-pillar-desc">VRAM monitoring and multi-model fleet utilization.</p>
+        </div>
+
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-vault.png" alt="CAIRN Vault UI" style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">Automation Vault</div>
+          <p class="product-pillar-desc">Cryptographic key and credential isolation.</p>
+        </div>
+
+        <div class="product-pillar-card" style="padding: 1.25rem;">
+          <img src="assets/cairn-app-audit.png" alt="CAIRN Audit UI" style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
+          <div class="product-pillar-name" style="font-size: 1.1rem;">COMPASS Audit Trace</div>
+          <p class="product-pillar-desc">Real-time observability and audit trace logging.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
   <!-- Complimentary Book Publication Section -->
-  <section class="section-spacing">
+  <section class="section-spacing" style="background: #14171c;">
     <div class="container">
       <div style="background: var(--bg-graphite); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 3rem; display: grid; grid-template-columns: 1fr 240px; gap: 2.5rem; align-items: center;">
         <div>
@@ -446,9 +460,9 @@
           <h4>Platform</h4>
           <ul>
             <li><a href="#problem">The Problem</a></li>
-            <li><a href="#trust-plane">The Trust Layer (7 Pillars)</a></li>
-            <li><a href="#pillars">The 7 Enterprise Pillars</a></li>
-            <li><a href="#architecture">FORGE & CRUCIBLE Sandbox</a></li>
+            <li><a href="#trust-plane">The Trust Layer</a></li>
+            <li><a href="#architecture">Enterprise Architecture</a></li>
+            <li><a href="#platform-ui">UI Screenshots</a></li>
           </ul>
         </div>
 
