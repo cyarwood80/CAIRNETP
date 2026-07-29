@@ -20,6 +20,18 @@ app = FastAPI(
 )
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+# Auto-load local .env file if present
+env_path = os.path.join(BASE_DIR, ".env")
+if os.path.exists(env_path):
+    with open(env_path, "r", encoding="utf-8") as f:
+        for line in f:
+            line = line.strip()
+            if line and not line.startswith("#") and "=" in line:
+                k, v = line.split("=", 1)
+                if k.strip() not in os.environ:
+                    os.environ[k.strip()] = v.strip()
+
 CSS_DIR = os.path.join(BASE_DIR, "css")
 JS_DIR = os.path.join(BASE_DIR, "js")
 ASSETS_DIR = os.path.join(BASE_DIR, "assets")
