@@ -105,16 +105,24 @@ async function handleDemoSubmit() {
       body: JSON.stringify({ name, email, organization: org })
     });
     if (res.ok) {
+      const data = await res.json();
       if (msgEl) msgEl.textContent = "✓ Demonstration request received. An enterprise architect will contact you within 24 hours.";
       setTimeout(closeDemoModal, 3500);
       return;
     }
   } catch (e) {
-    console.log("Demo submitted locally:", name, email, org);
+    console.log("Demo submitted client-side:", name, email, org);
   }
 
-  if (msgEl) msgEl.textContent = "✓ Demonstration request received. An enterprise architect will contact you shortly.";
-  setTimeout(closeDemoModal, 3500);
+  // Direct Mailto Fallback Link
+  const mailSubject = encodeURIComponent(`CAIRN ETP Demo Request - ${org}`);
+  const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\n\nRequesting an enterprise demonstration for CAIRN ETP.`);
+  const mailtoUrl = `mailto:chris@cairnetp.com?subject=${mailSubject}&body=${mailBody}`;
+  
+  if (msgEl) {
+    msgEl.innerHTML = `✓ Request logged. <a href="${mailtoUrl}" target="_blank" style="color: var(--color-oxide-green); text-decoration: underline;">Click here to email directly if needed</a>.`;
+  }
+  setTimeout(closeDemoModal, 5000);
 }
 
 window.handleDemoSubmit = handleDemoSubmit;

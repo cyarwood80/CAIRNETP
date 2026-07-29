@@ -99,12 +99,80 @@ async def health_check():
         "version": "2.4.0"
     }
 
+import json
+import urllib.request
+
 @app.post("/api/request-demo")
 async def request_demo(req: DemoRequest):
+    resend_key = os.getenv("RESEND_API_KEY")
+    notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chris@cairnetp.com")
+    webhook_url = os.getenv("DEMO_WEBHOOK_URL")
+
+    delivered = False
+    delivery_channel = "VERCEL_LOG"
+
+    # 1. Resend Transactional Email Dispatch (Vercel Partner)
+    if resend_key:
+        try:
+            payload = json.dumps({
+                "from": "CAIRN ETP Demo Requests <onboarding@resend.dev>",
+                "to": [notification_email],
+                "subject": f"🔥 New Enterprise Demo Request: {req.organization} ({req.name})",
+                "html": f"""
+                <div style="font-family: Arial, sans-serif; background-color: #23272E; color: #F5F5F1; padding: 20px; border-radius: 6px;">
+                    <h2 style="color: #5B6F5A; margin-top: 0;">CAIRN ETP — New Enterprise Demonstration Request</h2>
+                    <hr style="border-color: #3B4450;">
+                    <p><strong>Full Name:</strong> {req.name}</p>
+                    <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #5B6F5A;">{req.email}</a></p>
+                    <p><strong>Organization / Sector:</strong> {req.organization}</p>
+                    <hr style="border-color: #3B4450;">
+                    <p style="font-size: 12px; color: #9CA3AF;">CAIRN ETP — Enterprise Trust Plane • cairnetp.com</p>
+                </div>
+                """
+            }).encode("utf-8")
+
+            request = urllib.request.Request(
+                "https://api.resend.com/emails",
+                data=payload,
+                headers={
+                    "Authorization": f"Bearer {resend_key}",
+                    "Content-Type": "application/json"
+                },
+                method="POST"
+            )
+            with urllib.request.urlopen(request, timeout=5) as response:
+                if response.status in (200, 201):
+                    delivered = True
+                    delivery_channel = "RESEND_EMAIL"
+        except Exception as e:
+            print(f"[DEMO EMAIL ERROR] Resend dispatch failed: {e}")
+
+    # 2. Slack / Discord / Teams Webhook Dispatch
+    if webhook_url and not delivered:
+        try:
+            payload = json.dumps({
+                "text": f"🔥 *New Enterprise Demo Request*\n*Name:* {req.name}\n*Email:* {req.email}\n*Org:* {req.organization}"
+            }).encode("utf-8")
+            
+            request = urllib.request.Request(
+                webhook_url,
+                data=payload,
+                headers={"Content-Type": "application/json"},
+                method="POST"
+            )
+            with urllib.request.urlopen(request, timeout=5) as response:
+                if response.status in (200, 201, 204):
+                    delivered = True
+                    delivery_channel = "WEBHOOK"
+        except Exception as e:
+            print(f"[DEMO WEBHOOK ERROR] Webhook dispatch failed: {e}")
+
+    print(f"[DEMO INQUIRY RECORDED] Name: {req.name} | Email: {req.email} | Org: {req.organization} | Channel: {delivery_channel}")
+
     return {
         "success": True,
         "message": f"Thank you {req.name}. Demonstration request for {req.organization} ({req.email}) has been received.",
-        "status": "QUEUED"
+        "delivery_channel": delivery_channel
     }
 
 @app.post("/api/simulate-governance")
