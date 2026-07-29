@@ -42,6 +42,8 @@ class DemoRequest(BaseModel):
 
 
 @app.get("/", response_class=HTMLResponse)
+@app.get("/index", response_class=HTMLResponse)
+@app.get("/index.html", response_class=HTMLResponse)
 async def read_index():
     index_path = os.path.join(BASE_DIR, "index.html")
     if os.path.exists(index_path):
