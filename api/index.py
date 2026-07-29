@@ -1,6 +1,7 @@
 """
 CAIRN ETP — FastAPI Application & Vercel Serverless Entrypoint (api/index.py)
-Palantir-Class Enterprise Trust Architecture
+Palette: Graphite, Slate, Limestone, Oxide Green
+Category Statement: We help organisations trust AI.
 Website: cairnetp.com
 Author: Chris Yarwood
 """
@@ -13,8 +14,8 @@ from typing import Optional
 import os
 
 app = FastAPI(
-    title="CAIRN ETP — Enterprise Trust Platform",
-    description="Backend API for CAIRN ETP governance, enterprise demonstration requests, and platform management.",
+    title="CAIRN ETP — We Help Organisations Trust AI",
+    description="Backend API for CAIRN ETP trust plane governance, demonstration requests, and platform management.",
     version="2.4.0"
 )
 
@@ -46,7 +47,7 @@ async def read_index():
     if os.path.exists(index_path):
         with open(index_path, "r", encoding="utf-8") as f:
             return HTMLResponse(content=f.read())
-    return HTMLResponse(content="<h1>CAIRN ETP — Trusted Intelligence for Critical Decisions</h1>", status_code=200)
+    return HTMLResponse(content="<h1>CAIRN ETP — We Help Organisations Trust AI</h1>", status_code=200)
 
 @app.get("/book", response_class=HTMLResponse)
 @app.get("/book.html", response_class=HTMLResponse)
@@ -70,7 +71,7 @@ async def health_check():
     return {
         "status": "healthy",
         "platform": "CAIRN ETP",
-        "headline": "Trusted Intelligence for Critical Decisions",
+        "category_statement": "We help organisations trust AI.",
         "author": "Chris Yarwood",
         "version": "2.4.0"
     }

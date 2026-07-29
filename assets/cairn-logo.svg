@@ -1,24 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Palantir-class Precision Cairn Mark: Solid Bronze Geometric Stacked Survey Stones -->
-  <g fill="none" stroke="#A67C52" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
-    <!-- Outer Precision Boundary Ring -->
-    <circle cx="256" cy="256" r="220" stroke-width="6" stroke-dasharray="8 8" opacity="0.4"/>
+  <!-- Precision Cairn Mark: Oxide Green & Limestone Survey Monument -->
+  <g fill="none" stroke="#5B6F5A" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
+    <!-- Outer Boundary Ring -->
+    <circle cx="256" cy="256" r="220" stroke-width="5" stroke-dasharray="6 6" opacity="0.35"/>
     
     <!-- Tier 1 Apex Stone -->
-    <polygon points="256,90 300,146 212,146" fill="#A67C52" stroke="#A67C52"/>
+    <polygon points="256,90 300,146 212,146" fill="#5B6F5A" stroke="#5B6F5A"/>
     
     <!-- Tier 2 Governance Block -->
-    <polygon points="190,162 322,162 338,224 174,224" fill="none" stroke="#A67C52" stroke-width="12"/>
-    <line x1="200" y1="193" x2="312" y2="193" stroke="#A67C52" stroke-width="4" opacity="0.6"/>
+    <polygon points="190,162 322,162 338,224 174,224" fill="none" stroke="#5B6F5A" stroke-width="12"/>
+    <line x1="200" y1="193" x2="312" y2="193" stroke="#5B6F5A" stroke-width="4" opacity="0.6"/>
 
     <!-- Tier 3 Trust Control Base -->
-    <polygon points="154,240 358,240 376,316 136,316" fill="none" stroke="#A67C52" stroke-width="12"/>
-    <line x1="166" y1="278" x2="346" y2="278" stroke="#A67C52" stroke-width="4" opacity="0.6"/>
+    <polygon points="154,240 358,240 376,316 136,316" fill="none" stroke="#5B6F5A" stroke-width="12"/>
+    <line x1="166" y1="278" x2="346" y2="278" stroke="#5B6F5A" stroke-width="4" opacity="0.6"/>
 
     <!-- Tier 4 Foundation Base -->
-    <polygon points="118,332 394,332 414,402 98,402" fill="none" stroke="#A67C52" stroke-width="12"/>
+    <polygon points="118,332 394,332 414,402 98,402" fill="none" stroke="#5B6F5A" stroke-width="12"/>
     
     <!-- Central Survey Datum Point -->
-    <circle cx="256" cy="193" r="6" fill="#F8F8F5" stroke="none"/>
+    <circle cx="256" cy="193" r="6" fill="#F5F5F1" stroke="none"/>
   </g>
 </svg>
