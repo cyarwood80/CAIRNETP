@@ -1,5 +1,7 @@
 /* ==========================================================================
    CAIRN ETP — Book Reader Modal Engine (book-reader.js)
+   Updated with excerpts from: CAIRN: Engineering a Sovereign AI Agent Platform
+   Author: Chris Yarwood
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -8,41 +10,36 @@ document.addEventListener('DOMContentLoaded', () => {
 
 const CHAPTER_EXCERPTS = {
   ch1: {
-    title: "Chapter 1: The Agentic Governance Crisis",
-    subtitle: "Why Prompt Safety & Guardrail API Wrappers Fail at Autonomous Tool Execution",
+    title: "The Shift to Enterprise Utility",
+    subtitle: "Preface — CAIRN: Engineering a Sovereign AI Agent Platform by Chris Yarwood",
     content: `
-      <h3>1.1 The Illusion of Probabilistic Safety</h3>
-      <p>As artificial intelligence shifts from passive text generation to autonomous agentic execution, traditional security paradigms crumble. An agent is not merely an endpoint that answers questions; it is a synthetic actor empowered with tool invocation, shell access, vector database queries, and system file manipulation.</p>
-      <p>The fundamental mistake of early enterprise agent design was relying on the LLM itself—or soft system prompts—to police its own actions. Prompt injection, toxic context poisoning, and jailbreak vectors have repeatedly proven that an intelligence model cannot serve as its own security gatekeeper.</p>
-      
-      <h3>1.2 The Governance Gap</h3>
-      <p>When an agent receives an instruction like <i>"Optimize my local database and clean up temporary logs,"</i> the reasoning engine may craft shell commands that inadvertently delete critical system configurations. In traditional setups, the command is executed immediately because the execution engine trusts the intelligence layer blindly.</p>
-      <p><strong>CAIRN ETP</strong> solves this through <strong>Architectural Control</strong>: total physical separation between the reasoning intelligence (cloud LLMs) and the deterministic governance layer (local Trust Fabric).</p>
+      <p>Artificial intelligence is evolving at a pace unlike anything I have experienced during my career in enterprise technology. Almost every week brings a new frontier model, another benchmark, another framework or another promise that the latest release changes everything. It is an exciting time to be an engineer, but it is also an easy time to become distracted by capability while overlooking architecture.</p>
+      <p>Whether you are building autonomous agents, designing enterprise automation platforms or simply exploring the future of local AI, I believe the next generation of intelligent systems will be defined less by the models they contain and more by the way those models are orchestrated. This book is my contribution to that conversation.</p>
+      <div style="margin-top: 1.5rem; padding: 1rem; background: rgba(56,189,248,0.1); border-left: 3px solid var(--primary-cyan); border-radius: var(--radius-sm);">
+        <strong>About the Author:</strong> Chris Yarwood is an enterprise engineer and technology architect with more than two decades of experience designing, delivering, and operating large-scale enterprise platforms.
+      </div>
     `
   },
   ch2: {
-    title: "Chapter 2: The Trust Fabric Pattern",
-    subtitle: "Architectural Control & Deterministic Whitelisting",
+    title: "Tier 1 & 2: Sovereignty & Memory Fabric",
+    subtitle: "Ownership, Control Boundaries, Retrieval Relevance, Provenance",
     content: `
-      <h3>2.1 Defining the Trust Fabric Layer</h3>
-      <p>The CAIRN Trust Fabric acts as an unyielding air gap between what an agent <i>wants</i> to do and what the system <i>allows</i> it to do. It transforms arbitrary LLM proposals into strictly typed, cryptographic policy evaluations.</p>
+      <h3>Sovereignty & Governance Control</h3>
+      <p>True sovereignty in AI deployment demands that control boundaries remain under enterprise ownership. The CAIRN platform enforces deterministic governance, evidence validation, and cryptographic key isolation between reasoning models and execution daemons.</p>
       
-      <h3>2.2 The Tri-Partite Execution Standard</h3>
-      <p>Under the Trust Fabric architecture, every agent action passes through three deterministic gates before touching local hardware:</p>
-      <ul>
-        <li><strong>1. AST Security Analysis:</strong> Pre-flight static code scanning via STRIX for injection patterns and unsafe operations.</li>
-        <li><strong>2. Deterministic Whitelist Check:</strong> Signature verification against immutable command manifests.</li>
-        <li><strong>3. Vault Masking:</strong> Sensitive credentials, API keys, and environment tokens are masked at the OS boundary.</li>
-      </ul>
+      <h3>Memory Fabric & Data Provenance</h3>
+      <p>Autonomous agents require persistent, contextual memory. The CAIRN Memory Fabric evaluates retrieval relevance, tracks data provenance, and provides confidence scoring across local vector stores and knowledge structures.</p>
     `
   },
   ch3: {
-    title: "Chapter 3: STRIX Adversarial Red-Teaming",
-    subtitle: "Automated Pre-Flight Security Auditing for Autonomous Agents",
+    title: "Tier 3 & 4: Reasoning Architecture & Model Fleet",
+    subtitle: "Model Utilization, Throughput, PowerShell & REST Execution Runtime",
     content: `
-      <h3>3.1 Static & Dynamic AST Inspection</h3>
-      <p>STRIX is the internal security auditor embedded directly within CAIRN ETP. Before any Python script, Node.js worker, or Shell payload proposed by an LLM is written to disk or sent to a child process, STRIX constructs an Abstract Syntax Tree (AST) of the payload.</p>
-      <p>If STRIX detects arbitrary subprocess spawning, network sockets attempting unauthorized egress, or attempts to read local credentials, execution is halted in sub-millisecond time—producing an evidence-backed audit report for enterprise compliance.</p>
+      <h3>Decoupled Reasoning Architecture</h3>
+      <p>Intelligence models (whether cloud backbones or offline local LLMs) generate proposed plans. The CAIRN Trust Fabric evaluates these proposals deterministically before handing payload execution to the execution runtime.</p>
+      
+      <h3>Execution Runtime Telemetry</h3>
+      <p>Supports PowerShell, Python, and REST calls with continuous evidence emission: Telemetry Events, Planning Events, Fleet Events, and Runtime Events.</p>
     `
   }
 };
@@ -56,7 +53,6 @@ function initBookReaderModal() {
 
   if (!modalOverlay || !closeBtn) return;
 
-  // Open modal trigger buttons
   const readBtns = document.querySelectorAll('.open-reader-btn');
   readBtns.forEach(btn => {
     btn.addEventListener('click', (e) => {
@@ -66,7 +62,6 @@ function initBookReaderModal() {
     });
   });
 
-  // Close handlers
   closeBtn.addEventListener('click', closeReader);
   modalOverlay.addEventListener('click', (e) => {
     if (e.target === modalOverlay) closeReader();
