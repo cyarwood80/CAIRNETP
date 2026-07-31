@@ -7,7 +7,7 @@ Author: Chris Yarwood
 """
 
 from fastapi import FastAPI
-from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, Response
+from fastapi.responses import HTMLResponse, JSONResponse, FileResponse, Response, RedirectResponse
 from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 from typing import Optional
@@ -100,6 +100,25 @@ async def get_favicon():
         return FileResponse(favicon_path, media_type="image/svg+xml")
     return JSONResponse(content={"error": "favicon not found"}, status_code=404)
 
+@app.get("/download")
+@app.get("/downloads")
+@app.get("/download/cairn-etp-setup.exe")
+@app.get("/downloads/cairn-etp-setup.exe")
+async def download_installer():
+    # Check for local installer binary first
+    exe_path = os.path.join(BASE_DIR, "downloads", "cairn-etp-setup.exe")
+    if os.path.exists(exe_path):
+        return FileResponse(
+            exe_path,
+            media_type="application/octet-stream",
+            filename="CAIRN-ETP-Setup-v2.4.exe",
+            headers={"Content-Disposition": 'attachment; filename="CAIRN-ETP-Setup-v2.4.exe"'}
+        )
+    
+    # Redirect to GitHub Release binary / custom download host
+    download_url = os.getenv("DOWNLOAD_EXE_URL", "https://github.com/cyarwood80/CAIRN/releases/download/v2.0.0/CAIRN.Trust.Fabric.Setup.2.0.0.exe")
+    return RedirectResponse(url=download_url, status_code=307)
+
 
 @app.get("/api/health")
 async def health_check():
@@ -148,7 +167,8 @@ async def request_demo(req: DemoRequest):
                 data=payload,
                 headers={
                     "Authorization": f"Bearer {resend_key}",
-                    "Content-Type": "application/json"
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) CAIRNETP/2.4"
                 },
                 method="POST"
             )
