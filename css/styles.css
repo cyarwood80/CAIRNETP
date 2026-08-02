@@ -178,7 +178,7 @@ h1, h2, h3, h4, h5, h6 {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 2rem;
+  gap: 1.4rem;
   list-style: none;
 }
 
@@ -187,6 +187,7 @@ h1, h2, h3, h4, h5, h6 {
   color: var(--text-secondary);
   font-size: 0.9rem;
   font-weight: 500;
+  white-space: nowrap;
   transition: var(--transition-fast);
   padding: 0.2rem 0;
 }

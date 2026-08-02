@@ -72,6 +72,24 @@ async def read_book_page():
             return HTMLResponse(content=f.read())
     return HTMLResponse(content="<h1>CAIRN: Engineering a Sovereign AI Agent Platform</h1>", status_code=200)
 
+@app.get("/licensing", response_class=HTMLResponse)
+@app.get("/licensing.html", response_class=HTMLResponse)
+async def read_licensing_page():
+    licensing_path = os.path.join(BASE_DIR, "licensing.html")
+    if os.path.exists(licensing_path):
+        with open(licensing_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse(content="<h1>CAIRN ETP — Licensing & Sovereign Deployment</h1>", status_code=200)
+
+@app.get("/gallery", response_class=HTMLResponse)
+@app.get("/gallery.html", response_class=HTMLResponse)
+async def read_gallery_page():
+    gallery_path = os.path.join(BASE_DIR, "gallery.html")
+    if os.path.exists(gallery_path):
+        with open(gallery_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse(content="<h1>CAIRN ETP — Application Interface Gallery</h1>", status_code=200)
+
 @app.get("/robots.txt")
 async def get_robots():
     robots_path = os.path.join(BASE_DIR, "robots.txt")
