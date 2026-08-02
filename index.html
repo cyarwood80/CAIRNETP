@@ -239,206 +239,36 @@
     </div>
   </section>
 
-  <!-- Enterprise Pillar Architecture Deep-Dives (Ordered Pillars 1 to 7) -->
-  <section id="architecture" class="section-spacing" style="background: #14171c;">
+  <!-- Enterprise Pillar Architecture & Interface Gallery Callout Section -->
+  <section class="section-spacing" style="background: #14171c;">
     <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Enterprise Pillar Architecture</h2>
-        <p class="section-subtitle">
-          Core architectural evaluation across CAIRN's 7 enterprise governance pillars.
-        </p>
-      </div>
-
-      <!-- Pillar 1: CAIRN -->
-      <div class="gartner-pillar-card">
-        <div class="gartner-pillar-content">
-          <h3>CAIRN</h3>
-          <div class="gartner-pillar-role">Pillar 1 • Enterprise Trust & Policy Gatekeeper</div>
-          <div class="gartner-pillar-desc">
-            <p>
-              CAIRN operates as an unyielding default-deny security boundary. Every incoming prompt instruction and
-              proposed tool call is intercepted and evaluated against strict cryptographic policies prior to execution.
-            </p>
-            <p>
-              By separating reasoning models from direct OS tool access, CAIRN eliminates prompt injection vectors and
-              ensures rogue instructions cannot touch internal systems without authorization.
-            </p>
-            <p>
-              Emits signed contract evaluation events for complete risk management transparency.
-            </p>
+      <div style="background: var(--bg-graphite); border: 1px solid var(--border-color); border-radius: var(--radius-md); padding: 3rem; display: grid; grid-template-columns: 1fr auto; gap: 2.5rem; align-items: center;">
+        <div>
+          <div class="badge-authority" style="margin-bottom: 1rem;">
+            7 ENTERPRISE GOVERNANCE PILLARS
+          </div>
+          <h3 style="font-size: 1.85rem; margin-bottom: 0.75rem;">Pillar Architecture & Control Plane Gallery</h3>
+          <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.5rem; max-width: 750px;">
+            Explore CAIRN's 7 formal Enterprise Pillars—from CAIRN default-deny gates and PATH workflow routers to ATLAS memory fabrics and CRUCIBLE Docker sandbox containment—alongside real client interface captures.
+          </p>
+          <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
+            <a href="gallery.html" class="btn btn-oxide" style="padding: 0.75rem 1.75rem;">
+              <i class="fas fa-cubes" style="margin-right: 0.4rem;"></i> Explore All 7 Pillars & Gallery
+            </a>
+            <a href="gallery.html#pillars-detail" class="btn btn-secondary" style="padding: 0.75rem 1.5rem;">
+              View Control Plane Interface
+            </a>
           </div>
         </div>
-        <div class="gartner-pillar-visual">
-          <img src="assets/cairn-app-terminal.png" alt="CAIRN Gatekeeper Terminal Capture">
+        <div style="text-align: right; display: flex; flex-direction: column; gap: 0.5rem; border-left: 1px solid var(--border-color); padding-left: 2rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">1. CAIRN Trust Gate</div>
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">2. PATH Task Router</div>
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">3. BEACON Event Bus</div>
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">4. COMPASS Audit</div>
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">5. ATLAS Memory</div>
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">6. FORGE Synthesizer</div>
+          <div style="font-family: var(--font-mono); font-size: 0.825rem; color: var(--color-oxide-green);">7. CRUCIBLE Sandbox</div>
         </div>
-      </div>
-
-      <!-- Pillar 2: PATH -->
-      <div class="gartner-pillar-card">
-        <div class="gartner-pillar-content">
-          <h3>PATH</h3>
-          <div class="gartner-pillar-role">Pillar 2 • Workflow Intelligence & Task Router</div>
-          <div class="gartner-pillar-desc">
-            <p>
-              PATH is the intent classification and task orchestration layer. It inspects user prompts alongside
-              institutional context to decompose complex goals into multi-step execution plans.
-            </p>
-            <p>
-              Maintains model-agnostic routing, dynamically selecting local Ollama workers or cloud backbones based on
-              hardware availability and security clearance.
-            </p>
-            <p>
-              Prevents model vendor lock-in while maintaining total operational continuity during external cloud
-              outages.
-            </p>
-          </div>
-        </div>
-        <div class="gartner-pillar-visual">
-          <img src="assets/cairn-app-fleet.png" alt="PATH Fleet Router Capture">
-        </div>
-      </div>
-
-      <!-- Pillar 3: BEACON -->
-      <div class="gartner-pillar-card">
-        <div class="gartner-pillar-content">
-          <h3>BEACON</h3>
-          <div class="gartner-pillar-role">Pillar 3 • Operational Awareness & Real-Time Event Broadcast</div>
-          <div class="gartner-pillar-desc">
-            <p>
-              BEACON maintains real-time operational awareness across active agent daemons, streaming live WebSocket
-              progress telemetry directly to enterprise dashboards.
-            </p>
-            <p>
-              Synthesizes intermediate execution updates without exposing sensitive payload data, ensuring enterprise
-              risk teams maintain total visibility over background tasks.
-            </p>
-            <p>
-              Acts as the central event bus connecting local hardware workers with enterprise monitoring infrastructure.
-            </p>
-          </div>
-        </div>
-        <div class="gartner-pillar-visual">
-          <img src="assets/cairn-app-settings.png" alt="BEACON Operational Awareness Capture">
-        </div>
-      </div>
-
-      <!-- Pillar 4: COMPASS -->
-      <div class="gartner-pillar-card">
-        <div class="gartner-pillar-content">
-          <h3>COMPASS</h3>
-          <div class="gartner-pillar-role">Pillar 4 • Governance Intelligence & Audit Provenance</div>
-          <div class="gartner-pillar-desc">
-            <p>
-              COMPASS records cryptographically signed evidence logs for every session trace, tool call, and model
-              response generated across the organisation.
-            </p>
-            <p>
-              Provides audit provenance detailing exactly which institutional knowledge notes were referenced, which
-              models executed the plan, and whether code execution was container-verified.
-            </p>
-            <p>
-              Delivers compliance reporting ready for Chief Risk Officers and regulatory inspectors.
-            </p>
-          </div>
-        </div>
-        <div class="gartner-pillar-visual">
-          <img src="assets/cairn-app-audit.png" alt="COMPASS Audit Trace Capture">
-        </div>
-      </div>
-
-      <!-- Pillar 5: ATLAS -->
-      <div class="gartner-pillar-card">
-        <div class="gartner-pillar-content">
-          <h3>ATLAS</h3>
-          <div class="gartner-pillar-role">Pillar 5 • Knowledge Infrastructure & Memory Fabric</div>
-          <div class="gartner-pillar-desc">
-            <p>
-              ATLAS synthesizes unstructured enterprise data into a 4-layer memory fabric combining Episodic SQLite
-              Event Ledgers, Knowledge Notes, Entity-Relationship Graphs, and Semantic Vector FTS.
-            </p>
-            <p>
-              Delivers zero-hallucination context hydration, verifying document freshness and provenance before feeding
-              knowledge into model reasoning windows.
-            </p>
-            <p>
-              Indexes saved automation scripts to prevent re-inventing institutional workflows.
-            </p>
-          </div>
-        </div>
-        <div class="gartner-pillar-visual">
-          <img src="assets/cairn-app-vault.png" alt="ATLAS Vault & Memory Capture">
-        </div>
-      </div>
-
-      <!-- Pillars 6 & 7: FORGE & CRUCIBLE -->
-      <div class="gartner-pillar-card" style="border-color: var(--border-highlight);">
-        <div class="gartner-pillar-content">
-          <h3 style="color: var(--color-oxide-green);">FORGE & CRUCIBLE</h3>
-          <div class="gartner-pillar-role">Pillars 6 & 7 • Autonomous Synthesis & Docker Sandbox Engine</div>
-          <div class="gartner-pillar-desc">
-            <p>
-              CRUCIBLE represents the Execution & Sandbox Containment boundary. It pairs directly with FORGE in the
-              blacksmith register: FORGE shapes and synthesizes candidate code; CRUCIBLE proves and tempers code under
-              strict, controlled container isolation (Docker) before execution is trusted.
-            </p>
-            <p>
-              Enforces zero-network containment (`--network none`), strict resource limits (`--memory=128m`), and
-              read-only filesystems.
-            </p>
-            <p>
-              If runtime errors occur inside the container, CRUCIBLE feeds exact tracebacks back to FORGE for automated
-              defect-repair loops.
-            </p>
-          </div>
-        </div>
-        <div class="gartner-pillar-visual">
-          <img src="assets/cairn-app-daemons.png" alt="CRUCIBLE Sandbox & Daemon Capture">
-        </div>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Real Application UI Screenshots Gallery -->
-  <section id="platform-ui" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Application Interface</h2>
-        <p class="section-subtitle">
-          Direct captures from the running CAIRN Trust Fabric local orchestration engine and control plane.
-        </p>
-      </div>
-
-      <div class="product-pillars-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
-
-        <div class="product-pillar-card" style="padding: 1.25rem;">
-          <img src="assets/cairn-app-terminal.png" alt="CAIRN Terminal UI"
-            style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
-          <div class="product-pillar-name" style="font-size: 1.1rem;">Sovereign Terminal</div>
-          <p class="product-pillar-desc">Local-first desktop and headless web client interface.</p>
-        </div>
-
-        <div class="product-pillar-card" style="padding: 1.25rem;">
-          <img src="assets/cairn-app-fleet.png" alt="CAIRN Model Fleet UI"
-            style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
-          <div class="product-pillar-name" style="font-size: 1.1rem;">Model Fleet Control</div>
-          <p class="product-pillar-desc">VRAM monitoring and multi-model fleet utilization.</p>
-        </div>
-
-        <div class="product-pillar-card" style="padding: 1.25rem;">
-          <img src="assets/cairn-app-vault.png" alt="CAIRN Vault UI"
-            style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
-          <div class="product-pillar-name" style="font-size: 1.1rem;">Automation Vault</div>
-          <p class="product-pillar-desc">Cryptographic key and credential isolation.</p>
-        </div>
-
-        <div class="product-pillar-card" style="padding: 1.25rem;">
-          <img src="assets/cairn-app-audit.png" alt="CAIRN Audit UI"
-            style="border-radius: var(--radius-sm); border: 1px solid var(--bg-slate-card); margin-bottom: 1rem;">
-          <div class="product-pillar-name" style="font-size: 1.1rem;">COMPASS Audit Trace</div>
-          <p class="product-pillar-desc">Real-time observability and audit trace logging.</p>
-        </div>
-
       </div>
     </div>
   </section>
