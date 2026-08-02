@@ -1,11 +1,13 @@
 /* ==========================================================================
-   CAIRN ETP — Main JavaScript & Demo Request Modal (main.js)
+   CAIRN ETP — Main JavaScript & Interactive Hero Developer Showcase (main.js)
+   IBM Monospace / FontAwesome Enterprise Compliant (Zero Emojis)
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initHeaderScroll();
   initMobileNavToggle();
   initDemoModal();
+  initHeroDeveloperTabs();
 });
 
 // Sticky header backdrop on scroll
@@ -48,6 +50,61 @@ function initMobileNavToggle() {
       navLinks.classList.remove('mobile-open');
       toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
     }
+  });
+}
+
+// Hero Developer Showcase Interactive Tabs (Zero Emojis)
+const DEV_TAB_VIEWS = {
+  'cli-trace': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Querying the CAIRN Enterprise Trust Plane</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> trace <span class="token-flag">--query</span> <span class="token-string">"Verify Q3 compliance policy"</span></div>
+<div class="code-line"><span class="line-num">3</span> </div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-bolt text-oxide"></i> Resolving Knowledge Graph...</span> <span class="token-pass">[OK]</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield-alt text-oxide"></i> AST Policy Verification...</span> <span class="token-pass">[PASSED: 0 Risk Vectors]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-file-code text-oxide"></i> Decision Lineage Hash:</span> <span class="token-string">sha256:8f94e2...b1a0</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Recommendation verified with 100% deterministic lineage.</span></div>
+`,
+  'evidence': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment">// Evidence Fabric JSON Verification Schema</span></div>
+<div class="code-line"><span class="line-num">2</span> {</div>
+<div class="code-line"><span class="line-num">3</span>   <span class="token-cmd">"evidence_id"</span>: <span class="token-string">"ev_cairn_98412"</span>,</div>
+<div class="code-line"><span class="line-num">4</span>   <span class="token-cmd">"confidence_score"</span>: <span class="token-flag">0.9982</span>,</div>
+<div class="code-line"><span class="line-num">5</span>   <span class="token-cmd">"sources"</span>: [<span class="token-string">"ADR-0008.md"</span>, <span class="token-string">"audit_provenance.parquet"</span>],</div>
+<div class="code-line"><span class="line-num">6</span>   <span class="token-cmd">"verifiable_proof"</span>: <span class="token-pass">true</span></div>
+<div class="code-line"><span class="line-num">7</span> }</div>
+`,
+  'lineage': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Deterministic Decision Lineage Audit</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-key">[STEP 1]</span> Prompt ingested & hashed (SHA-256)</div>
+<div class="code-line"><span class="line-num">3</span> <span class="token-key">[STEP 2]</span> Intercepted by CAIRN Trust Plane</div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key">[STEP 3]</span> Evidence validation against Enterprise Knowledge Base</div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key">[STEP 4]</span> Governance clearance <span class="token-pass">[APPROVED]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key">[STEP 5]</span> Signed audit record appended to ledger</div>
+`,
+  'policy': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># STRIX Security & Policy Manifest</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">policy_level</span>: <span class="token-string">"ENTERPRISE_STRICT"</span></div>
+<div class="code-line"><span class="line-num">3</span> <span class="token-cmd">hallucination_prevention</span>: <span class="token-pass">ENFORCED</span></div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-cmd">credential_protection</span>: <span class="token-pass">ENFORCED</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-cmd">audit_provenance_mode</span>: <span class="token-string">"IMMUTABLE_HASH_LEDGER"</span></div>
+`
+};
+
+function initHeroDeveloperTabs() {
+  const tabBtns = document.querySelectorAll('.dev-tab-btn');
+  const codeBody = document.getElementById('dev-code-body');
+
+  if (!tabBtns.length || !codeBody) return;
+
+  tabBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      tabBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tabKey = btn.getAttribute('data-tab');
+      if (DEV_TAB_VIEWS[tabKey]) {
+        codeBody.innerHTML = DEV_TAB_VIEWS[tabKey];
+      }
+    });
   });
 }
 
@@ -105,8 +162,7 @@ async function handleDemoSubmit() {
       body: JSON.stringify({ name, email, organization: org })
     });
     if (res.ok) {
-      const data = await res.json();
-      if (msgEl) msgEl.textContent = "✓ Demonstration request received. An enterprise architect will contact you within 24 hours.";
+      if (msgEl) msgEl.textContent = "Demonstration request received. An enterprise architect will contact you within 24 hours.";
       setTimeout(closeDemoModal, 3500);
       return;
     }
@@ -115,12 +171,12 @@ async function handleDemoSubmit() {
   }
 
   // Direct Mailto Fallback Link
-  const mailSubject = encodeURIComponent(`CAIRN ETP Demo Request - ${org}`);
+  const mailSubject = encodeURIComponent(`CAIRN ETP Demo Request - ${org || 'Enterprise'}`);
   const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\n\nRequesting an enterprise demonstration for CAIRN ETP.`);
   const mailtoUrl = `mailto:chris@cairnetp.com?subject=${mailSubject}&body=${mailBody}`;
   
   if (msgEl) {
-    msgEl.innerHTML = `✓ Request logged. <a href="${mailtoUrl}" target="_blank" style="color: var(--color-oxide-green); text-decoration: underline;">Click here to email directly if needed</a>.`;
+    msgEl.innerHTML = `Request logged. <a href="${mailtoUrl}" target="_blank" style="color: var(--color-oxide-green); text-decoration: underline;">Click here to email directly if needed</a>.`;
   }
   setTimeout(closeDemoModal, 5000);
 }
