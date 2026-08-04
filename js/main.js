@@ -108,7 +108,7 @@ function initHeroDeveloperTabs() {
   });
 }
 
-// Demonstration Request Modal Handler
+// Register Interest Modal Handler
 function initDemoModal() {
   const modalOverlay = document.getElementById('demo-modal');
   const closeBtn = document.getElementById('demo-close-btn');
@@ -153,7 +153,7 @@ async function handleDemoSubmit() {
 
   if (!email || !name) return;
 
-  if (msgEl) msgEl.textContent = "Submitting demonstration inquiry to CAIRN ETP Team...";
+  if (msgEl) msgEl.textContent = "Submitting your registration to CAIRN ETP Team...";
 
   try {
     const res = await fetch('/api/request-demo', {
@@ -162,7 +162,7 @@ async function handleDemoSubmit() {
       body: JSON.stringify({ name, email, organization: org })
     });
     if (res.ok) {
-      if (msgEl) msgEl.textContent = "Demonstration request received. An enterprise architect will contact you within 24 hours.";
+      if (msgEl) msgEl.textContent = "Interest registered. A member of the CAIRN team will be in touch.";
       setTimeout(closeDemoModal, 3500);
       return;
     }
@@ -171,8 +171,8 @@ async function handleDemoSubmit() {
   }
 
   // Direct Mailto Fallback Link
-  const mailSubject = encodeURIComponent(`CAIRN ETP Demo Request - ${org || 'Enterprise'}`);
-  const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\n\nRequesting an enterprise demonstration for CAIRN ETP.`);
+  const mailSubject = encodeURIComponent(`CAIRN ETP — Register Interest — ${org || 'Enterprise'}`);
+  const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\n\nRegistering interest in CAIRN ETP.`);
   const mailtoUrl = `mailto:chris@cairnetp.com?subject=${mailSubject}&body=${mailBody}`;
   
   if (msgEl) {
