@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>Enterprise Compliance & Regulatory Framework Mapping — CAIRN ETP</title>
+  <meta name="description"
+    content="CAIRN ETP translates complex regulatory directives (EU AI Act, NIST AI RMF 1.0, ISO/IEC 42001, SOC 2, DORA) into cryptographic, runtime-enforced boundary checks.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://cairnetp.com/compliance.html">
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "Enterprise Compliance & Regulatory Framework Mapping",
+    "description": "Deterministic AI Governance by Design: Mapping CAIRN ETP to EU AI Act, NIST AI RMF 1.0, ISO/IEC 42001, and Financial Services Regulations.",
+    "url": "https://cairnetp.com/compliance.html",
+    "author": {
+      "@type": "Person",
+      "name": "Chris Yarwood"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CAIRN ETP",
+      "url": "https://cairnetp.com/"
+    }
+  }
+  </script>
+
+  <!-- OpenGraph Social Cards -->
+  <meta property="og:site_name" content="CAIRN ETP">
+  <meta property="og:title" content="Enterprise Compliance & Regulatory Framework Mapping — CAIRN ETP">
+  <meta property="og:description"
+    content="Deterministic AI Governance by Design. Cryptographic runtime boundary checks for EU AI Act, NIST AI RMF, ISO 42001, and DORA.">
+  <meta property="og:url" content="https://cairnetp.com/compliance.html">
+  <meta property="og:type" content="article">
+
+  <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/cairn-logo.svg">
+</head>
+
+<body>
+
+  <!-- Background Grid & Glow Overlay -->
+  <div class="bg-grid-pattern"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+        <span>CAIRN<span class="text-oxide"> ETP</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Platform</a></li>
+          <li><a href="index.html#trust-plane" class="nav-link">Trust Layer</a></li>
+          <li><a href="index.html#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="compliance.html" class="nav-link active">Compliance</a></li>
+          <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
+          <li><a href="licensing.html" class="nav-link">Licensing</a></li>
+          <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-oxide open-demo-btn">
+          Register Interest <i class="fas fa-arrow-right"></i>
+        </button>
+        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-outline"
+          title="LinkedIn Profile">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header Section -->
+  <section class="section-spacing" style="padding-top: 4rem; padding-bottom: 2rem;">
+    <div class="container">
+      
+      <div class="compliance-hero-card">
+        <div class="status-pill-container" style="background: rgba(34, 197, 94, 0.15); border-color: rgba(34, 197, 94, 0.4); color: #4ade80; margin-bottom: 1.25rem;">
+          <span class="status-pulse-dot" style="background-color: #4ade80; box-shadow: 0 0 8px #4ade80;"></span>
+          GOVERNANCE SPECIFICATION • REGULATORY ASSURANCE
+        </div>
+
+        <h1 style="font-size: 2.75rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.15; color: #ffffff;">
+          Enterprise Compliance & Regulatory Framework Mapping
+        </h1>
+        
+        <h2 style="font-size: 1.35rem; font-weight: 500; color: #38bdf8; font-family: var(--font-mono); margin-bottom: 1rem;">
+          Deterministic AI Governance by Design
+        </h2>
+
+        <div class="compliance-overview-box">
+          <i class="fas fa-quote-left" style="color: var(--color-oxide-green); margin-right: 0.5rem;"></i>
+          <strong>CAIRN ETP</strong> translates complex regulatory directives into cryptographic, runtime-enforced boundary checks. By replacing probabilistic model outputs with deterministic execution controls, CAIRN provides the technical verification required for strict enterprise compliance.
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Main Content Framework Sections -->
+  <section style="padding-bottom: 6rem;">
+    <div class="container">
+
+      <!-- 1. EU Artificial Intelligence Act (EU AI Act) -->
+      <div class="framework-card" id="eu-ai-act">
+        <div class="framework-title-wrap">
+          <div class="framework-badge-num">1</div>
+          <div>
+            <h3 class="framework-heading">EU Artificial Intelligence Act (EU AI Act)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+              CAIRN ETP fulfills the technical, operational, and record-keeping mandates required for High-Risk AI Systems (Articles 9–15) and deployment in regulated sectors.
+            </p>
+          </div>
+        </div>
+
+        <div class="compliance-table-wrap">
+          <table class="compliance-table">
+            <thead>
+              <tr>
+                <th style="width: 15%;">EU AI Act Mandate</th>
+                <th style="width: 35%;">Regulatory Requirement</th>
+                <th style="width: 50%;">CAIRN ETP Implementation & Pillar Mapping</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="article-badge">Article 9</span></td>
+                <td><strong>Risk Management System</strong><br>Continuous, iterative risk identification and mitigation across the entire AI agent lifecycle.</td>
+                <td>
+                  <div class="pillar-map-tag"><i class="fas fa-shield-cat"></i> Pillar 01 (INGRESS)</div>
+                  <div class="pillar-map-tag"><i class="fas fa-route"></i> Pillar 02 (ROUTING)</div>
+                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                    AST scan checks dynamically evaluate and block high-risk execution vectors prior to model invocation.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Article 10</span></td>
+                <td><strong>Data & Data Governance</strong><br>Strict data provenance, authorized context boundaries, and protection against bias/poisoning.</td>
+                <td>
+                  <div class="pillar-map-tag"><i class="fas fa-brain"></i> Pillar 05 (ATLAS)</div>
+                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                    Versioned document grounding with deterministic vector retrieval ensuring strict context authorization.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Article 12</span></td>
+                <td><strong>Record-Keeping & Traceability</strong><br>Automatic, tamper-evident recording of events, decisions, and system logs throughout system operation.</td>
+                <td>
+                  <div class="pillar-map-tag"><i class="fas fa-file-signature"></i> Pillar 04 (COMPASS)</div>
+                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                    Cryptographically signed SHA-256 decision lineage logs tracking inputs, context hashes, and generated tokens.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Article 14</span></td>
+                <td><strong>Human Oversight</strong><br>Ability for human operators to intervene, override, or halt automated AI agent execution safely.</td>
+                <td>
+                  <div class="pillar-map-tag"><i class="fas fa-tower-cell"></i> Pillar 03 (BEACON)</div>
+                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                    Real-time telemetry broadcasting coupled with configurable human-in-the-loop (HITL) authorization gates.
+                  </p>
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Article 15</span></td>
+                <td><strong>Cybersecurity & Accuracy</strong><br>Resilience against unauthorized access, prompt injection, data exfiltration, and unexpected agent drift.</td>
+                <td>
+                  <div class="pillar-map-tag"><i class="fas fa-box-archive"></i> Pillar 07 (CRUCIBLE)</div>
+                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                    Air-gapped, containerized Docker sandboxing (<code>--network none</code>) isolating tool execution from production hosts.
+                  </p>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 2. NIST AI Risk Management Framework (NIST AI RMF 1.0) -->
+      <div class="framework-card" id="nist-ai-rmf">
+        <div class="framework-title-wrap">
+          <div class="framework-badge-num">2</div>
+          <div>
+            <h3 class="framework-heading">NIST AI Risk Management Framework (NIST AI RMF 1.0)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+              CAIRN ETP maps directly across the four core functions of the NIST AI RMF, enabling organizations to manage risks associated with agentic AI systems.
+            </p>
+          </div>
+        </div>
+
+        <!-- NIST Visual Node Map -->
+        <div class="nist-diagram-wrap">
+          <div class="nist-diagram-title">NIST AI RMF 1.0 Core Functions & Pillar Realization</div>
+          <div class="nist-flow-grid">
+            
+            <div class="nist-flow-box">
+              <div class="nist-func-name"><i class="fas fa-gavel"></i> GOVERN</div>
+              <div class="nist-func-desc">Default-Deny Policy Enforcement</div>
+              <div class="nist-func-pillar">Pillars 01 & 02</div>
+            </div>
+
+            <div class="nist-flow-box">
+              <div class="nist-func-name"><i class="fas fa-map-location-dot"></i> MAP</div>
+              <div class="nist-func-desc">Cryptographic Context Lineage</div>
+              <div class="nist-func-pillar">Pillar 05 (ATLAS)</div>
+            </div>
+
+            <div class="nist-flow-box">
+              <div class="nist-func-name"><i class="fas fa-ruler-combined"></i> MEASURE</div>
+              <div class="nist-func-desc">Real-Time Telemetry & Audits</div>
+              <div class="nist-func-pillar">Pillar 03 & 04</div>
+            </div>
+
+            <div class="nist-flow-box">
+              <div class="nist-func-name"><i class="fas fa-sliders"></i> MANAGE</div>
+              <div class="nist-func-desc">Deterministic AST Sandboxing</div>
+              <div class="nist-func-pillar">Pillars 06 & 07</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- Detailed Realization Grid -->
+        <div style="margin-top: 2rem;">
+          <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-main);">Core Function Realization</h4>
+          
+          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
+            
+            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                <i class="fas fa-shield-halved"></i> GOVERN (GV-1.1 to GV-4.3)
+              </div>
+              <ul style="padding-left: 1.2rem; font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
+                <li style="margin-bottom: 0.5rem;"><strong>Policy Enforcement:</strong> Default-deny security gatekeepers prevent un-governed agent actions from touching enterprise APIs or command lines.</li>
+                <li><strong>Role-Based Entitlements:</strong> Cryptographic hardware node-locking and tier-based feature access ensure strict enterprise boundary controls.</li>
+              </ul>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                <i class="fas fa-diagram-project"></i> MAP (MP-1.1 to MP-2.3)
+              </div>
+              <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
+                <strong>Context Lineage:</strong> Complete visibility into retrieved knowledge fragments (ATLAS Memory Fabric), proving exactly which institutional sources informed a specific decision.
+              </p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                <i class="fas fa-chart-line"></i> MEASURE (ME-1.1 to ME-3.1)
+              </div>
+              <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
+                <strong>Provable Auditability:</strong> System outputs are accompanied by a deterministic lineage hash (<code>cairn trace</code>), enabling independent verification by internal risk teams.
+              </p>
+            </div>
+
+            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
+              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
+                <i class="fas fa-box-archive"></i> MANAGE (MN-1.1 to MN-3.3)
+              </div>
+              <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
+                <strong>Contained Execution:</strong> Synthetic code generation (FORGE) executes exclusively inside resource-limited, air-gapped sandboxes (CRUCIBLE), eliminating systemic risk from autonomous agent tools.
+              </p>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+
+      <!-- 3. ISO/IEC 42001:2023 -->
+      <div class="framework-card" id="iso-42001">
+        <div class="framework-title-wrap">
+          <div class="framework-badge-num">3</div>
+          <div>
+            <h3 class="framework-heading">ISO/IEC 42001:2023 (Artificial Intelligence Management System)</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+              CAIRN ETP provides the infrastructure necessary to implement, maintain, and continually improve an ISO/IEC 42001 certified AI management system.
+            </p>
+          </div>
+        </div>
+
+        <div class="compliance-table-wrap">
+          <table class="compliance-table">
+            <thead>
+              <tr>
+                <th style="width: 18%;">Control Clause</th>
+                <th style="width: 32%;">Framework Focus</th>
+                <th style="width: 50%;">How CAIRN ETP Enforces Compliance</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><span class="article-badge">Annex A.5</span></td>
+                <td><strong>AI Impact Assessment</strong><br>Systematic assessment of consequences for automated decision-making.</td>
+                <td>
+                  <strong>Deterministic AST Validation:</strong> Scores execution risk vectors prior to execution, generating audit evidence for impact reporting.
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Annex A.6</span></td>
+                <td><strong>AI System Lifecycle</strong><br>Governance across development, deployment, and operational runtime stages.</td>
+                <td>
+                  <strong>Policy-as-Code Engine:</strong> Standardized policy definitions enforced uniformly across local workstations, enterprise clusters, and sovereign nodes.
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Annex A.8</span></td>
+                <td><strong>Data for AI Systems</strong><br>Assurance regarding validity, quality, and authorization of RAG context.</td>
+                <td>
+                  <strong>Evidence Fabric:</strong> Guarantees 100% verifiable source attribution with zero unreferenced context leakage.
+                </td>
+              </tr>
+              <tr>
+                <td><span class="article-badge">Annex A.9</span></td>
+                <td><strong>Traceability & Transparency</strong><br>System auditability and explainability for external regulators.</td>
+                <td>
+                  <strong>Cryptographic Event Ledgers:</strong> Immutable audit trails signed at runtime, satisfying third-party accreditation requirements.
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+
+      <!-- 4. Financial Services & Enterprise Security Alignments -->
+      <div class="framework-card" id="financial-services">
+        <div class="framework-title-wrap">
+          <div class="framework-badge-num">4</div>
+          <div>
+            <h3 class="framework-heading">Financial Services & Enterprise Security Alignments</h3>
+            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+              In addition to dedicated AI frameworks, CAIRN ETP reinforces existing enterprise security and banking standards.
+            </p>
+          </div>
+        </div>
+
+        <div class="finsec-grid">
+          
+          <div class="finsec-card">
+            <div class="finsec-card-title">
+              <i class="fas fa-shield-check"></i> SOC 2 Type II
+            </div>
+            <div class="finsec-card-desc">
+              Meets Security, Availability, and Confidentiality Trust Services Criteria through air-gapped deployment capability, local encryption of state vector databases, and zero data exfiltration to public cloud LLM endpoints.
+            </div>
+          </div>
+
+          <div class="finsec-card">
+            <div class="finsec-card-title">
+              <i class="fas fa-building-columns"></i> DORA Compliance
+            </div>
+            <div class="finsec-card-desc">
+              <strong>Digital Operational Resilience Act (Financial Sector):</strong> Provides operational independence from third-party cloud vendor outages. CAIRN runtimes operate strictly on local sovereign infrastructure with zero phone-home cloud dependencies.
+            </div>
+          </div>
+
+          <div class="finsec-card">
+            <div class="finsec-card-title">
+              <i class="fas fa-scale-balanced"></i> FFIEC & PRA Guidelines
+            </div>
+            <div class="finsec-card-desc">
+              Satisfies strict model risk management guidelines (e.g., OCC 2011-12 / SR 11-7) by replacing probabilistic "black box" agent behaviors with deterministic, policy-bound workflows.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+          <span>CAIRN<span class="text-oxide"> ETP</span></span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
+          We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">
+          &copy; 2026 CAIRN ETP. All rights reserved.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Platform</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="index.html#outcomes" class="nav-link" style="padding: 0;">Business Outcomes</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="index.html#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="index.html#architecture" class="nav-link" style="padding: 0;">Architecture</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="licensing.html" class="nav-link" style="padding: 0;">Licensing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Governance & Legal</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="compliance.html" class="nav-link" style="padding: 0;">Compliance Mapping</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="docs.html" class="nav-link" style="padding: 0;">Architecture Records (ADRs)</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">Publications & Book</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Contact & Access</h4>
+        <button class="btn btn-oxide open-demo-btn" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
+          Register Interest <i class="fas fa-arrow-right"></i>
+        </button>
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+          Air-gapped and sovereign cloud deployment options available.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Demonstration Request Modal Dialog -->
+  <div id="demo-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size: 1.25rem;">Register Your Interest</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-oxide-green); margin-top: 0.2rem;">
+            CAIRN ENTERPRISE TRUST PLANE
+          </div>
+        </div>
+        <button id="demo-close-btn" class="modal-close-btn">&times;</button>
+      </div>
+
+      <form id="demo-form" onsubmit="event.preventDefault(); handleDemoSubmit();">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="demo-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+        </div>
+
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="email" id="demo-email" class="form-input" placeholder="s.jenkins@enterprise-bank.com" required>
+        </div>
+
+        <div class="form-group">
+          <label>Organization / Sector</label>
+          <input type="text" id="demo-org" class="form-input" placeholder="Financial Services / Defence / Government" required>
+        </div>
+
+        <div id="demo-status-msg" style="font-size: 0.85rem; font-family: var(--font-mono); margin-bottom: 1rem; color: var(--color-oxide-green);"></div>
+
+        <button type="submit" class="btn btn-oxide" style="width: 100%; padding: 0.85rem;">
+          Submit Registration <i class="fas fa-arrow-right"></i>
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+</body>
+
+</html>

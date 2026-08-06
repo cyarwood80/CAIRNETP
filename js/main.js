@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNavToggle();
   initDemoModal();
   initHeroDeveloperTabs();
+  initInterfacePreviewTabs();
 });
 
 // Sticky header backdrop on scroll
@@ -107,6 +108,190 @@ function initHeroDeveloperTabs() {
       const tabKey = btn.getAttribute('data-tab');
       if (DEV_TAB_VIEWS[tabKey]) {
         codeBody.innerHTML = DEV_TAB_VIEWS[tabKey];
+      }
+    });
+  });
+}
+
+// Expanded Interface Preview Tabs (Fleet Control, VRAM Telemetry, Automation Vault)
+const PREVIEW_TAB_VIEWS = {
+  'fleet': `
+    <div class="fleet-stats-row">
+      <div class="fleet-stat-card">
+        <div class="fleet-stat-label">Active Agent Nodes</div>
+        <div class="fleet-stat-val text-green">14 / 16</div>
+      </div>
+      <div class="fleet-stat-card">
+        <div class="fleet-stat-label">Sandbox Executions</div>
+        <div class="fleet-stat-val">1,482</div>
+      </div>
+      <div class="fleet-stat-card">
+        <div class="fleet-stat-label">Blocked Threats</div>
+        <div class="fleet-stat-val text-green">100%</div>
+      </div>
+      <div class="fleet-stat-card">
+        <div class="fleet-stat-label">Fleet VRAM Usage</div>
+        <div class="fleet-stat-val text-cyan">42.8 GB / 64 GB</div>
+      </div>
+    </div>
+
+    <div style="background: #1e293b; border: 1px solid #334155; border-radius: var(--radius-md); overflow-x: auto;">
+      <table class="agent-nodes-table">
+        <thead>
+          <tr>
+            <th>NODE ID</th>
+            <th>ASSIGNED ROLE</th>
+            <th>MODEL BACKING</th>
+            <th>ASSURANCE TIER</th>
+            <th>VRAM ALLOC</th>
+            <th>STATUS</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>agent-alpha-01</code></td>
+            <td>Kubernetes Diagnostic Synthesizer</td>
+            <td>Ollama / DeepSeek-R1 (Local GGUF)</td>
+            <td><span class="status-badge-inline sandboxed">sandbox_executed</span></td>
+            <td>14.2 GB</td>
+            <td><span class="status-badge-inline sandboxed"><i class="fas fa-circle" style="font-size: 6px;"></i> RUNNING</span></td>
+          </tr>
+          <tr>
+            <td><code>agent-beta-04</code></td>
+            <td>PowerShell VM System Inspector</td>
+            <td>vLLM / Llama-3.3-70B Sovereign</td>
+            <td><span class="status-badge-inline sandboxed">behaviour_checked</span></td>
+            <td>22.4 GB</td>
+            <td><span class="status-badge-inline sandboxed"><i class="fas fa-circle" style="font-size: 6px;"></i> VERIFIED</span></td>
+          </tr>
+          <tr>
+            <td><code>agent-gamma-09</code></td>
+            <td>ATLAS Document Context Retriever</td>
+            <td>Embeddings Local BGE-Large</td>
+            <td><span class="status-badge-inline analyzing">deterministic</span></td>
+            <td>6.2 GB</td>
+            <td><span class="status-badge-inline analyzing"><i class="fas fa-sync fa-spin"></i> INDEXING</span></td>
+          </tr>
+          <tr>
+            <td><code>agent-delta-12</code></td>
+            <td>Egress Gate Credential Auditor</td>
+            <td>STRIX AST Security Engine</td>
+            <td><span class="status-badge-inline sandboxed">idempotent</span></td>
+            <td>0.8 GB</td>
+            <td><span class="status-badge-inline idle">IDLE</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  `,
+  'vram': `
+    <div class="vram-grid">
+      <div>
+        <div class="vram-meter-card">
+          <div class="vram-meter-header">
+            <span><i class="fas fa-microchip text-green"></i> Node 01 — NVIDIA RTX 4090 (Sovereign Ollama)</span>
+            <span class="text-green">14.2 GB / 24.0 GB (59%)</span>
+          </div>
+          <div class="vram-bar-track">
+            <div class="vram-bar-fill" style="width: 59%;"></div>
+          </div>
+        </div>
+
+        <div class="vram-meter-card">
+          <div class="vram-meter-header">
+            <span><i class="fas fa-server text-cyan"></i> Node 02 — NVIDIA A100-80GB (vLLM Cluster Cluster-01)</span>
+            <span class="text-cyan">58.4 GB / 80.0 GB (73%)</span>
+          </div>
+          <div class="vram-bar-track">
+            <div class="vram-bar-fill" style="width: 73%;"></div>
+          </div>
+        </div>
+
+        <div class="vram-meter-card">
+          <div class="vram-meter-header">
+            <span><i class="fas fa-brain text-green"></i> Node 03 — Local BGE Vector Memory Pool</span>
+            <span class="text-green">6.2 GB / 16.0 GB (38%)</span>
+          </div>
+          <div class="vram-bar-track">
+            <div class="vram-bar-fill" style="width: 38%;"></div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div style="background: #1e293b; border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.25rem;">
+          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.75rem; text-transform: uppercase;">
+            KV Cache & Model Pool Allocation
+          </div>
+          <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+              <span>Model Weights:</span>
+              <strong style="color: #f8fafc;">44.8 GB</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+              <span>KV Context Cache:</span>
+              <strong style="color: #38bdf8;">28.2 GB</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
+              <span>AST Buffer Space:</span>
+              <strong style="color: #22c55e;">5.8 GB</strong>
+            </div>
+            <div style="display: flex; justify-content: space-between; border-top: 1px solid #334155; padding-top: 0.5rem; margin-top: 0.5rem;">
+              <span>Total Provisioned:</span>
+              <strong style="color: #22c55e;">78.8 GB / 120 GB</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  `,
+  'vault': `
+    <div style="background: #1e293b; border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.5rem;">
+      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem;">
+        <div style="font-family: var(--font-mono); font-size: 0.875rem; color: #22c55e; font-weight: 600;">
+          <i class="fas fa-key"></i> CAIRN Automation Vault & Credential Injection Guard
+        </div>
+        <span class="status-badge-inline sandboxed">HARDWARE LOCK ACTIVE</span>
+      </div>
+
+      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.25rem;">
+        <div style="background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid #334155;">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8;">SECRET REDACTION</div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: #22c55e; margin-top: 0.25rem;">100% ENFORCED</div>
+        </div>
+        <div style="background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid #334155;">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8;">ENV LEAK PREVENTION</div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; margin-top: 0.25rem;">ZERO EGRESS</div>
+        </div>
+        <div style="background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid #334155;">
+          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8;">KEY PROVENANCE</div>
+          <div style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0.25rem;">SHA-256 SIGNED</div>
+        </div>
+      </div>
+
+      <div style="font-family: var(--font-mono); font-size: 0.8rem; background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); color: #cbd5e1; line-height: 1.6;">
+        <div><span style="color: #94a3b8;">[VAULT_GUARD]</span> Evaluating request by agent-alpha-01 for API Credential...</div>
+        <div><span style="color: #22c55e;">[PERIMETER]</span> Token request mapped to ephemeral memory injection.</div>
+        <div><span style="color: #22c55e;">[SANITY_CHECK]</span> Network egress to external IP endpoints: <span style="color: #ef4444; font-weight: 700;">BLOCKED</span></div>
+        <div><span style="color: #38bdf8;">[LEDGER]</span> Cryptographic event hash written: 0x7f81a9c3...</div>
+      </div>
+    </div>
+  `
+};
+
+function initInterfacePreviewTabs() {
+  const previewBtns = document.querySelectorAll('[data-preview-tab]');
+  const previewContainer = document.getElementById('preview-tab-content');
+
+  if (!previewBtns.length || !previewContainer) return;
+
+  previewBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+      previewBtns.forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const tabKey = btn.getAttribute('data-preview-tab');
+      if (PREVIEW_TAB_VIEWS[tabKey]) {
+        previewContainer.innerHTML = PREVIEW_TAB_VIEWS[tabKey];
       }
     });
   });
