@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
   <title>CAIRN ETP — Architecture & Technical Governance Documentation</title>
   <meta name="description"
-    content="High-level architecture decision records (ADRs), execution assurance specifications, and governance mandates for the CAIRN Enterprise Trust Platform.">
+    content="High-level architecture decision records (ADRs) outlining problem, decision, and business outcomes for the CAIRN Enterprise Trust Platform.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://cairnetp.com/docs.html">
 
@@ -16,7 +16,7 @@
     "@context": "https://schema.org",
     "@type": "TechArticle",
     "headline": "CAIRN ETP Architecture & Governance Documentation",
-    "description": "High-level architecture decision records and enterprise governance specifications.",
+    "description": "High-level architecture decision records outlining strategic problem, decision, and outcome statements.",
     "url": "https://cairnetp.com/docs.html",
     "author": {
       "@type": "Person",
@@ -33,9 +33,9 @@
 
   <!-- OpenGraph Social Cards -->
   <meta property="og:site_name" content="CAIRN ETP">
-  <meta property="og:title" content="CAIRN ETP — Technical Governance & ADR Architecture">
+  <meta property="og:title" content="CAIRN ETP — Technical Governance & ADR Summaries">
   <meta property="og:description"
-    content="High-level architecture decision records, assurance specifications, and governance mandates powering CAIRN ETP.">
+    content="High-level architecture decision records outlining problem, decision, and outcome statements for CAIRN ETP.">
   <meta property="og:url" content="https://cairnetp.com/docs.html">
   <meta property="og:type" content="article">
   <meta property="og:image" content="https://cairnetp.com/assets/book-cover.png">
@@ -43,9 +43,9 @@
   <!-- Twitter Social Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@cyarwood">
-  <meta name="twitter:title" content="CAIRN ETP — Technical Governance & ADR Architecture">
+  <meta name="twitter:title" content="CAIRN ETP — Technical Governance & ADR Summaries">
   <meta name="twitter:description"
-    content="High-level architecture decision records, assurance specifications, and governance mandates powering CAIRN ETP.">
+    content="High-level architecture decision records outlining problem, decision, and outcome statements for CAIRN ETP.">
   <meta name="twitter:image" content="https://cairnetp.com/assets/book-cover.png">
 
   <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
@@ -109,13 +109,13 @@
       <div style="max-width: 860px; margin: 0 auto; text-align: center;">
         <div class="status-pill-container" style="margin-bottom: 1.25rem;">
           <span class="status-pulse-dot"></span>
-          ENTERPRISE ARCHITECTURE DECISION RECORDS (ADRS)
+          HIGH-LEVEL ARCHITECTURE DECISION RECORDS (ADRS)
         </div>
         <h1 class="category-statement" style="font-size: 2.85rem; margin-bottom: 1rem;">
-          Architecture & <span class="text-oxide">Governance Records</span>
+          Architecture & <span class="text-oxide">Governance Summaries</span>
         </h1>
         <p class="hero-description" style="margin: 0 auto; max-width: 760px;">
-          High-level architectural decision records governing CAIRN's enterprise trust plane, dual-sandbox runtimes, tiered execution assurance ladder, and content-based security boundaries.
+          High-level decision statements governing CAIRN's enterprise trust plane, dual-sandbox runtimes, and security boundaries.
         </p>
       </div>
     </div>
@@ -127,13 +127,13 @@
 
       <!-- Category Filter Tabs -->
       <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem;">
-        <button class="adr-filter-btn active" data-filter="all">All ADR Highlights</button>
+        <button class="adr-filter-btn active" data-filter="all">All ADR Summaries</button>
         <button class="adr-filter-btn" data-filter="governance">Governance & Security</button>
         <button class="adr-filter-btn" data-filter="execution">Execution & Sandboxing</button>
         <button class="adr-filter-btn" data-filter="frontier">Frontier & Economics</button>
       </div>
 
-      <!-- Grid of Sanitized ADR Summary Cards -->
+      <!-- Grid of Problem-Decision-Outcome ADR Summary Cards -->
       <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
 
         <!-- ADR-0001 -->
@@ -142,12 +142,11 @@
             <span class="bento-tag">ADR-0001 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-shield-cat"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Default-Deny Governance Gatekeeper</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            All automated tool invocations pass through a single, default-deny security boundary. Policy clearance occurs before execution, attributing actions strictly to verified principal roles.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">GOVERNANCE_GATE</span>: <span class="token-pass">Unified Choke Point</span> | Default-Deny
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Default-Deny Security Choke Point</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Unchecked AI model commands risk executing unauthorized operations on internal infrastructure.</p>
+            <p><strong>Decision:</strong> Enforce a unified, default-deny security choke point prior to tool dispatch.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Zero un-governed tool calls reach host operating systems.</p>
           </div>
         </div>
 
@@ -157,12 +156,11 @@
             <span class="bento-tag">ADR-0002 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-link"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Pillar Contract Chain & Model Flexibility</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Defines strict contract schemas across execution states, enabling hot-swappable local and cloud model backings without altering downstream governance boundaries.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CONTRACT_SCHEMA</span>: Sealed Lifecycle | Model Interchangeable
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Sealed Contract Lifecycle</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Vendor lock-in and cloud model outages threaten operational continuity.</p>
+            <p><strong>Decision:</strong> Define sealed contract schemas separating model reasoning from execution state.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Hot-swappable local and cloud model backings with zero code rewrites.</p>
           </div>
         </div>
 
@@ -172,12 +170,11 @@
             <span class="bento-tag">ADR-0003 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-code-compare"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Code Synthesis & Verification Loop</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Integrates pre-execution syntax validation and automated toolchain canary probes. Prevents unparseable or absent toolchains from masquerading as clean execution runs.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CANARY_PROBE</span>: Active | Environment Validation: Verified
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Pre-Execution Syntax & Canary Probe</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Unparseable scripts or missing dependencies pollute production environments.</p>
+            <p><strong>Decision:</strong> Mandate pre-execution AST syntax checks and active toolchain canary probes.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Unparseable scripts are transparently rejected before host touch.</p>
           </div>
         </div>
 
@@ -187,12 +184,11 @@
             <span class="bento-tag">ADR-0004 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-microchip"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Dynamic Compute Assessment & Router</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Automated real-time probing of local GPU/CPU hardware capabilities to dynamically assign workload tasks based on observed compute capacity and throughput.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">HARDWARE_PROBE</span>: Dynamic VRAM Sensing | Capacity Allocation
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Dynamic Hardware Sensing & Allocation</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Static model assignment causes hardware bottlenecks and latency spikes.</p>
+            <p><strong>Decision:</strong> Dynamically sense local GPU VRAM and compute throughput in real-time.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Optimal workload distribution across local hardware and cloud backends.</p>
           </div>
         </div>
 
@@ -202,12 +198,11 @@
             <span class="bento-tag">ADR-0005 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-eye"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Immutable Audit Provenance & Observability</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Captures cryptographic SHA-256 decision ledgers correlated with operational telemetry logs, establishing verifiable decision lineage across every system turn.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">AUDIT_PROVENANCE</span>: SHA-256 Hash Chain | Trace Correlation
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Signed Decision Ledger Provenance</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Lack of audit trails prevents regulatory compliance for AI-generated actions.</p>
+            <p><strong>Decision:</strong> Log cryptographically signed SHA-256 decision chains for every turn.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Tamper-evident, audit-ready decision lineage for enterprise risk teams.</p>
           </div>
         </div>
 
@@ -217,12 +212,11 @@
             <span class="bento-tag">ADR-0006 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-hand-holding-hand"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Honest Disclosure Over Absolute Claims</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            The philosophical spine of CAIRN: honest disclosure of unestablished properties over absolute claims. Never report a static check or un-executed script as runtime verification.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">DISCLOSURE_PRINCIPLE</span>: Truthful Caveats | Zero False Claims
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Honest Disclosure Guarantee</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Over-claiming AI verification creates security blindspots and operational risk.</p>
+            <p><strong>Decision:</strong> Enforce strict honest disclosure rules across all verification claims.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Transparent disclosure of established runtime properties vs unverified states.</p>
           </div>
         </div>
 
@@ -232,12 +226,11 @@
             <span class="bento-tag">ADR-0007 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-box"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Isolated Execution Containment</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Enforces disposable, isolated execution runtimes for synthesized code. Disables networking by default, applies read-only mounts, and bounds CPU and memory usage.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CONTAINMENT_GATE</span>: Isolated Runtime | Network: Disabled
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Disposable Container Containment</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Untrusted code execution poses container escape and host compromise risks.</p>
+            <p><strong>Decision:</strong> Enforce disposable container containment with disabled networking and read-only mounts.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Complete containment with zero host pollution or network egress.</p>
           </div>
         </div>
 
@@ -247,12 +240,11 @@
             <span class="bento-tag">ADR-0008 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-layer-group"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Tiered Execution Assurance Framework</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Establishes explicit 6-rung verification tiers (<code style="font-size: 0.8rem;">unverified → static_only → sandbox_executed → behaviour_checked → deterministic → idempotent</code>). Supports both disposable containers and native virtual machine escalation.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">TIERED_ASSURANCE</span>: Dual-Runtime Sandbox | Explicit Verification
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Tiered Verification Assurance Framework</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Binary pass/fail checks fail to reflect complex enterprise verification levels.</p>
+            <p><strong>Decision:</strong> Implement a 6-rung maturity ladder supporting dual Docker and Windows Sandbox VM runtimes.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Explicit, progressive assurance tiers for administrative and enterprise tasks.</p>
           </div>
         </div>
 
@@ -262,12 +254,11 @@
             <span class="bento-tag">ADR-0009 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-circle-check"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Outcome Assertion & Intent Verification</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Enforces proof-of-completion checks against explicitly defined contract criteria before confirming task completion. Prevents unverified repair loops.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">OUTCOME_ASSERTION</span>: Intent Verification | Proof Required
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Intent Verification & Outcome Assertion</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Silent script failures cause unverified automated repair loops.</p>
+            <p><strong>Decision:</strong> Require proof-of-completion assertions against contract criteria before task acceptance.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Verifiable confirmation of intended business outcomes.</p>
           </div>
         </div>
 
@@ -277,12 +268,11 @@
             <span class="bento-tag">ADR-0010 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-vault"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Frontier Egress & Cost Governance</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Content-based inspection layer evaluating outgoing payloads. Denies credentials automatically across all boundaries, gates cloud escalation, and meters token costs.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">EGRESS_GATE</span>: Secret Denial: Strict | Token Costing: Active
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Credential Denial Sentinel & Cost Metering</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> AI prompts and tool calls risk leaking sensitive credentials across network boundaries.</p>
+            <p><strong>Decision:</strong> Deploy content-based payload evaluation that denies credentials automatically.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Total secret leakage prevention even if models attempt exposure.</p>
           </div>
         </div>
 
@@ -292,12 +282,11 @@
             <span class="bento-tag">ADR-0012 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-folder-tree"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Isolated Storage Path Resolution</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Mandates a single, verified storage resolution mechanism across all subsystem modules, protecting host paths and ensuring environment isolation.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">STORAGE_ISOLATION</span>: Resolved Path Standard | Path Masking
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.75rem;">Resolved Storage Standard & Path Masking</h3>
+          <div style="font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; display: flex; flex-direction: column; gap: 0.5rem;">
+            <p><strong>Problem:</strong> Unrestricted filesystem path references risk host directory traversal.</p>
+            <p><strong>Decision:</strong> Standardize a single, verified storage resolution mechanism across all modules.</p>
+            <p style="color: var(--color-oxide-green); font-weight: 600;"><strong>Outcome:</strong> Guaranteed environment isolation and host path protection.</p>
           </div>
         </div>
 

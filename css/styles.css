@@ -946,6 +946,180 @@ h1, h2, h3, h4, h5, h6 {
   transition: var(--transition-normal);
 }
 
+/* ==========================================================================
+   Buyer Outcome & Verification Maturity Component Styles
+   ========================================================================== */
+
+/* Three Core Business Outcomes Grid */
+.business-outcomes-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2.5rem;
+}
+
+.outcome-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-top: 3px solid var(--color-oxide-green);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.outcome-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-oxide-green);
+  box-shadow: 0 10px 25px rgba(21, 128, 61, 0.12);
+}
+
+.outcome-icon-badge {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-sm);
+  background: var(--color-oxide-dim);
+  color: var(--color-oxide-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.35rem;
+  margin-bottom: 1.25rem;
+}
+
+.outcome-title {
+  font-size: 1.35rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+}
+
+.outcome-desc {
+  font-size: 0.975rem;
+  color: var(--text-secondary);
+  line-height: 1.65;
+}
+
+/* Verification Maturity Ladder Component */
+.maturity-ladder-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 0.75rem;
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+@media (max-width: 1024px) {
+  .maturity-ladder-grid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .maturity-ladder-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.maturity-step-card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-md);
+  padding: 1.35rem 1rem;
+  box-shadow: var(--shadow-card);
+  transition: var(--transition-normal);
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.maturity-step-card.active-step {
+  border-color: var(--color-oxide-green);
+  background: rgba(21, 128, 61, 0.03);
+}
+
+.maturity-rung-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-oxide-green);
+  background: var(--color-oxide-dim);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  margin-bottom: 0.75rem;
+}
+
+.maturity-step-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--text-main);
+  margin-bottom: 0.35rem;
+}
+
+.maturity-step-desc {
+  font-size: 0.8rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+}
+
+/* Executive UI Gallery Caption Box */
+.executive-caption-box {
+  background: rgba(21, 128, 61, 0.05);
+  border-left: 3px solid var(--color-oxide-green);
+  border-radius: var(--radius-sm);
+  padding: 0.85rem 1.15rem;
+  margin-bottom: 1.25rem;
+}
+
+.executive-caption-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-oxide-green);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.25rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.executive-caption-text {
+  font-size: 0.875rem;
+  color: var(--text-main);
+  line-height: 1.5;
+}
+
+/* Real-World Enterprise Case Study Card */
+.case-study-card {
+  background: #0f172a;
+  color: #f8fafc;
+  border-radius: var(--radius-md);
+  padding: 2.5rem;
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 10px 30px rgba(15, 23, 42, 0.15);
+  margin-top: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.case-study-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--color-oxide-green);
+}
+
 /* Responsive Media Queries */
 @media (max-width: 1024px) {
   .hero-grid { grid-template-columns: 1fr; gap: 3rem; }
