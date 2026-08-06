@@ -81,6 +81,15 @@ async def read_licensing_page():
             return HTMLResponse(content=f.read())
     return HTMLResponse(content="<h1>CAIRN ETP — Licensing & Sovereign Deployment</h1>", status_code=200)
 
+@app.get("/docs", response_class=HTMLResponse)
+@app.get("/docs.html", response_class=HTMLResponse)
+async def read_docs_page():
+    docs_path = os.path.join(BASE_DIR, "docs.html")
+    if os.path.exists(docs_path):
+        with open(docs_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse(content="<h1>CAIRN ETP — Architecture & Governance Documentation</h1>", status_code=200)
+
 @app.get("/gallery", response_class=HTMLResponse)
 @app.get("/gallery.html", response_class=HTMLResponse)
 async def read_gallery_page():
