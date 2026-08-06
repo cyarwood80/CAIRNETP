@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+  <title>CAIRN ETP — Architecture & Technical Governance Documentation</title>
+  <meta name="description"
+    content="High-level architecture decision records (ADRs), execution assurance specifications, and governance mandates for the CAIRN Enterprise Trust Platform.">
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+  <link rel="canonical" href="https://cairnetp.com/docs.html">
+
+  <!-- JSON-LD Structured Data Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "TechArticle",
+    "headline": "CAIRN ETP Architecture & Governance Documentation",
+    "description": "High-level architecture decision records and enterprise governance specifications.",
+    "url": "https://cairnetp.com/docs.html",
+    "author": {
+      "@type": "Person",
+      "name": "Chris Yarwood",
+      "sameAs": "https://www.linkedin.com/in/chris-yarwood/"
+    },
+    "publisher": {
+      "@type": "Organization",
+      "name": "CAIRN ETP",
+      "url": "https://cairnetp.com/"
+    }
+  }
+  </script>
+
+  <!-- OpenGraph Social Cards -->
+  <meta property="og:site_name" content="CAIRN ETP">
+  <meta property="og:title" content="CAIRN ETP — Technical Governance & ADR Architecture">
+  <meta property="og:description"
+    content="High-level architecture decision records, assurance specifications, and governance mandates powering CAIRN ETP.">
+  <meta property="og:url" content="https://cairnetp.com/docs.html">
+  <meta property="og:type" content="article">
+  <meta property="og:image" content="https://cairnetp.com/assets/book-cover.png">
+
+  <!-- Twitter Social Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@cyarwood">
+  <meta name="twitter:title" content="CAIRN ETP — Technical Governance & ADR Architecture">
+  <meta name="twitter:description"
+    content="High-level architecture decision records, assurance specifications, and governance mandates powering CAIRN ETP.">
+  <meta name="twitter:image" content="https://cairnetp.com/assets/book-cover.png">
+
+  <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="assets/cairn-logo.svg">
+</head>
+
+<body>
+
+  <!-- Background Grid & Glow Overlay -->
+  <div class="bg-grid-pattern"></div>
+  <div class="ambient-glow"></div>
+
+  <!-- Header Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+        <span>CAIRN<span class="text-oxide"> ETP</span></span>
+      </a>
+
+      <nav>
+        <ul class="nav-links">
+          <li><a href="index.html" class="nav-link">Platform</a></li>
+          <li><a href="index.html#trust-plane" class="nav-link">Trust Layer</a></li>
+          <li><a href="index.html#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="docs.html" class="nav-link active">Docs & ADRs</a></li>
+          <li><a href="licensing.html" class="nav-link">Licensing</a></li>
+          <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
+          <li><a href="book.html" class="nav-link"><i class="fas fa-book" style="margin-right: 0.3rem;"></i> Publications</a></li>
+        </ul>
+      </nav>
+
+      <div class="header-actions">
+        <button class="btn btn-oxide open-demo-btn">
+          Register Interest <i class="fas fa-arrow-right"></i>
+        </button>
+        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-outline"
+          title="LinkedIn Profile">
+          <i class="fab fa-linkedin"></i>
+        </a>
+        <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation">
+          <i class="fas fa-bars"></i>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Header Section -->
+  <section class="hero-section" style="padding: 4.5rem 0 3rem 0;">
+    <div class="container">
+      <div style="max-width: 860px; margin: 0 auto; text-align: center;">
+        <div class="status-pill-container" style="margin-bottom: 1.25rem;">
+          <span class="status-pulse-dot"></span>
+          ENTERPRISE ARCHITECTURE DECISION RECORDS (ADRS)
+        </div>
+        <h1 class="category-statement" style="font-size: 2.85rem; margin-bottom: 1rem;">
+          Architecture & <span class="text-oxide">Governance Records</span>
+        </h1>
+        <p class="hero-description" style="margin: 0 auto; max-width: 760px;">
+          High-level decision records governing CAIRN's enterprise trust plane, dual-sandbox runtimes, tiered execution assurance ladder, and content-based security boundaries.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ADR Filter Bar & Index -->
+  <section class="section-spacing" style="padding-top: 1rem;">
+    <div class="container">
+
+      <!-- Category Filter Tabs -->
+      <div style="display: flex; gap: 0.5rem; flex-wrap: wrap; justify-content: center; margin-bottom: 3rem;">
+        <button class="adr-filter-btn active" data-filter="all">All ADR Highlights</button>
+        <button class="adr-filter-btn" data-filter="governance">Governance & Security</button>
+        <button class="adr-filter-btn" data-filter="execution">Execution & Sandboxing</button>
+        <button class="adr-filter-btn" data-filter="frontier">Frontier & Economics</button>
+        <button class="adr-filter-btn" data-filter="brand">Brand & Category</button>
+      </div>
+
+      <!-- Grid of Sanitized ADR Summary Cards -->
+      <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));">
+
+        <!-- ADR-0001 -->
+        <div class="bento-card adr-card" data-category="governance">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0001 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-shield-cat"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Default-Deny Tool Gatekeeper</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            All automated tool invocations pass through a single, default-deny governance choke point. Policy evaluation occurs before execution, attributing actions to verified OS principals.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">CHOKE_POINT</span>: <span class="token-pass">ToolRegistry.executeTool</span> | Gate: Default-Deny
+          </div>
+        </div>
+
+        <!-- ADR-0002 -->
+        <div class="bento-card adr-card" data-category="execution">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0002 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-link"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Pillar Contract Chain & Interchangeability</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Defines strict contract schemas across execution states (INTENT → PLANNED → EXECUTING → EVIDENCE → VERIFYING → ACCEPTED), enabling hot-swappable local and cloud model providers.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">CONTRACT_CHAIN</span>: Strict Validation | Model Interchangeable
+          </div>
+        </div>
+
+        <!-- ADR-0003 -->
+        <div class="bento-card adr-card" data-category="execution">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0003 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-code-compare"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">FORGE Synthesis & Code Verification Loop</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Integrates pre-execution syntax validation and canary probes before code verification. Prevents unparseable or absent toolchains from masquerading as clean parse runs.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">CANARY_PROBE</span>: Active | Rubber-Stamp Prevention: Verified
+          </div>
+        </div>
+
+        <!-- ADR-0004 -->
+        <div class="bento-card adr-card" data-category="frontier">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0004 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-microchip"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Dynamic Hardware Assessment & Assessor</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Automated probing of local GPU/CPU hardware capabilities to dynamic route tasks based on observed VRAM, compute throughput, and real-time TPS benchmarks.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">HARDWARE_PROBE</span>: Dynamic VRAM Sensing | Fleet Matching
+          </div>
+        </div>
+
+        <!-- ADR-0005 -->
+        <div class="bento-card adr-card" data-category="governance">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0005 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-eye"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Absolute Observability & Audit Provenance</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Captures cryptographic SHA-256 decision ledgers correlated with telemetry logs, establishing tamper-evident decision lineage across every system turn.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">AUDIT_LEDGER</span>: SHA-256 Hash Chain | Trace correlation: Active
+          </div>
+        </div>
+
+        <!-- ADR-0006 -->
+        <div class="bento-card adr-card" data-category="governance">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0006 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-hand-holding-hand"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Honest Disclosure Over Absolute Claims</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            The philosophical spine of CAIRN: honest disclosure of unestablished properties over absolute claims. Never report a static check or un-executed script as runtime verification.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">DISCLOSURE_PRINCIPLE</span>: Truthful Caveats | Zero Over-Claims
+          </div>
+        </div>
+
+        <!-- ADR-0007 -->
+        <div class="bento-card adr-card" data-category="execution">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0007 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-box"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">CRUCIBLE Execution Pillar</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Enforces disposable, isolated execution runtimes for synthesized code. Disables networking by default, applies read-only mounts, and bounds CPU and memory usage.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">CRUCIBLE_SANDBOX</span>: Isolated Runtime | Network: Disabled
+          </div>
+        </div>
+
+        <!-- ADR-0008 -->
+        <div class="bento-card adr-card" data-category="execution">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0008 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-layer-group"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Tiered Execution Assurance Ladder</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Establishes explicit 6-rung verification tiers (<code style="font-size: 0.8rem;">unverified → static_only → sandbox_executed → behaviour_checked → deterministic → idempotent</code>). Supports both Docker containers and Windows Sandbox VM escalation.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">DUAL_SANDBOX</span>: Docker + Windows Sandbox VM | Tiered Assurance
+          </div>
+        </div>
+
+        <!-- ADR-0009 -->
+        <div class="bento-card adr-card" data-category="execution">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0009 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-circle-check"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Outcome Assertion & Verification</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Enforces proof-of-completion checks against explicitly defined contract criteria before transitioning a contract state to ACCEPTED. Prevents silent failure loops.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">OUTCOME_ASSERTION</span>: Intent Verification | Proof Required
+          </div>
+        </div>
+
+        <!-- ADR-0010 -->
+        <div class="bento-card adr-card" data-category="frontier">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0010 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-vault"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Frontier Execution & Security Egress Gate</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Content-based inspection layer evaluating all outgoing payloads. Blocks credentials (<code style="font-size: 0.8rem;">secret_like</code>) unconditionally across all boundaries, gates cloud escalation, and meters token costs.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">EGRESS_GATE</span>: Secret Denial: Strict | Token Costing: Active
+          </div>
+        </div>
+
+        <!-- ADR-0011 -->
+        <div class="bento-card adr-card" data-category="brand">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0011 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-compass-drafting"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Website Brand & Content Governance</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Establishes Palantir-class visual identity (Slate, Graphite, Limestone, Oxide Green), word count discipline, category vocabulary ownership, and proof-first proof mechanics.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">BRAND_GOVERNANCE</span>: Zero Neon Hype | Palantir-Class Restraint
+          </div>
+        </div>
+
+        <!-- ADR-0012 -->
+        <div class="bento-card adr-card" data-category="governance">
+          <div class="bento-header">
+            <span class="bento-tag">ADR-0012 • ACCEPTED</span>
+            <div class="bento-icon"><i class="fas fa-folder-tree"></i></div>
+          </div>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Resolved Storage & Vault Path Isolation</h3>
+          <p class="bento-desc" style="font-size: 0.9rem;">
+            Mandates a single, verified storage resolution mechanism (<code style="font-size: 0.8rem;">VAULT_DIR</code>) across all subsystem modules, protecting host paths and ensuring environment isolation.
+          </p>
+          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
+            <span class="token-key">VAULT_ISOLATION</span>: Resolved Standard Path | Path Masking: Enforced
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="site-footer">
+    <div class="container footer-grid">
+      <div>
+        <div class="brand-logo" style="margin-bottom: 1rem;">
+          <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+          <span>CAIRN<span class="text-oxide"> ETP</span></span>
+        </div>
+        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
+          We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
+        </p>
+        <p style="color: var(--text-muted); font-size: 0.8rem;">
+          &copy; 2026 CAIRN ETP. All rights reserved.
+        </p>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Platform</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="index.html#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="index.html#architecture" class="nav-link" style="padding: 0;">Architecture</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="index.html#simulator" class="nav-link" style="padding: 0;">Simulator</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="licensing.html" class="nav-link" style="padding: 0;">Licensing</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Governance & Legal</h4>
+        <ul style="list-style: none; padding: 0;">
+          <li style="margin-bottom: 0.5rem;"><a href="docs.html" class="nav-link active" style="padding: 0;">Architecture Records (ADRs)</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
+          <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">Publications & Book</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Contact & Access</h4>
+        <button class="btn btn-oxide open-demo-btn" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
+          Register Interest <i class="fas fa-arrow-right"></i>
+        </button>
+        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+          Air-gapped and sovereign cloud deployment options available.
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Register Interest Modal -->
+  <div class="demo-modal-overlay" id="demo-modal">
+    <div class="demo-modal-card">
+      <button class="demo-close-btn" id="demo-close-btn" aria-label="Close Modal">&times;</button>
+      <div class="status-pill-container" style="margin-bottom: 1rem;">
+        <span class="status-pulse-dot"></span>
+        ENTERPRISE EVALUATION & REGISTRATION
+      </div>
+      <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Register Interest in CAIRN ETP</h3>
+      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
+        Connect with our architecture team to discuss sovereign enterprise trust deployment, technical whitepapers, and air-gapped evaluation packages.
+      </p>
+
+      <form onsubmit="event.preventDefault(); window.handleDemoSubmit();">
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main);">Full Name</label>
+          <input type="text" id="demo-name" required placeholder="e.g. Sarah Jenkins" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-card); font-family: var(--font-body); font-size: 0.95rem;">
+        </div>
+
+        <div style="margin-bottom: 1rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main);">Work Email</label>
+          <input type="email" id="demo-email" required placeholder="s.jenkins@enterprise.com" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-card); font-family: var(--font-body); font-size: 0.95rem;">
+        </div>
+
+        <div style="margin-bottom: 1.5rem;">
+          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main);">Organization Name</label>
+          <input type="text" id="demo-org" required placeholder="e.g. Ministry of Infrastructure / Global Bank" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-card); font-family: var(--font-body); font-size: 0.95rem;">
+        </div>
+
+        <button type="submit" class="btn btn-oxide" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 1rem;">
+          Submit Registration <i class="fas fa-paper-plane"></i>
+        </button>
+
+        <p id="demo-status-msg" style="margin-top: 1rem; font-size: 0.85rem; text-align: center; color: var(--color-oxide-green); font-weight: 500;"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- JavaScript -->
+  <script src="js/main.js"></script>
+
+  <!-- ADR Filter Interactivity Script -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const filterBtns = document.querySelectorAll('.adr-filter-btn');
+      const adrCards = document.querySelectorAll('.adr-card');
+
+      filterBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+          filterBtns.forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+
+          const category = btn.getAttribute('data-filter');
+
+          adrCards.forEach(card => {
+            if (category === 'all' || card.getAttribute('data-category') === category) {
+              card.style.display = 'flex';
+            } else {
+              card.style.display = 'none';
+            }
+          });
+        });
+      });
+    });
+  </script>
+</body>
+
+</html>

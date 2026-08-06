@@ -55,38 +55,42 @@ function initMobileNavToggle() {
 
 // Hero Developer Showcase Interactive Tabs (Zero Emojis)
 const DEV_TAB_VIEWS = {
-  'cli-trace': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Querying the CAIRN Enterprise Trust Plane</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> trace <span class="token-flag">--query</span> <span class="token-string">"Verify Q3 compliance policy"</span></div>
+  'cli-trace-docker': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Docker Container Execution (Linux / Python / pwsh)</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"verify_disk_space.py"</span></div>
 <div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-bolt text-oxide"></i> Resolving Knowledge Graph...</span> <span class="token-pass">[OK]</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield-alt text-oxide"></i> AST Policy Verification...</span> <span class="token-pass">[PASSED: 0 Risk Vectors]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-file-code text-oxide"></i> Decision Lineage Hash:</span> <span class="token-string">sha256:8f94e2...b1a0</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Recommendation verified with 100% deterministic lineage.</span></div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-oxide"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY MOUNT]</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-oxide"></i> Network Boundary Check...</span> <span class="token-pass">[DISABLED]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-vial text-oxide"></i> Execution Assurance Tier:</span> <span class="token-pass">sandbox_executed</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Verification successful. 0 network egress, zero host pollution.</span></div>
 `,
-  'evidence': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment">// Evidence Fabric JSON Verification Schema</span></div>
+  'cli-trace-win': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Windows Sandbox VM Escalation (PowerShell / WMI / CIM)</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> windows_sandbox <span class="token-string">"audit_wmi_services.ps1"</span></div>
+<div class="code-line"><span class="line-num">3</span> </div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-desktop text-oxide"></i> Windows Sandbox VM Launch...</span> <span class="token-pass">[WINDOWS PRO NATIVE VM]</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield text-oxide"></i> Process Execution Policy...</span> <span class="token-pass">[BYPASS SCOPED]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-filter text-oxide"></i> Payload Parsing & BOM Sanitizer...</span> <span class="token-pass">[UTF-8 BOM STRIPPED]</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-key"><i class="fas fa-file-code text-oxide"></i> Execution Assurance Tier:</span> <span class="token-pass">sandbox_executed</span></div>
+<div class="code-line"><span class="line-num">8</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Full Windows API surface verified in disposable VM.</span></div>
+`,
+  'egress': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment">// Frontier Egress Security & Content Classification Gate</span></div>
 <div class="code-line"><span class="line-num">2</span> {</div>
-<div class="code-line"><span class="line-num">3</span>   <span class="token-cmd">"evidence_id"</span>: <span class="token-string">"ev_cairn_98412"</span>,</div>
-<div class="code-line"><span class="line-num">4</span>   <span class="token-cmd">"confidence_score"</span>: <span class="token-flag">0.9982</span>,</div>
-<div class="code-line"><span class="line-num">5</span>   <span class="token-cmd">"sources"</span>: [<span class="token-string">"ADR-0008.md"</span>, <span class="token-string">"audit_provenance.parquet"</span>],</div>
-<div class="code-line"><span class="line-num">6</span>   <span class="token-cmd">"verifiable_proof"</span>: <span class="token-pass">true</span></div>
-<div class="code-line"><span class="line-num">7</span> }</div>
+<div class="code-line"><span class="line-num">3</span>   <span class="token-cmd">"egress_boundary"</span>: <span class="token-string">"CLOUD_PROVIDER_DISPATCH"</span>,</div>
+<div class="code-line"><span class="line-num">4</span>   <span class="token-cmd">"content_classification"</span>: <span class="token-string">"conversation_only"</span>,</div>
+<div class="code-line"><span class="line-num">5</span>   <span class="token-cmd">"secret_like_scan"</span>: <span class="token-pass">0_CREDENTIALS_FOUND</span>,</div>
+<div class="code-line"><span class="line-num">6</span>   <span class="token-cmd">"cairn_trust_gate"</span>: <span class="token-string">"STRICTLY_LOCAL"</span>,</div>
+<div class="code-line"><span class="line-num">7</span>   <span class="token-cmd">"egress_verdict"</span>: <span class="token-pass">ALLOWED_WITH_LEDGER_PROVENANCE</span></div>
+<div class="code-line"><span class="line-num">8</span> }</div>
 `,
-  'lineage': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Deterministic Decision Lineage Audit</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-key">[STEP 1]</span> Prompt ingested & hashed (SHA-256)</div>
-<div class="code-line"><span class="line-num">3</span> <span class="token-key">[STEP 2]</span> Intercepted by CAIRN Trust Plane</div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key">[STEP 3]</span> Evidence validation against Enterprise Knowledge Base</div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key">[STEP 4]</span> Governance clearance <span class="token-pass">[APPROVED]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key">[STEP 5]</span> Signed audit record appended to ledger</div>
-`,
-  'policy': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># STRIX Security & Policy Manifest</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">policy_level</span>: <span class="token-string">"ENTERPRISE_STRICT"</span></div>
-<div class="code-line"><span class="line-num">3</span> <span class="token-cmd">hallucination_prevention</span>: <span class="token-pass">ENFORCED</span></div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-cmd">credential_protection</span>: <span class="token-pass">ENFORCED</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-cmd">audit_provenance_mode</span>: <span class="token-string">"IMMUTABLE_HASH_LEDGER"</span></div>
+  'cost': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Real-Time Token Cost Metering & Price Discovery</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-key">[METER]</span> Provider: <span class="token-string">"cloud:gemini:gemini-2.5-pro"</span></div>
+<div class="code-line"><span class="line-num">3</span> <span class="token-key">[TOKENS]</span> Prompt: 1,420 | Completion: 310 | Total: 1,730</div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key">[PRICE]</span> Discovered Rate: $1.25 / Mtok In, $5.00 / Mtok Out</div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key">[COST]</span> Spend: $0.003325 <span class="token-pass">[PROVENANCE: rate retrieved, unverified ~]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key">[LEDGER]</span> Signed cost audit record written to vault/pricing.json</div>
 `
 };
 

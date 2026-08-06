@@ -85,6 +85,7 @@
           <li><a href="index.html" class="nav-link">Platform</a></li>
           <li><a href="index.html#trust-plane" class="nav-link">Trust Layer</a></li>
           <li><a href="index.html#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
           <li><a href="licensing.html" class="nav-link active">Licensing</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
           <li><a href="book.html" class="nav-link"><i class="fas fa-book" style="margin-right: 0.3rem;"></i> Publications</a></li>
@@ -137,7 +138,7 @@
         <div style="font-family: var(--font-mono); font-size: 0.85rem; color: var(--color-oxide-green); font-weight: 600; margin-bottom: 0.5rem; display: flex; align-items: center; gap: 0.5rem;">
           <i class="fas fa-shield-check"></i> THE CAIRN TRUST GUARANTEE: SAFETY IS NEVER AN UPSELL
         </div>
-        <div class="statement-quote" style="font-size: 1.05rem; font-style: normal; color: var(--color-limestone); margin-bottom: 0.5rem;">
+        <div class="statement-quote" style="font-size: 1.05rem; font-style: normal; color: var(--text-main); margin-bottom: 0.5rem;">
           Selling safety as a paid add-on contradicts our core thesis. Default-deny governance gates, decision ledgers, Docker sandbox verification, static code scanning, and COMPASS audit provenance ship in <strong>every edition</strong>—including Community.
         </div>
         <p style="color: var(--text-secondary); font-size: 0.9rem; margin-top: 0.5rem;">
@@ -322,23 +323,30 @@
           <div class="gartner-pillar-desc" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; margin-top: 1.5rem;">
             
             <div>
-              <h4 style="color: var(--color-limestone); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-network-wired text-oxide"></i> Zero Network Telemetry</h4>
+              <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-network-wired text-oxide"></i> Zero Network Telemetry</h4>
               <p style="font-size: 0.9rem;">
                 CAIRN ETP requires zero external API calls or central license server validation. Systems operate with total autonomy inside isolated perimeter networks.
               </p>
             </div>
 
             <div>
-              <h4 style="color: var(--color-limestone); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-lock text-oxide"></i> No Remote Kill-Switches</h4>
+              <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-lock text-oxide"></i> No Remote Kill-Switches</h4>
               <p style="font-size: 0.9rem;">
                 Your operations remain uninterrupted regardless of external vendor outages or network severance. Entitlements are locally verified and non-revocable remotely.
               </p>
             </div>
 
             <div>
-              <h4 style="color: var(--color-limestone); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-microchip text-oxide"></i> Hardware Node-Locking</h4>
+              <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-microchip text-oxide"></i> Hardware Node-Locking</h4>
               <p style="font-size: 0.9rem;">
                 Sovereign and defence deployments can bind entitlement to specific hardware fingerprints, providing cryptographic assurance of device compliance.
+              </p>
+            </div>
+
+            <div>
+              <h4 style="color: var(--text-main); font-size: 1.1rem; margin-bottom: 0.5rem;"><i class="fas fa-shield-halved text-oxide"></i> Non-Locking Governance Principle</h4>
+              <p style="font-size: 0.9rem;">
+                Licensing gates scale, connectors, and export breadth. Licensing <strong>never</strong> gates governance, the decision ledger, sandboxed execution, or audit provenance. Operators are never locked out of their own build.
               </p>
             </div>
 
@@ -358,22 +366,22 @@
         </p>
       </div>
 
-      <div style="overflow-x: auto; background: var(--bg-graphite); border: 1px solid var(--border-color); border-radius: var(--radius-md);">
+      <div style="overflow-x: auto; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius-md); box-shadow: var(--shadow-card);">
         <table style="width: 100%; border-collapse: collapse; text-align: left; font-size: 0.9rem;">
           <thead>
-            <tr style="border-bottom: 1px solid var(--border-color); background: rgba(0,0,0,0.2);">
-              <th style="padding: 1rem 1.25rem; color: var(--color-limestone); font-family: var(--font-mono);">Capability / Feature</th>
-              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--color-limestone);">Community</th>
-              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--color-limestone);">Developer</th>
-              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--color-limestone);">Professional</th>
-              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--color-oxide-green);">Enterprise</th>
-              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--color-limestone);">Sovereign</th>
+            <tr style="border-bottom: 2px solid var(--border-color); background: rgba(21, 128, 61, 0.04);">
+              <th style="padding: 1rem 1.25rem; color: var(--text-main); font-family: var(--font-mono);">Capability / Feature</th>
+              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--text-main);">Community</th>
+              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--text-main);">Developer</th>
+              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--text-main);">Professional</th>
+              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--color-oxide-green); font-weight: 700;">Enterprise</th>
+              <th style="padding: 1rem 0.75rem; text-align: center; color: var(--text-main);">Sovereign</th>
             </tr>
           </thead>
           <tbody style="color: var(--text-secondary);">
             
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">Default-Deny Security Gate (Pillar 1)</td>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">Default-Deny Security Gate (Pillar 1)</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
@@ -381,8 +389,8 @@
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
             </tr>
 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">Durable Decision Ledger (Pillar 4)</td>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">Durable Decision Ledger (Pillar 4)</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
@@ -390,8 +398,8 @@
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
             </tr>
 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">CRUCIBLE Docker Sandbox (Pillar 7)</td>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">CRUCIBLE Docker Sandbox (Pillar 7)</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
@@ -399,8 +407,8 @@
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
             </tr>
 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">GitHub & Skill Authoring</td>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">GitHub & Skill Authoring</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
@@ -408,8 +416,8 @@
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
             </tr>
 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">Enterprise Connectors & Telemetry</td>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">Enterprise Connectors & Telemetry</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
@@ -417,8 +425,8 @@
               <td style="padding: 0.85rem 0.75rem; text-align: center;"><i class="fas fa-check text-oxide"></i></td>
             </tr>
 
-            <tr style="border-bottom: 1px solid rgba(255,255,255,0.05);">
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">Local RBAC & Fleet Management</td>
+            <tr style="border-bottom: 1px solid var(--border-color);">
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">Local RBAC & Fleet Management</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
@@ -427,7 +435,7 @@
             </tr>
 
             <tr>
-              <td style="padding: 0.85rem 1.25rem; font-weight: 500; color: var(--color-limestone);">Air-Gapped & Hardware Locking</td>
+              <td style="padding: 0.85rem 1.25rem; font-weight: 600; color: var(--text-main);">Air-Gapped & Hardware Locking</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>
               <td style="padding: 0.85rem 0.75rem; text-align: center; color: var(--text-muted);">&mdash;</td>

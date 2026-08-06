@@ -87,7 +87,8 @@
           <li><a href="/" class="nav-link active">Platform</a></li>
           <li><a href="#trust-plane" class="nav-link">Trust Layer</a></li>
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="#simulator" class="nav-link">Simulator</a></li>
+          <li><a href="#assurance-ladder" class="nav-link">Assurance Ladder</a></li>
+          <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
           <li><a href="book.html" class="nav-link"><i class="fas fa-book" style="margin-right: 0.3rem;"></i> Publications</a></li>
@@ -126,7 +127,7 @@
           </h1>
 
           <p class="hero-description">
-            CAIRN inserts a deterministic governance layer between enterprise user intent and model execution. Every recommendation is supported by verifiable evidence. Every decision is explainable and auditable.
+            CAIRN inserts a deterministic governance layer between enterprise user intent and model execution. Dual-runtime sandboxes, tiered assurance, and verifiable evidence back every recommendation.
           </p>
 
           <div class="hero-cta-wrap">
@@ -148,21 +149,21 @@
               <span class="dot dot-green"></span>
             </div>
             <div class="dev-tabs">
-              <button class="dev-tab-btn active" data-tab="cli-trace">CLI Trace</button>
-              <button class="dev-tab-btn" data-tab="evidence">Evidence</button>
-              <button class="dev-tab-btn" data-tab="lineage">Lineage</button>
-              <button class="dev-tab-btn" data-tab="policy">Policy</button>
+              <button class="dev-tab-btn active" data-tab="cli-trace-docker">Docker Sandbox</button>
+              <button class="dev-tab-btn" data-tab="cli-trace-win">Windows Sandbox VM</button>
+              <button class="dev-tab-btn" data-tab="egress">Egress Gate</button>
+              <button class="dev-tab-btn" data-tab="cost">Cost Metering</button>
             </div>
           </div>
 
           <div class="dev-window-body" id="dev-code-body">
-            <div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Querying the CAIRN Enterprise Trust Plane</span></div>
-            <div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> trace <span class="token-flag">--query</span> <span class="token-string">"Verify Q3 compliance policy"</span></div>
+            <div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Docker Container Execution (Linux / Python / pwsh)</span></div>
+            <div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"verify_disk_space.py"</span></div>
             <div class="code-line"><span class="line-num">3</span> </div>
-            <div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-bolt text-oxide"></i> Resolving Knowledge Graph...</span> <span class="token-pass">[OK]</span></div>
-            <div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield-alt text-oxide"></i> AST Policy Verification...</span> <span class="token-pass">[PASSED: 0 Risk Vectors]</span></div>
-            <div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-file-code text-oxide"></i> Decision Lineage Hash:</span> <span class="token-string">sha256:8f94e2...b1a0</span></div>
-            <div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Recommendation verified with 100% deterministic lineage.</span></div>
+            <div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-oxide"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY MOUNT]</span></div>
+            <div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-oxide"></i> Network Boundary Check...</span> <span class="token-pass">[DISABLED]</span></div>
+            <div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-vial text-oxide"></i> Execution Assurance Tier:</span> <span class="token-pass">sandbox_executed</span></div>
+            <div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Verification successful. 0 network egress, zero host pollution.</span></div>
           </div>
         </div>
 
@@ -285,21 +286,95 @@
           </div>
         </div>
 
-        <!-- Bento Card 6 & 7: FORGE & CRUCIBLE -->
+        <!-- Bento Card 6 & 7: FORGE & CRUCIBLE Dual Sandbox -->
         <div class="bento-card span-2">
           <div class="bento-header">
-            <span class="bento-tag">PILLARS 06 & 07 • SYNTHESIS & SANDBOX</span>
+            <span class="bento-tag">PILLARS 06 & 07 • SYNTHESIS & DUAL-SANDBOX ENGINE</span>
             <div class="bento-icon"><i class="fas fa-box-archive"></i></div>
           </div>
           <div>
-            <h3 class="bento-title">FORGE Synthesis & CRUCIBLE Docker Sandbox</h3>
+            <h3 class="bento-title">FORGE Synthesis & CRUCIBLE Dual-Sandbox Engine</h3>
             <p class="bento-desc">
-              Code and action requests synthesized by FORGE execute exclusively inside air-gapped CRUCIBLE Docker sandboxes with strict memory and CPU quotas.
+              Code synthesized by FORGE executes exclusively inside isolated sandboxes: disposable OCI Docker containers for cross-platform scripts, or disposable Windows Sandbox VMs for Windows administrative scripts (WMI/CIM/Registry).
             </p>
           </div>
           <div class="bento-code-snippet">
-            <span class="token-cmd">CRUCIBLE_CONTAINER</span>: <span class="token-pass">ISOLATED</span> | Memory: 512MB Limit | Net: Offline
+            <span class="token-cmd">DUAL_SANDBOX</span>: Docker (Linux/Python/pwsh) + Windows Sandbox VM | <span class="token-pass">sandbox_executed</span>
           </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tiered Execution Assurance Ladder Section (ADR-0008 & ADR-0006) -->
+  <section id="assurance-ladder" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="status-pill-container" style="margin-bottom: 1rem;">
+          <span class="status-pulse-dot"></span>
+          ADR-0008 EXPLICIT VERIFICATION LADDER
+        </div>
+        <h2 class="section-title">Tiered Execution Assurance</h2>
+        <p class="section-subtitle">
+          Verification is explicit and tiered, never binary. CAIRN guarantees honest disclosure over absolute claims, stating exactly what was observed and what was not established.
+        </p>
+      </div>
+
+      <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));">
+        
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">RUNG 01 • UNVERIFIED</span>
+            <div class="bento-icon"><i class="fas fa-circle-question"></i></div>
+          </div>
+          <h3 class="bento-title">Unverified</h3>
+          <p class="bento-desc">Raw output generated without parsing or static checks. Never used for state-modifying tasks.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">RUNG 02 • STATIC ONLY</span>
+            <div class="bento-icon"><i class="fas fa-file-code"></i></div>
+          </div>
+          <h3 class="bento-title">Static Only</h3>
+          <p class="bento-desc">AST syntax validation passed. Transparently discloses when a host lacks execution toolchains without claiming runtime verification.</p>
+        </div>
+
+        <div class="bento-card" style="border: 1px solid var(--color-oxide-green);">
+          <div class="bento-header">
+            <span class="bento-tag" style="color: var(--color-oxide-green);">RUNG 03 • SANDBOX EXECUTED</span>
+            <div class="bento-icon" style="color: var(--color-oxide-green);"><i class="fas fa-cube"></i></div>
+          </div>
+          <h3 class="bento-title">Sandbox Executed</h3>
+          <p class="bento-desc">Executed in an isolated Docker container or disposable Windows Sandbox VM. Confirms the script runs without throwing.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">RUNG 04 • BEHAVIOUR CHECKED</span>
+            <div class="bento-icon"><i class="fas fa-list-check"></i></div>
+          </div>
+          <h3 class="bento-title">Behaviour Checked</h3>
+          <p class="bento-desc">Outputs explicitly evaluated against contract acceptance criteria and assertions before approval.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">RUNG 05 • DETERMINISTIC</span>
+            <div class="bento-icon"><i class="fas fa-rotate"></i></div>
+          </div>
+          <h3 class="bento-title">Deterministic</h3>
+          <p class="bento-desc">Execution results proven consistent across multiple seeded runs under identical input parameters.</p>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">RUNG 06 • IDEMPOTENT</span>
+            <div class="bento-icon"><i class="fas fa-shield-halved"></i></div>
+          </div>
+          <h3 class="bento-title">Idempotent</h3>
+          <p class="bento-desc">Verified safe for repeated unattended execution without unintended side-effects or state pollution.</p>
         </div>
 
       </div>
@@ -389,6 +464,68 @@
           </div>
           <div class="sim-log-feed" id="sim-log-feed"></div>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Frontier Execution, Egress Gate & Cost Governance Section (ADR-0010) -->
+  <section id="frontier" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="status-pill-container" style="margin-bottom: 1rem;">
+          <span class="status-pulse-dot"></span>
+          ADR-0010 FRONTIER EXECUTION & EGRESS GOVERNANCE
+        </div>
+        <h2 class="section-title">Egress Control & Cost Metering</h2>
+        <p class="section-subtitle">
+          Content-based privacy enforcement prevents credential leaks across all boundaries. Hybrid fleet routing pairs high-performance cloud models with local security choke points.
+        </p>
+      </div>
+
+      <div class="bento-grid">
+        
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">SECURITY BOUNDARY</span>
+            <div class="bento-icon"><i class="fas fa-shield-cat"></i></div>
+          </div>
+          <h3 class="bento-title">Content-Based Egress Gate</h3>
+          <p class="bento-desc">
+            Evaluates outbound payloads by content, not caller claims. Secret-like credentials (<code style="font-size: 0.8rem;">secret_like</code>) are denied unconditionally across all boundaries, including local LAN.
+          </p>
+          <div class="bento-code-snippet">
+            <span class="token-key">EGRESS_GATE</span>: <span class="token-pass">Active</span> | Secret-Like: DENIED_ALL_BOUNDARIES
+          </div>
+        </div>
+
+        <div class="bento-card">
+          <div class="bento-header">
+            <span class="bento-tag">FLEET ARCHITECTURE</span>
+            <div class="bento-icon"><i class="fas fa-cloud-nodes"></i></div>
+          </div>
+          <h3 class="bento-title">Hybrid Fleet Model Backing</h3>
+          <p class="bento-desc">
+            6 of 7 pillars can leverage high-performance cloud models (e.g. Gemini 2.5 Pro) while CAIRN (Pillar 01 / Trust Gate), the decision ledger, and verification remain strictly local.
+          </p>
+          <div class="bento-code-snippet">
+            <span class="token-key">CAIRN_GATE</span>: <span class="token-pass">STRICTLY_LOCAL</span> | Model Pillars: Hybrid Cloud
+          </div>
+        </div>
+
+        <div class="bento-card span-2">
+          <div class="bento-header">
+            <span class="bento-tag">ECONOMICS & AUDIT</span>
+            <div class="bento-icon"><i class="fas fa-coins"></i></div>
+          </div>
+          <h3 class="bento-title">Real-Time Cost Metering & Automatic Price Discovery</h3>
+          <p class="bento-desc">
+            Every cloud token call is metered against per-million rates with fallback to background web price discovery. All spend items record explicit provenance (<code style="font-size: 0.85rem;">operator</code> vs <code style="font-size: 0.85rem;">discovered ~</code>) in the immutable SQLite decision ledger.
+          </p>
+          <div class="bento-code-snippet">
+            <span class="token-cmd">COST_METER</span>: Token Spend Calculated | Ledger Provenance Recorded
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
