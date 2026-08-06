@@ -115,7 +115,7 @@
           Architecture & <span class="text-oxide">Governance Records</span>
         </h1>
         <p class="hero-description" style="margin: 0 auto; max-width: 760px;">
-          High-level decision records governing CAIRN's enterprise trust plane, dual-sandbox runtimes, tiered execution assurance ladder, and content-based security boundaries.
+          High-level architectural decision records governing CAIRN's enterprise trust plane, dual-sandbox runtimes, tiered execution assurance ladder, and content-based security boundaries.
         </p>
       </div>
     </div>
@@ -131,11 +131,10 @@
         <button class="adr-filter-btn" data-filter="governance">Governance & Security</button>
         <button class="adr-filter-btn" data-filter="execution">Execution & Sandboxing</button>
         <button class="adr-filter-btn" data-filter="frontier">Frontier & Economics</button>
-        <button class="adr-filter-btn" data-filter="brand">Brand & Category</button>
       </div>
 
       <!-- Grid of Sanitized ADR Summary Cards -->
-      <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));">
+      <div class="bento-grid" style="grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));">
 
         <!-- ADR-0001 -->
         <div class="bento-card adr-card" data-category="governance">
@@ -143,12 +142,12 @@
             <span class="bento-tag">ADR-0001 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-shield-cat"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Default-Deny Tool Gatekeeper</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Default-Deny Governance Gatekeeper</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            All automated tool invocations pass through a single, default-deny governance choke point. Policy evaluation occurs before execution, attributing actions to verified OS principals.
+            All automated tool invocations pass through a single, default-deny security boundary. Policy clearance occurs before execution, attributing actions strictly to verified principal roles.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CHOKE_POINT</span>: <span class="token-pass">ToolRegistry.executeTool</span> | Gate: Default-Deny
+            <span class="token-key">GOVERNANCE_GATE</span>: <span class="token-pass">Unified Choke Point</span> | Default-Deny
           </div>
         </div>
 
@@ -158,12 +157,12 @@
             <span class="bento-tag">ADR-0002 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-link"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Pillar Contract Chain & Interchangeability</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Pillar Contract Chain & Model Flexibility</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Defines strict contract schemas across execution states (INTENT → PLANNED → EXECUTING → EVIDENCE → VERIFYING → ACCEPTED), enabling hot-swappable local and cloud model providers.
+            Defines strict contract schemas across execution states, enabling hot-swappable local and cloud model backings without altering downstream governance boundaries.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CONTRACT_CHAIN</span>: Strict Validation | Model Interchangeable
+            <span class="token-key">CONTRACT_SCHEMA</span>: Sealed Lifecycle | Model Interchangeable
           </div>
         </div>
 
@@ -173,12 +172,12 @@
             <span class="bento-tag">ADR-0003 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-code-compare"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">FORGE Synthesis & Code Verification Loop</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Code Synthesis & Verification Loop</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Integrates pre-execution syntax validation and canary probes before code verification. Prevents unparseable or absent toolchains from masquerading as clean parse runs.
+            Integrates pre-execution syntax validation and automated toolchain canary probes. Prevents unparseable or absent toolchains from masquerading as clean execution runs.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CANARY_PROBE</span>: Active | Rubber-Stamp Prevention: Verified
+            <span class="token-key">CANARY_PROBE</span>: Active | Environment Validation: Verified
           </div>
         </div>
 
@@ -188,12 +187,12 @@
             <span class="bento-tag">ADR-0004 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-microchip"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Dynamic Hardware Assessment & Assessor</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Dynamic Compute Assessment & Router</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Automated probing of local GPU/CPU hardware capabilities to dynamic route tasks based on observed VRAM, compute throughput, and real-time TPS benchmarks.
+            Automated real-time probing of local GPU/CPU hardware capabilities to dynamically assign workload tasks based on observed compute capacity and throughput.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">HARDWARE_PROBE</span>: Dynamic VRAM Sensing | Fleet Matching
+            <span class="token-key">HARDWARE_PROBE</span>: Dynamic VRAM Sensing | Capacity Allocation
           </div>
         </div>
 
@@ -203,12 +202,12 @@
             <span class="bento-tag">ADR-0005 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-eye"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Absolute Observability & Audit Provenance</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Immutable Audit Provenance & Observability</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Captures cryptographic SHA-256 decision ledgers correlated with telemetry logs, establishing tamper-evident decision lineage across every system turn.
+            Captures cryptographic SHA-256 decision ledgers correlated with operational telemetry logs, establishing verifiable decision lineage across every system turn.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">AUDIT_LEDGER</span>: SHA-256 Hash Chain | Trace correlation: Active
+            <span class="token-key">AUDIT_PROVENANCE</span>: SHA-256 Hash Chain | Trace Correlation
           </div>
         </div>
 
@@ -223,7 +222,7 @@
             The philosophical spine of CAIRN: honest disclosure of unestablished properties over absolute claims. Never report a static check or un-executed script as runtime verification.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">DISCLOSURE_PRINCIPLE</span>: Truthful Caveats | Zero Over-Claims
+            <span class="token-key">DISCLOSURE_PRINCIPLE</span>: Truthful Caveats | Zero False Claims
           </div>
         </div>
 
@@ -233,12 +232,12 @@
             <span class="bento-tag">ADR-0007 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-box"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">CRUCIBLE Execution Pillar</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Isolated Execution Containment</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
             Enforces disposable, isolated execution runtimes for synthesized code. Disables networking by default, applies read-only mounts, and bounds CPU and memory usage.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">CRUCIBLE_SANDBOX</span>: Isolated Runtime | Network: Disabled
+            <span class="token-key">CONTAINMENT_GATE</span>: Isolated Runtime | Network: Disabled
           </div>
         </div>
 
@@ -248,12 +247,12 @@
             <span class="bento-tag">ADR-0008 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-layer-group"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Tiered Execution Assurance Ladder</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Tiered Execution Assurance Framework</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Establishes explicit 6-rung verification tiers (<code style="font-size: 0.8rem;">unverified → static_only → sandbox_executed → behaviour_checked → deterministic → idempotent</code>). Supports both Docker containers and Windows Sandbox VM escalation.
+            Establishes explicit 6-rung verification tiers (<code style="font-size: 0.8rem;">unverified → static_only → sandbox_executed → behaviour_checked → deterministic → idempotent</code>). Supports both disposable containers and native virtual machine escalation.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">DUAL_SANDBOX</span>: Docker + Windows Sandbox VM | Tiered Assurance
+            <span class="token-key">TIERED_ASSURANCE</span>: Dual-Runtime Sandbox | Explicit Verification
           </div>
         </div>
 
@@ -263,9 +262,9 @@
             <span class="bento-tag">ADR-0009 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-circle-check"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Outcome Assertion & Verification</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Outcome Assertion & Intent Verification</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Enforces proof-of-completion checks against explicitly defined contract criteria before transitioning a contract state to ACCEPTED. Prevents silent failure loops.
+            Enforces proof-of-completion checks against explicitly defined contract criteria before confirming task completion. Prevents unverified repair loops.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
             <span class="token-key">OUTCOME_ASSERTION</span>: Intent Verification | Proof Required
@@ -278,27 +277,12 @@
             <span class="bento-tag">ADR-0010 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-vault"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Frontier Execution & Security Egress Gate</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Frontier Egress & Cost Governance</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Content-based inspection layer evaluating all outgoing payloads. Blocks credentials (<code style="font-size: 0.8rem;">secret_like</code>) unconditionally across all boundaries, gates cloud escalation, and meters token costs.
+            Content-based inspection layer evaluating outgoing payloads. Denies credentials automatically across all boundaries, gates cloud escalation, and meters token costs.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
             <span class="token-key">EGRESS_GATE</span>: Secret Denial: Strict | Token Costing: Active
-          </div>
-        </div>
-
-        <!-- ADR-0011 -->
-        <div class="bento-card adr-card" data-category="brand">
-          <div class="bento-header">
-            <span class="bento-tag">ADR-0011 • ACCEPTED</span>
-            <div class="bento-icon"><i class="fas fa-compass-drafting"></i></div>
-          </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Website Brand & Content Governance</h3>
-          <p class="bento-desc" style="font-size: 0.9rem;">
-            Establishes Palantir-class visual identity (Slate, Graphite, Limestone, Oxide Green), word count discipline, category vocabulary ownership, and proof-first proof mechanics.
-          </p>
-          <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">BRAND_GOVERNANCE</span>: Zero Neon Hype | Palantir-Class Restraint
           </div>
         </div>
 
@@ -308,12 +292,12 @@
             <span class="bento-tag">ADR-0012 • ACCEPTED</span>
             <div class="bento-icon"><i class="fas fa-folder-tree"></i></div>
           </div>
-          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Resolved Storage & Vault Path Isolation</h3>
+          <h3 class="bento-title" style="font-size: 1.2rem; margin-bottom: 0.5rem;">Isolated Storage Path Resolution</h3>
           <p class="bento-desc" style="font-size: 0.9rem;">
-            Mandates a single, verified storage resolution mechanism (<code style="font-size: 0.8rem;">VAULT_DIR</code>) across all subsystem modules, protecting host paths and ensuring environment isolation.
+            Mandates a single, verified storage resolution mechanism across all subsystem modules, protecting host paths and ensuring environment isolation.
           </p>
           <div class="bento-code-snippet" style="margin-top: 1rem; font-size: 0.75rem;">
-            <span class="token-key">VAULT_ISOLATION</span>: Resolved Standard Path | Path Masking: Enforced
+            <span class="token-key">STORAGE_ISOLATION</span>: Resolved Path Standard | Path Masking
           </div>
         </div>
 
@@ -342,7 +326,6 @@
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="index.html#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="index.html#architecture" class="nav-link" style="padding: 0;">Architecture</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="index.html#simulator" class="nav-link" style="padding: 0;">Simulator</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="licensing.html" class="nav-link" style="padding: 0;">Licensing</a></li>
         </ul>
       </div>
@@ -352,7 +335,6 @@
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="docs.html" class="nav-link active" style="padding: 0;">Architecture Records (ADRs)</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">Publications & Book</a></li>
         </ul>
       </div>
 
@@ -368,40 +350,40 @@
     </div>
   </footer>
 
-  <!-- Register Interest Modal -->
-  <div class="demo-modal-overlay" id="demo-modal">
-    <div class="demo-modal-card">
-      <button class="demo-close-btn" id="demo-close-btn" aria-label="Close Modal">&times;</button>
-      <div class="status-pill-container" style="margin-bottom: 1rem;">
-        <span class="status-pulse-dot"></span>
-        ENTERPRISE EVALUATION & REGISTRATION
+  <!-- Demonstration Request Modal Dialog -->
+  <div id="demo-modal" class="modal-overlay">
+    <div class="modal-container">
+      <div class="modal-header">
+        <div>
+          <h3 style="font-size: 1.25rem;">Register Your Interest</h3>
+          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-oxide-green); margin-top: 0.2rem;">
+            CAIRN ENTERPRISE TRUST PLANE
+          </div>
+        </div>
+        <button id="demo-close-btn" class="modal-close-btn">&times;</button>
       </div>
-      <h3 style="font-size: 1.75rem; margin-bottom: 0.5rem;">Register Interest in CAIRN ETP</h3>
-      <p style="color: var(--text-secondary); font-size: 0.95rem; margin-bottom: 1.5rem;">
-        Connect with our architecture team to discuss sovereign enterprise trust deployment, technical whitepapers, and air-gapped evaluation packages.
-      </p>
 
-      <form onsubmit="event.preventDefault(); window.handleDemoSubmit();">
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main);">Full Name</label>
-          <input type="text" id="demo-name" required placeholder="e.g. Sarah Jenkins" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-card); font-family: var(--font-body); font-size: 0.95rem;">
+      <form id="demo-form" onsubmit="event.preventDefault(); handleDemoSubmit();">
+        <div class="form-group">
+          <label>Full Name</label>
+          <input type="text" id="demo-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
         </div>
 
-        <div style="margin-bottom: 1rem;">
-          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main);">Work Email</label>
-          <input type="email" id="demo-email" required placeholder="s.jenkins@enterprise.com" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-card); font-family: var(--font-body); font-size: 0.95rem;">
+        <div class="form-group">
+          <label>Work Email</label>
+          <input type="email" id="demo-email" class="form-input" placeholder="s.jenkins@enterprise-bank.com" required>
         </div>
 
-        <div style="margin-bottom: 1.5rem;">
-          <label style="display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.4rem; color: var(--text-main);">Organization Name</label>
-          <input type="text" id="demo-org" required placeholder="e.g. Ministry of Infrastructure / Global Bank" style="width: 100%; padding: 0.75rem; border-radius: var(--radius-sm); border: 1px solid var(--border-card); font-family: var(--font-body); font-size: 0.95rem;">
+        <div class="form-group">
+          <label>Organization / Sector</label>
+          <input type="text" id="demo-org" class="form-input" placeholder="Financial Services / Defence / Government" required>
         </div>
 
-        <button type="submit" class="btn btn-oxide" style="width: 100%; justify-content: center; padding: 0.85rem; font-size: 1rem;">
-          Submit Registration <i class="fas fa-paper-plane"></i>
+        <div id="demo-status-msg" style="font-size: 0.85rem; font-family: var(--font-mono); margin-bottom: 1rem; color: var(--color-oxide-green);"></div>
+
+        <button type="submit" class="btn btn-oxide" style="width: 100%; padding: 0.85rem;">
+          Submit Registration <i class="fas fa-arrow-right"></i>
         </button>
-
-        <p id="demo-status-msg" style="margin-top: 1rem; font-size: 0.85rem; text-align: center; color: var(--color-oxide-green); font-weight: 500;"></p>
       </form>
     </div>
   </div>

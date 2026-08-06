@@ -1,24 +1,33 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="100%" height="100%">
-  <!-- Precision Cairn Mark: Oxide Green & Limestone Survey Monument -->
-  <g fill="none" stroke="#5B6F5A" stroke-width="12" stroke-linejoin="round" stroke-linecap="round">
-    <!-- Outer Boundary Ring -->
-    <circle cx="256" cy="256" r="220" stroke-width="5" stroke-dasharray="6 6" opacity="0.35"/>
-    
-    <!-- Tier 1 Apex Stone -->
-    <polygon points="256,90 300,146 212,146" fill="#5B6F5A" stroke="#5B6F5A"/>
-    
-    <!-- Tier 2 Governance Block -->
-    <polygon points="190,162 322,162 338,224 174,224" fill="none" stroke="#5B6F5A" stroke-width="12"/>
-    <line x1="200" y1="193" x2="312" y2="193" stroke="#5B6F5A" stroke-width="4" opacity="0.6"/>
+  <defs>
+    <linearGradient id="cairn-green-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#166534" />
+      <stop offset="100%" stop-color="#15803D" />
+    </linearGradient>
+    <linearGradient id="cairn-slate-grad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#334155" />
+      <stop offset="100%" stop-color="#0F172A" />
+    </linearGradient>
+  </defs>
 
-    <!-- Tier 3 Trust Control Base -->
-    <polygon points="154,240 358,240 376,316 136,316" fill="none" stroke="#5B6F5A" stroke-width="12"/>
-    <line x1="166" y1="278" x2="346" y2="278" stroke="#5B6F5A" stroke-width="4" opacity="0.6"/>
-
-    <!-- Tier 4 Foundation Base -->
-    <polygon points="118,332 394,332 414,402 98,402" fill="none" stroke="#5B6F5A" stroke-width="12"/>
+  <!-- Precision Enterprise Shield & Interlocking Trust Node Grid -->
+  <g fill="none" stroke-linejoin="round" stroke-linecap="round">
     
-    <!-- Central Survey Datum Point -->
-    <circle cx="256" cy="193" r="6" fill="#F5F5F1" stroke="none"/>
+    <!-- Outer Precision Shield Outline -->
+    <path d="M 256,40 L 430,120 L 430,300 L 256,460 L 82,300 L 82,120 Z" 
+          stroke="url(#cairn-slate-grad)" stroke-width="22" fill="none" />
+
+    <!-- Inner Oxide Green Geometric Lattice -->
+    <path d="M 256,104 L 370,160 L 370,280 L 256,380 L 142,280 L 142,160 Z" 
+          stroke="url(#cairn-green-grad)" stroke-width="14" fill="rgba(21, 128, 61, 0.06)" />
+
+    <!-- Interlocking Strategic Core Triangles (The Trust Boundary) -->
+    <polygon points="256,150 330,280 182,280" fill="none" stroke="#15803D" stroke-width="14" />
+    
+    <!-- Inner Inverted Core Diamond Node -->
+    <polygon points="256,220 290,280 256,340 222,280" fill="url(#cairn-green-grad)" stroke="none" />
+
+    <!-- Central Precision Node Datum -->
+    <circle cx="256" cy="280" r="12" fill="#FFFFFF" />
   </g>
 </svg>
