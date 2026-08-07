@@ -99,6 +99,15 @@ async def read_gallery_page():
             return HTMLResponse(content=f.read())
     return HTMLResponse(content="<h1>CAIRN ETP — Application Interface Gallery</h1>", status_code=200)
 
+@app.get("/compliance", response_class=HTMLResponse)
+@app.get("/compliance.html", response_class=HTMLResponse)
+async def read_compliance_page():
+    compliance_path = os.path.join(BASE_DIR, "compliance.html")
+    if os.path.exists(compliance_path):
+        with open(compliance_path, "r", encoding="utf-8") as f:
+            return HTMLResponse(content=f.read())
+    return HTMLResponse(content="<h1>CAIRN ETP — Enterprise Compliance & Regulatory Framework Mapping</h1>", status_code=200)
+
 @app.get("/robots.txt")
 async def get_robots():
     robots_path = os.path.join(BASE_DIR, "robots.txt")
