@@ -50,7 +50,9 @@
 
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="assets/cairn-logo.svg">
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="icon" href="assets/cairn-symbol.png" type="image/png">
 </head>
 
 <body>
@@ -60,35 +62,33 @@
   <div class="ambient-glow"></div>
 
   <!-- Header Navigation -->
+    <!-- Header Navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="/" class="brand-logo" title="CAIRN Trust Fabric">
-        <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" onerror="this.src='assets/cairn-logo.svg'">
-        <div class="brand-name-group">
-          <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
-          <span class="brand-tagline">Trust Fabric</span>
-        </div>
+        <img src="assets/cairn-logo-lockup.png" alt="CAIRN Trust Fabric" class="header-logo-img">
       </a>
 
       <nav>
-        <ul class="nav-links">
-          <li><a href="index.html" class="nav-link">Platform</a></li>
-          <li><a href="index.html#trust-plane" class="nav-link">Trust Layer</a></li>
-          <li><a href="index.html#architecture" class="nav-link">Architecture</a></li>
+        <ul class="nav-links" id="site-nav-links">
+          <li><a href="/" class="nav-link">Platform</a></li>
+          <li><a href="/#dashboard-status" class="nav-link">Trust Graph</a></li>
+          <li><a href="/#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="/#assurance" class="nav-link">Assurance</a></li>
           <li><a href="compliance.html" class="nav-link active">Compliance</a></li>
-          <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
+          <li><a href="book.html" class="nav-link">Book</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
         <button class="btn btn-primary open-demo-btn">
-          Register Interest <i class="fas fa-arrow-right"></i>
+          <span>Briefing</span> <i class="fas fa-arrow-right"></i>
         </button>
-        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-outline"
-          title="LinkedIn Profile">
-          <i class="fab fa-linkedin"></i>
+        <a href="https://github.com/cairn-trust-fabric" target="_blank" rel="noopener" class="btn btn-outline"
+          title="GitHub Repository">
+          <i class="fab fa-github"></i>
         </a>
         <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation">
           <i class="fas fa-bars"></i>
@@ -406,7 +406,7 @@
     <div class="container footer-grid">
       <div>
         <div class="brand-logo" style="margin-bottom: 1rem;">
-          <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+          <img src="assets/cairn-symbol.png" alt="CAIRN Symbol" style="height: 32px;">
           <span>CAIRN<span class="text-oxide"> ETP</span></span>
         </div>
         <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
@@ -431,7 +431,7 @@
         <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Governance & Legal</h4>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="compliance.html" class="nav-link" style="padding: 0;">Compliance Mapping</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="docs.html" class="nav-link" style="padding: 0;">Architecture Records (ADRs)</a></li>
+          
           <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">Publications & Book</a></li>
         </ul>

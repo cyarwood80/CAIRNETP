@@ -56,7 +56,9 @@
   
   <!-- Stylesheet -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="assets/cairn-logo.svg">
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="icon" href="assets/cairn-symbol.png" type="image/png">
 </head>
 <body>
 
@@ -65,32 +67,33 @@
   <div class="ambient-glow"></div>
 
   <!-- Header Navigation -->
+    <!-- Header Navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <!-- Root Domain Navigation Logo -->
-      <a href="/" class="brand-logo">
-        <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
-        <span>CAIRN<span class="text-oxide"> ETP</span></span>
+      <a href="/" class="brand-logo" title="CAIRN Trust Fabric">
+        <img src="assets/cairn-logo-lockup.png" alt="CAIRN Trust Fabric" class="header-logo-img">
       </a>
 
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="site-nav-links">
           <li><a href="/" class="nav-link">Platform</a></li>
-          <li><a href="/#trust-plane" class="nav-link">Trust Layer</a></li>
+          <li><a href="/#dashboard-status" class="nav-link">Trust Graph</a></li>
           <li><a href="/#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="/#assurance" class="nav-link">Assurance</a></li>
           <li><a href="compliance.html" class="nav-link">Compliance</a></li>
-          <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
+          <li><a href="book.html" class="nav-link active">Book</a></li>
         </ul>
       </nav>
 
       <div class="header-actions">
-        <a href="/" class="btn btn-secondary">
-          <i class="fas fa-arrow-left"></i> CAIRN ETP Platform
-        </a>
-        <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary">
-          <i class="fab fa-amazon"></i> Order on Amazon
+        <button class="btn btn-primary open-demo-btn">
+          <span>Briefing</span> <i class="fas fa-arrow-right"></i>
+        </button>
+        <a href="https://github.com/cairn-trust-fabric" target="_blank" rel="noopener" class="btn btn-outline"
+          title="GitHub Repository">
+          <i class="fab fa-github"></i>
         </a>
         <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation">
           <i class="fas fa-bars"></i>
@@ -207,7 +210,7 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo">
-            <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
+            <img src="assets/cairn-symbol.png" alt="CAIRN Symbol" style="height: 32px;">
             <span>CAIRN<span class="text-oxide"> ETP</span></span>
           </a>
           <p>

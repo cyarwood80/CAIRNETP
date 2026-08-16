@@ -64,7 +64,9 @@
 
   <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="assets/cairn-logo.svg" type="image/svg+xml">
+    <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/favicon-180.png">
+  <link rel="icon" href="assets/cairn-symbol.png" type="image/png">
 </head>
 
 <body>
@@ -75,27 +77,23 @@
   <div class="ambient-glow-mesh"></div>
 
   <!-- Header Navigation -->
+    <!-- Header Navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
       <a href="/" class="brand-logo" title="CAIRN Trust Fabric">
-        <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" onerror="this.src='assets/cairn-logo.svg'">
-        <div class="brand-name-group">
-          <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
-          <span class="brand-tagline">Trust Fabric</span>
-        </div>
+        <img src="assets/cairn-logo-lockup.png" alt="CAIRN Trust Fabric" class="header-logo-img">
       </a>
 
       <nav>
         <ul class="nav-links" id="site-nav-links">
           <li><a href="/" class="nav-link active">Platform</a></li>
-          <li><a href="#dashboard-status" class="nav-link">Trust Graph</a></li>
-          <li><a href="#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="#assurance" class="nav-link">Assurance</a></li>
-          <li><a href="#download" class="nav-link">Download</a></li>
+          <li><a href="/#dashboard-status" class="nav-link">Trust Graph</a></li>
+          <li><a href="/#architecture" class="nav-link">Architecture</a></li>
+          <li><a href="/#assurance" class="nav-link">Assurance</a></li>
           <li><a href="compliance.html" class="nav-link">Compliance</a></li>
-          <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
+          <li><a href="book.html" class="nav-link">Book</a></li>
         </ul>
       </nav>
 
@@ -366,9 +364,7 @@
           <p style="font-size: 0.95rem; max-width: 440px; margin: 0 auto 1.5rem auto;">
             Each layer builds deterministically upon the foundations below it. If any lower tier fails verification, execution halts immediately with zero side effects.
           </p>
-          <a href="docs.html" class="btn btn-outline">
-            Read Architecture Decision Records (ADRs) <i class="fas fa-arrow-right"></i>
-          </a>
+          <a href="/#architecture" class="btn btn-outline">Explore 4-Tier Architecture <i class="fas fa-arrow-right"></i></a>
         </div>
 
       </div>
@@ -641,7 +637,7 @@
           <div class="footer-col-title">Governance</div>
           <ul class="footer-links">
             <li><a href="compliance.html">Compliance Mappings</a></li>
-            <li><a href="docs.html">Architecture Decision Records</a></li>
+            
             <li><a href="licensing.html">Licensing & Tiers</a></li>
             <li><a href="gallery.html">Product UI Gallery</a></li>
             <li><a href="book.html">Book: Trust in the Machine</a></li>

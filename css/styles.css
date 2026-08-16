@@ -251,16 +251,16 @@ code, pre {
   100% { transform: scale(0.95); opacity: 0.8; box-shadow: 0 0 0 0 rgba(20, 200, 166, 0); }
 }
 
-/* Header & Navigation Bar */
+/* Header & Navigation Bar (Uniform Scale & Placement) */
 .site-header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  z-index: 100;
-  background: rgba(6, 18, 32, 0.85);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  z-index: 1000;
+  background: rgba(6, 18, 32, 0.92);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-glass);
   transition: all var(--transition-normal);
 }
@@ -269,55 +269,37 @@ code, pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 74px;
+  height: 76px;
 }
 
 .brand-logo {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  gap: 0.85rem;
   text-decoration: none;
-  font-family: var(--font-heading);
+  line-height: 1;
 }
 
-.brand-logo img {
-  height: 38px;
+.header-logo-img {
+  height: 44px;
   width: auto;
-  filter: drop-shadow(0 0 8px rgba(37, 98, 235, 0.4));
+  display: block;
+  filter: drop-shadow(0 2px 8px rgba(0, 0, 0, 0.5));
+  transition: opacity var(--transition-fast);
 }
 
-.brand-name-group {
-  display: flex;
-  flex-direction: column;
-}
-
-.brand-title {
-  font-size: 1.25rem;
-  font-weight: 800;
-  letter-spacing: 0.12em;
-  color: var(--color-glacier);
-  display: flex;
-  align-items: center;
-  line-height: 1.1;
-}
-
-.brand-title .dot-a {
-  color: var(--color-teal-signal);
-  margin-left: 1px;
-}
-
-.brand-tagline {
-  font-size: 0.68rem;
-  font-weight: 700;
-  letter-spacing: 0.22em;
-  color: var(--color-stone-grey);
-  text-transform: uppercase;
-  margin-top: 1px;
+.header-logo-img:hover {
+  opacity: 0.92;
 }
 
 .nav-links {
   display: flex;
   align-items: center;
+  gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
   gap: 1.75rem;
   list-style: none;
 }
