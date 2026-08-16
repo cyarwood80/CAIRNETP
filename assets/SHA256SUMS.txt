@@ -1,0 +1,2 @@
+7e6fd5398efea0db67f2db12e21dbacc60eae048eeb56d945f513f7f0ee413fe *CAIRN Trust Fabric Setup 2.1.0.exe
+8b9f6e3a136f584bdbee44310dd7baa3027f8aa43a754dea2b5c3cd81cedb385 *CAIRN Trust Fabric 2.1.0.msi

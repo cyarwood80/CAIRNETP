@@ -73,59 +73,50 @@ document.addEventListener('DOMContentLoaded', () => {
     renderMesh();
   }
 
-  // 2. Interactive CLI Sandbox Terminal Tabs
-  const cliTabs = document.querySelectorAll('.dev-tab-btn');
-  const cliBody = document.getElementById('dev-code-body');
+  // 2. Real CAIRN Desktop Application Module Switcher
+  const appTabs = document.querySelectorAll('.dev-tab-btn');
+  const previewImg = document.getElementById('app-preview-img');
+  const previewCaption = document.getElementById('app-preview-caption');
 
-  const cliOutputs = {
-    'cli-trace-docker': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Linux Container Execution (Python / Bash / pwsh)</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"workload_agent.py"</span></div>
-<div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-blue"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY EPHEMERAL MOUNT]</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-blue"></i> Network Boundary Gate...</span> <span class="token-pass">[DEFAULT-DENY ENFORCED]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-layer-group text-blue"></i> Assurance Tier Reached:</span> <span class="token-pass">sandbox_executed</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-teal"></i> Verification complete: 0 host disk delta, 0 egress violations.</span></div>
-    `,
-    'cli-trace-win': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Windows Sandbox Hyper-V Hardware Isolation (PowerShell / Win32)</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> winvm <span class="token-string">"finance_reconciliation.ps1"</span></div>
-<div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-microchip text-blue"></i> Hyper-V Micro-VM Init...</span> <span class="token-pass">[WSB HARDWARE ISOLATED]</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield-halved text-blue"></i> Process Token Filtering...</span> <span class="token-pass">[RESTRICTED TOKEN ACTIVE]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-fingerprint text-blue"></i> Cryptographic Provenance:</span> <span class="token-pass">SHA256: 7f8a9e...e3b4</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-teal"></i> Deterministic state recorded to immutable decision ledger.</span></div>
-    `,
-    'egress': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Dynamic Egress Policy Inspection</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> policy inspect <span class="token-flag">--target</span> egress</div>
-<div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key">OUTBOUND DOMAIN WHITELIST:</span> <span class="token-pass">api.internal.bank.com [ALLOWED]</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key">UNAUTHORIZED EXFILTRATION ATTEMPT:</span> <span class="token-pass" style="color: #ef4444;">198.51.100.24 [BLOCKED]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key">CREDENTIAL REGEX SCAN:</span> <span class="token-pass">0 SECRETS DETECTED</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-shield-check text-teal"></i> Zero Egress violations. Policy enforced across 247 nodes.</span></div>
-    `,
-    'cost': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Token Consumption & Compute Metering</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> meter summary <span class="token-flag">--period</span> last-24h</div>
-<div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key">TOTAL VERIFIED ACTIONS:</span> <span class="token-pass">1,842</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key">CONTAINER RUNTIME COMPUTE:</span> <span class="token-pass">0.0042 GPU-Hrs</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key">TOKEN COST EFFICIENCY GAIN:</span> <span class="token-pass">+41.2% (Deduplicated Synthesis)</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-circle-check text-teal"></i> Policy compliance 99.8% within assigned SLA budget.</span></div>
-    `
+  const appModules = {
+    'tab-audit': {
+      img: 'assets/cairn-app-audit.png',
+      caption: '<span><i class="fas fa-fingerprint text-teal"></i> Module: <strong>Cryptographic Audit Ledger</strong></span>',
+      badge: '<span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.2rem 0.6rem; font-size: 0.72rem;">SHA-256 Signed</span>'
+    },
+    'tab-terminal': {
+      img: 'assets/cairn-app-terminal.png',
+      caption: '<span><i class="fas fa-terminal text-blue"></i> Module: <strong>Dual-Runtime Isolated Terminal</strong></span>',
+      badge: '<span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.2rem 0.6rem; font-size: 0.72rem;">Docker & WinVM Active</span>'
+    },
+    'tab-vault': {
+      img: 'assets/cairn-app-vault.png',
+      caption: '<span><i class="fas fa-vault text-teal"></i> Module: <strong>Zero-Trust Credential Vault</strong></span>',
+      badge: '<span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.2rem 0.6rem; font-size: 0.72rem;">Secrets Redacted</span>'
+    },
+    'tab-fleet': {
+      img: 'assets/cairn-app-fleet.png',
+      caption: '<span><i class="fas fa-network-wired text-blue"></i> Module: <strong>Distributed Node Fleet</strong></span>',
+      badge: '<span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.2rem 0.6rem; font-size: 0.72rem;">247 Systems Online</span>'
+    }
   };
 
-  cliTabs.forEach(tab => {
+  appTabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      cliTabs.forEach(t => t.classList.remove('active'));
+      appTabs.forEach(t => t.classList.remove('active'));
       tab.classList.add('active');
       const target = tab.getAttribute('data-tab');
-      if (cliOutputs[target] && cliBody) {
-        cliBody.innerHTML = cliOutputs[target].trim();
+      if (appModules[target] && previewImg && previewCaption) {
+        previewImg.style.opacity = '0.4';
+        setTimeout(() => {
+          previewImg.src = appModules[target].img;
+          previewCaption.innerHTML = `${appModules[target].caption} ${appModules[target].badge}`;
+          previewImg.style.opacity = '1';
+        }, 150);
       }
     });
   });
+
 
   // 3. Copy-to-Clipboard functionality
   const copyButtons = document.querySelectorAll('.copy-trigger-btn');

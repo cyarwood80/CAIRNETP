@@ -273,8 +273,8 @@
           </div>
         </div>
 
-        <!-- Right Column: Interactive Developer Sandbox Terminal -->
-        <div class="dev-window">
+        <!-- Right Column: Real CAIRN Trust Fabric Desktop Application Showcase -->
+        <div class="dev-window" style="background: rgba(6, 18, 32, 0.95); border: 1px solid var(--border-glass);">
           <div class="dev-window-header">
             <div class="window-dots">
               <span class="dot dot-red"></span>
@@ -282,21 +282,21 @@
               <span class="dot dot-green"></span>
             </div>
             <div class="dev-tabs">
-              <button class="dev-tab-btn active" data-tab="cli-trace-docker">Docker Sandbox</button>
-              <button class="dev-tab-btn" data-tab="cli-trace-win">Windows VM</button>
-              <button class="dev-tab-btn" data-tab="egress">Egress Gate</button>
-              <button class="dev-tab-btn" data-tab="cost">Cost Meter</button>
+              <button class="dev-tab-btn active" data-tab="tab-audit">Audit Ledger</button>
+              <button class="dev-tab-btn" data-tab="tab-terminal">Terminal Sandbox</button>
+              <button class="dev-tab-btn" data-tab="tab-vault">Vault & Masking</button>
+              <button class="dev-tab-btn" data-tab="tab-fleet">Node Fleet</button>
             </div>
           </div>
 
-          <div class="dev-window-body" id="dev-code-body">
-            <div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Linux Container Execution (Python / Bash / pwsh)</span></div>
-            <div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"workload_agent.py"</span></div>
-            <div class="code-line"><span class="line-num">3</span> </div>
-            <div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-blue"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY EPHEMERAL MOUNT]</span></div>
-            <div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-blue"></i> Network Boundary Gate...</span> <span class="token-pass">[DEFAULT-DENY ENFORCED]</span></div>
-            <div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-layer-group text-blue"></i> Assurance Tier Reached:</span> <span class="token-pass">sandbox_executed</span></div>
-            <div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-teal"></i> Verification complete: 0 host disk delta, 0 egress violations.</span></div>
+          <div class="dev-window-body" id="app-preview-container" style="padding: 1rem; min-height: 320px; display: flex; flex-direction: column; justify-content: space-between;">
+            <div style="position: relative; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-glass); background: #030913;">
+              <img id="app-preview-img" src="assets/cairn-app-audit.png" alt="CAIRN Trust Fabric Interface" style="width: 100%; height: auto; display: block; filter: contrast(1.02);">
+            </div>
+            <div id="app-preview-caption" style="margin-top: 0.85rem; font-size: 0.85rem; color: var(--color-stone-grey); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono);">
+              <span><i class="fas fa-fingerprint text-teal"></i> Module: <strong>Cryptographic Audit Ledger</strong></span>
+              <span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.2rem 0.6rem; font-size: 0.72rem;">SHA-256 Signed</span>
+            </div>
           </div>
         </div>
 
@@ -511,14 +511,17 @@
               <span class="spec-val">EXE &bull; MSI Installer</span>
             </div>
             <div class="spec-row">
-              <span class="spec-label">Integrity Hash:</span>
-              <span class="spec-val">SHA-256 Verified</span>
+              <span class="spec-label">SHA-256 (EXE):</span>
+              <span class="spec-val" style="font-size: 0.76rem; color: #93c5fd;" title="7e6fd5398efea0db67f2db12e21dbacc60eae048eeb56d945f513f7f0ee413fe">7e6fd539...413fe</span>
             </div>
             
-            <div style="margin-top: 1.25rem;">
-              <button class="btn btn-outline copy-trigger-btn" data-copy="7e6fd5398efea0db67f2db12e21dbacc60eae048eeb56d945f513f7f0ee413fe" style="width: 100%; font-size: 0.82rem; padding: 0.5rem;">
+            <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;">
+              <button class="btn btn-outline copy-trigger-btn" data-copy="7e6fd5398efea0db67f2db12e21dbacc60eae048eeb56d945f513f7f0ee413fe" style="width: 100%; font-size: 0.82rem; padding: 0.55rem;">
                 <i class="fas fa-fingerprint text-blue"></i> Copy Setup EXE SHA-256
               </button>
+              <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest/download/SHA256SUMS.txt" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%; font-size: 0.82rem; padding: 0.55rem; justify-content: center;">
+                <i class="fas fa-file-shield text-teal"></i> Download SHA256SUMS.txt
+              </a>
             </div>
           </div>
 
