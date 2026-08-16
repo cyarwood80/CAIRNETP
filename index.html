@@ -4,9 +4,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>CAIRN ETP — We Help Organisations Trust AI</title>
+  <title>CAIRN Trust Fabric — The Enterprise Trust Fabric</title>
   <meta name="description"
-    content="CAIRN ETP is the deterministic trust plane for enterprise intelligence. Default-deny governance, dual-runtime sandboxes (Docker + Windows Sandbox VM), tiered assurance, and verifiable decision ledgers.">
+    content="Unify trust. Orchestrate systems. Automate outcomes. CAIRN Trust Fabric provides deterministic governance, dual-runtime sandboxes (Docker + Windows Sandbox VM), and cryptographic verification for enterprise AI.">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://cairnetp.com/">
 
@@ -15,10 +15,10 @@
   {
     "@context": "https://schema.org",
     "@type": "SoftwareApplication",
-    "name": "CAIRN ETP",
-    "operatingSystem": "Cross-Platform (Linux, Windows Server, Windows 11)",
+    "name": "CAIRN Trust Fabric",
+    "operatingSystem": "Cross-Platform (Windows 11, Windows Server, Linux Containers)",
     "applicationCategory": "EnterpriseSecurityApplication",
-    "description": "Deterministic enterprise trust plane providing default-deny governance, dual-runtime sandboxes, and audit provenance for AI agent systems.",
+    "description": "Deterministic enterprise trust fabric providing default-deny governance, dual-runtime sandboxes, and audit provenance for AI agent systems.",
     "url": "https://cairnetp.com/",
     "author": {
       "@type": "Person",
@@ -34,11 +34,11 @@
   </script>
 
   <!-- OpenGraph Social Cards -->
-  <meta property="og:site_name" content="CAIRN ETP">
-  <meta property="og:title" content="CAIRN ETP — We Help Organisations Trust AI">
+  <meta property="og:site_name" content="CAIRN Trust Fabric">
+  <meta property="og:title" content="CAIRN Trust Fabric — The Enterprise Trust Fabric">
   <meta property="og:description"
-    content="The deterministic trust plane for enterprise intelligence. Default-deny governance, dual-runtime sandboxes, and immutable audit ledgers.">
-  <meta property="og:image" content="https://cairnetp.com/assets/cairn-app-terminal.png">
+    content="Unify trust. Orchestrate systems. Automate outcomes. Deterministic governance, dual-runtime sandboxes, and immutable audit ledgers.">
+  <meta property="og:image" content="https://cairnetp.com/assets/cairn-branding-board.png">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://cairnetp.com/">
@@ -47,47 +47,51 @@
   <!-- Twitter Social Cards -->
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:site" content="@cyarwood">
-  <meta name="twitter:title" content="CAIRN ETP — We Help Organisations Trust AI">
+  <meta name="twitter:title" content="CAIRN Trust Fabric — The Enterprise Trust Fabric">
   <meta name="twitter:description"
-    content="The deterministic trust plane for enterprise intelligence. Default-deny governance, dual-runtime sandboxes, and immutable audit ledgers.">
-  <meta name="twitter:image" content="https://cairnetp.com/assets/cairn-app-terminal.png">
+    content="Unify trust. Orchestrate systems. Automate outcomes. Deterministic governance, dual-runtime sandboxes, and immutable audit ledgers.">
+  <meta name="twitter:image" content="https://cairnetp.com/assets/cairn-branding-board.png">
 
-  <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
+  <!-- Google Fonts: Plus Jakarta Sans, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-  <!-- Stylesheet -->
+  <!-- Stylesheets -->
   <link rel="stylesheet" href="css/styles.css">
-  <link rel="icon" href="assets/cairn-logo.svg">
+  <link rel="icon" href="assets/cairn-logo.svg" type="image/svg+xml">
 </head>
 
 <body>
 
-  <!-- Background Grid & Glow Overlay -->
+  <!-- Background Lighting Overlays -->
   <div class="bg-grid-pattern"></div>
-  <div class="ambient-glow"></div>
+  <div class="ambient-glow-top"></div>
+  <div class="ambient-glow-mesh"></div>
 
   <!-- Header Navigation -->
   <header class="site-header">
     <div class="container nav-wrap">
-      <a href="/" class="brand-logo">
-        <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
-        <span>CAIRN<span class="text-oxide"> ETP</span></span>
+      <a href="/" class="brand-logo" title="CAIRN Trust Fabric">
+        <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" onerror="this.src='assets/cairn-logo.svg'">
+        <div class="brand-name-group">
+          <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
+          <span class="brand-tagline">Trust Fabric</span>
+        </div>
       </a>
 
       <nav>
-        <ul class="nav-links">
+        <ul class="nav-links" id="site-nav-links">
           <li><a href="/" class="nav-link active">Platform</a></li>
-          <li><a href="#trust-plane" class="nav-link">Trust Layer</a></li>
+          <li><a href="#dashboard-status" class="nav-link">Trust Graph</a></li>
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
-          <li><a href="#assurance-ladder" class="nav-link">Assurance Ladder</a></li>
-          <li><a href="#ecosystem" class="nav-link">Ecosystem</a></li>
+          <li><a href="#assurance" class="nav-link">Assurance</a></li>
+          <li><a href="#download" class="nav-link">Download</a></li>
           <li><a href="compliance.html" class="nav-link">Compliance</a></li>
           <li><a href="docs.html" class="nav-link">Docs & ADRs</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
@@ -96,12 +100,12 @@
       </nav>
 
       <div class="header-actions">
-        <button class="btn btn-oxide open-demo-btn">
-          Register Interest <i class="fas fa-arrow-right"></i>
+        <button class="btn btn-primary open-demo-btn">
+          <span>Briefing</span> <i class="fas fa-arrow-right"></i>
         </button>
-        <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-outline"
-          title="LinkedIn Profile">
-          <i class="fab fa-linkedin"></i>
+        <a href="https://github.com/cairn-trust-fabric" target="_blank" rel="noopener" class="btn btn-outline"
+          title="GitHub Repository">
+          <i class="fab fa-github"></i>
         </a>
         <button class="mobile-toggle-btn" id="mobile-toggle-btn" aria-label="Toggle Navigation">
           <i class="fas fa-bars"></i>
@@ -110,38 +114,178 @@
     </div>
   </header>
 
-  <!-- Problem & Solution Hero Section -->
+  <!-- Hero Section: The Enterprise Trust Fabric -->
   <section class="hero-section">
     <div class="container">
       <div class="hero-grid">
 
-        <!-- Hero Left Column: Copy & Actions -->
-        <div>
-          <div class="status-pill-container">
-            <span class="status-pulse-dot"></span>
-            THE TRUST PLANE FOR ENTERPRISE INTELLIGENCE
+        <!-- Left Column: Value Proposition & Actions -->
+        <div class="hero-content">
+          <div class="status-pill">
+            <span class="pulse-dot"></span>
+            THE ENTERPRISE TRUST FABRIC
           </div>
 
-          <h1 class="category-statement">
-            We help organisations <span class="text-oxide">trust AI.</span>
+          <h1 class="hero-title">
+            The Enterprise <br><span class="text-gradient">Trust Fabric</span>
           </h1>
 
-          <p class="hero-description">
-            CAIRN inserts a deterministic governance layer between enterprise user intent and model execution. Dual-runtime sandboxes, tiered assurance, and verifiable evidence back every recommendation.
+          <p class="hero-desc">
+            Unify trust. Orchestrate systems. Automate outcomes. CAIRN inserts a deterministic governance and dual-runtime verification plane between enterprise user intent and model execution.
           </p>
 
-          <div class="hero-cta-wrap">
-            <button class="btn btn-oxide open-demo-btn" style="padding: 0.85rem 1.85rem; font-size: 0.95rem;">
-              Register Interest <i class="fas fa-arrow-right"></i>
-            </button>
-            <a href="#outcomes" class="btn btn-secondary" style="padding: 0.85rem 1.6rem; font-size: 0.95rem;">
-              Explore Business Outcomes
+          <div class="hero-cta-group">
+            <a href="#dashboard-status" class="btn btn-primary">
+              Explore Platform <i class="fas fa-arrow-right"></i>
             </a>
+            <a href="#download" class="btn btn-secondary">
+              <i class="fas fa-download"></i> Download cairn.exe
+            </a>
+          </div>
+
+          <!-- Quick PowerShell Install Snippet -->
+          <div class="install-command-wrap">
+            <span class="cmd-prefix"><i class="fas fa-terminal"></i></span>
+            <code>irm https://cairnetp.com/install.ps1 | iex</code>
+            <button class="btn-copy-cmd copy-trigger-btn" data-copy="irm https://cairnetp.com/install.ps1 | iex" title="Copy Command">
+              <i class="fas fa-copy"></i>
+            </button>
           </div>
         </div>
 
-        <!-- Hero Right Column: Coder-Style Interactive Developer Window -->
-        <div class="dev-window-card">
+        <!-- Right Column: 3D Cairn Stage with Particle Trust Mesh -->
+        <div class="hero-stage">
+          <div class="hero-cairn-container">
+            <canvas id="hero-mesh-canvas" class="hero-mesh-canvas"></canvas>
+            <img src="assets/cairn-symbol-3d.png" alt="3D Cairn Trust Fabric Stack" class="hero-3d-cairn-img" onerror="this.src='assets/cairn-logo.svg'">
+            
+            <div class="floating-telemetry-pill pill-top-right">
+              <i class="fas fa-shield-check text-teal"></i>
+              <span>Zero Network Egress</span>
+            </div>
+
+            <div class="floating-telemetry-pill pill-bottom-left">
+              <i class="fas fa-circle-check text-teal"></i>
+              <span>99.8% Policy Compliance</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Trio Pillar Cards Section (Directly from Branding Board) -->
+  <section class="trio-cards-section">
+    <div class="container">
+      <div class="trio-grid">
+
+        <!-- Pillar 1: Zero Trust by Design -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <i class="fas fa-shield-halved"></i>
+          </div>
+          <h3 class="pillar-title">Zero Trust by Design</h3>
+          <div class="pillar-tagline">Security built in, not bolted on.</div>
+          <p class="pillar-desc">
+            Default-deny governance intercepts every model action, script, and API call before host execution. Ephemeral sandboxes guarantee zero host pollution.
+          </p>
+        </div>
+
+        <!-- Pillar 2: Complete Visibility -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <i class="fas fa-network-wired"></i>
+          </div>
+          <h3 class="pillar-title">Complete Visibility</h3>
+          <div class="pillar-tagline">Know, verify, govern.</div>
+          <p class="pillar-desc">
+            End-to-end telemetry across all agent runtimes, LLM endpoints, token expenditures, and cryptographic verification ledgers in one cohesive control plane.
+          </p>
+        </div>
+
+        <!-- Pillar 3: Automate at Scale -->
+        <div class="pillar-card">
+          <div class="pillar-icon-box">
+            <i class="fas fa-arrows-split-up-and-left"></i>
+          </div>
+          <h3 class="pillar-title">Automate at Scale</h3>
+          <div class="pillar-tagline">From policy to action.</div>
+          <p class="pillar-desc">
+            Transform high-level compliance mandates into deterministic runtime policies with automated rollback, tiered assurance, and SIEM integration.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Critical Enterprise Sectors Bar -->
+  <section class="sectors-bar">
+    <div class="container">
+      <div class="sectors-inner">
+        <div class="sectors-label">Engineered for Sovereign & Critical Environments</div>
+        <div class="sectors-list">
+          <div class="sector-chip"><i class="fas fa-building-columns"></i> Financial Services</div>
+          <div class="sector-chip"><i class="fas fa-landmark"></i> Government & Defense</div>
+          <div class="sector-chip"><i class="fas fa-hospital"></i> Healthcare & Life Sciences</div>
+          <div class="sector-chip"><i class="fas fa-bolt"></i> Critical Infrastructure</div>
+          <div class="sector-chip"><i class="fas fa-scale-balanced"></i> Regulated Enterprise</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Interactive Trust Fabric Status Dashboard & CLI -->
+  <section id="dashboard-status" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="status-pill status-pill-teal">
+          <span class="pulse-dot"></span>
+          REAL-TIME TELEMETRY & CONTROL
+        </div>
+        <h2 class="section-title">Trust Fabric Status</h2>
+        <p class="section-subtitle">
+          Continuous cryptographic verification, dynamic egress boundaries, and live node health across distributed enterprise infrastructure.
+        </p>
+      </div>
+
+      <div class="dashboard-grid">
+
+        <!-- Left Column: Circular Trust Graph & Metric Counters -->
+        <div class="dashboard-card">
+          <div class="dashboard-header">
+            <div class="dashboard-title-group">
+              <i class="fas fa-circle-nodes text-blue"></i>
+              <h3 style="font-size: 1.15rem;">Live Trust Topology</h3>
+            </div>
+            <span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.25rem 0.75rem;">
+              <span class="pulse-dot"></span> Active Fabric
+            </span>
+          </div>
+
+          <div class="metrics-row">
+            <div class="metric-box">
+              <div class="metric-value">247 <span style="font-size: 0.9rem; color: #60a5fa;"><i class="fas fa-arrow-trend-up"></i></span></div>
+              <div class="metric-label">Trusted Systems</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value">1,842</div>
+              <div class="metric-label">Policy Actions / 24h</div>
+            </div>
+            <div class="metric-box">
+              <div class="metric-value">99.8%</div>
+              <div class="metric-label">Policy Compliance</div>
+            </div>
+          </div>
+
+          <div class="trust-graph-wrapper">
+            <canvas id="trust-graph-canvas"></canvas>
+          </div>
+        </div>
+
+        <!-- Right Column: Interactive Developer Sandbox Terminal -->
+        <div class="dev-window">
           <div class="dev-window-header">
             <div class="window-dots">
               <span class="dot dot-red"></span>
@@ -150,20 +294,20 @@
             </div>
             <div class="dev-tabs">
               <button class="dev-tab-btn active" data-tab="cli-trace-docker">Docker Sandbox</button>
-              <button class="dev-tab-btn" data-tab="cli-trace-win">Windows Sandbox VM</button>
+              <button class="dev-tab-btn" data-tab="cli-trace-win">Windows VM</button>
               <button class="dev-tab-btn" data-tab="egress">Egress Gate</button>
-              <button class="dev-tab-btn" data-tab="cost">Cost Metering</button>
+              <button class="dev-tab-btn" data-tab="cost">Cost Meter</button>
             </div>
           </div>
 
           <div class="dev-window-body" id="dev-code-body">
-            <div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Docker Container Execution (Linux / Python / pwsh)</span></div>
-            <div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"verify_disk_space.py"</span></div>
+            <div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Linux Container Execution (Python / Bash / pwsh)</span></div>
+            <div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"workload_agent.py"</span></div>
             <div class="code-line"><span class="line-num">3</span> </div>
-            <div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-oxide"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY MOUNT]</span></div>
-            <div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-oxide"></i> Network Boundary Check...</span> <span class="token-pass">[DISABLED]</span></div>
-            <div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-vial text-oxide"></i> Execution Assurance Tier:</span> <span class="token-pass">sandbox_executed</span></div>
-            <div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Verification successful. 0 network egress, zero host pollution.</span></div>
+            <div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-blue"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY EPHEMERAL MOUNT]</span></div>
+            <div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-blue"></i> Network Boundary Gate...</span> <span class="token-pass">[DEFAULT-DENY ENFORCED]</span></div>
+            <div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-layer-group text-blue"></i> Assurance Tier Reached:</span> <span class="token-pass">sandbox_executed</span></div>
+            <div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-teal"></i> Verification complete: 0 host disk delta, 0 egress violations.</span></div>
           </div>
         </div>
 
@@ -171,598 +315,366 @@
     </div>
   </section>
 
-  <!-- Target Sectors Bar -->
-  <section class="sectors-bar">
+  <!-- The 4-Tier Cairn Architectural System -->
+  <section id="architecture" class="section-spacing" style="background: rgba(3, 9, 19, 0.5);">
     <div class="container">
-      <div class="sectors-label">Designed for Critical Enterprise Infrastructure</div>
-      <div class="sectors-list">
-        <div class="sector-tag"><i class="fas fa-landmark"></i> Financial Services</div>
-        <div class="sector-tag"><i class="fas fa-building-columns"></i> Government</div>
-        <div class="sector-tag"><i class="fas fa-shield-halved"></i> Defence</div>
-        <div class="sector-tag"><i class="fas fa-hospital"></i> Healthcare</div>
-        <div class="sector-tag"><i class="fas fa-network-wired"></i> Critical Infrastructure</div>
+      <div class="section-title-wrap">
+        <div class="status-pill">
+          <i class="fas fa-layer-group"></i> THE 4-TIER CAIRN SYSTEM
+        </div>
+        <h2 class="section-title">The Cairn Architecture</h2>
+        <p class="section-subtitle">
+          The stacked cairn symbol represents the physical architecture: from user intent to cryptographic evidence.
+        </p>
+      </div>
+
+      <div class="arch-grid">
+
+        <!-- Left: Interactive Layer Selectors -->
+        <div class="cairn-layers-visual">
+          
+          <div class="cairn-layer-card active" data-layer="intent">
+            <div class="layer-badge">Stone 1 (Top) • Ingress</div>
+            <h4 class="layer-title">1. Intent & Ingress Gate</h4>
+            <p class="layer-desc">Schema validation, AST parsing, and prompt injection filters before code touches any system.</p>
+          </div>
+
+          <div class="cairn-layer-card" data-layer="governance">
+            <div class="layer-badge">Stone 2 • Governance</div>
+            <h4 class="layer-title">2. Policy & Governance Engine</h4>
+            <p class="layer-desc">Granular RBAC, egress IP whitelisting, and secret redaction enforced in microseconds.</p>
+          </div>
+
+          <div class="cairn-layer-card" data-layer="execution">
+            <div class="layer-badge">Stone 3 • Execution</div>
+            <h4 class="layer-title">3. Dual-Runtime Sandbox</h4>
+            <p class="layer-desc">Dynamic hardware-isolated dispatch to Linux Docker or Windows Sandbox Hyper-V micro-VMs.</p>
+          </div>
+
+          <div class="cairn-layer-card" data-layer="evidence">
+            <div class="layer-badge">Stone 4 (Base) • Foundation</div>
+            <h4 class="layer-title">4. Cryptographic Evidence Ledger</h4>
+            <p class="layer-desc">Immutable SHA-256 decision records, SIEM audit streams, and EU AI Act compliance proofs.</p>
+          </div>
+
+        </div>
+
+        <!-- Right: Architectural Breakdown Graphic -->
+        <div class="dashboard-card" style="padding: 2.5rem; justify-content: center; align-items: center; text-align: center;">
+          <img src="assets/cairn-symbol-3d.png" alt="Stacked Cairn Layers" style="width: 220px; height: auto; margin-bottom: 2rem; filter: drop-shadow(0 15px 30px rgba(37, 98, 235, 0.4));" onerror="this.src='assets/cairn-logo.svg'">
+          <h3 style="margin-bottom: 0.75rem;">Layered Trust Composition</h3>
+          <p style="font-size: 0.95rem; max-width: 440px; margin: 0 auto 1.5rem auto;">
+            Each layer builds deterministically upon the foundations below it. If any lower tier fails verification, execution halts immediately with zero side effects.
+          </p>
+          <a href="docs.html" class="btn btn-outline">
+            Read Architecture Decision Records (ADRs) <i class="fas fa-arrow-right"></i>
+          </a>
+        </div>
+
       </div>
     </div>
   </section>
 
-  <!-- Ecosystem & Interoperability Section -->
-  <section id="ecosystem" class="section-spacing" style="padding-top: 3.5rem; padding-bottom: 3.5rem;">
+  <!-- 6-Tier Verification Assurance Ladder -->
+  <section id="assurance" class="section-spacing">
     <div class="container">
       <div class="section-title-wrap">
-        <div class="status-pill-container" style="margin-bottom: 1rem;">
-          <span class="status-pulse-dot"></span>
-          ENTERPRISE STACK INTEGRATION
+        <div class="status-pill status-pill-teal">
+          <i class="fas fa-stairs"></i> VERIFICATION PROGRESSION
+        </div>
+        <h2 class="section-title">Assurance Ladder</h2>
+        <p class="section-subtitle">
+          Every recommendation and automated action is graded across 6 deterministic assurance tiers.
+        </p>
+      </div>
+
+      <div class="ladder-grid">
+
+        <div class="ladder-step">
+          <div class="ladder-step-num">TIER 0</div>
+          <div class="ladder-step-title">Unverified</div>
+          <span class="ladder-step-status" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">Untrusted</span>
+          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Raw LLM string or unparsed script.</p>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step-num">TIER 1</div>
+          <div class="ladder-step-title">Static Checked</div>
+          <span class="ladder-step-status" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Inspected</span>
+          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">AST syntax parsing and secret regex scan.</p>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step-num">TIER 2</div>
+          <div class="ladder-step-title">Sandbox Executed</div>
+          <span class="ladder-step-status">Isolated</span>
+          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Ephemeral container run with read-only root.</p>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step-num">TIER 3</div>
+          <div class="ladder-step-title">Behaviour Checked</div>
+          <span class="ladder-step-status">Observed</span>
+          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Zero network egress & disk delta confirmed.</p>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step-num">TIER 4</div>
+          <div class="ladder-step-title">Deterministic</div>
+          <span class="ladder-step-status">Reproducible</span>
+          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Identical output across multi-run seed tests.</p>
+        </div>
+
+        <div class="ladder-step">
+          <div class="ladder-step-num">TIER 5</div>
+          <div class="ladder-step-title">Idempotent</div>
+          <span class="ladder-step-status" style="background: rgba(20, 200, 166, 0.25); border-color: #14c8a6;">Verified</span>
+          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Safely repeatable without state corruption.</p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Ecosystem & Enterprise Interoperability -->
+  <section id="ecosystem" class="section-spacing" style="background: rgba(3, 9, 19, 0.4);">
+    <div class="container">
+      <div class="section-title-wrap">
+        <div class="status-pill">
+          <i class="fas fa-plug"></i> ENTERPRISE INTEGRATIONS
         </div>
         <h2 class="section-title">Ecosystem & Interoperability</h2>
         <p class="section-subtitle">
-          CAIRN drops seamlessly into your existing enterprise stack with native compatibility across open protocols, sovereign LLM runtimes, hybrid clouds, and SIEM security logging.
+          CAIRN integrates natively with your existing security perimeter, SIEM pipelines, and sovereign cloud infrastructure.
         </p>
       </div>
 
       <div class="ecosystem-grid">
-        
-        <!-- Category 1: Protocols -->
-        <div class="ecosystem-card">
-          <div>
-            <div class="ecosystem-header">
-              <div class="ecosystem-icon"><i class="fas fa-network-wired"></i></div>
-              <div class="ecosystem-cat-title">Protocols & Agents</div>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55;">
-              Native integration with open agent standards and container execution specs.
-            </p>
-            <div class="ecosystem-badges-wrap">
-              <span class="proto-badge highlight-badge"><i class="fas fa-plug"></i> Model Context Protocol (MCP)</span>
-              <span class="proto-badge"><i class="fab fa-docker"></i> Docker Sandbox Container</span>
-              <span class="proto-badge"><i class="fas fa-wave-square"></i> OpenTelemetry</span>
-              <span class="proto-badge"><i class="fas fa-bolt"></i> Async WebHooks</span>
-            </div>
-          </div>
+
+        <div class="eco-card">
+          <div class="eco-icon"><i class="fab fa-windows"></i></div>
+          <h4 class="eco-title">Windows Sandbox VM</h4>
+          <p class="eco-desc">Native Hyper-V micro-VM hardware virtualization on Windows 11 & Windows Server.</p>
         </div>
 
-        <!-- Category 2: LLM Runtimes -->
-        <div class="ecosystem-card">
-          <div>
-            <div class="ecosystem-header">
-              <div class="ecosystem-icon"><i class="fas fa-microchip"></i></div>
-              <div class="ecosystem-cat-title">Model Runtimes</div>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55;">
-              Support for local sovereign engines and managed frontier cloud backends.
-            </p>
-            <div class="ecosystem-badges-wrap">
-              <span class="proto-badge highlight-badge"><i class="fas fa-terminal"></i> Ollama</span>
-              <span class="proto-badge highlight-badge"><i class="fas fa-server"></i> vLLM Cluster</span>
-              <span class="proto-badge"><i class="fab fa-microsoft"></i> Azure OpenAI</span>
-              <span class="proto-badge"><i class="fab fa-aws"></i> AWS Bedrock</span>
-              <span class="proto-badge"><i class="fas fa-brain"></i> Anthropic Claude</span>
-            </div>
-          </div>
+        <div class="eco-card">
+          <div class="eco-icon"><i class="fab fa-docker"></i></div>
+          <h4 class="eco-title">Docker & Podman</h4>
+          <p class="eco-desc">Linux container runtimes with read-only rootfs and cgroup resource governance.</p>
         </div>
 
-        <!-- Category 3: Hybrid Cloud -->
-        <div class="ecosystem-card">
-          <div>
-            <div class="ecosystem-header">
-              <div class="ecosystem-icon"><i class="fas fa-cloud-nodes"></i></div>
-              <div class="ecosystem-cat-title">Hybrid Infrastructure</div>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55;">
-              Air-gapped deployment, hybrid governance, and enterprise cloud management.
-            </p>
-            <div class="ecosystem-badges-wrap">
-              <span class="proto-badge highlight-badge"><i class="fab fa-microsoft"></i> Azure Arc</span>
-              <span class="proto-badge"><i class="fas fa-shield-halved"></i> Air-Gapped Clusters</span>
-              <span class="proto-badge"><i class="fab fa-windows"></i> Windows Sandbox VM</span>
-              <span class="proto-badge"><i class="fas fa-dharmachakra"></i> Kubernetes (K8s)</span>
-            </div>
-          </div>
+        <div class="eco-card">
+          <div class="eco-icon"><i class="fas fa-shield-virus"></i></div>
+          <h4 class="eco-title">CrowdStrike & SIEM</h4>
+          <p class="eco-desc">Structured JSON decision telemetry streams directly to Splunk, Datadog, and Sentinel.</p>
         </div>
 
-        <!-- Category 4: Enterprise SIEM -->
-        <div class="ecosystem-card">
-          <div>
-            <div class="ecosystem-header">
-              <div class="ecosystem-icon"><i class="fas fa-shield-cat"></i></div>
-              <div class="ecosystem-cat-title">SIEM & Telemetry</div>
-            </div>
-            <p style="font-size: 0.875rem; color: var(--text-secondary); line-height: 1.55;">
-              Real-time audit telemetry streamed straight to enterprise Security Operations Centers.
-            </p>
-            <div class="ecosystem-badges-wrap">
-              <span class="proto-badge highlight-badge"><i class="fas fa-database"></i> Splunk Enterprise</span>
-              <span class="proto-badge highlight-badge"><i class="fas fa-magnifying-glass"></i> Elastic (ELK)</span>
-              <span class="proto-badge highlight-badge"><i class="fas fa-shield-halved"></i> Microsoft Sentinel</span>
-              <span class="proto-badge"><i class="fas fa-dog"></i> Datadog SIEM</span>
-              <span class="proto-badge"><i class="fas fa-file-lines"></i> Syslog / CEF</span>
-            </div>
-          </div>
+        <div class="eco-card">
+          <div class="eco-icon"><i class="fab fa-github"></i></div>
+          <h4 class="eco-title">GitHub Actions & CI</h4>
+          <p class="eco-desc">Automate policy verification and code safety gates across your pull request workflows.</p>
         </div>
 
       </div>
     </div>
   </section>
 
-  <!-- NEW: Three Core Business Outcomes Section -->
-  <section id="outcomes" class="section-spacing" style="padding-top: 2rem; padding-bottom: 2rem;">
+  <!-- GitHub & Download Release Section -->
+  <section id="download" class="section-spacing">
     <div class="container">
-      <div class="section-title-wrap" style="text-align: center; margin-bottom: 2.5rem;">
-        <div class="status-pill-container" style="margin-bottom: 1rem;">
-          <span class="status-pulse-dot"></span>
-          EXECUTIVE BUSINESS OUTCOMES
-        </div>
-        <h2 class="section-title" style="font-size: 2.35rem;">What Problem Do We Solve For You?</h2>
-        <p class="section-subtitle" style="margin: 0 auto; max-width: 680px;">
-          CAIRN converts unpredictable AI outputs into predictable, verifiable enterprise performance.
-        </p>
-      </div>
+      <div class="download-card-wrap">
+        <div class="download-grid">
 
-      <div class="business-outcomes-grid">
-        
-        <!-- Outcome 1: Stop AI Hallucinations -->
-        <div class="outcome-card">
           <div>
-            <div class="outcome-icon-badge"><i class="fas fa-ban"></i></div>
-            <h3 class="outcome-title">Stop AI Hallucinations</h3>
-            <p class="outcome-desc">
-              Prevent invalid model actions before they execute. CAIRN checks every prompt and tool call against strict policy boundaries, blocking un-governed commands at the perimeter.
-            </p>
-          </div>
-        </div>
-
-        <!-- Outcome 2: Prevent Data Leakage -->
-        <div class="outcome-card">
-          <div>
-            <div class="outcome-icon-badge"><i class="fas fa-shield-halved"></i></div>
-            <h3 class="outcome-title">Prevent AI Data Leakage</h3>
-            <p class="outcome-desc">
-              CAIRN prevents secrets and credentials from leaving your organization—even if an AI model attempts to expose them or transmit them to third-party endpoints.
-            </p>
-          </div>
-        </div>
-
-        <!-- Outcome 3: Prove Every Decision -->
-        <div class="outcome-card">
-          <div>
-            <div class="outcome-icon-badge"><i class="fas fa-file-signature"></i></div>
-            <h3 class="outcome-title">Prove Every AI Decision</h3>
-            <p class="outcome-desc">
-              Every AI decision is signed, recorded, and fully auditable with tamper-evident decision ledgers ready for enterprise risk teams and regulatory compliance.
-            </p>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Bento Grid: The 7 Pillars of Enterprise Trust (Shortened Copy) -->
-  <section id="trust-plane" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <div class="status-pill-container" style="margin-bottom: 1rem;">
-          <span class="status-pulse-dot"></span>
-          CATEGORICAL TRUST ARCHITECTURE
-        </div>
-        <h2 class="section-title">How CAIRN Works — The 7 Pillars</h2>
-        <p class="section-subtitle">
-          A modular trust plane delivering total operational control over autonomous agents.
-        </p>
-      </div>
-
-      <div class="bento-grid">
-        
-        <!-- Bento Card 1: Default Deny Gatekeeper -->
-        <div class="bento-card span-2">
-          <div class="bento-header">
-            <span class="bento-tag">PILLAR 01 • INGRESS CONTROL</span>
-            <div class="bento-icon"><i class="fas fa-shield-cat"></i></div>
-          </div>
-          <div>
-            <h3 class="bento-title">Default-Deny Security Gatekeeper</h3>
-            <p class="bento-desc">
-              Un-yielding default-deny security boundary. Every prompt instruction and tool call is evaluated against strict cryptographic policies prior to execution.
-            </p>
-          </div>
-          <div class="bento-code-snippet">
-            <span class="token-cmd">STRIX_AST_SCAN</span>: <span class="token-pass">APPROVED</span> | Boundary Check: Secure
-          </div>
-        </div>
-
-        <!-- Bento Card 2: PATH Workflow Router -->
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">PILLAR 02 • ROUTING</span>
-            <div class="bento-icon"><i class="fas fa-route"></i></div>
-          </div>
-          <div>
-            <h3 class="bento-title">PATH Task Router</h3>
-            <p class="bento-desc">
-              Model-agnostic task router dynamically selecting local workers or cloud backends based on hardware clearance.
-            </p>
-          </div>
-          <div class="bento-code-snippet">
-            <span class="token-key">route</span>: <span class="token-string">"sovereign_local_llm"</span>
-          </div>
-        </div>
-
-        <!-- Bento Card 3: BEACON Bus -->
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">PILLAR 03 • AWARENESS</span>
-            <div class="bento-icon"><i class="fas fa-tower-cell"></i></div>
-          </div>
-          <div>
-            <h3 class="bento-title">BEACON Event Bus</h3>
-            <p class="bento-desc">
-              Real-time operational event bus streaming progress telemetry without exposing sensitive payload data.
-            </p>
-          </div>
-          <div class="bento-code-snippet">
-            <span class="token-key">bus_event</span>: <span class="token-pass">STREAMING</span>
-          </div>
-        </div>
-
-        <!-- Bento Card 4: COMPASS Audit -->
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">PILLAR 04 • AUDITABILITY</span>
-            <div class="bento-icon"><i class="fas fa-file-signature"></i></div>
-          </div>
-          <div>
-            <h3 class="bento-title">COMPASS Decision Audit</h3>
-            <p class="bento-desc">
-              Every AI decision is signed, recorded, and fully auditable with tamper-evident evidence chains.
-            </p>
-          </div>
-          <div class="bento-code-snippet">
-            <span class="token-key">audit_signature</span>: <span class="token-string">"0x98f4a..."</span>
-          </div>
-        </div>
-
-        <!-- Bento Card 5: ATLAS Memory -->
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">PILLAR 05 • KNOWLEDGE</span>
-            <div class="bento-icon"><i class="fas fa-brain"></i></div>
-          </div>
-          <div>
-            <h3 class="bento-title">ATLAS Knowledge Fabric</h3>
-            <p class="bento-desc">
-              Zero-hallucination context fabric retrieving knowledge strictly from authorized institutional data notes.
-            </p>
-          </div>
-          <div class="bento-code-snippet">
-            <span class="token-key">provenance_score</span>: <span class="token-pass">1.00</span>
-          </div>
-        </div>
-
-        <!-- Bento Card 6 & 7: FORGE & CRUCIBLE Dual Sandbox -->
-        <div class="bento-card span-2">
-          <div class="bento-header">
-            <span class="bento-tag">PILLARS 06 & 07: SYNTHESIS & DUAL-SANDBOX ENGINE</span>
-            <div class="bento-icon"><i class="fas fa-box-archive"></i></div>
-          </div>
-          <div>
-            <h3 class="bento-title">FORGE Engine & CRUCIBLE Dual-Sandbox</h3>
-            <p class="bento-desc">
-              Synthesised code executes inside disposable runtimes: isolated Docker containers for cross-platform scripts, or disposable Windows Sandbox VMs for PowerShell administrative tasks.
-            </p>
-          </div>
-          <div class="bento-code-snippet">
-            <span class="token-cmd">DUAL_SANDBOX</span>: Docker + Windows Sandbox VM | <span class="token-pass">sandbox_executed</span>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Visual Verification Maturity Ladder Section (ADR-0008 & ADR-0006) -->
-  <section id="assurance-ladder" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <div class="status-pill-container" style="margin-bottom: 1rem;">
-          <span class="status-pulse-dot"></span>
-          ADR-0008: EXPLICIT VERIFICATION LADDER
-        </div>
-        <h2 class="section-title">Visual Verification Maturity Ladder</h2>
-        <p class="section-subtitle">
-          Most AI platforms simply claim "verified". CAIRN explicitly defines verification across 6 progressive maturity rungs.
-        </p>
-      </div>
-
-      <!-- Sequential Visual Maturity Ladder -->
-      <div class="maturity-ladder-grid">
-        
-        <div class="maturity-step-card">
-          <span class="maturity-rung-badge">RUNG 01</span>
-          <div class="maturity-step-title">Unverified</div>
-          <div class="maturity-step-desc">Raw output generated without static checks or execution bounds.</div>
-        </div>
-
-        <div class="maturity-step-card">
-          <span class="maturity-rung-badge">RUNG 02</span>
-          <div class="maturity-step-title">Static Checked</div>
-          <div class="maturity-step-desc">AST syntax validation passed. Discloses missing host toolchains.</div>
-        </div>
-
-        <div class="maturity-step-card active-step">
-          <span class="maturity-rung-badge">RUNG 03</span>
-          <div class="maturity-step-title">Sandbox Executed</div>
-          <div class="maturity-step-desc">Executed in Docker container or Windows Sandbox VM.</div>
-        </div>
-
-        <div class="maturity-step-card">
-          <span class="maturity-rung-badge">RUNG 04</span>
-          <div class="maturity-step-title">Behaviour Checked</div>
-          <div class="maturity-step-desc">Outputs evaluated against contract criteria and assertions.</div>
-        </div>
-
-        <div class="maturity-step-card">
-          <span class="maturity-rung-badge">RUNG 05</span>
-          <div class="maturity-step-title">Deterministic</div>
-          <div class="maturity-step-desc">Results proven consistent across seeded runs under identical params.</div>
-        </div>
-
-        <div class="maturity-step-card">
-          <span class="maturity-rung-badge">RUNG 06</span>
-          <div class="maturity-step-title">Idempotent</div>
-          <div class="maturity-step-desc">Verified safe for repeated execution without state pollution.</div>
-        </div>
-
-      </div>
-
-      <!-- Real-World Enterprise Case Study Card -->
-      <div class="case-study-card">
-        <div style="font-family: var(--font-mono); font-size: 0.8rem; color: var(--color-oxide-green); font-weight: 600; margin-bottom: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; display: flex; align-items: center; gap: 0.5rem;">
-          <i class="fas fa-microchip"></i> REAL-WORLD ENTERPRISE CASE STUDY
-        </div>
-        <h3 style="font-size: 1.45rem; font-weight: 700; color: #ffffff; margin-bottom: 0.75rem;">
-          Deterministic PowerShell Execution in Windows Sandbox VM
-        </h3>
-        <p style="color: #cbd5e1; font-size: 1.05rem; line-height: 1.7; max-width: 900px; margin-bottom: 0;">
-          "PowerShell generated by an LLM was executed inside a disposable Windows Sandbox VM, verified against expected behaviour, and promoted to production only after deterministic replay."
-        </p>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- Category Architecture Comparison Section -->
-  <section id="architecture" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <h2 class="section-title">Governed vs Un-Governed Architecture</h2>
-        <p class="section-subtitle">
-          Comparing traditional un-checked model execution with CAIRN's deterministic governance plane.
-        </p>
-      </div>
-
-      <div class="trust-plane-comparison">
-
-        <!-- Traditional Un-Governed AI -->
-        <div class="diagram-card">
-          <div class="diagram-card-title" style="color: var(--text-muted);">
-            <i class="fas fa-circle-notch"></i> Traditional Un-Governed AI
-          </div>
-          <div class="diagram-flow-chain">
-            <div class="flow-step-box"><span>1. Direct User Prompt</span> <i class="fas fa-arrow-right text-muted"></i></div>
-            <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box"><span>2. Unchecked Reasoning Model</span> <i class="fas fa-arrow-right text-muted"></i></div>
-            <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box" style="border-color: rgba(239, 68, 68, 0.4); color: #fca5a5;">
-              <span>3. Unverified Answer / Hallucination Risk</span> <i class="fas fa-xmark"></i>
+            <div class="status-pill status-pill-teal" style="margin-bottom: 1rem;">
+              <i class="fab fa-github"></i> GITHUB RELEASES DISTRIBUTION
             </div>
-          </div>
-        </div>
-
-        <!-- CAIRN Governed Trust Plane -->
-        <div class="diagram-card cairn-plane">
-          <div class="diagram-card-title" style="color: var(--color-oxide-green);">
-            <i class="fas fa-shield-check"></i> CAIRN Governed Trust Plane
-          </div>
-          <div class="diagram-flow-chain">
-            <div class="flow-step-box"><span>1. Enterprise Intent</span></div>
-            <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight"><span>2. Default-Deny Security Gate</span></div>
-            <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight"><span>3. Evidence Fabric Verification</span></div>
-            <div class="flow-step-arrow"><i class="fas fa-arrow-down"></i></div>
-            <div class="flow-step-box highlight" style="border-color: var(--color-oxide-green); font-weight: 700;">
-              <span>4. Signed, Audited & Provable Response</span> <i class="fas fa-check text-oxide"></i>
-            </div>
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Frontier Execution, Egress Gate & Cost Governance Section (ADR-0010) -->
-  <section id="frontier" class="section-spacing">
-    <div class="container">
-      <div class="section-title-wrap">
-        <div class="status-pill-container" style="margin-bottom: 1rem;">
-          <span class="status-pulse-dot"></span>
-          ADR-0010: FRONTIER EXECUTION & EGRESS GOVERNANCE
-        </div>
-        <h2 class="section-title">Egress Control & Cost Governance</h2>
-        <p class="section-subtitle" style="max-width: 720px; margin: 0 auto;">
-          CAIRN prevents secrets leaving your organisation: even if an AI attempts to expose them.
-        </p>
-      </div>
-
-      <div class="bento-grid">
-        
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">SECURITY BOUNDARY</span>
-            <div class="bento-icon"><i class="fas fa-shield-cat"></i></div>
-          </div>
-          <h3 class="bento-title">Content-Based Egress Gate</h3>
-          <p class="bento-desc">
-            Evaluates outbound payloads by content. Secret credentials are denied automatically across all boundaries, keeping sensitive enterprise data safe.
-          </p>
-          <div class="bento-code-snippet">
-            <span class="token-key">EGRESS_GATE</span>: <span class="token-pass">Active</span> | Secret Leakage: DENIED
-          </div>
-        </div>
-
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">FLEET ARCHITECTURE</span>
-            <div class="bento-icon"><i class="fas fa-cloud-nodes"></i></div>
-          </div>
-          <h3 class="bento-title">Hybrid Fleet Model Backing</h3>
-          <p class="bento-desc">
-            Leverage high-performance cloud models while security gates, decision ledgers, and execution verification remain strictly local.
-          </p>
-          <div class="bento-code-snippet">
-            <span class="token-key">SECURITY_GATE</span>: <span class="token-pass">STRICTLY_LOCAL</span> | Models: Hybrid Cloud
-          </div>
-        </div>
-
-        <div class="bento-card">
-          <div class="bento-header">
-            <span class="bento-tag">ECONOMICS & AUDIT</span>
-            <div class="bento-icon"><i class="fas fa-coins"></i></div>
-          </div>
-          <h3 class="bento-title">Real-Time Cost Metering & Price Discovery</h3>
-          <p class="bento-desc">
-            Every cloud token call is metered against per-million rates with explicit provenance recorded in the immutable decision ledger.
-          </p>
-          <div class="bento-code-snippet">
-            <span class="token-cmd">COST_METER</span>: Token Spend Calculated | Ledger Provenance Recorded
-          </div>
-        </div>
-
-      </div>
-    </div>
-  </section>
-
-  <!-- Foundational Publication & Book Showcase Section -->
-  <section id="book" class="section-spacing">
-    <div class="container">
-      <div class="publication-card">
-        <div class="publication-grid">
-          <div>
-            <div class="status-pill-container" style="margin-bottom: 1rem;">
-              <span class="status-pulse-dot"></span>
-              FOUNDATIONAL PUBLICATION
-            </div>
-            <h3 style="font-size: 2rem; margin-bottom: 0.75rem;">CAIRN: Engineering a Sovereign AI Agent Platform</h3>
-            <p style="color: var(--text-secondary); font-size: 1.05rem; margin-bottom: 1.75rem; line-height: 1.7;">
-              By <strong>Chris Yarwood</strong>. An architectural blueprint for enterprise engineering teams building sovereign, deterministic AI agent platforms with zero phone-home dependencies and strict governance controls.
+            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Download CAIRN Trust Fabric</h2>
+            <p style="color: var(--color-stone-grey); margin-bottom: 2rem; font-size: 1.05rem;">
+              CAIRN is distributed via signed binary releases with cryptographic checksums. Access documentation, architecture guides, and issue tracking on GitHub.
             </p>
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-oxide">
-                <i class="fab fa-amazon"></i> Order on Amazon UK
+
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.5rem;">
+              <a href="https://github.com/cairn-trust-fabric/cairn-trust-fabric/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.85rem 1.8rem;">
+                <i class="fas fa-download"></i> Download cairn-windows-x64.exe
               </a>
-              <a href="book.html" class="btn btn-secondary">
-                <i class="fas fa-book-open"></i> Read Book Preface
+              <a href="https://github.com/cairn-trust-fabric" target="_blank" rel="noopener" class="btn btn-secondary">
+                <i class="fab fa-github"></i> GitHub Repository
               </a>
             </div>
+
+            <div class="install-command-wrap">
+              <span class="cmd-prefix"><i class="fas fa-terminal"></i></span>
+              <code>irm https://cairnetp.com/install.ps1 | iex</code>
+              <button class="btn-copy-cmd copy-trigger-btn" data-copy="irm https://cairnetp.com/install.ps1 | iex" title="Copy Command">
+                <i class="fas fa-copy"></i>
+              </button>
+            </div>
           </div>
 
-          <div style="display: flex; justify-content: center; align-items: center;">
-            <img src="assets/book-cover.png" alt="CAIRN Book Cover"
-              style="max-height: 320px; border-radius: var(--radius-sm); box-shadow: var(--shadow-card);">
+          <!-- Binary Specs Box -->
+          <div class="binary-spec-box">
+            <h4 style="margin-bottom: 1rem; color: var(--color-glacier);">Release Specifications</h4>
+            
+            <div class="spec-row">
+              <span class="spec-label">Version:</span>
+              <span class="spec-val text-teal">v1.0.0 (Production)</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Architecture:</span>
+              <span class="spec-val">Windows x64 / Linux VM</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Binary Name:</span>
+              <span class="spec-val">cairn.exe</span>
+            </div>
+            <div class="spec-row">
+              <span class="spec-label">Integrity Hash:</span>
+              <span class="spec-val">SHA-256 Checksum</span>
+            </div>
+            
+            <div style="margin-top: 1.25rem;">
+              <button class="btn btn-outline copy-trigger-btn" data-copy="SHA256: 7f8a9e4d5c6b7a8b9c0d1e2f3a4b5c6d7e8f9a0b1c2d3e4f5a6b7c8d9e0f1a2b" style="width: 100%; font-size: 0.82rem; padding: 0.5rem;">
+                <i class="fas fa-fingerprint text-blue"></i> Copy SHA256 Checksum
+              </button>
+            </div>
           </div>
+
         </div>
       </div>
     </div>
   </section>
 
-  <!-- Footer -->
-  <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand-logo" style="margin-bottom: 1rem;">
-          <img src="assets/cairn-logo.svg" alt="CAIRN ETP Mark">
-          <span>CAIRN<span class="text-oxide"> ETP</span></span>
-        </div>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
-          We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
-        </p>
-        <p style="color: var(--text-muted); font-size: 0.8rem;">
-          &copy; 2026 CAIRN ETP. All rights reserved.
-        </p>
-      </div>
-
-      <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Platform</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="#outcomes" class="nav-link" style="padding: 0;">Business Outcomes</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="#architecture" class="nav-link" style="padding: 0;">Architecture</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="licensing.html" class="nav-link" style="padding: 0;">Licensing</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Governance & Legal</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="compliance.html" class="nav-link" style="padding: 0;">Compliance Mapping</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="docs.html" class="nav-link" style="padding: 0;">Architecture Records (ADRs)</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">Publications & Book</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Contact & Access</h4>
-        <button class="btn btn-oxide open-demo-btn" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
-          Register Interest <i class="fas fa-arrow-right"></i>
-        </button>
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
-          Air-gapped and sovereign cloud deployment options available.
-        </p>
-      </div>
-    </div>
-  </footer>
-
-  <!-- Demonstration Request Modal Dialog -->
+  <!-- Enterprise Lead Capture Modal -->
   <div id="demo-modal" class="modal-overlay">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div>
-          <h3 style="font-size: 1.25rem;">Register Your Interest</h3>
-          <div style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-oxide-green); margin-top: 0.2rem;">
-            CAIRN ENTERPRISE TRUST PLANE
-          </div>
-        </div>
-        <button id="demo-close-btn" class="modal-close-btn">&times;</button>
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      
+      <div class="status-pill status-pill-teal" style="margin-bottom: 0.75rem;">
+        <i class="fas fa-building-columns"></i> ENTERPRISE BRIEFING
       </div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Schedule Architecture Briefing</h3>
+      <p style="font-size: 0.92rem; color: var(--color-stone-grey); margin-bottom: 1.5rem;">
+        Connect with our principal engineers to discuss sovereign deployment, custom sandbox policies, and enterprise node licensing.
+      </p>
 
-      <form id="demo-form" onsubmit="event.preventDefault(); handleDemoSubmit();">
+      <form id="enterprise-lead-form">
         <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="demo-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+          <label class="form-label" for="lead-name">Full Name</label>
+          <input type="text" id="lead-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
         </div>
 
         <div class="form-group">
-          <label>Work Email</label>
-          <input type="email" id="demo-email" class="form-input" placeholder="s.jenkins@enterprise-bank.com" required>
+          <label class="form-label" for="lead-email">Corporate Email</label>
+          <input type="email" id="lead-email" class="form-input" placeholder="e.g. s.jenkins@enterprise.com" required>
         </div>
 
         <div class="form-group">
-          <label>Organization / Sector</label>
-          <input type="text" id="demo-org" class="form-input" placeholder="Financial Services / Defence / Government" required>
+          <label class="form-label" for="lead-company">Organisation</label>
+          <input type="text" id="lead-company" class="form-input" placeholder="e.g. Global Financial Corp" required>
         </div>
 
-        <div id="demo-status-msg" style="font-size: 0.85rem; font-family: var(--font-mono); margin-bottom: 1rem; color: var(--color-oxide-green);"></div>
+        <div class="form-group">
+          <label class="form-label" for="lead-tier">Deployment Scope</label>
+          <select id="lead-tier" class="form-select">
+            <option value="enterprise">Enterprise Trust Fabric (Multi-Node)</option>
+            <option value="sovereign">Sovereign On-Premises Air-Gapped</option>
+            <option value="evaluation">Technical Proof of Concept (PoC)</option>
+          </select>
+        </div>
 
-        <button type="submit" class="btn btn-oxide" style="width: 100%; padding: 0.85rem;">
-          Submit Registration <i class="fas fa-arrow-right"></i>
+        <div class="form-group">
+          <label class="form-label" for="lead-notes">Primary Focus Area</label>
+          <textarea id="lead-notes" class="form-textarea" rows="2" placeholder="e.g. Sandbox verification for internal coding agents"></textarea>
+        </div>
+
+        <div id="lead-form-feedback" style="display: none; margin-bottom: 1rem;"></div>
+
+        <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;">
+          Submit Briefing Request <i class="fas fa-arrow-right"></i>
         </button>
       </form>
     </div>
   </div>
 
-  <!-- JavaScript -->
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+
+        <!-- Col 1: Brand & Identity -->
+        <div class="footer-brand">
+          <a href="/" class="brand-logo" style="margin-bottom: 1rem;">
+            <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" style="height: 32px;" onerror="this.src='assets/cairn-logo.svg'">
+            <div class="brand-name-group">
+              <span class="brand-title" style="font-size: 1.1rem;">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline" style="font-size: 0.62rem;">Trust Fabric</span>
+            </div>
+          </a>
+          <p>
+            The Enterprise Trust Fabric for deterministic AI governance, dual-runtime isolation, and verifiable decision ledgers.
+          </p>
+          <div style="display: flex; gap: 1rem; margin-top: 1.25rem;">
+            <a href="https://github.com/cairn-trust-fabric" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.4rem 0.75rem;" title="GitHub">
+              <i class="fab fa-github"></i>
+            </a>
+            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.4rem 0.75rem;" title="LinkedIn">
+              <i class="fab fa-linkedin"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Col 2: Platform -->
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <ul class="footer-links">
+            <li><a href="#dashboard-status">Trust Graph</a></li>
+            <li><a href="#architecture">4-Tier Cairn System</a></li>
+            <li><a href="#assurance">Assurance Ladder</a></li>
+            <li><a href="#ecosystem">Ecosystem Integrations</a></li>
+            <li><a href="#download">Download cairn.exe</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 3: Resources & Compliance -->
+        <div>
+          <div class="footer-col-title">Governance</div>
+          <ul class="footer-links">
+            <li><a href="compliance.html">Compliance Mappings</a></li>
+            <li><a href="docs.html">Architecture Decision Records</a></li>
+            <li><a href="licensing.html">Licensing & Tiers</a></li>
+            <li><a href="gallery.html">Product UI Gallery</a></li>
+            <li><a href="book.html">Book: Trust in the Machine</a></li>
+          </ul>
+        </div>
+
+        <!-- Col 4: Corporate -->
+        <div>
+          <div class="footer-col-title">Enterprise</div>
+          <ul class="footer-links">
+            <li><a href="mailto:enterprise@cairnetp.com">enterprise@cairnetp.com</a></li>
+            <li><a href="mailto:security@cairnetp.com">security@cairnetp.com</a></li>
+            <li><a href="#" class="open-demo-btn">Request Briefing</a></li>
+            <li><a href="https://cairnetp.com">cairnetp.com</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <div>
+          &copy; 2026 CAIRN ETP. All rights reserved. CAIRN Trust Fabric is a trademark of CAIRN ETP.
+        </div>
+        <div>
+          Secure &bull; Orchestrate &bull; Automate
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Scripts -->
+  <script src="js/trust-graph.js"></script>
   <script src="js/main.js"></script>
-  <script src="js/simulator.js"></script>
 </body>
 
 </html>

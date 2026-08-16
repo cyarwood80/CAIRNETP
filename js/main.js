@@ -1,373 +1,245 @@
-/* ==========================================================================
-   CAIRN ETP — Main JavaScript & Interactive Hero Developer Showcase (main.js)
-   IBM Monospace / FontAwesome Enterprise Compliant (Zero Emojis)
-   ========================================================================== */
+/**
+ * CAIRN Trust Fabric — Main Interactive Script
+ * Handles hero trust mesh, CLI tabs, copy-to-clipboard, lead modals, and architecture interactions.
+ */
 
 document.addEventListener('DOMContentLoaded', () => {
-  initHeaderScroll();
-  initMobileNavToggle();
-  initDemoModal();
-  initHeroDeveloperTabs();
-  initInterfacePreviewTabs();
-});
+  // 1. Hero Trust Wave / Particle Mesh Animation
+  const meshCanvas = document.getElementById('hero-mesh-canvas');
+  if (meshCanvas) {
+    const ctx = meshCanvas.getContext('2d');
+    let width, height;
 
-// Sticky header backdrop on scroll
-function initHeaderScroll() {
-  const header = document.querySelector('.site-header');
-  if (!header) return;
-
-  window.addEventListener('scroll', () => {
-    if (window.scrollY > 30) {
-      header.classList.add('scrolled');
-    } else {
-      header.classList.remove('scrolled');
+    function resizeMesh() {
+      const rect = meshCanvas.getBoundingClientRect();
+      width = meshCanvas.width = rect.width * (window.devicePixelRatio || 1);
+      height = meshCanvas.height = rect.height * (window.devicePixelRatio || 1);
     }
-  });
-}
 
-// Mobile drawer menu toggle
-function initMobileNavToggle() {
-  const toggleBtn = document.getElementById('mobile-toggle-btn');
-  const navLinks = document.querySelector('.nav-links');
+    window.addEventListener('resize', resizeMesh);
+    resizeMesh();
 
-  if (!toggleBtn || !navLinks) return;
-
-  toggleBtn.addEventListener('click', (e) => {
-    e.stopPropagation();
-    navLinks.classList.toggle('mobile-open');
-    const isOpen = navLinks.classList.contains('mobile-open');
-    toggleBtn.innerHTML = isOpen ? `<i class="fas fa-xmark"></i>` : `<i class="fas fa-bars"></i>`;
-  });
-
-  document.querySelectorAll('.nav-link').forEach(link => {
-    link.addEventListener('click', () => {
-      navLinks.classList.remove('mobile-open');
-      if (toggleBtn) toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
-    });
-  });
-
-  document.addEventListener('click', (e) => {
-    if (navLinks && !navLinks.contains(e.target) && toggleBtn && !toggleBtn.contains(e.target)) {
-      navLinks.classList.remove('mobile-open');
-      toggleBtn.innerHTML = `<i class="fas fa-bars"></i>`;
+    const particles = [];
+    const count = 35;
+    for (let i = 0; i < count; i++) {
+      particles.push({
+        x: Math.random() * width,
+        y: Math.random() * height,
+        vx: (Math.random() - 0.5) * 0.4,
+        vy: (Math.random() - 0.5) * 0.4,
+        size: Math.random() * 2 + 1,
+        alpha: Math.random() * 0.5 + 0.2
+      });
     }
-  });
-}
 
-// Hero Developer Showcase Interactive Tabs (Zero Emojis)
-const DEV_TAB_VIEWS = {
-  'cli-trace-docker': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Docker Container Execution (Linux / Python / pwsh)</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"verify_disk_space.py"</span></div>
-<div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-oxide"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY MOUNT]</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-oxide"></i> Network Boundary Check...</span> <span class="token-pass">[DISABLED]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-vial text-oxide"></i> Execution Assurance Tier:</span> <span class="token-pass">sandbox_executed</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Verification successful. 0 network egress, zero host pollution.</span></div>
-`,
-  'cli-trace-win': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Windows Sandbox VM Escalation (PowerShell / WMI / CIM)</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> windows_sandbox <span class="token-string">"audit_wmi_services.ps1"</span></div>
-<div class="code-line"><span class="line-num">3</span> </div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-desktop text-oxide"></i> Windows Sandbox VM Launch...</span> <span class="token-pass">[WINDOWS PRO NATIVE VM]</span></div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield text-oxide"></i> Process Execution Policy...</span> <span class="token-pass">[BYPASS SCOPED]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-filter text-oxide"></i> Payload Parsing & BOM Sanitizer...</span> <span class="token-pass">[UTF-8 BOM STRIPPED]</span></div>
-<div class="code-line"><span class="line-num">7</span> <span class="token-key"><i class="fas fa-file-code text-oxide"></i> Execution Assurance Tier:</span> <span class="token-pass">sandbox_executed</span></div>
-<div class="code-line"><span class="line-num">8</span> <span class="token-pass"><i class="fas fa-check text-oxide"></i> Full Windows API surface verified in disposable VM.</span></div>
-`,
-  'egress': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment">// Frontier Egress Security & Content Classification Gate</span></div>
-<div class="code-line"><span class="line-num">2</span> {</div>
-<div class="code-line"><span class="line-num">3</span>   <span class="token-cmd">"egress_boundary"</span>: <span class="token-string">"CLOUD_PROVIDER_DISPATCH"</span>,</div>
-<div class="code-line"><span class="line-num">4</span>   <span class="token-cmd">"content_classification"</span>: <span class="token-string">"conversation_only"</span>,</div>
-<div class="code-line"><span class="line-num">5</span>   <span class="token-cmd">"secret_like_scan"</span>: <span class="token-pass">0_CREDENTIALS_FOUND</span>,</div>
-<div class="code-line"><span class="line-num">6</span>   <span class="token-cmd">"cairn_trust_gate"</span>: <span class="token-string">"STRICTLY_LOCAL"</span>,</div>
-<div class="code-line"><span class="line-num">7</span>   <span class="token-cmd">"egress_verdict"</span>: <span class="token-pass">ALLOWED_WITH_LEDGER_PROVENANCE</span></div>
-<div class="code-line"><span class="line-num">8</span> }</div>
-`,
-  'cost': `
-<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Real-Time Token Cost Metering & Price Discovery</span></div>
-<div class="code-line"><span class="line-num">2</span> <span class="token-key">[METER]</span> Provider: <span class="token-string">"cloud:gemini:gemini-2.5-pro"</span></div>
-<div class="code-line"><span class="line-num">3</span> <span class="token-key">[TOKENS]</span> Prompt: 1,420 | Completion: 310 | Total: 1,730</div>
-<div class="code-line"><span class="line-num">4</span> <span class="token-key">[PRICE]</span> Discovered Rate: $1.25 / Mtok In, $5.00 / Mtok Out</div>
-<div class="code-line"><span class="line-num">5</span> <span class="token-key">[COST]</span> Spend: $0.003325 <span class="token-pass">[PROVENANCE: rate retrieved, unverified ~]</span></div>
-<div class="code-line"><span class="line-num">6</span> <span class="token-key">[LEDGER]</span> Signed cost audit record written to vault/pricing.json</div>
-`
-};
+    function renderMesh() {
+      ctx.clearRect(0, 0, width, height);
 
-function initHeroDeveloperTabs() {
-  const tabBtns = document.querySelectorAll('.dev-tab-btn');
-  const codeBody = document.getElementById('dev-code-body');
+      // Connect nearby particles with subtle blue lines
+      for (let i = 0; i < count; i++) {
+        for (let j = i + 1; j < count; j++) {
+          const dx = particles[i].x - particles[j].x;
+          const dy = particles[i].y - particles[j].y;
+          const dist = Math.sqrt(dx * dx + dy * dy);
 
-  if (!tabBtns.length || !codeBody) return;
-
-  tabBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      tabBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tabKey = btn.getAttribute('data-tab');
-      if (DEV_TAB_VIEWS[tabKey]) {
-        codeBody.innerHTML = DEV_TAB_VIEWS[tabKey];
+          if (dist < 100 * (window.devicePixelRatio || 1)) {
+            ctx.beginPath();
+            ctx.moveTo(particles[i].x, particles[i].y);
+            ctx.lineTo(particles[j].x, particles[j].y);
+            ctx.strokeStyle = `rgba(37, 98, 235, ${0.18 * (1 - dist / (100 * (window.devicePixelRatio || 1)))})`;
+            ctx.lineWidth = 1;
+            ctx.stroke();
+          }
+        }
       }
-    });
-  });
-}
 
-// Expanded Interface Preview Tabs (Fleet Control, VRAM Telemetry, Automation Vault)
-const PREVIEW_TAB_VIEWS = {
-  'fleet': `
-    <div class="fleet-stats-row">
-      <div class="fleet-stat-card">
-        <div class="fleet-stat-label">Active Agent Nodes</div>
-        <div class="fleet-stat-val text-green">14 / 16</div>
-      </div>
-      <div class="fleet-stat-card">
-        <div class="fleet-stat-label">Sandbox Executions</div>
-        <div class="fleet-stat-val">1,482</div>
-      </div>
-      <div class="fleet-stat-card">
-        <div class="fleet-stat-label">Blocked Threats</div>
-        <div class="fleet-stat-val text-green">100%</div>
-      </div>
-      <div class="fleet-stat-card">
-        <div class="fleet-stat-label">Fleet VRAM Usage</div>
-        <div class="fleet-stat-val text-cyan">42.8 GB / 64 GB</div>
-      </div>
-    </div>
+      // Draw particle nodes
+      particles.forEach(p => {
+        p.x += p.vx;
+        p.y += p.vy;
 
-    <div style="background: #1e293b; border: 1px solid #334155; border-radius: var(--radius-md); overflow-x: auto;">
-      <table class="agent-nodes-table">
-        <thead>
-          <tr>
-            <th>NODE ID</th>
-            <th>ASSIGNED ROLE</th>
-            <th>MODEL BACKING</th>
-            <th>ASSURANCE TIER</th>
-            <th>VRAM ALLOC</th>
-            <th>STATUS</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><code>agent-alpha-01</code></td>
-            <td>Kubernetes Diagnostic Synthesizer</td>
-            <td>Ollama / DeepSeek-R1 (Local GGUF)</td>
-            <td><span class="status-badge-inline sandboxed">sandbox_executed</span></td>
-            <td>14.2 GB</td>
-            <td><span class="status-badge-inline sandboxed"><i class="fas fa-circle" style="font-size: 6px;"></i> RUNNING</span></td>
-          </tr>
-          <tr>
-            <td><code>agent-beta-04</code></td>
-            <td>PowerShell VM System Inspector</td>
-            <td>vLLM / Llama-3.3-70B Sovereign</td>
-            <td><span class="status-badge-inline sandboxed">behaviour_checked</span></td>
-            <td>22.4 GB</td>
-            <td><span class="status-badge-inline sandboxed"><i class="fas fa-circle" style="font-size: 6px;"></i> VERIFIED</span></td>
-          </tr>
-          <tr>
-            <td><code>agent-gamma-09</code></td>
-            <td>ATLAS Document Context Retriever</td>
-            <td>Embeddings Local BGE-Large</td>
-            <td><span class="status-badge-inline analyzing">deterministic</span></td>
-            <td>6.2 GB</td>
-            <td><span class="status-badge-inline analyzing"><i class="fas fa-sync fa-spin"></i> INDEXING</span></td>
-          </tr>
-          <tr>
-            <td><code>agent-delta-12</code></td>
-            <td>Egress Gate Credential Auditor</td>
-            <td>STRIX AST Security Engine</td>
-            <td><span class="status-badge-inline sandboxed">idempotent</span></td>
-            <td>0.8 GB</td>
-            <td><span class="status-badge-inline idle">IDLE</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  `,
-  'vram': `
-    <div class="vram-grid">
-      <div>
-        <div class="vram-meter-card">
-          <div class="vram-meter-header">
-            <span><i class="fas fa-microchip text-green"></i> Node 01 — NVIDIA RTX 4090 (Sovereign Ollama)</span>
-            <span class="text-green">14.2 GB / 24.0 GB (59%)</span>
-          </div>
-          <div class="vram-bar-track">
-            <div class="vram-bar-fill" style="width: 59%;"></div>
-          </div>
-        </div>
+        if (p.x < 0 || p.x > width) p.vx *= -1;
+        if (p.y < 0 || p.y > height) p.vy *= -1;
 
-        <div class="vram-meter-card">
-          <div class="vram-meter-header">
-            <span><i class="fas fa-server text-cyan"></i> Node 02 — NVIDIA A100-80GB (vLLM Cluster Cluster-01)</span>
-            <span class="text-cyan">58.4 GB / 80.0 GB (73%)</span>
-          </div>
-          <div class="vram-bar-track">
-            <div class="vram-bar-fill" style="width: 73%;"></div>
-          </div>
-        </div>
+        ctx.beginPath();
+        ctx.arc(p.x, p.y, p.size, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(56, 189, 248, ${p.alpha})`;
+        ctx.fill();
+      });
 
-        <div class="vram-meter-card">
-          <div class="vram-meter-header">
-            <span><i class="fas fa-brain text-green"></i> Node 03 — Local BGE Vector Memory Pool</span>
-            <span class="text-green">6.2 GB / 16.0 GB (38%)</span>
-          </div>
-          <div class="vram-bar-track">
-            <div class="vram-bar-fill" style="width: 38%;"></div>
-          </div>
-        </div>
-      </div>
+      requestAnimationFrame(renderMesh);
+    }
 
-      <div>
-        <div style="background: #1e293b; border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.25rem;">
-          <div style="font-family: var(--font-mono); font-size: 0.8rem; color: #94a3b8; margin-bottom: 0.75rem; text-transform: uppercase;">
-            KV Cache & Model Pool Allocation
-          </div>
-          <div style="font-size: 0.85rem; color: #cbd5e1; line-height: 1.6;">
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-              <span>Model Weights:</span>
-              <strong style="color: #f8fafc;">44.8 GB</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-              <span>KV Context Cache:</span>
-              <strong style="color: #38bdf8;">28.2 GB</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; margin-bottom: 0.4rem;">
-              <span>AST Buffer Space:</span>
-              <strong style="color: #22c55e;">5.8 GB</strong>
-            </div>
-            <div style="display: flex; justify-content: space-between; border-top: 1px solid #334155; padding-top: 0.5rem; margin-top: 0.5rem;">
-              <span>Total Provisioned:</span>
-              <strong style="color: #22c55e;">78.8 GB / 120 GB</strong>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  `,
-  'vault': `
-    <div style="background: #1e293b; border: 1px solid #334155; border-radius: var(--radius-md); padding: 1.5rem;">
-      <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 1rem; border-bottom: 1px solid #334155; padding-bottom: 0.75rem;">
-        <div style="font-family: var(--font-mono); font-size: 0.875rem; color: #22c55e; font-weight: 600;">
-          <i class="fas fa-key"></i> CAIRN Automation Vault & Credential Injection Guard
-        </div>
-        <span class="status-badge-inline sandboxed">HARDWARE LOCK ACTIVE</span>
-      </div>
-
-      <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 1rem; margin-bottom: 1.25rem;">
-        <div style="background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid #334155;">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8;">SECRET REDACTION</div>
-          <div style="font-size: 1.15rem; font-weight: 700; color: #22c55e; margin-top: 0.25rem;">100% ENFORCED</div>
-        </div>
-        <div style="background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid #334155;">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8;">ENV LEAK PREVENTION</div>
-          <div style="font-size: 1.15rem; font-weight: 700; color: #38bdf8; margin-top: 0.25rem;">ZERO EGRESS</div>
-        </div>
-        <div style="background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); border: 1px solid #334155;">
-          <div style="font-family: var(--font-mono); font-size: 0.75rem; color: #94a3b8;">KEY PROVENANCE</div>
-          <div style="font-size: 1.15rem; font-weight: 700; color: #f8fafc; margin-top: 0.25rem;">SHA-256 SIGNED</div>
-        </div>
-      </div>
-
-      <div style="font-family: var(--font-mono); font-size: 0.8rem; background: #0f172a; padding: 1rem; border-radius: var(--radius-sm); color: #cbd5e1; line-height: 1.6;">
-        <div><span style="color: #94a3b8;">[VAULT_GUARD]</span> Evaluating request by agent-alpha-01 for API Credential...</div>
-        <div><span style="color: #22c55e;">[PERIMETER]</span> Token request mapped to ephemeral memory injection.</div>
-        <div><span style="color: #22c55e;">[SANITY_CHECK]</span> Network egress to external IP endpoints: <span style="color: #ef4444; font-weight: 700;">BLOCKED</span></div>
-        <div><span style="color: #38bdf8;">[LEDGER]</span> Cryptographic event hash written: 0x7f81a9c3...</div>
-      </div>
-    </div>
-  `
-};
-
-function initInterfacePreviewTabs() {
-  const previewBtns = document.querySelectorAll('[data-preview-tab]');
-  const previewContainer = document.getElementById('preview-tab-content');
-
-  if (!previewBtns.length || !previewContainer) return;
-
-  previewBtns.forEach(btn => {
-    btn.addEventListener('click', () => {
-      previewBtns.forEach(b => b.classList.remove('active'));
-      btn.classList.add('active');
-      const tabKey = btn.getAttribute('data-preview-tab');
-      if (PREVIEW_TAB_VIEWS[tabKey]) {
-        previewContainer.innerHTML = PREVIEW_TAB_VIEWS[tabKey];
-      }
-    });
-  });
-}
-
-// Register Interest Modal Handler
-function initDemoModal() {
-  const modalOverlay = document.getElementById('demo-modal');
-  const closeBtn = document.getElementById('demo-close-btn');
-  const demoBtns = document.querySelectorAll('.open-demo-btn');
-
-  if (!modalOverlay) return;
-
-  demoBtns.forEach(btn => {
-    btn.addEventListener('click', (e) => {
-      e.preventDefault();
-      modalOverlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    });
-  });
-
-  if (closeBtn) {
-    closeBtn.addEventListener('click', closeDemoModal);
+    renderMesh();
   }
 
-  modalOverlay.addEventListener('click', (e) => {
-    if (e.target === modalOverlay) closeDemoModal();
+  // 2. Interactive CLI Sandbox Terminal Tabs
+  const cliTabs = document.querySelectorAll('.dev-tab-btn');
+  const cliBody = document.getElementById('dev-code-body');
+
+  const cliOutputs = {
+    'cli-trace-docker': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># CRUCIBLE Linux Container Execution (Python / Bash / pwsh)</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> docker <span class="token-string">"workload_agent.py"</span></div>
+<div class="code-line"><span class="line-num">3</span> </div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-box text-blue"></i> Container Mounting...</span> <span class="token-pass">[READ-ONLY EPHEMERAL MOUNT]</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-network-wired text-blue"></i> Network Boundary Gate...</span> <span class="token-pass">[DEFAULT-DENY ENFORCED]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-layer-group text-blue"></i> Assurance Tier Reached:</span> <span class="token-pass">sandbox_executed</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-teal"></i> Verification complete: 0 host disk delta, 0 egress violations.</span></div>
+    `,
+    'cli-trace-win': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Windows Sandbox Hyper-V Hardware Isolation (PowerShell / Win32)</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> verify <span class="token-flag">--runtime</span> winvm <span class="token-string">"finance_reconciliation.ps1"</span></div>
+<div class="code-line"><span class="line-num">3</span> </div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key"><i class="fas fa-microchip text-blue"></i> Hyper-V Micro-VM Init...</span> <span class="token-pass">[WSB HARDWARE ISOLATED]</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key"><i class="fas fa-shield-halved text-blue"></i> Process Token Filtering...</span> <span class="token-pass">[RESTRICTED TOKEN ACTIVE]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key"><i class="fas fa-fingerprint text-blue"></i> Cryptographic Provenance:</span> <span class="token-pass">SHA256: 7f8a9e...e3b4</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-check text-teal"></i> Deterministic state recorded to immutable decision ledger.</span></div>
+    `,
+    'egress': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Dynamic Egress Policy Inspection</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> policy inspect <span class="token-flag">--target</span> egress</div>
+<div class="code-line"><span class="line-num">3</span> </div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key">OUTBOUND DOMAIN WHITELIST:</span> <span class="token-pass">api.internal.bank.com [ALLOWED]</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key">UNAUTHORIZED EXFILTRATION ATTEMPT:</span> <span class="token-pass" style="color: #ef4444;">198.51.100.24 [BLOCKED]</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key">CREDENTIAL REGEX SCAN:</span> <span class="token-pass">0 SECRETS DETECTED</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-shield-check text-teal"></i> Zero Egress violations. Policy enforced across 247 nodes.</span></div>
+    `,
+    'cost': `
+<div class="code-line"><span class="line-num">1</span> <span class="token-comment"># Token Consumption & Compute Metering</span></div>
+<div class="code-line"><span class="line-num">2</span> <span class="token-cmd">$ cairn</span> meter summary <span class="token-flag">--period</span> last-24h</div>
+<div class="code-line"><span class="line-num">3</span> </div>
+<div class="code-line"><span class="line-num">4</span> <span class="token-key">TOTAL VERIFIED ACTIONS:</span> <span class="token-pass">1,842</span></div>
+<div class="code-line"><span class="line-num">5</span> <span class="token-key">CONTAINER RUNTIME COMPUTE:</span> <span class="token-pass">0.0042 GPU-Hrs</span></div>
+<div class="code-line"><span class="line-num">6</span> <span class="token-key">TOKEN COST EFFICIENCY GAIN:</span> <span class="token-pass">+41.2% (Deduplicated Synthesis)</span></div>
+<div class="code-line"><span class="line-num">7</span> <span class="token-pass"><i class="fas fa-circle-check text-teal"></i> Policy compliance 99.8% within assigned SLA budget.</span></div>
+    `
+  };
+
+  cliTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      cliTabs.forEach(t => t.classList.remove('active'));
+      tab.classList.add('active');
+      const target = tab.getAttribute('data-tab');
+      if (cliOutputs[target] && cliBody) {
+        cliBody.innerHTML = cliOutputs[target].trim();
+      }
+    });
   });
 
-  document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && modalOverlay.classList.contains('open')) closeDemoModal();
+  // 3. Copy-to-Clipboard functionality
+  const copyButtons = document.querySelectorAll('.copy-trigger-btn');
+  copyButtons.forEach(btn => {
+    btn.addEventListener('click', () => {
+      const textToCopy = btn.getAttribute('data-copy');
+      if (textToCopy) {
+        navigator.clipboard.writeText(textToCopy).then(() => {
+          const originalHTML = btn.innerHTML;
+          btn.innerHTML = '<i class="fas fa-check text-teal"></i> Copied!';
+          setTimeout(() => {
+            btn.innerHTML = originalHTML;
+          }, 2000);
+        });
+      }
+    });
   });
-}
 
-function closeDemoModal() {
+  // 4. Interactive 4-Tier Cairn Layer Cards
+  const layerCards = document.querySelectorAll('.cairn-layer-card');
+  layerCards.forEach(card => {
+    card.addEventListener('click', () => {
+      layerCards.forEach(c => c.classList.remove('active'));
+      card.classList.add('active');
+    });
+  });
+
+  // 5. Enterprise Lead / Demo Modal Handlers
   const modalOverlay = document.getElementById('demo-modal');
+  const openModalButtons = document.querySelectorAll('.open-demo-btn');
+  const closeModalButton = document.getElementById('modal-close-btn');
+
   if (modalOverlay) {
-    modalOverlay.classList.remove('open');
-    document.body.style.overflow = '';
-  }
-}
-
-async function handleDemoSubmit() {
-  const name = document.getElementById('demo-name')?.value;
-  const email = document.getElementById('demo-email')?.value;
-  const org = document.getElementById('demo-org')?.value;
-  const msgEl = document.getElementById('demo-status-msg');
-
-  if (!email || !name) return;
-
-  if (msgEl) msgEl.textContent = "Submitting your registration to CAIRN ETP Team...";
-
-  try {
-    const res = await fetch('/api/request-demo', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ name, email, organization: org })
+    openModalButtons.forEach(btn => {
+      btn.addEventListener('click', (e) => {
+        e.preventDefault();
+        modalOverlay.classList.add('active');
+      });
     });
-    if (res.ok) {
-      if (msgEl) msgEl.textContent = "Interest registered. A member of the CAIRN team will be in touch.";
-      setTimeout(closeDemoModal, 3500);
-      return;
+
+    if (closeModalButton) {
+      closeModalButton.addEventListener('click', () => {
+        modalOverlay.classList.remove('active');
+      });
     }
-  } catch (e) {
-    console.log("Demo submitted client-side:", name, email, org);
+
+    modalOverlay.addEventListener('click', (e) => {
+      if (e.target === modalOverlay) {
+        modalOverlay.classList.remove('active');
+      }
+    });
   }
 
-  // Direct Mailto Fallback Link
-  const mailSubject = encodeURIComponent(`CAIRN ETP — Register Interest — ${org || 'Enterprise'}`);
-  const mailBody = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nOrganization: ${org}\n\nRegistering interest in CAIRN ETP.`);
-  const mailtoUrl = `mailto:chris@cairnetp.com?subject=${mailSubject}&body=${mailBody}`;
-  
-  if (msgEl) {
-    msgEl.innerHTML = `Request logged. <a href="${mailtoUrl}" target="_blank" style="color: var(--color-oxide-green); text-decoration: underline;">Click here to email directly if needed</a>.`;
-  }
-  setTimeout(closeDemoModal, 5000);
-}
+  // Lead Form Submission
+  const leadForm = document.getElementById('enterprise-lead-form');
+  if (leadForm) {
+    leadForm.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const submitBtn = leadForm.querySelector('button[type="submit"]');
+      const feedbackDiv = document.getElementById('lead-form-feedback');
+      
+      const payload = {
+        name: document.getElementById('lead-name')?.value || '',
+        email: document.getElementById('lead-email')?.value || '',
+        company: document.getElementById('lead-company')?.value || '',
+        tier: document.getElementById('lead-tier')?.value || 'enterprise',
+        notes: document.getElementById('lead-notes')?.value || ''
+      };
 
-window.handleDemoSubmit = handleDemoSubmit;
+      if (submitBtn) {
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Submitting...';
+      }
+
+      try {
+        const res = await fetch('/api/register-interest', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify(payload)
+        });
+
+        if (feedbackDiv) {
+          feedbackDiv.style.display = 'block';
+          if (res.ok) {
+            feedbackDiv.className = 'status-pill status-pill-teal';
+            feedbackDiv.innerHTML = '<i class="fas fa-check"></i> Thank you! An enterprise engineer will contact you shortly.';
+            leadForm.reset();
+          } else {
+            feedbackDiv.className = 'status-pill';
+            feedbackDiv.innerHTML = '<i class="fas fa-info-circle"></i> Request logged. We will reach out via email.';
+          }
+        }
+      } catch (err) {
+        if (feedbackDiv) {
+          feedbackDiv.style.display = 'block';
+          feedbackDiv.className = 'status-pill status-pill-teal';
+          feedbackDiv.innerHTML = '<i class="fas fa-check"></i> Interest recorded. Thank you for connecting with CAIRN.';
+        }
+      } finally {
+        if (submitBtn) {
+          submitBtn.disabled = false;
+          submitBtn.innerHTML = 'Submit Briefing Request <i class="fas fa-arrow-right"></i>';
+        }
+      }
+    });
+  }
+
+  // 6. Mobile Menu Navigation Toggle
+  const mobileToggle = document.getElementById('mobile-toggle-btn');
+  const navLinks = document.getElementById('site-nav-links');
+
+  if (mobileToggle && navLinks) {
+    mobileToggle.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+  }
+});
