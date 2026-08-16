@@ -314,132 +314,99 @@
         </div>
       </div>
 
-      <!-- Split Layout: Contract Enforcement Table & Real Desktop App Showcase -->
-      <div class="dashboard-grid" style="margin-top: 3rem; align-items: stretch;">
-
-        <!-- Left Column: Pillar Definitions & Contract Enforcement Table -->
-        <div class="dashboard-card" style="display: flex; flex-direction: column; justify-content: space-between;">
-          <div>
-            <div class="dashboard-header" style="margin-bottom: 1.25rem;">
-              <div class="dashboard-title-group">
-                <i class="fas fa-shield-halved text-blue"></i>
-                <h3 style="font-size: 1.2rem;">Pillar Contract Enforcement</h3>
-              </div>
-              <span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.25rem 0.65rem; font-size: 0.72rem;">
-                Schema Enforced
-              </span>
-            </div>
-
-            <div class="contract-table-wrap">
-              <table class="contract-table">
-                <thead>
-                  <tr>
-                    <th>Pillar</th>
-                    <th>Key Responsibility</th>
-                    <th>Contract</th>
-                    <th>Enforcement</th>
-                    <th>Key Schema Fields</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td><strong>CAIRN</strong></td>
-                    <td>Enterprise Trust & Security Gate</td>
-                    <td><span class="contract-type-pill">Schema</span></td>
-                    <td><span class="badge-blocking">BLOCKING</span></td>
-                    <td><code>toolName</code>, <code>approved</code>, <code>riskLevel</code></td>
-                  </tr>
-                  <tr>
-                    <td><strong>PATH</strong></td>
-                    <td>Workflow Intelligence & Router</td>
-                    <td><span class="contract-type-pill">Advisory</span></td>
-                    <td><span class="badge-advisory">ADVISORY</span></td>
-                    <td><code>action</code>, <code>instruction</code></td>
-                  </tr>
-                  <tr>
-                    <td><strong>BEACON</strong></td>
-                    <td>Operational Awareness & Telemetry</td>
-                    <td><span class="contract-type-pill">Advisory</span></td>
-                    <td><span class="badge-advisory">ADVISORY</span></td>
-                    <td><code>message</code>, <code>status</code></td>
-                  </tr>
-                  <tr>
-                    <td><strong>COMPASS</strong></td>
-                    <td>Governance & Audit Provenance</td>
-                    <td><span class="contract-type-pill">Schema</span></td>
-                    <td><span class="badge-advisory">ADVISORY</span></td>
-                    <td><code>reasoningChain</code>, <code>governancePassed</code></td>
-                  </tr>
-                  <tr>
-                    <td><strong>ATLAS</strong></td>
-                    <td>Knowledge Memory & Graph</td>
-                    <td><span class="contract-type-pill">Advisory</span></td>
-                    <td><span class="badge-advisory">ADVISORY</span></td>
-                    <td><code>query</code>, <code>vectorMatches</code></td>
-                  </tr>
-                  <tr>
-                    <td><strong>FORGE</strong></td>
-                    <td>Integration & Code Generator</td>
-                    <td><span class="contract-type-pill">Schema</span></td>
-                    <td><span class="badge-blocking">BLOCKING</span></td>
-                    <td><code>code</code>, <code>language</code>, <code>crucibleResult</code></td>
-                  </tr>
-                  <tr>
-                    <td><strong>CRUCIBLE</strong></td>
-                    <td>Isolated Execution Sandbox</td>
-                    <td><span class="contract-type-pill">Schema</span></td>
-                    <td><span class="badge-blocking">BLOCKING</span></td>
-                    <td><code>sandboxed</code>, <code>method</code>, <code>assuranceTier</code></td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
+      <!-- Full-Width Contract Enforcement Matrix & Philosophy -->
+      <div class="dashboard-card" style="margin-top: 2rem; padding: 2.25rem;">
+        <div class="dashboard-header" style="margin-bottom: 1.5rem;">
+          <div class="dashboard-title-group">
+            <i class="fas fa-shield-halved text-blue"></i>
+            <h3 style="font-size: 1.35rem;">Pillar Contract Enforcement Matrix</h3>
           </div>
-
-          <!-- Enforcement Philosophy Box -->
-          <div class="enforcement-philosophy-card">
-            <h4 style="font-size: 0.95rem; margin-bottom: 0.6rem; color: var(--color-glacier);">
-              <i class="fas fa-scale-balanced text-teal"></i> Enforcement Philosophy
-            </h4>
-            <ul style="font-size: 0.85rem; color: var(--color-stone-grey); padding-left: 1.2rem; line-height: 1.6; margin-bottom: 0;">
-              <li style="margin-bottom: 0.4rem;">
-                <strong class="text-red">BLOCKING Pillars (CAIRN, FORGE, CRUCIBLE):</strong> If a payload fails schema validation, execution is halted immediately (<code>throwOnBlock = true</code>). Unverified code or unvalidated execution results can never reach host storage or user context.
-              </li>
-              <li>
-                <strong class="text-gold">ADVISORY Pillars (PATH, BEACON, COMPASS, ATLAS):</strong> Contract defects do not stop execution, but surface mandatory warning blocks to the operator for complete operational disclosure.
-              </li>
-            </ul>
-          </div>
+          <span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.3rem 0.85rem; font-size: 0.76rem;">
+            Schema & Policy Enforced
+          </span>
         </div>
 
-        <!-- Right Column: Real CAIRN Desktop Application Showcase -->
-        <div class="dev-window" style="background: rgba(6, 18, 32, 0.95); border: 1px solid var(--border-glass); display: flex; flex-direction: column;">
-          <div class="dev-window-header">
-            <div class="window-dots">
-              <span class="dot dot-red"></span>
-              <span class="dot dot-yellow"></span>
-              <span class="dot dot-green"></span>
-            </div>
-            <div class="dev-tabs">
-              <button class="dev-tab-btn active" data-tab="tab-audit">Audit Ledger</button>
-              <button class="dev-tab-btn" data-tab="tab-terminal">Terminal Sandbox</button>
-              <button class="dev-tab-btn" data-tab="tab-vault">Vault & Masking</button>
-              <button class="dev-tab-btn" data-tab="tab-fleet">Node Fleet</button>
-            </div>
-          </div>
-
-          <div class="dev-window-body" id="app-preview-container" style="padding: 1.25rem; flex: 1; display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="position: relative; border-radius: var(--radius-sm); overflow: hidden; border: 1px solid var(--border-glass); background: #030913; box-shadow: 0 10px 30px rgba(0,0,0,0.5);">
-              <img id="app-preview-img" src="assets/cairn-app-audit.png" alt="CAIRN Trust Fabric Desktop Application Interface" style="width: 100%; height: auto; display: block; filter: contrast(1.02); transition: opacity 0.2s ease;">
-            </div>
-            <div id="app-preview-caption" style="margin-top: 1rem; font-size: 0.88rem; color: var(--color-stone-grey); display: flex; align-items: center; justify-content: space-between; font-family: var(--font-mono);">
-              <span><i class="fas fa-fingerprint text-teal"></i> Module: <strong>Cryptographic Audit Ledger</strong></span>
-              <span class="status-pill status-pill-teal" style="margin-bottom: 0; padding: 0.2rem 0.6rem; font-size: 0.72rem;">SHA-256 Signed</span>
-            </div>
-          </div>
+        <div class="contract-table-wrap">
+          <table class="contract-table">
+            <thead>
+              <tr>
+                <th style="width: 14%;">Pillar</th>
+                <th style="width: 28%;">Key Responsibility</th>
+                <th style="width: 14%;">Contract Type</th>
+                <th style="width: 16%;">Enforcement Class</th>
+                <th style="width: 28%;">Contract Key Fields</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">CAIRN</strong></td>
+                <td>Enterprise Trust & Security Gate</td>
+                <td><span class="contract-type-pill">Schema Contract</span></td>
+                <td><span class="badge-blocking">BLOCKING</span></td>
+                <td><code>toolName</code>, <code>approved</code>, <code>riskLevel</code></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">PATH</strong></td>
+                <td>Workflow Intelligence & Model Router</td>
+                <td><span class="contract-type-pill">Advisory</span></td>
+                <td><span class="badge-advisory">ADVISORY</span></td>
+                <td><code>action</code>, <code>instruction</code></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">BEACON</strong></td>
+                <td>Operational Awareness & Live Telemetry</td>
+                <td><span class="contract-type-pill">Advisory</span></td>
+                <td><span class="badge-advisory">ADVISORY</span></td>
+                <td><code>message</code>, <code>status</code></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">COMPASS</strong></td>
+                <td>Governance Intelligence & Audit Provenance</td>
+                <td><span class="contract-type-pill">Schema Contract</span></td>
+                <td><span class="badge-advisory">ADVISORY</span></td>
+                <td><code>reasoningChain</code>, <code>governancePassed</code></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">ATLAS</strong></td>
+                <td>Knowledge Infrastructure & Graph Memory</td>
+                <td><span class="contract-type-pill">Advisory</span></td>
+                <td><span class="badge-advisory">ADVISORY</span></td>
+                <td><code>query</code>, <code>vectorMatches</code>, <code>memoryFacts</code></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">FORGE</strong></td>
+                <td>Integration Platform & Code Generator</td>
+                <td><span class="contract-type-pill">Schema Contract</span></td>
+                <td><span class="badge-blocking">BLOCKING</span></td>
+                <td><code>code</code>, <code>language</code>, <code>crucibleResult</code></td>
+              </tr>
+              <tr>
+                <td><strong style="color: #fff; font-size: 0.95rem;">CRUCIBLE</strong></td>
+                <td>Isolated Execution & Sandbox Engine</td>
+                <td><span class="contract-type-pill">Schema Contract</span></td>
+                <td><span class="badge-blocking">BLOCKING</span></td>
+                <td><code>sandboxed</code>, <code>method</code>, <code>assuranceTier</code></td>
+              </tr>
+            </tbody>
+          </table>
         </div>
 
+        <!-- Enforcement Philosophy Box -->
+        <div class="enforcement-philosophy-card" style="margin-top: 1.5rem; padding: 1.5rem;">
+          <h4 style="font-size: 1.05rem; margin-bottom: 0.75rem; color: var(--color-glacier);">
+            <i class="fas fa-scale-balanced text-teal"></i> Enforcement Philosophy
+          </h4>
+          <ul style="font-size: 0.9rem; color: var(--color-stone-grey); padding-left: 1.25rem; line-height: 1.7; margin-bottom: 0;">
+            <li style="margin-bottom: 0.5rem;">
+              <strong class="text-red">BLOCKING Pillars (CAIRN, FORGE, CRUCIBLE):</strong> If a contract payload fails schema validation, execution is halted immediately (<code>throwOnBlock = true</code>). Unverified code or unvalidated execution results can never reach host storage or user context.
+            </li>
+            <li>
+              <strong class="text-gold">ADVISORY Pillars (PATH, BEACON, COMPASS, ATLAS):</strong> A contract defect does not stop execution, but surfaces a mandatory warning block (<code>renderContractWarning</code>) in the response so the operator is informed of the defect.
+            </li>
+          </ul>
+        </div>
       </div>
+
     </div>
   </section>
 
