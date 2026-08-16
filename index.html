@@ -329,10 +329,10 @@
           </h4>
           <ul style="font-size: 0.9rem; color: var(--color-stone-grey); padding-left: 1.25rem; line-height: 1.7; margin-bottom: 0;">
             <li style="margin-bottom: 0.5rem;">
-              <strong class="text-red">BLOCKING Pillars (CAIRN, FORGE, CRUCIBLE):</strong> If a contract payload fails schema validation, execution is halted immediately (<code>throwOnBlock = true</code>). Unverified code or unvalidated execution results can never reach host storage or user context.
+              <strong class="text-red">BLOCKING Pillars (CAIRN, FORGE, CRUCIBLE):</strong> If a request or payload fails security or schema validation, execution is halted immediately. Unverified code or unvalidated execution results can never reach host storage or user context.
             </li>
             <li>
-              <strong class="text-gold">ADVISORY Pillars (PATH, BEACON, COMPASS, ATLAS):</strong> A contract defect does not stop execution, but surfaces a mandatory warning block in the response so the operator is informed of the defect.
+              <strong class="text-gold">ADVISORY Pillars (PATH, BEACON, COMPASS, ATLAS):</strong> Informational telemetry, reasoning chains, and graph memory; validation warnings are surfaced to operators without halting execution.
             </li>
           </ul>
         </div>
