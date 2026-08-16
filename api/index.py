@@ -150,8 +150,70 @@ async def health_check():
 import json
 import urllib.request
 
+class RegisterInterestRequest(BaseModel):
+    name: str
+    email: str
+    company: Optional[str] = None
+    tier: Optional[str] = "enterprise"
+    notes: Optional[str] = None
+
+@app.post("/api/register-interest")
+async def register_interest(req: RegisterInterestRequest):
+    resend_key = os.getenv("RESEND_API_KEY")
+    notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chris@cairnetp.com")
+    
+    delivered = False
+    delivery_channel = "VERCEL_LOG"
+
+    if resend_key:
+        try:
+            payload = json.dumps({
+                "from": "CAIRN Trust Fabric <onboarding@resend.dev>",
+                "to": [notification_email],
+                "subject": f"[BRIEFING REQUEST] CAIRN Trust Fabric: {req.company or 'Enterprise'} ({req.name})",
+                "html": f"""
+                <div style="font-family: Arial, sans-serif; background-color: #061220; color: #F8FAFC; padding: 24px; border-radius: 8px; border: 1px solid #2562EB;">
+                    <h2 style="color: #14C8A6; margin-top: 0;">CAIRN Trust Fabric — Architecture Briefing Request</h2>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <p><strong>Full Name:</strong> {req.name}</p>
+                    <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #60A5FA;">{req.email}</a></p>
+                    <p><strong>Company:</strong> {req.company or 'Not specified'}</p>
+                    <p><strong>Deployment Scope:</strong> {req.tier or 'Enterprise'}</p>
+                    <p><strong>Focus Area:</strong> {req.notes or 'General Briefing'}</p>
+                    <hr style="border-color: rgba(255,255,255,0.1);">
+                    <p style="font-size: 12px; color: #94A3B8;">CAIRN Trust Fabric • cairnetp.com</p>
+                </div>
+                """
+            }).encode("utf-8")
+
+            request = urllib.request.Request(
+                "https://api.resend.com/emails",
+                data=payload,
+                headers={
+                    "Authorization": f"Bearer {resend_key}",
+                    "Content-Type": "application/json",
+                    "User-Agent": "Mozilla/5.0 CAIRN-TrustFabric/1.0"
+                },
+                method="POST"
+            )
+            with urllib.request.urlopen(request, timeout=5) as response:
+                if response.status in (200, 201):
+                    delivered = True
+                    delivery_channel = "RESEND_EMAIL"
+        except Exception as e:
+            print(f"[REGISTER EMAIL ERROR] Resend dispatch failed: {e}")
+
+    print(f"[BRIEFING INQUIRY RECORDED] Name: {req.name} | Email: {req.email} | Company: {req.company} | Channel: {delivery_channel}")
+
+    return {
+        "success": True,
+        "message": f"Thank you {req.name}. Briefing request recorded.",
+        "delivery_channel": delivery_channel
+    }
+
 @app.post("/api/request-demo")
 async def request_demo(req: DemoRequest):
+
     resend_key = os.getenv("RESEND_API_KEY")
     notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chris@cairnetp.com")
     webhook_url = os.getenv("DEMO_WEBHOOK_URL")
