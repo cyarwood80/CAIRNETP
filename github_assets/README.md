@@ -4,7 +4,7 @@
 
 ### The Enterprise Trust Fabric — Secure • Orchestrate • Automate
 
-[![Release](https://img.shields.io/github/v/release/cairn-trust-fabric/cairn-trust-fabric?color=2562EB&label=Release&style=flat-square)](https://github.com/cairn-trust-fabric/cairn-trust-fabric/releases)
+[![Release](https://img.shields.io/github/v/release/cairn-trust-fabric/cairn-trust-fabric?color=2562EB&label=Release&style=flat-square)](https://github.com/cairn-trust-fabric/cairn/releases)
 [![Platform](https://img.shields.io/badge/Platform-Windows%20x64%20%7C%20Linux%20Containers-14C8A6?style=flat-square)](https://cairnetp.com)
 [![Architecture](https://img.shields.io/badge/Architecture-Dual--Runtime%20Sandbox-7C5AED?style=flat-square)](https://cairnetp.com/#architecture)
 [![Compliance](https://img.shields.io/badge/Compliance-EU%20AI%20Act%20%7C%20NIST%20AI%20RMF-061220?style=flat-square)](https://cairnetp.com/compliance.html)
@@ -13,7 +13,7 @@
 **We help organisations trust AI.**  
 CAIRN inserts a deterministic governance and dual-runtime verification plane between enterprise user intent and model execution.
 
-[Download cairn.exe](https://github.com/cairn-trust-fabric/cairn-trust-fabric/releases/latest) • [Architecture](https://cairnetp.com/#architecture) • [Compliance Mappings](https://cairnetp.com/compliance.html) • [Enterprise Licensing](https://cairnetp.com/licensing.html)
+[Download cairn.exe](https://github.com/cairn-trust-fabric/cairn/releases/latest) • [Architecture](https://cairnetp.com/#architecture) • [Compliance Mappings](https://cairnetp.com/compliance.html) • [Enterprise Licensing](https://cairnetp.com/licensing.html)
 
 ---
 
@@ -61,7 +61,7 @@ irm https://cairnetp.com/install.ps1 | iex
 ```
 
 ### Option 2: Direct Binary Download (GitHub Releases)
-1. Download the latest release from [GitHub Releases](https://github.com/cairn-trust-fabric/cairn-trust-fabric/releases/latest):
+1. Download the latest release from [GitHub Releases](https://github.com/cairn-trust-fabric/cairn/releases/latest):
    - `cairn-windows-x64.exe`
    - `SHA256SUMS.txt`
 2. Verify binary integrity:
