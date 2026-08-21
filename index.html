@@ -136,8 +136,8 @@
             <a href="#dashboard-status" class="btn btn-primary">
               Explore Platform <i class="fas fa-arrow-right"></i>
             </a>
-            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary">
-              <i class="fas fa-download"></i> Download v2.1.1 (.exe)
+            <a href="#download" class="btn btn-secondary">
+              <i class="fas fa-download"></i> Download Setup (.exe)
             </a>
           </div>
         </div>
@@ -508,61 +508,36 @@
   <section id="download" class="section-spacing">
     <div class="container">
       <div class="download-card-wrap">
-        <div class="download-grid">
+        <div class="download-content-box">
+          <div class="status-pill status-pill-teal" style="margin-bottom: 1.25rem;">
+            <i class="fab fa-github"></i> GITHUB RELEASES DISTRIBUTION
+          </div>
+          <h2 style="font-size: 2.3rem; margin-bottom: 1rem;">Download CAIRN Trust Fabric</h2>
+          <p style="color: var(--color-stone-grey); font-size: 1.08rem; max-width: 680px; margin: 0 auto 2rem auto; line-height: 1.7;">
+            CAIRN is distributed via signed binary releases with cryptographic checksums. Access documentation, architecture guides, issue tracking, and binary distributions on GitHub Releases.
+          </p>
 
-          <div>
-            <div class="status-pill status-pill-teal" style="margin-bottom: 1rem;">
-              <i class="fab fa-github"></i> GITHUB RELEASES DISTRIBUTION
-            </div>
-            <h2 style="font-size: 2.2rem; margin-bottom: 1rem;">Download CAIRN Trust Fabric</h2>
-            <p style="color: var(--color-stone-grey); margin-bottom: 2rem; font-size: 1.05rem;">
-              CAIRN is distributed via signed binary releases with cryptographic checksums. Access documentation, architecture guides, and issue tracking on GitHub.
-            </p>
-
-            <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
-              <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.85rem 1.8rem;">
-                <i class="fas fa-download"></i> Download Setup (.exe)
-              </a>
-              <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary">
-                <i class="fas fa-box-archive"></i> Enterprise Package (.msi)
-              </a>
-              <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline">
-                <i class="fab fa-github"></i> GitHub Repository
-              </a>
-            </div>
+          <div class="download-cta-group">
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
+              <i class="fas fa-download"></i> Download Setup (.exe)
+            </a>
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.9rem 1.75rem; font-size: 1rem;">
+              <i class="fas fa-box-archive"></i> Enterprise Package (.msi)
+            </a>
+            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.9rem 1.75rem; font-size: 1rem;">
+              <i class="fab fa-github"></i> GitHub Repository
+            </a>
           </div>
 
-          <!-- Binary Specs Box -->
-          <div class="binary-spec-box">
-            <h4 style="margin-bottom: 1rem; color: var(--color-glacier);">Release Specifications</h4>
-            
-            <div class="spec-row">
-              <span class="spec-label">Version:</span>
-              <span class="spec-val text-teal">v2.1.1 (Production)</span>
+          <div class="download-verify-note">
+            <div class="download-verify-text">
+              <i class="fas fa-shield-check text-teal" style="margin-right: 0.5rem;"></i>
+              <strong>Cryptographic Integrity & Verification:</strong> All release artifacts, checksums (<code>SHA256SUMS.txt</code>), and release notes are published with every signed build on GitHub Releases.
             </div>
-            <div class="spec-row">
-              <span class="spec-label">Architecture:</span>
-              <span class="spec-val">Windows x64 / Linux Containers</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label">Packages:</span>
-              <span class="spec-val">EXE &bull; MSI Installer</span>
-            </div>
-            <div class="spec-row">
-              <span class="spec-label">SHA-256 (EXE):</span>
-              <span class="spec-val" style="font-size: 0.76rem; color: #93c5fd;" title="11304f85010500929c54f32a4174d3e65a95dce6ae0dedcc0aa2e1157708c0f4">11304f85...8c0f4</span>
-            </div>
-            
-            <div style="margin-top: 1.25rem; display: flex; flex-direction: column; gap: 0.6rem;">
-              <button class="btn btn-outline copy-trigger-btn" data-copy="11304f85010500929c54f32a4174d3e65a95dce6ae0dedcc0aa2e1157708c0f4" style="width: 100%; font-size: 0.82rem; padding: 0.55rem;">
-                <i class="fas fa-fingerprint text-blue"></i> Copy Setup EXE SHA-256
-              </button>
-              <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest/download/SHA256SUMS.txt" target="_blank" rel="noopener" class="btn btn-secondary" style="width: 100%; font-size: 0.82rem; padding: 0.55rem; justify-content: center;">
-                <i class="fas fa-file-shield text-teal"></i> Download SHA256SUMS.txt
-              </a>
-            </div>
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.82rem; padding: 0.5rem 1rem; white-space: nowrap;">
+              <i class="fas fa-arrow-up-right-from-square"></i> View Latest Release
+            </a>
           </div>
-
         </div>
       </div>
     </div>

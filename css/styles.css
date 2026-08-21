@@ -1033,38 +1033,42 @@ code, pre {
   box-shadow: var(--shadow-glow-blue);
 }
 
-.download-grid {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3rem;
-  align-items: center;
+.download-content-box {
+  max-width: 820px;
+  margin: 0 auto;
+  text-align: center;
 }
 
-.binary-spec-box {
-  background: rgba(3, 9, 19, 0.7);
+.download-cta-group {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
+.download-verify-note {
+  background: rgba(3, 9, 19, 0.65);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
-  padding: 1.5rem;
-}
-
-.spec-row {
+  padding: 1.25rem 1.75rem;
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  padding: 0.5rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: 0.88rem;
+  gap: 1.5rem;
+  text-align: left;
+  margin-top: 1.5rem;
+  flex-wrap: wrap;
 }
 
-.spec-row:last-child {
-  border-bottom: none;
-}
-
-.spec-label {
+.download-verify-text {
+  font-size: 0.9rem;
   color: var(--color-stone-grey);
+  flex: 1;
 }
 
-.spec-val {
-  font-family: var(--font-mono);
+.download-verify-text strong {
   color: var(--color-glacier);
 }
 
@@ -1613,5 +1617,341 @@ code, pre {
   .pipeline-info {
     padding-left: 0;
   }
+}
+
+/* ==========================================================================
+   Book Page Styles
+   ========================================================================== */
+.book-hero {
+  padding-top: 140px;
+  padding-bottom: 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+@media (max-width: 768px) {
+  .book-hero {
+    padding-top: 100px;
+    padding-bottom: 3rem;
+  }
+  .book-hero-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+/* ==========================================================================
+   NIST AI RMF 1.0 Realization Grid
+   ========================================================================== */
+.nist-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.nist-card {
+  background: var(--bg-surface-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  backdrop-filter: blur(16px);
+  transition: all var(--transition-normal);
+  display: flex;
+  flex-direction: column;
+}
+
+.nist-card:hover {
+  border-color: rgba(37, 98, 235, 0.45);
+  box-shadow: var(--shadow-glow-blue);
+  transform: translateY(-2px);
+}
+
+.nist-card-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 1px solid var(--border-glass);
+  flex-wrap: wrap;
+}
+
+.nist-title-group {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.nist-func-title {
+  font-family: var(--font-heading);
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--color-glacier);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.nist-code-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-dim);
+  border: 1px solid var(--color-teal-border);
+  color: var(--color-teal-signal);
+  font-weight: 600;
+}
+
+.nist-pillar-badge {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-cairn-blue-dim);
+  border: 1px solid rgba(37, 98, 235, 0.4);
+  color: var(--color-cairn-blue-light);
+  font-weight: 500;
+}
+
+.nist-card-summary {
+  font-size: 0.95rem;
+  color: var(--color-glacier-dim);
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.nist-controls-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  padding: 0;
+  margin: 0;
+}
+
+.nist-control-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.65rem;
+  font-size: 0.9rem;
+  color: var(--color-stone-grey);
+  line-height: 1.55;
+}
+
+.nist-control-item i {
+  color: var(--color-teal-signal);
+  margin-top: 0.25rem;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.nist-control-item strong {
+  color: var(--color-glacier);
+}
+
+@media (max-width: 900px) {
+  .nist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   Vertical License vs Capabilities Matrix Grid
+   ========================================================================== */
+.license-matrix-wrap {
+  margin-top: 2rem;
+}
+
+.license-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  align-items: stretch;
+}
+
+@media (min-width: 1280px) {
+  .license-grid {
+    grid-template-columns: repeat(5, 1fr);
+  }
+}
+
+.license-card {
+  background: var(--bg-surface-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem 1.6rem;
+  backdrop-filter: blur(16px);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all var(--transition-normal);
+  position: relative;
+}
+
+.license-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(37, 98, 235, 0.5);
+  box-shadow: var(--shadow-glow-blue);
+}
+
+.license-card.featured {
+  background: linear-gradient(180deg, rgba(15, 35, 65, 0.9) 0%, rgba(10, 25, 47, 0.98) 100%);
+  border: 1.5px solid var(--color-teal-signal);
+  box-shadow: 0 0 35px rgba(20, 200, 166, 0.2);
+  transform: scale(1.02);
+  z-index: 2;
+}
+
+.license-card.featured:hover {
+  transform: scale(1.03) translateY(-4px);
+  box-shadow: 0 0 45px rgba(20, 200, 166, 0.35);
+}
+
+.license-featured-tag {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--color-teal-signal);
+  color: #061220;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  box-shadow: 0 4px 12px rgba(20, 200, 166, 0.4);
+  white-space: nowrap;
+}
+
+.license-header {
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.license-tier-badge {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-pill);
+  background: var(--color-teal-dim);
+  border: 1px solid var(--color-teal-border);
+  color: var(--color-teal-signal);
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.license-tier-badge.blue {
+  background: var(--color-cairn-blue-dim);
+  border-color: rgba(37, 98, 235, 0.4);
+  color: var(--color-cairn-blue-light);
+}
+
+.license-tier-badge.muted {
+  background: rgba(255, 255, 255, 0.06);
+  border-color: var(--border-glass);
+  color: var(--color-stone-grey);
+}
+
+.license-title {
+  font-size: 1.45rem;
+  font-weight: 700;
+  color: var(--color-glacier);
+  margin-bottom: 0.35rem;
+}
+
+.license-tagline {
+  font-size: 0.86rem;
+  color: var(--color-stone-grey);
+  line-height: 1.5;
+  min-height: 2.6rem;
+}
+
+.license-cta {
+  margin: 1.25rem 0 1.5rem 0;
+}
+
+.license-cta .btn {
+  width: 100%;
+  justify-content: center;
+  padding: 0.75rem 1rem;
+  font-size: 0.88rem;
+}
+
+.license-features-title {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-glacier-dim);
+  margin-bottom: 0.85rem;
+}
+
+.license-features-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  padding: 0;
+  margin: 0;
+  flex-grow: 1;
+}
+
+.license-feature-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.6rem;
+  font-size: 0.85rem;
+  line-height: 1.45;
+}
+
+.license-feature-item.included {
+  color: var(--color-glacier-dim);
+}
+
+.license-feature-item.included i {
+  color: var(--color-teal-signal);
+  font-size: 0.8rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.license-feature-item.highlighted {
+  color: var(--color-glacier);
+  font-weight: 600;
+}
+
+.license-feature-item.highlighted i {
+  color: var(--color-teal-signal);
+  font-size: 0.85rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.license-feature-item.disabled {
+  color: var(--color-stone-dark);
+}
+
+.license-feature-item.disabled i {
+  color: var(--color-stone-dark);
+  font-size: 0.75rem;
+  margin-top: 0.25rem;
+  flex-shrink: 0;
+}
+
+.license-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-glass);
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  color: var(--color-stone-grey);
 }
 

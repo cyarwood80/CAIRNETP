@@ -116,7 +116,7 @@
         </h2>
 
         <div class="compliance-overview-box">
-          <i class="fas fa-quote-left" style="color: var(--color-oxide-green); margin-right: 0.5rem;"></i>
+          <i class="fas fa-quote-left" style="color: var(--color-teal-signal); margin-right: 0.5rem;"></i>
           <strong>CAIRN ETP</strong> translates complex regulatory directives into cryptographic, runtime-enforced boundary checks. By replacing probabilistic model outputs with deterministic execution controls, CAIRN provides the technical verification required for strict enterprise compliance.
         </div>
       </div>
@@ -134,7 +134,7 @@
           <div class="framework-badge-num">1</div>
           <div>
             <h3 class="framework-heading">EU Artificial Intelligence Act (EU AI Act)</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
               CAIRN ETP fulfills the technical, operational, and record-keeping mandates required for High-Risk AI Systems (Articles 9–15) and deployment in regulated sectors.
             </p>
           </div>
@@ -212,90 +212,111 @@
           <div class="framework-badge-num">2</div>
           <div>
             <h3 class="framework-heading">NIST AI Risk Management Framework (NIST AI RMF 1.0)</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
               CAIRN ETP maps directly across the four core functions of the NIST AI RMF, enabling organizations to manage risks associated with agentic AI systems.
             </p>
           </div>
         </div>
 
-        <!-- NIST Visual Node Map -->
-        <div class="nist-diagram-wrap">
-          <div class="nist-diagram-title">NIST AI RMF 1.0 Core Functions & Pillar Realization</div>
-          <div class="nist-flow-grid">
-            
-            <div class="nist-flow-box">
-              <div class="nist-func-name"><i class="fas fa-gavel"></i> GOVERN</div>
-              <div class="nist-func-desc">Default-Deny Policy Enforcement</div>
-              <div class="nist-func-pillar">Pillars 01 & 02</div>
-            </div>
-
-            <div class="nist-flow-box">
-              <div class="nist-func-name"><i class="fas fa-map-location-dot"></i> MAP</div>
-              <div class="nist-func-desc">Cryptographic Context Lineage</div>
-              <div class="nist-func-pillar">Pillar 05 (ATLAS)</div>
-            </div>
-
-            <div class="nist-flow-box">
-              <div class="nist-func-name"><i class="fas fa-ruler-combined"></i> MEASURE</div>
-              <div class="nist-func-desc">Real-Time Telemetry & Audits</div>
-              <div class="nist-func-pillar">Pillar 03 & 04</div>
-            </div>
-
-            <div class="nist-flow-box">
-              <div class="nist-func-name"><i class="fas fa-sliders"></i> MANAGE</div>
-              <div class="nist-func-desc">Deterministic AST Sandboxing</div>
-              <div class="nist-func-pillar">Pillars 06 & 07</div>
-            </div>
-
-          </div>
-        </div>
-
-        <!-- Detailed Realization Grid -->
-        <div style="margin-top: 2rem;">
-          <h4 style="font-size: 1.15rem; font-weight: 700; margin-bottom: 1.25rem; color: var(--text-main);">Core Function Realization</h4>
+        <div class="nist-grid">
           
-          <div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.5rem;">
-            
-            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
-              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
-                <i class="fas fa-shield-halved"></i> GOVERN (GV-1.1 to GV-4.3)
+          <!-- GOVERN -->
+          <div class="nist-card">
+            <div class="nist-card-header">
+              <div class="nist-title-group">
+                <span class="nist-func-title"><i class="fas fa-gavel text-teal"></i> GOVERN</span>
+                <span class="nist-code-badge">GV-1.1 to GV-4.3</span>
               </div>
-              <ul style="padding-left: 1.2rem; font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
-                <li style="margin-bottom: 0.5rem;"><strong>Policy Enforcement:</strong> Default-deny security gatekeepers prevent un-governed agent actions from touching enterprise APIs or command lines.</li>
-                <li><strong>Role-Based Entitlements:</strong> Cryptographic hardware node-locking and tier-based feature access ensure strict enterprise boundary controls.</li>
-              </ul>
+              <span class="nist-pillar-badge"><i class="fas fa-shield-cat"></i> Pillars 01 & 02</span>
             </div>
-
-            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
-              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
-                <i class="fas fa-diagram-project"></i> MAP (MP-1.1 to MP-2.3)
-              </div>
-              <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
-                <strong>Context Lineage:</strong> Complete visibility into retrieved knowledge fragments (ATLAS Memory Fabric), proving exactly which institutional sources informed a specific decision.
-              </p>
-            </div>
-
-            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
-              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
-                <i class="fas fa-chart-line"></i> MEASURE (ME-1.1 to ME-3.1)
-              </div>
-              <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
-                <strong>Provable Auditability:</strong> System outputs are accompanied by a deterministic lineage hash (<code>cairn trace</code>), enabling independent verification by internal risk teams.
-              </p>
-            </div>
-
-            <div style="background: #f8fafc; border: 1px solid var(--border-card); border-radius: var(--radius-md); padding: 1.5rem;">
-              <div style="font-family: var(--font-mono); font-weight: 700; color: var(--color-oxide-green); margin-bottom: 0.5rem; font-size: 0.9rem;">
-                <i class="fas fa-box-archive"></i> MANAGE (MN-1.1 to MN-3.3)
-              </div>
-              <p style="font-size: 0.925rem; color: var(--text-secondary); line-height: 1.6;">
-                <strong>Contained Execution:</strong> Synthetic code generation (FORGE) executes exclusively inside resource-limited, air-gapped sandboxes (CRUCIBLE), eliminating systemic risk from autonomous agent tools.
-              </p>
-            </div>
-
+            <p class="nist-card-summary">
+              Establishes organizational AI governance processes, transparent risk tolerance boundaries, and default-deny execution policies.
+            </p>
+            <ul class="nist-controls-list">
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Policy Enforcement (INGRESS):</strong> Default-deny security gatekeepers evaluate AST syntax and block unauthorized agent actions before model invocation.</div>
+              </li>
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Role-Based Entitlements (ROUTING):</strong> Cryptographic hardware node-locking and tier-based routing enforce strict enterprise security perimeters.</div>
+              </li>
+            </ul>
           </div>
-        </div>
 
+          <!-- MAP -->
+          <div class="nist-card">
+            <div class="nist-card-header">
+              <div class="nist-title-group">
+                <span class="nist-func-title"><i class="fas fa-map-location-dot text-teal"></i> MAP</span>
+                <span class="nist-code-badge">MP-1.1 to MP-2.3</span>
+              </div>
+              <span class="nist-pillar-badge"><i class="fas fa-brain"></i> Pillar 05 (ATLAS)</span>
+            </div>
+            <p class="nist-card-summary">
+              Contextualizes organizational risk by mapping data lineage, model dependencies, and institutional knowledge inputs.
+            </p>
+            <ul class="nist-controls-list">
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Cryptographic Context Lineage:</strong> 4-layer ATLAS memory fabric maintains complete provenance over retrieved enterprise data chunks.</div>
+              </li>
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Source Attribution:</strong> Cryptographically proves exactly which institutional document fragments informed every AI agent decision.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- MEASURE -->
+          <div class="nist-card">
+            <div class="nist-card-header">
+              <div class="nist-title-group">
+                <span class="nist-func-title"><i class="fas fa-ruler-combined text-teal"></i> MEASURE</span>
+                <span class="nist-code-badge">ME-1.1 to ME-3.1</span>
+              </div>
+              <span class="nist-pillar-badge"><i class="fas fa-tower-cell"></i> Pillars 03 & 04</span>
+            </div>
+            <p class="nist-card-summary">
+              Continuously quantifies, monitors, and evaluates AI system behavior, tool accuracy, and compliance posture.
+            </p>
+            <ul class="nist-controls-list">
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Real-Time Telemetry (BEACON):</strong> Structured metrics broadcasting decision latency, safety scores, and human-in-the-loop triggers to SIEM platforms.</div>
+              </li>
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Provable Audit Trails (COMPASS):</strong> Signed SHA-256 decision lineage hashes (<code>cairn trace</code>) enable independent verification by internal risk teams.</div>
+              </li>
+            </ul>
+          </div>
+
+          <!-- MANAGE -->
+          <div class="nist-card">
+            <div class="nist-card-header">
+              <div class="nist-title-group">
+                <span class="nist-func-title"><i class="fas fa-sliders text-teal"></i> MANAGE</span>
+                <span class="nist-code-badge">MN-1.1 to MN-3.3</span>
+              </div>
+              <span class="nist-pillar-badge"><i class="fas fa-box-archive"></i> Pillars 06 & 07</span>
+            </div>
+            <p class="nist-card-summary">
+              Allocates risk mitigation resources, enforces deterministic runtime boundaries, and isolates tool actions.
+            </p>
+            <ul class="nist-controls-list">
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Synthetic Verification (FORGE):</strong> Validates proposed model code generation and execution plans against deterministic unit checks.</div>
+              </li>
+              <li class="nist-control-item">
+                <i class="fas fa-circle-check"></i>
+                <div><strong>Contained Execution (CRUCIBLE):</strong> Runs all autonomous agent tools inside resource-limited, air-gapped Docker sandboxes (<code>--network none</code>).</div>
+              </li>
+            </ul>
+          </div>
+
+        </div>
       </div>
 
       <!-- 3. ISO/IEC 42001:2023 -->
@@ -304,7 +325,7 @@
           <div class="framework-badge-num">3</div>
           <div>
             <h3 class="framework-heading">ISO/IEC 42001:2023 (Artificial Intelligence Management System)</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
               CAIRN ETP provides the infrastructure necessary to implement, maintain, and continually improve an ISO/IEC 42001 certified AI management system.
             </p>
           </div>
@@ -359,7 +380,7 @@
           <div class="framework-badge-num">4</div>
           <div>
             <h3 class="framework-heading">Financial Services & Enterprise Security Alignments</h3>
-            <p style="color: var(--text-secondary); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
               In addition to dedicated AI frameworks, CAIRN ETP reinforces existing enterprise security and banking standards.
             </p>
           </div>
@@ -409,16 +430,16 @@
           <img src="assets/cairn-symbol.png" alt="CAIRN Symbol" style="height: 32px;">
           <span>CAIRN<span class="text-oxide"> ETP</span></span>
         </div>
-        <p style="color: var(--text-secondary); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
+        <p style="color: var(--color-stone-grey); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
           We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
         </p>
-        <p style="color: var(--text-muted); font-size: 0.8rem;">
+        <p style="color: var(--color-stone-dark); font-size: 0.8rem;">
           &copy; 2026 CAIRN ETP. All rights reserved.
         </p>
       </div>
 
       <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Platform</h4>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Platform</h4>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="index.html#outcomes" class="nav-link" style="padding: 0;">Business Outcomes</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="index.html#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
@@ -428,21 +449,20 @@
       </div>
 
       <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Governance & Legal</h4>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Governance & Legal</h4>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="compliance.html" class="nav-link" style="padding: 0;">Compliance Mapping</a></li>
-          
           <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">Publications & Book</a></li>
         </ul>
       </div>
 
       <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--text-main);">Contact & Access</h4>
+        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Contact & Access</h4>
         <button class="btn btn-primary open-demo-btn" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
           Register Interest <i class="fas fa-arrow-right"></i>
         </button>
-        <p style="font-size: 0.8rem; color: var(--text-muted); text-align: center;">
+        <p style="font-size: 0.8rem; color: var(--color-stone-dark); text-align: center;">
           Air-gapped and sovereign cloud deployment options available.
         </p>
       </div>
