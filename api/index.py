@@ -157,7 +157,7 @@ class RegisterInterestRequest(BaseModel):
 @app.post("/api/register-interest")
 async def register_interest(req: RegisterInterestRequest):
     resend_key = os.getenv("RESEND_API_KEY")
-    notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chris@cairnetp.com")
+    notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chrisyarwood@msn.com")
     
     delivered = False
     delivery_channel = "VERCEL_LOG"
@@ -167,16 +167,16 @@ async def register_interest(req: RegisterInterestRequest):
             payload = json.dumps({
                 "from": "CAIRN Trust Fabric <onboarding@resend.dev>",
                 "to": [notification_email],
-                "subject": f"[BRIEFING REQUEST] CAIRN Trust Fabric: {req.company or 'Enterprise'} ({req.name})",
+                "subject": f"[ACCESS REQUEST] CAIRN Trust Fabric: {req.company or 'Enterprise'} ({req.name})",
                 "html": f"""
                 <div style="font-family: Arial, sans-serif; background-color: #061220; color: #F8FAFC; padding: 24px; border-radius: 8px; border: 1px solid #2562EB;">
-                    <h2 style="color: #14C8A6; margin-top: 0;">CAIRN Trust Fabric — Architecture Briefing Request</h2>
+                    <h2 style="color: #14C8A6; margin-top: 0;">CAIRN Trust Fabric — Enterprise Access Request</h2>
                     <hr style="border-color: rgba(255,255,255,0.1);">
                     <p><strong>Full Name:</strong> {req.name}</p>
                     <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #60A5FA;">{req.email}</a></p>
                     <p><strong>Company:</strong> {req.company or 'Not specified'}</p>
                     <p><strong>Deployment Scope:</strong> {req.tier or 'Enterprise'}</p>
-                    <p><strong>Focus Area:</strong> {req.notes or 'General Briefing'}</p>
+                    <p><strong>Focus Area:</strong> {req.notes or 'General Access / Evaluation'}</p>
                     <hr style="border-color: rgba(255,255,255,0.1);">
                     <p style="font-size: 12px; color: #94A3B8;">CAIRN Trust Fabric • cairnetp.com</p>
                 </div>
@@ -200,11 +200,11 @@ async def register_interest(req: RegisterInterestRequest):
         except Exception as e:
             print(f"[REGISTER EMAIL ERROR] Resend dispatch failed: {e}")
 
-    print(f"[BRIEFING INQUIRY RECORDED] Name: {req.name} | Email: {req.email} | Company: {req.company} | Channel: {delivery_channel}")
+    print(f"[ACCESS INQUIRY RECORDED] Name: {req.name} | Email: {req.email} | Company: {req.company} | Channel: {delivery_channel}")
 
     return {
         "success": True,
-        "message": f"Thank you {req.name}. Briefing request recorded.",
+        "message": f"Thank you {req.name}. Access request recorded.",
         "delivery_channel": delivery_channel
     }
 
@@ -212,7 +212,7 @@ async def register_interest(req: RegisterInterestRequest):
 async def request_demo(req: DemoRequest):
 
     resend_key = os.getenv("RESEND_API_KEY")
-    notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chris@cairnetp.com")
+    notification_email = os.getenv("DEMO_NOTIFICATION_EMAIL", "chrisyarwood@msn.com")
     webhook_url = os.getenv("DEMO_WEBHOOK_URL")
 
     delivered = False

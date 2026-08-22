@@ -202,7 +202,7 @@ document.addEventListener('DOMContentLoaded', () => {
           feedbackDiv.style.display = 'block';
           if (res.ok) {
             feedbackDiv.className = 'status-pill status-pill-teal';
-            feedbackDiv.innerHTML = '<i class="fas fa-check"></i> Thank you! An enterprise engineer will contact you shortly.';
+            feedbackDiv.innerHTML = '<i class="fas fa-check"></i> Thank you! The CAIRN team has received your request and will follow up with you via email.';
             leadForm.reset();
           } else {
             feedbackDiv.className = 'status-pill';
@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Submit Briefing Request <i class="fas fa-arrow-right"></i>';
+          submitBtn.innerHTML = 'Submit Access Request <i class="fas fa-arrow-right"></i>';
         }
       }
     });

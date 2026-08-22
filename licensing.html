@@ -97,7 +97,7 @@
 
       <div class="header-actions">
         <button class="btn btn-primary open-demo-btn">
-          <span>Briefing</span> <i class="fas fa-arrow-right"></i>
+          <span>Request Access</span> <i class="fas fa-arrow-right"></i>
         </button>
         <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline"
           title="GitHub Repository">
@@ -403,7 +403,7 @@
 
               <div class="license-cta">
                 <button class="btn btn-secondary open-demo-btn">
-                  <i class="fas fa-lock"></i> Sovereign Briefing
+                  <i class="fas fa-lock"></i> Request Sovereign Access
                 </button>
               </div>
 
@@ -455,43 +455,53 @@
     </div>
   </section>
 
-  <!-- Demonstration Request Modal Dialog -->
+  <!-- Enterprise Lead Capture Modal -->
   <div id="demo-modal" class="modal-overlay">
-    <div class="modal-container">
-      <div class="modal-header">
-        <div>
-          <h3 style="font-size: 1.25rem;">Register Your Interest</h3>
-          <div
-            style="font-family: var(--font-mono); font-size: 0.78rem; color: var(--color-teal-signal); margin-top: 0.2rem;">
-            CAIRN ENTERPRISE TRUST PLANE
-          </div>
-        </div>
-        <button id="demo-close-btn" class="modal-close-btn">&times;</button>
+    <div class="modal-box">
+      <button class="modal-close-btn" id="modal-close-btn" aria-label="Close modal">&times;</button>
+      
+      <div class="status-pill status-pill-teal" style="margin-bottom: 0.75rem;">
+        <i class="fas fa-key"></i> ENTERPRISE ACCESS
       </div>
+      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Request Enterprise Access</h3>
+      <p style="font-size: 0.92rem; color: var(--color-stone-grey); margin-bottom: 1.5rem;">
+        Connect with our team to discuss pilot access, sovereign air-gapped deployment, and enterprise node licensing.
+      </p>
 
-      <form id="demo-form" onsubmit="event.preventDefault(); handleDemoSubmit();">
+      <form id="enterprise-lead-form">
         <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="demo-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
+          <label class="form-label" for="lead-name">Full Name</label>
+          <input type="text" id="lead-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
         </div>
 
         <div class="form-group">
-          <label>Work Email</label>
-          <input type="email" id="demo-email" class="form-input" placeholder="s.jenkins@enterprise-bank.com" required>
+          <label class="form-label" for="lead-email">Corporate Email</label>
+          <input type="email" id="lead-email" class="form-input" placeholder="e.g. s.jenkins@enterprise.com" required>
         </div>
 
         <div class="form-group">
-          <label>Organization / Sector</label>
-          <input type="text" id="demo-org" class="form-input" placeholder="Financial Services / Defence / Government"
-            required>
+          <label class="form-label" for="lead-company">Organisation</label>
+          <input type="text" id="lead-company" class="form-input" placeholder="e.g. Global Financial Corp" required>
         </div>
 
-        <div id="demo-status-msg"
-          style="font-size: 0.85rem; font-family: var(--font-mono); margin-bottom: 1rem; color: var(--color-teal-signal);">
+        <div class="form-group">
+          <label class="form-label" for="lead-tier">Deployment Scope</label>
+          <select id="lead-tier" class="form-select">
+            <option value="enterprise">Enterprise Trust Fabric (Multi-Node)</option>
+            <option value="sovereign">Sovereign On-Premises Air-Gapped</option>
+            <option value="evaluation">Technical Proof of Concept (PoC)</option>
+          </select>
         </div>
+
+        <div class="form-group">
+          <label class="form-label" for="lead-notes">Primary Focus Area</label>
+          <textarea id="lead-notes" class="form-textarea" rows="2" placeholder="e.g. Sovereign node deployment in air-gapped environment"></textarea>
+        </div>
+
+        <div id="lead-form-feedback" style="display: none; margin-bottom: 1rem;"></div>
 
         <button type="submit" class="btn btn-primary" style="width: 100%; padding: 0.85rem;">
-          Submit Registration
+          Submit Access Request <i class="fas fa-arrow-right"></i>
         </button>
       </form>
     </div>
@@ -503,24 +513,24 @@
       <div class="footer-grid">
         <div class="footer-brand">
           <a href="/" class="brand-logo" title="CAIRN Trust Fabric">
-        <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" onerror="this.src='assets/cairn-logo.svg'">
-        <div class="brand-name-group">
-          <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
-          <span class="brand-tagline">Trust Fabric</span>
-        </div>
-      </a>
+            <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" onerror="this.src='assets/cairn-logo.svg'">
+            <div class="brand-name-group">
+              <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline">Trust Fabric</span>
+            </div>
+          </a>
           <p>
-            CAIRN is the trust plane for enterprise intelligence. We help organisations trust AI.
+            Cryptographic trust fabric and operational governance plane for mission-critical enterprise AI workloads.
           </p>
         </div>
 
         <div class="footer-col">
-          <h4>Platform</h4>
+          <h4>Platform Navigation</h4>
           <ul>
-            <li><a href="index.html#trust-plane">Trust Layer</a></li>
-            <li><a href="index.html#architecture">Enterprise Architecture</a></li>
+            <li><a href="/">Architecture Overview</a></li>
+            <li><a href="compliance.html">Compliance Mappings</a></li>
+            <li><a href="gallery.html">Interface Showcase</a></li>
             <li><a href="licensing.html">Licensing & Tiers</a></li>
-            <li><a href="gallery.html">UI Gallery</a></li>
           </ul>
         </div>
 
@@ -539,7 +549,7 @@
           <ul>
             <li><a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"><i
                   class="fab fa-linkedin text-oxide"></i> Chris Yarwood (LinkedIn)</a></li>
-            <li><a href="#" class="open-demo-btn"><i class="fas fa-handshake text-oxide"></i> Register Interest</a></li>
+            <li><a href="#" class="open-demo-btn"><i class="fas fa-handshake text-oxide"></i> Request Access</a></li>
           </ul>
         </div>
       </div>
