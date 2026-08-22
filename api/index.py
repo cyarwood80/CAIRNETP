@@ -163,42 +163,53 @@ async def register_interest(req: RegisterInterestRequest):
     delivery_channel = "VERCEL_LOG"
 
     if resend_key:
-        try:
-            payload = json.dumps({
-                "from": "CAIRN Trust Fabric <onboarding@resend.dev>",
-                "to": [notification_email],
-                "subject": f"[ACCESS REQUEST] CAIRN Trust Fabric: {req.company or 'Enterprise'} ({req.name})",
-                "html": f"""
-                <div style="font-family: Arial, sans-serif; background-color: #061220; color: #F8FAFC; padding: 24px; border-radius: 8px; border: 1px solid #2562EB;">
-                    <h2 style="color: #14C8A6; margin-top: 0;">CAIRN Trust Fabric — Enterprise Access Request</h2>
-                    <hr style="border-color: rgba(255,255,255,0.1);">
-                    <p><strong>Full Name:</strong> {req.name}</p>
-                    <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #60A5FA;">{req.email}</a></p>
-                    <p><strong>Company:</strong> {req.company or 'Not specified'}</p>
-                    <p><strong>Deployment Scope:</strong> {req.tier or 'Enterprise'}</p>
-                    <p><strong>Focus Area:</strong> {req.notes or 'General Access / Evaluation'}</p>
-                    <hr style="border-color: rgba(255,255,255,0.1);">
-                    <p style="font-size: 12px; color: #94A3B8;">CAIRN Trust Fabric • cairnetp.com</p>
-                </div>
-                """
-            }).encode("utf-8")
+        from_candidates = [
+            os.getenv("RESEND_FROM_EMAIL", "CAIRN Trust Fabric <access@cairnetp.com>"),
+            "CAIRN Trust Fabric <access@send.cairnetp.com>",
+            "CAIRN Trust Fabric <notifications@cairnetp.com>",
+            "CAIRN Trust Fabric <onboarding@resend.dev>"
+        ]
+        
+        for from_addr in from_candidates:
+            if delivered:
+                break
+            try:
+                payload = json.dumps({
+                    "from": from_addr,
+                    "to": [notification_email],
+                    "subject": f"[ACCESS REQUEST] CAIRN Trust Fabric: {req.company or 'Enterprise'} ({req.name})",
+                    "html": f"""
+                    <div style="font-family: Arial, sans-serif; background-color: #061220; color: #F8FAFC; padding: 24px; border-radius: 8px; border: 1px solid #2562EB;">
+                        <h2 style="color: #14C8A6; margin-top: 0;">CAIRN Trust Fabric — Enterprise Access Request</h2>
+                        <hr style="border-color: rgba(255,255,255,0.1);">
+                        <p><strong>Full Name:</strong> {req.name}</p>
+                        <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #60A5FA;">{req.email}</a></p>
+                        <p><strong>Company:</strong> {req.company or 'Not specified'}</p>
+                        <p><strong>Deployment Scope:</strong> {req.tier or 'Enterprise'}</p>
+                        <p><strong>Focus Area:</strong> {req.notes or 'General Access / Evaluation'}</p>
+                        <hr style="border-color: rgba(255,255,255,0.1);">
+                        <p style="font-size: 12px; color: #94A3B8;">CAIRN Trust Fabric • cairnetp.com</p>
+                    </div>
+                    """
+                }).encode("utf-8")
 
-            request = urllib.request.Request(
-                "https://api.resend.com/emails",
-                data=payload,
-                headers={
-                    "Authorization": f"Bearer {resend_key}",
-                    "Content-Type": "application/json",
-                    "User-Agent": "Mozilla/5.0 CAIRN-TrustFabric/1.0"
-                },
-                method="POST"
-            )
-            with urllib.request.urlopen(request, timeout=5) as response:
-                if response.status in (200, 201):
-                    delivered = True
-                    delivery_channel = "RESEND_EMAIL"
-        except Exception as e:
-            print(f"[REGISTER EMAIL ERROR] Resend dispatch failed: {e}")
+                request = urllib.request.Request(
+                    "https://api.resend.com/emails",
+                    data=payload,
+                    headers={
+                        "Authorization": f"Bearer {resend_key}",
+                        "Content-Type": "application/json",
+                        "User-Agent": "Mozilla/5.0 CAIRN-TrustFabric/1.0"
+                    },
+                    method="POST"
+                )
+                with urllib.request.urlopen(request, timeout=5) as response:
+                    if response.status in (200, 201):
+                        delivered = True
+                        delivery_channel = f"RESEND_EMAIL ({from_addr})"
+                        break
+            except Exception as e:
+                print(f"[REGISTER EMAIL ATTEMPT FAILED] from '{from_addr}': {e}")
 
     print(f"[ACCESS INQUIRY RECORDED] Name: {req.name} | Email: {req.email} | Company: {req.company} | Channel: {delivery_channel}")
 
@@ -220,40 +231,51 @@ async def request_demo(req: DemoRequest):
 
     # 1. Resend Transactional Email Dispatch (Vercel Partner)
     if resend_key:
-        try:
-            payload = json.dumps({
-                "from": "CAIRN ETP Demo Requests <onboarding@resend.dev>",
-                "to": [notification_email],
-                "subject": f"[DEMO REQUEST] New Enterprise Demo Request: {req.organization} ({req.name})",
-                "html": f"""
-                <div style="font-family: Arial, sans-serif; background-color: #23272E; color: #F5F5F1; padding: 20px; border-radius: 6px;">
-                    <h2 style="color: #5B6F5A; margin-top: 0;">CAIRN ETP — New Enterprise Demonstration Request</h2>
-                    <hr style="border-color: #3B4450;">
-                    <p><strong>Full Name:</strong> {req.name}</p>
-                    <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #5B6F5A;">{req.email}</a></p>
-                    <p><strong>Organization / Sector:</strong> {req.organization}</p>
-                    <hr style="border-color: #3B4450;">
-                    <p style="font-size: 12px; color: #9CA3AF;">CAIRN ETP — Enterprise Trust Plane • cairnetp.com</p>
-                </div>
-                """
-            }).encode("utf-8")
+        from_candidates = [
+            os.getenv("RESEND_FROM_EMAIL", "CAIRN Trust Fabric <access@cairnetp.com>"),
+            "CAIRN Trust Fabric <access@send.cairnetp.com>",
+            "CAIRN Trust Fabric <notifications@cairnetp.com>",
+            "CAIRN Trust Fabric <onboarding@resend.dev>"
+        ]
 
-            request = urllib.request.Request(
-                "https://api.resend.com/emails",
-                data=payload,
-                headers={
-                    "Authorization": f"Bearer {resend_key}",
-                    "Content-Type": "application/json",
-                    "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) CAIRNETP/2.4"
-                },
-                method="POST"
-            )
-            with urllib.request.urlopen(request, timeout=5) as response:
-                if response.status in (200, 201):
-                    delivered = True
-                    delivery_channel = "RESEND_EMAIL"
-        except Exception as e:
-            print(f"[DEMO EMAIL ERROR] Resend dispatch failed: {e}")
+        for from_addr in from_candidates:
+            if delivered:
+                break
+            try:
+                payload = json.dumps({
+                    "from": from_addr,
+                    "to": [notification_email],
+                    "subject": f"[DEMO REQUEST] New Enterprise Demo Request: {req.organization} ({req.name})",
+                    "html": f"""
+                    <div style="font-family: Arial, sans-serif; background-color: #23272E; color: #F5F5F1; padding: 20px; border-radius: 6px;">
+                        <h2 style="color: #5B6F5A; margin-top: 0;">CAIRN ETP — New Enterprise Demonstration Request</h2>
+                        <hr style="border-color: #3B4450;">
+                        <p><strong>Full Name:</strong> {req.name}</p>
+                        <p><strong>Work Email:</strong> <a href="mailto:{req.email}" style="color: #5B6F5A;">{req.email}</a></p>
+                        <p><strong>Organization / Sector:</strong> {req.organization}</p>
+                        <hr style="border-color: #3B4450;">
+                        <p style="font-size: 12px; color: #9CA3AF;">CAIRN ETP — Enterprise Trust Plane • cairnetp.com</p>
+                    </div>
+                    """
+                }).encode("utf-8")
+
+                request = urllib.request.Request(
+                    "https://api.resend.com/emails",
+                    data=payload,
+                    headers={
+                        "Authorization": f"Bearer {resend_key}",
+                        "Content-Type": "application/json",
+                        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) CAIRNETP/2.4"
+                    },
+                    method="POST"
+                )
+                with urllib.request.urlopen(request, timeout=5) as response:
+                    if response.status in (200, 201):
+                        delivered = True
+                        delivery_channel = f"RESEND_EMAIL ({from_addr})"
+                        break
+            except Exception as e:
+                print(f"[DEMO EMAIL ATTEMPT FAILED] from '{from_addr}': {e}")
 
     # 2. Slack / Discord / Teams Webhook Dispatch
     if webhook_url and not delivered:
