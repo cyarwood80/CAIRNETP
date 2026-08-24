@@ -650,39 +650,43 @@ code, pre {
   background: rgba(10, 25, 47, 0.6);
   border-top: 1px solid var(--border-glass);
   border-bottom: 1px solid var(--border-glass);
-  padding: 1.5rem 0;
+  padding: 1.75rem 0;
   backdrop-filter: blur(8px);
 }
 
 .sectors-inner {
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 1.5rem;
+  justify-content: center;
+  text-align: center;
+  gap: 1.15rem;
 }
 
 .sectors-label {
   font-family: var(--font-mono);
-  font-size: 0.8rem;
+  font-size: 0.82rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.1em;
   color: var(--color-stone-grey);
   text-transform: uppercase;
+  text-align: center;
+  width: 100%;
 }
 
 .sectors-list {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  justify-content: center;
+  gap: 2rem;
   flex-wrap: wrap;
 }
 
 .sector-chip {
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  font-size: 0.88rem;
+  gap: 0.55rem;
+  font-size: 0.9rem;
   font-weight: 500;
   color: var(--color-glacier);
 }
@@ -1451,7 +1455,28 @@ code, pre {
   background: var(--bg-surface-card);
   border: 1px solid var(--border-glass);
   border-radius: var(--radius-md);
-  padding: 1.75rem;
+  padding: 2rem 1.75rem;
+  backdrop-filter: blur(16px);
+  transition: all var(--transition-normal);
+}
+
+.finsec-card:hover {
+  border-color: rgba(37, 98, 235, 0.4);
+  transform: translateY(-2px);
+}
+
+.finsec-card-title {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-pure-white);
+  margin-bottom: 1rem;
+  letter-spacing: -0.01em;
+}
+
+.finsec-card-desc {
+  font-size: 0.93rem;
+  line-height: 1.68;
+  color: var(--color-stone-grey);
 }
 
 /* UI Gallery Styles */
