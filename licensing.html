@@ -127,12 +127,12 @@
       <!-- Trust Guarantee Pill -->
       <div class="compliance-overview-box" style="max-width: 840px; margin: 0 auto 3rem auto; text-align: left;">
         <i class="fas fa-shield-check" style="color: var(--color-teal-signal); margin-right: 0.5rem;"></i>
-        <strong>The CAIRN Trust Guarantee: Safety Is Never An Upsell.</strong> Default-deny security gates, durable decision ledgers, CRUCIBLE Docker sandboxes, and COMPASS audit provenance ship across <em>every edition</em>. Commercial tiers scale organizational governance, connectors, multi-agent fleet management, and air-gapped node-locking.
+        <strong>The CAIRN Trust Guarantee: Safety Is Never An Upsell.</strong> Default-deny security gates, durable SHA-256 decision ledgers, CRUCIBLE isolated sandboxes (Docker & Windows Sandbox VM), and COMPASS audit provenance ship across <em>every edition</em>. Commercial tiers scale signed corporate policy distribution, independent evidence bundle export, inbound MCP trust gateway, and priority support.
       </div>
 
       <!-- Vertical Licenses vs Capabilities Matrix Grid -->
       <div class="license-matrix-wrap">
-        <div class="license-grid">
+        <div class="license-grid" style="grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));">
 
           <!-- 1. Community Edition -->
           <div class="license-card">
@@ -141,13 +141,13 @@
                 <span class="license-tier-badge muted">OPEN CORE</span>
                 <h3 class="license-title">Community</h3>
                 <p class="license-tagline">
-                  Foundational trust plane for individual developers and desktop privacy research.
+                  Foundational trust plane for individual developers, local research, and privacy-first automation.
                 </p>
               </div>
 
               <div class="license-cta">
                 <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-outline">
-                  <i class="fas fa-download"></i> Get Community
+                  <i class="fas fa-download"></i> Get Community (Free)
                 </a>
               </div>
 
@@ -155,7 +155,7 @@
               <ul class="license-features-list">
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Core Chat & Reasoning Router</span>
+                  <span>Core Chat & Intent Router (PATH)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
@@ -163,23 +163,23 @@
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Default-Deny Policy Gate (Pillar 01)</span>
+                  <span>Default-Deny Policy Gate (CAIRN)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Durable Decision Ledger (Pillar 04)</span>
+                  <span>SQLite SHA-256 Decision Ledger (COMPASS)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>CRUCIBLE Docker Sandbox (Pillar 07)</span>
+                  <span>CRUCIBLE Isolated Sandboxes (Docker / WinVM)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>COMPASS Audit Trace Logs</span>
+                  <span>Local Fleet Management & Telemetry</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Local File & Vector Store</span>
+                  <span>Offline Asymmetric License Verification</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
@@ -187,21 +187,21 @@
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Enterprise SIEM Telemetry</span>
+                  <span>Inbound MCP Trust Gateway</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Central RBAC Fleet Controls</span>
+                  <span>Signed Corporate Policy Distribution</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Air-Gapped Node Locking</span>
+                  <span>Cryptographic Evidence Bundle Export</span>
                 </li>
               </ul>
             </div>
 
             <div class="license-footer">
-              <i class="fas fa-laptop text-teal"></i> Deployment: Local Workstation
+              <i class="fas fa-laptop text-teal"></i> Free (BUSL 1.1 &bull; Single Node)
             </div>
           </div>
 
@@ -212,7 +212,7 @@
                 <span class="license-tier-badge blue">TEAM / DEV</span>
                 <h3 class="license-title">Developer</h3>
                 <p class="license-tagline">
-                  Authoring environment for engineering teams building custom tools and agents.
+                  Authoring environment for engineering teams building custom tools, workflows, and external agents.
                 </p>
               </div>
 
@@ -228,43 +228,43 @@
                   <i class="fas fa-circle-check"></i>
                   <span><strong>All Community Features</strong></span>
                 </li>
-                <li class="license-feature-item included">
+                <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>GitHub Evidence Connector</span>
+                  <span>Custom Skill & Agent Authoring (<code>skills.authoring</code>)</span>
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Custom Skill & Agent Authoring</span>
+                  <span>Inbound MCP Trust Gateway (<code>gateway.inbound</code>)</span>
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Unlimited MCP Integrations</span>
+                  <span>GitHub Evidence Connector (<code>connectors.github</code>)</span>
+                </li>
+                <li class="license-feature-item highlighted">
+                  <i class="fas fa-circle-check"></i>
+                  <span>Unlimited MCP Client Connections (<code>mcp.unlimited</code>)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Developer REST & CLI APIs</span>
-                </li>
-                <li class="license-feature-item included">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Custom Policy Rule Engine</span>
+                  <span>Developer REST & CLI Automation APIs</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Enterprise SIEM Telemetry</span>
+                  <span>Priority Engineering SLA Support</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Central RBAC Fleet Controls</span>
+                  <span>Signed Corporate Policy Distribution</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Air-Gapped Node Locking</span>
+                  <span>Cryptographic Evidence Bundle Export</span>
                 </li>
               </ul>
             </div>
 
             <div class="license-footer">
-              <i class="fas fa-users-gear text-teal"></i> Deployment: Engineering Teams
+              <i class="fas fa-users-gear text-teal"></i> Per-Node Annual License
             </div>
           </div>
 
@@ -275,7 +275,7 @@
                 <span class="license-tier-badge blue">DEPARTMENT</span>
                 <h3 class="license-title">Professional</h3>
                 <p class="license-tagline">
-                  Operational telemetry, enterprise data connectors, and departmental runtimes.
+                  Enhanced operational governance with priority engineering support for departmental workloads.
                 </p>
               </div>
 
@@ -293,15 +293,11 @@
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Enterprise Data Connectors</span>
-                </li>
-                <li class="license-feature-item highlighted">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Real-Time Observability Metrics</span>
+                  <span>Priority Engineering Support SLA (<code>support.priority</code>)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Multi-Agent Concurrency Limits</span>
+                  <span>Adaptive Pillar Time Budgeting</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
@@ -309,21 +305,21 @@
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Priority Engineering Support</span>
+                  <span>Zero-OOM Hardware Profiling</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Central RBAC Fleet Controls</span>
+                  <span>Signed Corporate Policy Distribution</span>
                 </li>
                 <li class="license-feature-item disabled">
                   <i class="fas fa-minus"></i>
-                  <span>Air-Gapped Node Locking</span>
+                  <span>Cryptographic Evidence Bundle Export</span>
                 </li>
               </ul>
             </div>
 
             <div class="license-footer">
-              <i class="fas fa-network-wired text-teal"></i> Deployment: Departmental Ops
+              <i class="fas fa-network-wired text-teal"></i> Per-Node Annual + Support
             </div>
           </div>
 
@@ -335,7 +331,7 @@
                 <span class="license-tier-badge">RECOMMENDED</span>
                 <h3 class="license-title">Enterprise</h3>
                 <p class="license-tagline">
-                  Full organizational governance, multi-agent fleet management, and SIEM feeds.
+                  Full organizational governance, signed policy distribution, and standalone cryptographic audit bundles.
                 </p>
               </div>
 
@@ -353,96 +349,33 @@
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Local Role-Based Access (RBAC)</span>
+                  <span>Signed Corporate Policy Engine (<code>policy.distribution</code>)</span>
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Audit Export & SIEM Feeds</span>
+                  <span>Fail-Closed Lockdown Enforcement</span>
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Centralized Policy Distribution</span>
+                  <span>Cryptographic Evidence Bundle Export (<code>audit.export</code>)</span>
                 </li>
                 <li class="license-feature-item highlighted">
                   <i class="fas fa-circle-check"></i>
-                  <span>Multi-Agent Fleet Management</span>
+                  <span>Standalone Node Verification Scripts (<code>VERIFY.md</code>)</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Regulatory Compliance Suite</span>
+                  <span>External RFC 3161 Timestamp Attestation</span>
                 </li>
                 <li class="license-feature-item included">
                   <i class="fas fa-circle-check"></i>
-                  <span>Enterprise SLA & Direct Support</span>
-                </li>
-                <li class="license-feature-item disabled">
-                  <i class="fas fa-minus"></i>
-                  <span>Hardware Node-Locking</span>
+                  <span>Enterprise SLA & Direct Engineering Escalation</span>
                 </li>
               </ul>
             </div>
 
             <div class="license-footer">
-              <i class="fas fa-server text-teal"></i> Deployment: Enterprise Infrastructure
-            </div>
-          </div>
-
-          <!-- 5. Sovereign Edition -->
-          <div class="license-card">
-            <div>
-              <div class="license-header">
-                <span class="license-tier-badge">HIGH ASSURANCE</span>
-                <h3 class="license-title">Sovereign</h3>
-                <p class="license-tagline">
-                  Air-gapped deployment for defence, banking, and mission-critical networks.
-                </p>
-              </div>
-
-              <div class="license-cta">
-                <button class="btn btn-secondary open-demo-btn">
-                  <i class="fas fa-lock"></i> Request Sovereign Access
-                </button>
-              </div>
-
-              <div class="license-features-title">Capabilities & Governance</div>
-              <ul class="license-features-list">
-                <li class="license-feature-item included">
-                  <i class="fas fa-circle-check"></i>
-                  <span><strong>All Enterprise Features</strong></span>
-                </li>
-                <li class="license-feature-item highlighted">
-                  <i class="fas fa-circle-check"></i>
-                  <span>100% Air-Gapped Offline Activation</span>
-                </li>
-                <li class="license-feature-item highlighted">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Zero External Phone-Home Guarantee</span>
-                </li>
-                <li class="license-feature-item highlighted">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Cryptographic Hardware Node-Locking</span>
-                </li>
-                <li class="license-feature-item highlighted">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Regulatory Audit Proof Generation</span>
-                </li>
-                <li class="license-feature-item included">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Custom Hardware Security (HSM)</span>
-                </li>
-                <li class="license-feature-item included">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Perpetual License Entitlements</span>
-                </li>
-                <li class="license-feature-item included">
-                  <i class="fas fa-circle-check"></i>
-                  <span>Dedicated Solutions Architect</span>
-                </li>
-              </ul>
-            </div>
-
-            <div class="license-footer">
-              <i class="fas fa-shield-virus text-teal"></i> Deployment: Air-Gapped / Classified
+              <i class="fas fa-server text-teal"></i> Site / Multi-Node License
             </div>
           </div>
 
@@ -484,15 +417,16 @@
         <div class="form-group">
           <label class="form-label" for="lead-tier">Deployment Scope</label>
           <select id="lead-tier" class="form-select">
-            <option value="enterprise">Enterprise Trust Fabric (Multi-Node)</option>
-            <option value="sovereign">Sovereign On-Premises Air-Gapped</option>
+            <option value="enterprise">Enterprise Trust Fabric (Site / Multi-Node)</option>
+            <option value="professional">Professional Edition (Node License)</option>
+            <option value="developer">Developer Edition (Node License)</option>
             <option value="evaluation">Technical Proof of Concept (PoC)</option>
           </select>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="lead-notes">Primary Focus Area</label>
-          <textarea id="lead-notes" class="form-textarea" rows="2" placeholder="e.g. Sovereign node deployment in air-gapped environment"></textarea>
+          <textarea id="lead-notes" class="form-textarea" rows="2" placeholder="e.g. Policy distribution and sandbox verification for internal coding agents"></textarea>
         </div>
 
         <div id="lead-form-feedback" style="display: none; margin-bottom: 1rem;"></div>

@@ -147,12 +147,12 @@
             
             <div class="floating-telemetry-pill pill-top-right">
               <i class="fas fa-shield-check text-teal"></i>
-              <span>Zero Network Egress</span>
+              <span>Default-Deny Gate Active</span>
             </div>
 
             <div class="floating-telemetry-pill pill-bottom-left">
-              <i class="fas fa-circle-check text-teal"></i>
-              <span>99.8% Policy Compliance</span>
+              <i class="fas fa-fingerprint text-teal"></i>
+              <span>SHA-256 Chained Provenance</span>
             </div>
           </div>
         </div>
@@ -515,13 +515,13 @@
           </p>
 
           <div class="download-cta-group">
-            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 2rem; font-size: 1rem;">
-              <i class="fas fa-download"></i> Download Setup (.exe)
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 1.75rem; font-size: 0.95rem;">
+              <i class="fab fa-windows"></i> Windows Setup (.exe)
             </a>
-            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.9rem 1.75rem; font-size: 1rem;">
-              <i class="fas fa-box-archive"></i> Enterprise Package (.msi)
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.9rem 1.75rem; font-size: 0.95rem;">
+              <i class="fab fa-linux"></i> Linux (.AppImage / .deb)
             </a>
-            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.9rem 1.75rem; font-size: 1rem;">
+            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.9rem 1.5rem; font-size: 0.95rem;">
               <i class="fab fa-github"></i> GitHub Repository
             </a>
           </div>
@@ -529,7 +529,7 @@
           <div class="download-verify-note">
             <div class="download-verify-text">
               <i class="fas fa-shield-check text-teal" style="margin-right: 0.5rem;"></i>
-              <strong>Cryptographic Integrity & Verification:</strong> All release artifacts, checksums (<code>SHA256SUMS.txt</code>), and release notes are published with every signed build on GitHub Releases.
+              <strong>Cryptographic Integrity & Verification:</strong> All release artifacts, checksums (<code>SHA256SUMS.txt</code>), and release notes are signed with Ed25519 and published with every release on GitHub Releases.
             </div>
             <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.82rem; padding: 0.5rem 1rem; white-space: nowrap;">
               <i class="fas fa-arrow-up-right-from-square"></i> View Latest Release
@@ -572,15 +572,16 @@
         <div class="form-group">
           <label class="form-label" for="lead-tier">Deployment Scope</label>
           <select id="lead-tier" class="form-select">
-            <option value="enterprise">Enterprise Trust Fabric (Multi-Node)</option>
-            <option value="sovereign">Sovereign On-Premises Air-Gapped</option>
+            <option value="enterprise">Enterprise Trust Fabric (Site / Multi-Node)</option>
+            <option value="professional">Professional Edition (Node License)</option>
+            <option value="developer">Developer Edition (Node License)</option>
             <option value="evaluation">Technical Proof of Concept (PoC)</option>
           </select>
         </div>
 
         <div class="form-group">
           <label class="form-label" for="lead-notes">Primary Focus Area</label>
-          <textarea id="lead-notes" class="form-textarea" rows="2" placeholder="e.g. Sandbox verification for internal coding agents"></textarea>
+          <textarea id="lead-notes" class="form-textarea" rows="2" placeholder="e.g. Policy distribution and sandbox verification for internal coding agents"></textarea>
         </div>
 
         <div id="lead-form-feedback" style="display: none; margin-bottom: 1rem;"></div>

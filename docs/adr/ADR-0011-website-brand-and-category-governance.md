@@ -1,4 +1,4 @@
-# ADR-0008: Website Brand, Category Positioning, and Content Governance
+# ADR-0011: Website Brand, Category Positioning, and Content Governance
 
 * **Status:** Accepted
 * **Date:** 2026-07-29
@@ -22,11 +22,11 @@ How do we govern future website additions, design aesthetics, copy style, catego
 ## Considered Options
 
 * **Option 1: Standard Consumer AI Marketing Site** — High-energy neon animations, buzzwords ("revolutionary", "cutting-edge"), 40+ average pages, feature lists. (Rejected)
-* **Option 2: Palantir-Class Trust Plane Governance Model (ADR-0008)** — Problem-first outcome positioning ("We help organisations trust AI"), minimalist authoritative copy, compact high-conviction pages, custom architectural illustrations, and evidence-first proof mechanics. (Accepted)
+* **Option 2: Palantir-Class Trust Plane Governance Model (ADR-0011)** — Problem-first outcome positioning ("We help organisations trust AI"), minimalist authoritative copy, compact high-conviction pages, custom architectural illustrations, and evidence-first proof mechanics. (Accepted)
 
 ## Decision Outcome
 
-Chosen Option: **Option 2 (ADR-0008)**.
+Chosen Option: **Option 2 (ADR-0011)**.
 
 ### Key Governance Mandates:
 
@@ -58,11 +58,4 @@ Consistently reinforce and own the following category-defining terms across all 
 - Invest in iconic, proprietary architectural diagrams (e.g. *The Trust Layer* contrast diagram: `Evidence` → `Knowledge` → `Trust` → `Reasoning` → `Decision` → `Answer`) that define the CAIRN visual brand identity much like the Kubernetes helm wheel or AWS architecture icons.
 
 ### 5. The Brand Uniqueness Test
-Before publishing any new page, diagram, or asset, apply the strict test:
-*"If we remove the CAIRN name, could this page belong to any generic AI startup?"* If yes, reject and rewrite.
-
-## Positive Consequences
-
-* Establishes CAIRN ETP as the unquestioned category creator and leader for Enterprise Trust.
-* Resonates immediately with Chief Risk Officers, CISOs, and enterprise procurement boards.
-* Maintains high visual and narrative distinction that competitors cannot easily imitate.
+Ensure all digital touchpoints reflect CAIRN's enterprise-grade posture, uncompromising precision, and governance integrity.
