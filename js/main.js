@@ -218,7 +218,7 @@ document.addEventListener('DOMContentLoaded', () => {
       } finally {
         if (submitBtn) {
           submitBtn.disabled = false;
-          submitBtn.innerHTML = 'Submit Access Request <i class="fas fa-arrow-right"></i>';
+          submitBtn.innerHTML = 'Submit <i class="fas fa-arrow-right"></i>';
         }
       }
     });
