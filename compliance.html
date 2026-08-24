@@ -114,7 +114,7 @@
 
         <div class="compliance-overview-box">
           <i class="fas fa-quote-left" style="color: var(--color-teal-signal); margin-right: 0.5rem;"></i>
-          <strong>CAIRN ETP</strong> translates complex regulatory directives into cryptographic, runtime-enforced boundary checks. By replacing probabilistic model outputs with deterministic execution controls, CAIRN provides the technical verification required for strict enterprise compliance.
+          <strong>CAIRN ETP</strong> translates complex regulatory directives into cryptographic, runtime-enforced boundary checks. By placing deterministic execution controls in front of probabilistic model output, CAIRN produces the technical evidence an enterprise compliance review asks for.
         </div>
       </div>
 
@@ -132,7 +132,7 @@
           <div>
             <h3 class="framework-heading">EU Artificial Intelligence Act (EU AI Act)</h3>
             <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
-              CAIRN ETP fulfills the technical, operational, and record-keeping mandates required for High-Risk AI Systems (Articles 9–15) and deployment in regulated sectors.
+              CAIRN ETP produces technical and record-keeping evidence relevant to the obligations placed on High-Risk AI Systems (Articles 9–15). The mapping below is a starting point for a conversation with your assessor — compliance is a property of your organisation, established by an auditor, not of a tool.
             </p>
           </div>
         </div>
@@ -174,7 +174,7 @@
                 <td>
                   <div class="pillar-map-tag"><i class="fas fa-file-signature"></i> Pillar 04 (COMPASS)</div>
                   <p style="margin-top: 0.4rem; color: var(--text-secondary);">
-                    Cryptographically signed SHA-256 decision lineage logs tracking inputs, context hashes, and generated tokens.
+                    SHA-256 hash-chained decision records with signed checkpoints, tracking inputs, context hashes and the decision reached.
                   </p>
                 </td>
               </tr>
@@ -194,7 +194,7 @@
                 <td>
                   <div class="pillar-map-tag"><i class="fas fa-box-archive"></i> Pillar 07 (CRUCIBLE)</div>
                   <p style="margin-top: 0.4rem; color: var(--text-secondary);">
-                    Air-gapped, containerized Docker and Windows Sandbox VM isolation (<code>--network none</code>) containing tool execution from production hosts.
+                    Tool execution is contained in a Docker container or a Windows Sandbox micro-VM with no network (<code>--network none</code>). <strong>Where neither runtime is present the isolation is absent</strong>, and CAIRN records the result as static-only rather than reporting a pass.
                   </p>
                 </td>
               </tr>
@@ -260,7 +260,7 @@
               </li>
               <li class="nist-control-item">
                 <i class="fas fa-circle-check"></i>
-                <div><strong>Source Attribution:</strong> Cryptographically proves exactly which institutional document fragments informed every AI agent decision.</div>
+                <div><strong>Source Attribution:</strong> Records which institutional document fragments were supplied to the model for a given decision, and hashes them into the decision record.</div>
               </li>
             </ul>
           </div>
@@ -280,7 +280,7 @@
             <ul class="nist-controls-list">
               <li class="nist-control-item">
                 <i class="fas fa-circle-check"></i>
-                <div><strong>Real-Time Telemetry (BEACON):</strong> Structured metrics broadcasting decision latency, safety scores, and human-in-the-loop triggers to SIEM platforms.</div>
+                <div><strong>Real-Time Telemetry (BEACON):</strong> Structured JSONL recording decision latency, assurance grades and human-in-the-loop triggers, in a form a SIEM can ingest.</div>
               </li>
               <li class="nist-control-item">
                 <i class="fas fa-circle-check"></i>
@@ -323,7 +323,7 @@
           <div>
             <h3 class="framework-heading">ISO/IEC 42001:2023 (Artificial Intelligence Management System)</h3>
             <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
-              CAIRN ETP provides the infrastructure necessary to implement, maintain, and continually improve an ISO/IEC 42001 certified AI management system.
+              CAIRN ETP provides infrastructure that supports an organisation implementing and maintaining an ISO/IEC 42001 AI management system. The certification is the organisation’s, not CAIRN’s.
             </p>
           </div>
         </div>
@@ -356,14 +356,14 @@
                 <td><span class="article-badge">Annex A.8</span></td>
                 <td><strong>Data for AI Systems</strong><br>Assurance regarding validity, quality, and authorization of RAG context.</td>
                 <td>
-                  <strong>Evidence Fabric:</strong> Guarantees 100% verifiable source attribution with zero unreferenced context leakage.
+                  <strong>Evidence Fabric:</strong> Records which retrieved context informed a decision, so an answer can be traced back to the documents behind it.
                 </td>
               </tr>
               <tr>
                 <td><span class="article-badge">Annex A.9</span></td>
                 <td><strong>Traceability & Transparency</strong><br>System auditability and explainability for external regulators.</td>
                 <td>
-                  <strong>Cryptographic Event Ledgers:</strong> Immutable audit trails signed at runtime, satisfying third-party accreditation requirements.
+                  <strong>Cryptographic Event Ledgers:</strong> Hash-chained audit trails with signed checkpoints, exportable as evidence a third party can verify independently.
                 </td>
               </tr>
             </tbody>
@@ -388,12 +388,12 @@
           <div class="finsec-card">
             <h4 class="finsec-card-title">SOC 2 Type II Evidence</h4>
             <div class="finsec-card-desc">
-              Produces exportable cryptographic evidence bundles (<code>audit.export</code>) satisfying Security, Availability, and Confidentiality Trust Services Criteria through air-gapped deployment, local encryption of secrets, and zero exfiltration to cloud endpoints.
+              Produces exportable cryptographic evidence bundles (<code>audit.export</code>) that an auditor can verify without running CAIRN, supporting your own evidence for the Security, Availability and Confidentiality criteria. <strong>CAIRN itself holds no SOC 2 attestation.</strong>
             </div>
           </div>
 
           <div class="finsec-card">
-            <h4 class="finsec-card-title">DORA Compliance</h4>
+            <h4 class="finsec-card-title">DORA: Operational Resilience</h4>
             <div class="finsec-card-desc">
               <strong>Digital Operational Resilience Act (Financial Sector):</strong> Provides operational independence from third-party cloud vendor outages. CAIRN runtimes operate strictly on local sovereign infrastructure with zero phone-home cloud dependencies.
             </div>
@@ -402,7 +402,7 @@
           <div class="finsec-card">
             <h4 class="finsec-card-title">FFIEC & PRA Guidelines</h4>
             <div class="finsec-card-desc">
-              Satisfies strict model risk management guidelines (e.g., OCC 2011-12 / SR 11-7) by replacing probabilistic "black box" agent behaviors with deterministic, policy-bound workflows.
+              Supports model risk management review (e.g. OCC 2011-12 / SR 11-7) by placing a deterministic, policy-bound governance decision in front of every action an agent takes, and recording what it decided and why. The model remains probabilistic; the control around it does not.
             </div>
           </div>
 
@@ -425,7 +425,7 @@
           We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
         </p>
         <p style="color: var(--color-stone-dark); font-size: 0.8rem;">
-          &copy; 2026 CAIRN ETP. All rights reserved.
+          &copy; 2026 CAIRN Enterprise Systems. CAIRN Trust Fabric is source-available under BUSL 1.1.
         </p>
       </div>
 
@@ -492,7 +492,7 @@
         <div class="form-group">
           <label class="form-label" for="lead-tier">Deployment Scope</label>
           <select id="lead-tier" class="form-select">
-            <option value="enterprise">Enterprise Trust Fabric (Site / Multi-Node)</option>
+            <option value="enterprise">Enterprise Edition (Site Licence)</option>
             <option value="professional">Professional Edition (Node License)</option>
             <option value="developer">Developer Edition (Node License)</option>
             <option value="evaluation">Technical Proof of Concept (PoC)</option>

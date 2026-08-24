@@ -158,10 +158,10 @@
                 CAIRN operates as an unyielding default-deny security boundary. Every incoming prompt instruction and proposed tool call is intercepted and evaluated against strict cryptographic policies prior to execution.
               </p>
               <p>
-                By separating cloud reasoning models from direct OS tool access, CAIRN eliminates prompt injection vectors and ensures rogue instructions cannot touch internal systems without authorization.
+                By separating cloud reasoning models from direct OS tool access, CAIRN removes the path by which an injected instruction reaches a tool unreviewed: every proposed call is graded and must clear its assurance bar first.
               </p>
               <p>
-                Emits signed contract evaluation events for complete risk management transparency.
+                Emits a contract evaluation event for every decision, recorded in the hash-chained ledger.
               </p>
             </div>
           </div>
@@ -240,13 +240,13 @@
             <div class="gartner-pillar-role">Pillar 4 • Governance Intelligence & Audit Provenance</div>
             <div class="gartner-pillar-desc">
               <p>
-                COMPASS records cryptographically signed evidence logs for every session trace, tool call, and model response generated across the organisation.
+                COMPASS records a hash-chained evidence log of every session trace, tool call and model response, with signed checkpoints over the chain.
               </p>
               <p>
                 Provides audit provenance detailing exactly which institutional knowledge notes were referenced, which models executed the plan, and whether code execution was container-verified.
               </p>
               <p>
-                Delivers compliance reporting ready for Chief Risk Officers and regulatory inspectors.
+                Exports the evidence a risk function or an external auditor asks for, in a bundle they can verify without CAIRN.
               </p>
             </div>
           </div>
@@ -271,7 +271,7 @@
                 ATLAS synthesizes unstructured enterprise data into a 4-layer memory fabric combining Episodic SQLite Event Ledgers, Knowledge Notes, Entity-Relationship Graphs, and Semantic Vector FTS.
               </p>
               <p>
-                Delivers zero-hallucination context hydration, verifying document freshness and provenance before feeding knowledge into model reasoning windows.
+                Checks document freshness and provenance before context reaches the model, and records which fragments were supplied. Grounding reduces unsupported output; it does not eliminate it, and no retrieval layer can.
               </p>
               <p>
                 Indexes saved automation scripts to prevent re-inventing institutional workflows.
@@ -321,10 +321,10 @@
             <div class="gartner-pillar-role">Pillar 7 • Isolated Execution Engine & Docker Sandbox Verification</div>
             <div class="gartner-pillar-desc">
               <p>
-                CRUCIBLE represents the Execution & Sandbox Containment boundary. It pairs directly with FORGE: FORGE shapes candidate code; CRUCIBLE proves code under strict container isolation (Docker) before execution is trusted.
+                CRUCIBLE represents the Execution and Sandbox Containment boundary. It pairs directly with FORGE: FORGE shapes candidate code; CRUCIBLE runs it under container isolation (Docker) and grades the result before execution is trusted.
               </p>
               <p>
-                Enforces zero-network containment (<code>--network none</code>), strict resource limits (<code>--memory=128m</code>), and read-only container filesystems.
+                Enforces zero-network containment (<code>--network none</code>), a per-language memory ceiling (<code>128m</code> by default), and read-only container filesystems.
               </p>
               <p>
                 If runtime errors occur inside the container, CRUCIBLE feeds exact stack tracebacks back to FORGE for automated defect-repair loops.
@@ -378,7 +378,7 @@
         <div class="form-group">
           <label class="form-label" for="lead-tier">Deployment Scope</label>
           <select id="lead-tier" class="form-select">
-            <option value="enterprise">Enterprise Trust Fabric (Site / Multi-Node)</option>
+            <option value="enterprise">Enterprise Edition (Site Licence)</option>
             <option value="professional">Professional Edition (Node License)</option>
             <option value="developer">Developer Edition (Node License)</option>
             <option value="evaluation">Technical Proof of Concept (PoC)</option>
