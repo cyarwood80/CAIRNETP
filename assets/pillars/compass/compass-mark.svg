@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="COMPASS">
+  <defs>
+    <linearGradient id="cp-grad" x1="0.05" y1="0.1" x2="0.95" y2="0.9">
+      <stop offset="0" stop-color="#f9f0ff"/><stop offset="0.45" stop-color="#b37feb"/><stop offset="1" stop-color="#531dab"/>
+    </linearGradient>
+    <linearGradient id="cp-needle-light" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff"/><stop offset="1" stop-color="#d3adf7"/>
+    </linearGradient>
+    <linearGradient id="cp-needle-dark" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#722ed1"/><stop offset="1" stop-color="#391085"/>
+    </linearGradient>
+    <linearGradient id="cp-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(256 256) scale(0.85) translate(-256 -256)">
+    <!-- Outer Governance Calibration Ring -->
+    <circle cx="256" cy="256" r="165" fill="none" stroke="#1d263b" stroke-width="14"/>
+    <circle cx="256" cy="256" r="135" fill="none" stroke="url(#cp-grad)" stroke-width="5" stroke-dasharray="10 14"/>
+
+    <!-- 4 Cardinal Quadrant Markers -->
+    <line x1="256" y1="80" x2="256" y2="105" stroke="url(#cp-grad)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="256" y1="407" x2="256" y2="432" stroke="url(#cp-grad)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="80" y1="256" x2="105" y2="256" stroke="url(#cp-grad)" stroke-width="8" stroke-linecap="round"/>
+    <line x1="407" y1="256" x2="432" y2="256" stroke="url(#cp-grad)" stroke-width="8" stroke-linecap="round"/>
+
+    <!-- Faceted Precision Needle -->
+    <g transform="rotate(45 256 256)">
+      <!-- North Pointer -->
+      <polygon points="256,90 256,256 234,256" fill="url(#cp-needle-light)"/>
+      <polygon points="256,90 278,256 256,256" fill="url(#cp-needle-dark)"/>
+      <!-- South Pointer -->
+      <polygon points="256,422 256,256 234,256" fill="url(#cp-needle-dark)"/>
+      <polygon points="256,422 278,256 256,256" fill="url(#cp-needle-light)"/>
+      <!-- East / West Pointers -->
+      <polygon points="90,256 256,234 256,256" fill="url(#cp-needle-dark)"/>
+      <polygon points="90,256 256,278 256,256" fill="url(#cp-needle-light)"/>
+      <polygon points="422,256 256,234 256,256" fill="url(#cp-needle-light)"/>
+      <polygon points="422,256 256,278 256,256" fill="url(#cp-needle-dark)"/>
+    </g>
+
+    <!-- Center Gyro Pivot -->
+    <circle cx="256" cy="256" r="24" fill="url(#cp-grad)" stroke="#0b1222" stroke-width="6"/>
+    <ellipse cx="250" cy="248" rx="10" ry="6" fill="url(#cp-sheen)"/>
+  </g>
+</svg>

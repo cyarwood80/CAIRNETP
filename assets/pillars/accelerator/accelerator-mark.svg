@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ACCELERATOR">
+  <defs>
+    <linearGradient id="ac-grad" x1="0.05" y1="0.1" x2="0.95" y2="0.9">
+      <stop offset="0" stop-color="#e6fffb"/><stop offset="0.45" stop-color="#00e599"/><stop offset="1" stop-color="#005b44"/>
+    </linearGradient>
+    <linearGradient id="ac-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#87e8de"/><stop offset="0.5" stop-color="#52c41a"/><stop offset="1" stop-color="#003eb3"/>
+    </linearGradient>
+    <linearGradient id="ac-chip" x1="0" y1="0" x2="0.8" y2="1">
+      <stop offset="0" stop-color="#14233c"/><stop offset="1" stop-color="#070e1a"/>
+    </linearGradient>
+    <linearGradient id="ac-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(256 256) scale(0.85) translate(-256 -256)">
+    <!-- High-Speed Interconnect Bus Rails -->
+    <g stroke="url(#ac-grad)" stroke-width="8" stroke-linecap="round" fill="none" opacity="0.85">
+      <path d="M120 120 L 190 190"/>
+      <path d="M90 150 L 170 210"/>
+      <path d="M150 90 L 210 170"/>
+      
+      <path d="M392 120 L 322 190"/>
+      <path d="M422 150 L 342 210"/>
+      <path d="M362 90 L 302 170"/>
+
+      <path d="M120 392 L 190 322"/>
+      <path d="M90 362 L 170 302"/>
+      <path d="M150 422 L 210 342"/>
+
+      <path d="M392 392 L 322 322"/>
+      <path d="M422 362 L 342 302"/>
+      <path d="M362 422 L 302 342"/>
+    </g>
+
+    <!-- Peripheral Silicon Package Substrate -->
+    <rect x="146" y="146" width="220" height="220" rx="36" fill="url(#ac-chip)" stroke="url(#ac-grad)" stroke-width="12"/>
+    
+    <!-- Microarchitecture Die Grid Lines -->
+    <rect x="176" y="176" width="160" height="160" rx="20" fill="#091322" stroke="#1f3456" stroke-width="4"/>
+    <line x1="256" y1="180" x2="256" y2="332" stroke="#1f3456" stroke-width="3"/>
+    <line x1="180" y1="256" x2="332" y2="256" stroke="#1f3456" stroke-width="3"/>
+
+    <!-- Floating 3D Frosted Neural Accelerator Glass Core -->
+    <g transform="translate(256 256) rotate(45) translate(-256 -256)">
+      <rect x="216" y="216" width="80" height="80" rx="20" fill="url(#ac-grad)" stroke="#ffffff" stroke-width="6"/>
+      <rect x="222" y="222" width="38" height="38" rx="8" fill="url(#ac-sheen)"/>
+      <circle cx="256" cy="256" r="14" fill="#ffffff"/>
+    </g>
+
+    <!-- Bus Termination Nodes -->
+    <circle cx="120" cy="120" r="10" fill="url(#ac-grad)"/>
+    <circle cx="392" cy="120" r="10" fill="url(#ac-grad)"/>
+    <circle cx="120" cy="392" r="10" fill="url(#ac-grad)"/>
+    <circle cx="392" cy="392" r="10" fill="url(#ac-grad)"/>
+  </g>
+</svg>

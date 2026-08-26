@@ -1,0 +1,192 @@
+{
+  "cairn": {
+    "name": "CAIRN",
+    "role": "Enterprise Trust & Security Gate",
+    "color": "#3F8BF7",
+    "assets": {
+      "iconSvg": "public/assets/pillars/cairn/cairn-icon.svg",
+      "markSvg": "public/assets/pillars/cairn/cairn-mark.svg",
+      "ico": "public/assets/pillars/cairn/cairn.ico",
+      "png512": "public/assets/pillars/cairn/cairn-512.png",
+      "png256": "public/assets/pillars/cairn/cairn-256.png",
+      "png180": "public/assets/pillars/cairn/cairn-180.png",
+      "png128": "public/assets/pillars/cairn/cairn-128.png",
+      "png64": "public/assets/pillars/cairn/cairn-64.png",
+      "png32": "public/assets/pillars/cairn/cairn-32.png",
+      "png16": "public/assets/pillars/cairn/cairn-16.png",
+      "mark256": "public/assets/pillars/cairn/cairn-mark-256.png",
+      "mark512": "public/assets/pillars/cairn/cairn-mark-512.png"
+    }
+  },
+  "path": {
+    "name": "PATH",
+    "role": "Workflow Intelligence & Router",
+    "color": "#36CFC9",
+    "assets": {
+      "iconSvg": "public/assets/pillars/path/path-icon.svg",
+      "markSvg": "public/assets/pillars/path/path-mark.svg",
+      "ico": "public/assets/pillars/path/path.ico",
+      "png512": "public/assets/pillars/path/path-512.png",
+      "png256": "public/assets/pillars/path/path-256.png",
+      "png180": "public/assets/pillars/path/path-180.png",
+      "png128": "public/assets/pillars/path/path-128.png",
+      "png64": "public/assets/pillars/path/path-64.png",
+      "png32": "public/assets/pillars/path/path-32.png",
+      "png16": "public/assets/pillars/path/path-16.png",
+      "mark256": "public/assets/pillars/path/path-mark-256.png",
+      "mark512": "public/assets/pillars/path/path-mark-512.png"
+    }
+  },
+  "beacon": {
+    "name": "BEACON",
+    "role": "Operational Awareness & Live Chat",
+    "color": "#FFC53D",
+    "assets": {
+      "iconSvg": "public/assets/pillars/beacon/beacon-icon.svg",
+      "markSvg": "public/assets/pillars/beacon/beacon-mark.svg",
+      "ico": "public/assets/pillars/beacon/beacon.ico",
+      "png512": "public/assets/pillars/beacon/beacon-512.png",
+      "png256": "public/assets/pillars/beacon/beacon-256.png",
+      "png180": "public/assets/pillars/beacon/beacon-180.png",
+      "png128": "public/assets/pillars/beacon/beacon-128.png",
+      "png64": "public/assets/pillars/beacon/beacon-64.png",
+      "png32": "public/assets/pillars/beacon/beacon-32.png",
+      "png16": "public/assets/pillars/beacon/beacon-16.png",
+      "mark256": "public/assets/pillars/beacon/beacon-mark-256.png",
+      "mark512": "public/assets/pillars/beacon/beacon-mark-512.png"
+    }
+  },
+  "compass": {
+    "name": "COMPASS",
+    "role": "Governance Intelligence & Audit Provenance",
+    "color": "#B37FEB",
+    "assets": {
+      "iconSvg": "public/assets/pillars/compass/compass-icon.svg",
+      "markSvg": "public/assets/pillars/compass/compass-mark.svg",
+      "ico": "public/assets/pillars/compass/compass.ico",
+      "png512": "public/assets/pillars/compass/compass-512.png",
+      "png256": "public/assets/pillars/compass/compass-256.png",
+      "png180": "public/assets/pillars/compass/compass-180.png",
+      "png128": "public/assets/pillars/compass/compass-128.png",
+      "png64": "public/assets/pillars/compass/compass-64.png",
+      "png32": "public/assets/pillars/compass/compass-32.png",
+      "png16": "public/assets/pillars/compass/compass-16.png",
+      "mark256": "public/assets/pillars/compass/compass-mark-256.png",
+      "mark512": "public/assets/pillars/compass/compass-mark-512.png"
+    }
+  },
+  "atlas": {
+    "name": "ATLAS",
+    "role": "Knowledge Infrastructure & RAG Memory",
+    "color": "#40A9FF",
+    "assets": {
+      "iconSvg": "public/assets/pillars/atlas/atlas-icon.svg",
+      "markSvg": "public/assets/pillars/atlas/atlas-mark.svg",
+      "ico": "public/assets/pillars/atlas/atlas.ico",
+      "png512": "public/assets/pillars/atlas/atlas-512.png",
+      "png256": "public/assets/pillars/atlas/atlas-256.png",
+      "png180": "public/assets/pillars/atlas/atlas-180.png",
+      "png128": "public/assets/pillars/atlas/atlas-128.png",
+      "png64": "public/assets/pillars/atlas/atlas-64.png",
+      "png32": "public/assets/pillars/atlas/atlas-32.png",
+      "png16": "public/assets/pillars/atlas/atlas-16.png",
+      "mark256": "public/assets/pillars/atlas/atlas-mark-256.png",
+      "mark512": "public/assets/pillars/atlas/atlas-mark-512.png"
+    }
+  },
+  "forge": {
+    "name": "FORGE",
+    "role": "Integration Platform & Autonomous Coder",
+    "color": "#FF7A45",
+    "assets": {
+      "iconSvg": "public/assets/pillars/forge/forge-icon.svg",
+      "markSvg": "public/assets/pillars/forge/forge-mark.svg",
+      "ico": "public/assets/pillars/forge/forge.ico",
+      "png512": "public/assets/pillars/forge/forge-512.png",
+      "png256": "public/assets/pillars/forge/forge-256.png",
+      "png180": "public/assets/pillars/forge/forge-180.png",
+      "png128": "public/assets/pillars/forge/forge-128.png",
+      "png64": "public/assets/pillars/forge/forge-64.png",
+      "png32": "public/assets/pillars/forge/forge-32.png",
+      "png16": "public/assets/pillars/forge/forge-16.png",
+      "mark256": "public/assets/pillars/forge/forge-mark-256.png",
+      "mark512": "public/assets/pillars/forge/forge-mark-512.png"
+    }
+  },
+  "crucible": {
+    "name": "CRUCIBLE",
+    "role": "Isolated Execution & Sandbox Verification Engine",
+    "color": "#F759AB",
+    "assets": {
+      "iconSvg": "public/assets/pillars/crucible/crucible-icon.svg",
+      "markSvg": "public/assets/pillars/crucible/crucible-mark.svg",
+      "ico": "public/assets/pillars/crucible/crucible.ico",
+      "png512": "public/assets/pillars/crucible/crucible-512.png",
+      "png256": "public/assets/pillars/crucible/crucible-256.png",
+      "png180": "public/assets/pillars/crucible/crucible-180.png",
+      "png128": "public/assets/pillars/crucible/crucible-128.png",
+      "png64": "public/assets/pillars/crucible/crucible-64.png",
+      "png32": "public/assets/pillars/crucible/crucible-32.png",
+      "png16": "public/assets/pillars/crucible/crucible-16.png",
+      "mark256": "public/assets/pillars/crucible/crucible-mark-256.png",
+      "mark512": "public/assets/pillars/crucible/crucible-mark-512.png"
+    }
+  },
+  "accelerator": {
+    "name": "ACCELERATOR",
+    "role": "Local & LAN Hardware Accelerator",
+    "color": "#00E599",
+    "assets": {
+      "iconSvg": "public/assets/pillars/accelerator/accelerator-icon.svg",
+      "markSvg": "public/assets/pillars/accelerator/accelerator-mark.svg",
+      "ico": "public/assets/pillars/accelerator/accelerator.ico",
+      "png512": "public/assets/pillars/accelerator/accelerator-512.png",
+      "png256": "public/assets/pillars/accelerator/accelerator-256.png",
+      "png180": "public/assets/pillars/accelerator/accelerator-180.png",
+      "png128": "public/assets/pillars/accelerator/accelerator-128.png",
+      "png64": "public/assets/pillars/accelerator/accelerator-64.png",
+      "png32": "public/assets/pillars/accelerator/accelerator-32.png",
+      "png16": "public/assets/pillars/accelerator/accelerator-16.png",
+      "mark256": "public/assets/pillars/accelerator/accelerator-mark-256.png",
+      "mark512": "public/assets/pillars/accelerator/accelerator-mark-512.png"
+    }
+  },
+  "fleet": {
+    "name": "MODEL FLEET",
+    "role": "Local & Distributed Model Orchestration",
+    "color": "#13C2C2",
+    "assets": {
+      "iconSvg": "public/assets/pillars/fleet/fleet-icon.svg",
+      "markSvg": "public/assets/pillars/fleet/fleet-mark.svg",
+      "ico": "public/assets/pillars/fleet/fleet.ico",
+      "png512": "public/assets/pillars/fleet/fleet-512.png",
+      "png256": "public/assets/pillars/fleet/fleet-256.png",
+      "png180": "public/assets/pillars/fleet/fleet-180.png",
+      "png128": "public/assets/pillars/fleet/fleet-128.png",
+      "png64": "public/assets/pillars/fleet/fleet-64.png",
+      "png32": "public/assets/pillars/fleet/fleet-32.png",
+      "png16": "public/assets/pillars/fleet/fleet-16.png",
+      "mark256": "public/assets/pillars/fleet/fleet-mark-256.png",
+      "mark512": "public/assets/pillars/fleet/fleet-mark-512.png"
+    }
+  },
+  "settings": {
+    "name": "SETTINGS",
+    "role": "System Configuration & Preferences",
+    "color": "#597EF7",
+    "assets": {
+      "iconSvg": "public/assets/pillars/settings/settings-icon.svg",
+      "markSvg": "public/assets/pillars/settings/settings-mark.svg",
+      "ico": "public/assets/pillars/settings/settings.ico",
+      "png512": "public/assets/pillars/settings/settings-512.png",
+      "png256": "public/assets/pillars/settings/settings-256.png",
+      "png180": "public/assets/pillars/settings/settings-180.png",
+      "png128": "public/assets/pillars/settings/settings-128.png",
+      "png64": "public/assets/pillars/settings/settings-64.png",
+      "png32": "public/assets/pillars/settings/settings-32.png",
+      "png16": "public/assets/pillars/settings/settings-16.png",
+      "mark256": "public/assets/pillars/settings/settings-mark-256.png",
+      "mark512": "public/assets/pillars/settings/settings-mark-512.png"
+    }
+  }
+}

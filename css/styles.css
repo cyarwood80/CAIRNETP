@@ -42,6 +42,18 @@
   --border-card: rgba(148, 163, 184, 0.15);
   --border-highlight: rgba(37, 98, 235, 0.4);
 
+  /* The 10 Pillar Design System Colors */
+  --pillar-cairn: #3f8bf7;
+  --pillar-path: #36cfc9;
+  --pillar-beacon: #ffc53d;
+  --pillar-compass: #b37feb;
+  --pillar-atlas: #40a9ff;
+  --pillar-forge: #ff7a45;
+  --pillar-crucible: #f759ab;
+  --pillar-accelerator: #00e599;
+  --pillar-fleet: #13c2c2;
+  --pillar-settings: #597ef7;
+
   /* Typography */
   --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
   --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
@@ -1566,33 +1578,158 @@ code, pre {
 
 .pipeline-step {
   display: grid;
-  grid-template-columns: 160px 40px 1fr;
+  grid-template-columns: 190px 40px 1fr;
   align-items: center;
   background: rgba(6, 18, 32, 0.7);
   border: 1px solid var(--border-glass);
-  padding: 1.15rem 1.5rem;
+  padding: 1.1rem 1.4rem;
   border-radius: var(--radius-md);
   transition: all var(--transition-fast);
+  position: relative;
+  overflow: hidden;
+}
+
+.pipeline-step::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: var(--step-color, var(--color-cairn-blue));
+  opacity: 0.85;
 }
 
 .pipeline-step:hover {
-  border-color: rgba(37, 98, 235, 0.45);
-  background: rgba(10, 25, 47, 0.9);
+  border-color: var(--step-color, rgba(37, 98, 235, 0.6));
+  background: rgba(10, 25, 47, 0.95);
   transform: translateX(4px);
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.35);
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.45);
 }
 
 .pipeline-badge {
   font-family: var(--font-mono);
-  font-size: 0.88rem;
+  font-size: 0.86rem;
   font-weight: 700;
-  color: #60a5fa;
-  background: rgba(37, 98, 235, 0.15);
-  border: 1px solid rgba(37, 98, 235, 0.3);
-  padding: 0.5rem 1rem;
+  color: var(--badge-color, #60a5fa);
+  background: var(--badge-bg, rgba(37, 98, 235, 0.15));
+  border: 1px solid var(--badge-border, rgba(37, 98, 235, 0.3));
+  padding: 0.45rem 0.85rem;
   border-radius: var(--radius-sm);
-  text-align: center;
+  display: inline-flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 0.65rem;
   letter-spacing: 0.05em;
+  transition: all var(--transition-fast);
+}
+
+.pipeline-badge-icon {
+  width: 22px;
+  height: 22px;
+  flex-shrink: 0;
+  display: block;
+}
+
+/* Pillar Signature Badge Modifiers */
+.badge-cairn {
+  --badge-color: #93c5fd;
+  --badge-bg: rgba(63, 139, 247, 0.14);
+  --badge-border: rgba(63, 139, 247, 0.38);
+  --step-color: var(--pillar-cairn);
+}
+
+.badge-path {
+  --badge-color: #5cdbd3;
+  --badge-bg: rgba(54, 207, 201, 0.14);
+  --badge-border: rgba(54, 207, 201, 0.38);
+  --step-color: var(--pillar-path);
+}
+
+.badge-beacon {
+  --badge-color: #ffd666;
+  --badge-bg: rgba(255, 197, 61, 0.14);
+  --badge-border: rgba(255, 197, 61, 0.38);
+  --step-color: var(--pillar-beacon);
+}
+
+.badge-compass {
+  --badge-color: #d3adf7;
+  --badge-bg: rgba(179, 127, 235, 0.14);
+  --badge-border: rgba(179, 127, 235, 0.38);
+  --step-color: var(--pillar-compass);
+}
+
+.badge-atlas {
+  --badge-color: #69c0ff;
+  --badge-bg: rgba(64, 169, 255, 0.14);
+  --badge-border: rgba(64, 169, 255, 0.38);
+  --step-color: var(--pillar-atlas);
+}
+
+.badge-forge {
+  --badge-color: #ff9c6e;
+  --badge-bg: rgba(255, 122, 69, 0.14);
+  --badge-border: rgba(255, 122, 69, 0.38);
+  --step-color: var(--pillar-forge);
+}
+
+.badge-crucible {
+  --badge-color: #ff85c0;
+  --badge-bg: rgba(247, 89, 171, 0.14);
+  --badge-border: rgba(247, 89, 171, 0.38);
+  --step-color: var(--pillar-crucible);
+}
+
+.badge-accelerator {
+  --badge-color: #5cf2bd;
+  --badge-bg: rgba(0, 229, 153, 0.14);
+  --badge-border: rgba(0, 229, 153, 0.38);
+  --step-color: var(--pillar-accelerator);
+}
+
+.badge-fleet {
+  --badge-color: #36cfc9;
+  --badge-bg: rgba(19, 194, 194, 0.14);
+  --badge-border: rgba(19, 194, 194, 0.38);
+  --step-color: var(--pillar-fleet);
+}
+
+.badge-settings {
+  --badge-color: #85a5ff;
+  --badge-bg: rgba(89, 126, 247, 0.14);
+  --badge-border: rgba(89, 126, 247, 0.38);
+  --step-color: var(--pillar-settings);
+}
+
+/* Inline Pillar Mark utilities */
+.inline-pillar-mark {
+  width: 17px;
+  height: 17px;
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 0.35rem;
+  flex-shrink: 0;
+}
+
+.pillar-map-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.25rem 0.6rem;
+  border-radius: var(--radius-sm);
+  background: rgba(10, 25, 47, 0.85);
+  border: 1px solid var(--border-glass);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--color-glacier);
+  margin-right: 0.4rem;
+  margin-bottom: 0.35rem;
+}
+
+.pillar-map-tag .inline-pillar-mark {
+  margin-right: 0;
+  vertical-align: middle;
 }
 
 .pipeline-arrow {
@@ -1630,6 +1767,203 @@ code, pre {
 
 .text-red { color: #f87171; }
 .text-gold { color: #facc15; }
+
+/* Gartner & UI Gallery Pillar Showcase Styles */
+.gartner-pillar-card {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 2.5rem;
+  align-items: flex-start;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-normal);
+  backdrop-filter: blur(16px);
+}
+
+.gartner-pillar-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: var(--pillar-color, var(--color-cairn-blue));
+}
+
+.gartner-pillar-card:hover {
+  border-color: var(--pillar-color, rgba(37, 98, 235, 0.5));
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.5);
+  transform: translateY(-3px);
+}
+
+.pillar-showcase-header {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+  margin-bottom: 1.25rem;
+  padding-bottom: 1.25rem;
+  border-bottom: 1px solid var(--border-glass);
+}
+
+.pillar-squircle-preview {
+  width: 72px;
+  height: 72px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5);
+  background: #070c18;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.pillar-squircle-preview img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.pillar-header-text {
+  flex: 1;
+}
+
+.pillar-showcase-title {
+  font-size: 1.75rem;
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  color: var(--pillar-color, var(--color-glacier));
+  margin-bottom: 0.2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.gartner-pillar-role {
+  font-family: var(--font-mono);
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: var(--color-glacier-dim);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-bottom: 0.4rem;
+}
+
+.pillar-palette-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  color: var(--color-glacier-dim);
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+}
+
+.pillar-palette-chip .chip-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--pillar-color, #3b82f6);
+  box-shadow: 0 0 6px var(--pillar-color, #3b82f6);
+}
+
+.gartner-pillar-desc {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  color: var(--color-glacier-dim);
+}
+
+.gartner-pillar-desc p {
+  margin-bottom: 0.9rem;
+}
+
+.pillar-format-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 1.25rem;
+}
+
+.pillar-format-tag {
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  padding: 0.2rem 0.55rem;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-sm);
+  color: var(--color-stone-grey);
+}
+
+.pillar-format-tag.highlight {
+  color: var(--pillar-color, #60a5fa);
+  border-color: rgba(255, 255, 255, 0.15);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.executive-caption-box {
+  background: rgba(10, 25, 47, 0.9);
+  border: 1px solid var(--border-glass);
+  border-left: 3px solid var(--pillar-color, var(--color-teal-signal));
+  border-radius: var(--radius-sm);
+  padding: 0.9rem 1.1rem;
+  margin-bottom: 0.75rem;
+}
+
+.executive-caption-title {
+  font-family: var(--font-mono);
+  font-size: 0.76rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--pillar-color, var(--color-teal-signal));
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.executive-caption-text {
+  font-size: 0.86rem;
+  color: var(--color-glacier-dim);
+  line-height: 1.5;
+}
+
+/* Master 10-Pillar Visual Banner */
+.pillar-master-banner {
+  background: linear-gradient(180deg, rgba(13, 21, 39, 0.9) 0%, rgba(7, 12, 24, 0.98) 100%);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  margin-bottom: 3.5rem;
+  box-shadow: var(--shadow-card);
+}
+
+.pillar-master-image {
+  max-width: 780px;
+  width: 100%;
+  border-radius: var(--radius-md);
+  margin: 1.5rem auto 0 auto;
+  display: block;
+  box-shadow: 0 16px 40px rgba(0, 0, 0, 0.7);
+  border: 1px solid var(--border-glass);
+}
+
+@media (max-width: 900px) {
+  .gartner-pillar-card {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+}
 
 @media (max-width: 768px) {
   .pipeline-step {

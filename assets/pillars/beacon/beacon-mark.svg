@@ -1,0 +1,28 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="BEACON">
+  <defs>
+    <linearGradient id="bc-grad" x1="0.05" y1="0.1" x2="0.95" y2="0.9">
+      <stop offset="0" stop-color="#fffbe6"/><stop offset="0.45" stop-color="#ffc53d"/><stop offset="1" stop-color="#d48806"/>
+    </linearGradient>
+    <linearGradient id="bc-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe58f"/><stop offset="1" stop-color="#fa8c16"/>
+    </linearGradient>
+    <linearGradient id="bc-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(256 256) scale(0.85) translate(-256 -256)">
+    <!-- Concentric Awareness Radar Waves -->
+    <path d="M100 190 A 180 180 0 0 1 412 190" fill="none" stroke="url(#bc-grad)" stroke-width="14" stroke-linecap="round" opacity="0.35"/>
+    <path d="M145 215 A 130 130 0 0 1 367 215" fill="none" stroke="url(#bc-grad)" stroke-width="16" stroke-linecap="round" opacity="0.65"/>
+    <path d="M190 240 A 80 80 0 0 1 322 240" fill="none" stroke="url(#bc-grad)" stroke-width="18" stroke-linecap="round"/>
+
+    <!-- Transmitter Tower -->
+    <polygon points="256,180 300,410 212,410" fill="url(#bc-grad)"/>
+    <line x1="222" y1="345" x2="290" y2="345" stroke="#0b1222" stroke-width="10"/>
+    <line x1="234" y1="280" x2="278" y2="280" stroke="#0b1222" stroke-width="10"/>
+
+    <!-- Frosted Top Emitter Beacon -->
+    <circle cx="256" cy="170" r="38" fill="url(#bc-glow)" stroke="#0b1222" stroke-width="6"/>
+    <ellipse cx="244" cy="158" rx="18" ry="10" fill="url(#bc-sheen)"/>
+  </g>
+</svg>

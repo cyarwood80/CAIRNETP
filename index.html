@@ -248,8 +248,11 @@
         <div class="pipeline-flow-list">
           
           <!-- Pillar 1: PATH -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">PATH</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-path);">
+            <div class="pipeline-badge badge-path">
+              <img src="assets/pillars/path/path-mark.svg" class="pipeline-badge-icon" alt="PATH Mark">
+              <span>PATH</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Workflow Intelligence & Model Router</strong>
@@ -258,8 +261,11 @@
           </div>
           
           <!-- Pillar 2: CAIRN -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">CAIRN</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-cairn);">
+            <div class="pipeline-badge badge-cairn">
+              <img src="assets/pillars/cairn/cairn-mark.svg" class="pipeline-badge-icon" alt="CAIRN Mark">
+              <span>CAIRN</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Enterprise Trust & Security Gate</strong>
@@ -268,8 +274,11 @@
           </div>
 
           <!-- Pillar 3: COMPASS -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">COMPASS</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-compass);">
+            <div class="pipeline-badge badge-compass">
+              <img src="assets/pillars/compass/compass-mark.svg" class="pipeline-badge-icon" alt="COMPASS Mark">
+              <span>COMPASS</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Governance Intelligence & Audit Provenance</strong>
@@ -278,8 +287,11 @@
           </div>
 
           <!-- Pillar 4: ATLAS -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">ATLAS</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-atlas);">
+            <div class="pipeline-badge badge-atlas">
+              <img src="assets/pillars/atlas/atlas-mark.svg" class="pipeline-badge-icon" alt="ATLAS Mark">
+              <span>ATLAS</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Knowledge Infrastructure & Graph Memory</strong>
@@ -288,8 +300,11 @@
           </div>
 
           <!-- Pillar 5: FORGE -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">FORGE</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-forge);">
+            <div class="pipeline-badge badge-forge">
+              <img src="assets/pillars/forge/forge-mark.svg" class="pipeline-badge-icon" alt="FORGE Mark">
+              <span>FORGE</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Integration Platform & Code Generator</strong>
@@ -298,8 +313,11 @@
           </div>
 
           <!-- Pillar 6: CRUCIBLE -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">CRUCIBLE</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-crucible);">
+            <div class="pipeline-badge badge-crucible">
+              <img src="assets/pillars/crucible/crucible-mark.svg" class="pipeline-badge-icon" alt="CRUCIBLE Mark">
+              <span>CRUCIBLE</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Isolated Execution & Sandbox Engine</strong>
@@ -308,8 +326,11 @@
           </div>
 
           <!-- Pillar 7: BEACON -->
-          <div class="pipeline-step">
-            <div class="pipeline-badge">BEACON</div>
+          <div class="pipeline-step" style="--step-color: var(--pillar-beacon);">
+            <div class="pipeline-badge badge-beacon">
+              <img src="assets/pillars/beacon/beacon-mark.svg" class="pipeline-badge-icon" alt="BEACON Mark">
+              <span>BEACON</span>
+            </div>
             <div class="pipeline-arrow">&rarr;</div>
             <div class="pipeline-info">
               <strong>Operational Awareness & Telemetry</strong>
@@ -325,11 +346,20 @@
             <i class="fas fa-shield-halved text-teal"></i> Enforcement Philosophy: Blocking and Advisory
           </h4>
           <ul style="font-size: 0.9rem; color: var(--color-stone-grey); padding-left: 1.25rem; line-height: 1.7; margin-bottom: 0;">
-            <li style="margin-bottom: 0.5rem;">
-              <strong class="text-red">BLOCKING Pillars (CAIRN, FORGE, CRUCIBLE):</strong> If a request or payload fails security or schema validation, execution is halted immediately and the refusal is recorded. Static analysis is advisory by design — it raises the assurance an action requires and never grants permission, because pattern matching cannot decide safety over a Turing-complete language.
+            <li style="margin-bottom: 0.65rem;">
+              <strong class="text-red">BLOCKING Pillars:</strong> 
+              <span class="pillar-map-tag"><img src="assets/pillars/cairn/cairn-mark.svg" class="inline-pillar-mark" alt="">CAIRN</span>
+              <span class="pillar-map-tag"><img src="assets/pillars/forge/forge-mark.svg" class="inline-pillar-mark" alt="">FORGE</span>
+              <span class="pillar-map-tag"><img src="assets/pillars/crucible/crucible-mark.svg" class="inline-pillar-mark" alt="">CRUCIBLE</span>
+              — If a request or payload fails security or schema validation, execution is halted immediately and the refusal is recorded. Static analysis is advisory by design — it raises the assurance an action requires and never grants permission, because pattern matching cannot decide safety over a Turing-complete language.
             </li>
             <li>
-              <strong class="text-gold">ADVISORY Pillars (PATH, BEACON, COMPASS, ATLAS):</strong> Informational telemetry, reasoning chains, and graph memory; validation warnings are surfaced to operators without halting execution.
+              <strong class="text-gold">ADVISORY Pillars:</strong> 
+              <span class="pillar-map-tag"><img src="assets/pillars/path/path-mark.svg" class="inline-pillar-mark" alt="">PATH</span>
+              <span class="pillar-map-tag"><img src="assets/pillars/beacon/beacon-mark.svg" class="inline-pillar-mark" alt="">BEACON</span>
+              <span class="pillar-map-tag"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" alt="">COMPASS</span>
+              <span class="pillar-map-tag"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" alt="">ATLAS</span>
+              — Informational telemetry, reasoning chains, and graph memory; validation warnings are surfaced to operators without halting execution.
             </li>
           </ul>
         </div>
@@ -361,24 +391,41 @@
             <div class="layer-badge">Stone 1 (Top) • Ingress</div>
             <h4 class="layer-title">1. Intent & Ingress Gate</h4>
             <p class="layer-desc">Schema validation, AST parsing, and prompt injection filters before code touches any system.</p>
+            <div style="margin-top: 0.5rem;">
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/cairn/cairn-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CAIRN</span>
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/path/path-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> PATH</span>
+            </div>
           </div>
 
           <div class="cairn-layer-card" data-layer="governance">
             <div class="layer-badge">Stone 2 • Governance</div>
             <h4 class="layer-title">2. Policy & Governance Engine</h4>
             <p class="layer-desc">Operator-declared autonomy ceilings, egress allow-listing, and secret redaction — measured at 0.20–0.26 ms for a decision that does not run code.</p>
+            <div style="margin-top: 0.5rem;">
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS</span>
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/beacon/beacon-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> BEACON</span>
+            </div>
           </div>
 
           <div class="cairn-layer-card" data-layer="execution">
             <div class="layer-badge">Stone 3 • Execution</div>
             <h4 class="layer-title">3. Dual-Runtime Sandbox</h4>
             <p class="layer-desc">Dynamic hardware-isolated dispatch to Linux Docker or Windows Sandbox Hyper-V micro-VMs.</p>
+            <div style="margin-top: 0.5rem;">
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/crucible/crucible-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CRUCIBLE</span>
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/forge/forge-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> FORGE</span>
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/accelerator/accelerator-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> ACCELERATOR</span>
+            </div>
           </div>
 
           <div class="cairn-layer-card" data-layer="evidence">
             <div class="layer-badge">Stone 4 (Base) • Foundation</div>
             <h4 class="layer-title">4. Cryptographic Evidence Ledger</h4>
             <p class="layer-desc">Tamper-evident SHA-256 decision records, structured JSONL audit output, and exportable evidence bundles your auditor can verify without running CAIRN.</p>
+            <div style="margin-top: 0.5rem;">
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> ATLAS</span>
+              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS</span>
+            </div>
           </div>
 
         </div>

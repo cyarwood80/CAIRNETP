@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="ATLAS">
+  <defs>
+    <linearGradient id="at-grad" x1="0.05" y1="0.1" x2="0.95" y2="0.9">
+      <stop offset="0" stop-color="#e6f7ff"/><stop offset="0.45" stop-color="#40a9ff"/><stop offset="1" stop-color="#096dd9"/>
+    </linearGradient>
+    <linearGradient id="at-glow" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#91d5ff"/><stop offset="1" stop-color="#1890ff"/>
+    </linearGradient>
+    <linearGradient id="at-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.65"/><stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(256 256) scale(0.85) translate(-256 -256)">
+    <!-- Geodesic Outer Hexagon Frame -->
+    <polygon points="256,80 395,160 395,320 256,400 117,320 117,160" fill="none" stroke="url(#at-grad)" stroke-width="12" stroke-linejoin="round"/>
+    
+    <!-- Internal Knowledge Vectors & Strata Lines -->
+    <line x1="256" y1="80" x2="256" y2="400" stroke="url(#at-grad)" stroke-width="8"/>
+    <line x1="117" y1="160" x2="395" y2="320" stroke="url(#at-grad)" stroke-width="8"/>
+    <line x1="117" y1="320" x2="395" y2="160" stroke="url(#at-grad)" stroke-width="8"/>
+
+    <!-- Secondary Isometric Memory Lattice -->
+    <polygon points="256,150 335,195 335,285 256,330 177,285 177,195" fill="#0d1b33" stroke="url(#at-glow)" stroke-width="6"/>
+
+    <!-- Central Knowledge Hub -->
+    <circle cx="256" cy="240" r="32" fill="url(#at-glow)" stroke="#0b1222" stroke-width="6"/>
+    <ellipse cx="246" cy="230" rx="14" ry="8" fill="url(#at-sheen)"/>
+
+    <!-- Vertex Memory Nodes -->
+    <circle cx="256" cy="80" r="14" fill="url(#at-grad)"/>
+    <circle cx="395" cy="160" r="14" fill="url(#at-grad)"/>
+    <circle cx="395" cy="320" r="14" fill="url(#at-grad)"/>
+    <circle cx="256" cy="400" r="14" fill="url(#at-grad)"/>
+    <circle cx="117" cy="320" r="14" fill="url(#at-grad)"/>
+    <circle cx="117" cy="160" r="14" fill="url(#at-grad)"/>
+  </g>
+</svg>
