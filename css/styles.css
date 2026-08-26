@@ -625,17 +625,29 @@ code, pre {
 }
 
 .pillar-icon-box {
-  width: 52px;
-  height: 52px;
+  width: 58px;
+  height: 58px;
   border-radius: var(--radius-md);
-  background: rgba(37, 98, 235, 0.12);
-  border: 1px solid rgba(37, 98, 235, 0.25);
+  background: transparent;
+  border: none;
   display: flex;
   align-items: center;
   justify-content: center;
   color: var(--color-cairn-blue-light);
   font-size: 1.4rem;
   margin-bottom: 1.25rem;
+}
+
+.pillar-icon-box img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  filter: drop-shadow(0 6px 16px rgba(63, 139, 247, 0.35));
+  transition: transform var(--transition-normal);
+}
+
+.pillar-card:hover .pillar-icon-box img {
+  transform: scale(1.08);
 }
 
 .pillar-title {

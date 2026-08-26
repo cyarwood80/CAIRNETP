@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NIST MEASURE">
+  <defs>
+    <linearGradient id="mea-plate" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#111a2f"/>
+      <stop offset="0.55" stop-color="#0b1222"/>
+      <stop offset="1" stop-color="#070c18"/>
+    </linearGradient>
+    <linearGradient id="mea-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="mea-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffbe6"/>
+      <stop offset="0.4" stop-color="#ffc53d"/>
+      <stop offset="1" stop-color="#d48806"/>
+    </linearGradient>
+    <linearGradient id="mea-emerald" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6fffb"/>
+      <stop offset="0.5" stop-color="#00e599"/>
+      <stop offset="1" stop-color="#008c5e"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="114" ry="114" fill="url(#mea-plate)"/>
+  <g transform="translate(256 256) scale(0.74) translate(-256 -256)">
+    <!-- Radial Speedometer Arc Gauge -->
+    <path d="M110 320 A 170 170 0 1 1 402 320" fill="none" stroke="#122540" stroke-width="26" stroke-linecap="round"/>
+    <path d="M110 320 A 170 170 0 0 1 310 95" fill="none" stroke="url(#mea-gold)" stroke-width="26" stroke-linecap="round"/>
+    
+    <!-- Calibration Tickmarks -->
+    <line x1="145" y1="280" x2="165" y2="265" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="165" y1="195" x2="190" y2="195" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="225" y1="130" x2="235" y2="155" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="290" y1="110" x2="285" y2="135" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="350" y1="160" x2="330" y2="175" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+    <line x1="375" y1="240" x2="350" y2="245" stroke="#ffffff" stroke-width="5" stroke-linecap="round"/>
+
+    <!-- Central Precision Tachometer Hub -->
+    <circle cx="256" cy="270" r="48" fill="#091424" stroke="url(#mea-gold)" stroke-width="8"/>
+    <circle cx="256" cy="270" r="20" fill="url(#mea-emerald)"/>
+
+    <!-- High-Torque Telemetry Indicator Needle -->
+    <polygon points="250,270 262,270 340,140 330,135" fill="url(#mea-emerald)" stroke="#ffffff" stroke-width="2"/>
+
+    <!-- Digital Measurement Metric Readout -->
+    <rect x="200" y="350" width="112" height="34" rx="8" fill="#061220" stroke="url(#mea-gold)" stroke-width="3"/>
+    <circle cx="225" cy="367" r="5" fill="url(#mea-emerald)"/>
+    <rect x="245" y="364" width="45" height="6" rx="3" fill="url(#mea-gold)"/>
+
+    <!-- Glass Specular Reflection -->
+    <ellipse cx="200" cy="110" rx="45" ry="16" fill="url(#mea-sheen)" transform="rotate(-15 200 110)"/>
+  </g>
+</svg>

@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Complete Visibility">
+  <defs>
+    <linearGradient id="vis-plate" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#111a2f"/>
+      <stop offset="0.55" stop-color="#0b1222"/>
+      <stop offset="1" stop-color="#070c18"/>
+    </linearGradient>
+    <linearGradient id="vis-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="vis-pulse" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#36cfc9"/>
+      <stop offset="0.5" stop-color="#91d5ff"/>
+      <stop offset="0.8" stop-color="#40a9ff"/>
+      <stop offset="1" stop-color="#14c8a6"/>
+    </linearGradient>
+    <linearGradient id="vis-core" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6fffb"/>
+      <stop offset="1" stop-color="#13c2c2"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="114" ry="114" fill="url(#vis-plate)"/>
+  <g transform="translate(256 256) scale(0.74) translate(-256 -256)">
+    <!-- Background Observability Coordinate Grid -->
+    <circle cx="256" cy="256" r="180" fill="none" stroke="#1e3a5f" stroke-width="3" stroke-dasharray="8 8" opacity="0.4"/>
+    <circle cx="256" cy="256" r="120" fill="none" stroke="#1e3a5f" stroke-width="3" opacity="0.3"/>
+    <line x1="76" y1="256" x2="436" y2="256" stroke="#1e3a5f" stroke-width="2" stroke-dasharray="4 6" opacity="0.35"/>
+    <line x1="256" y1="76" x2="256" y2="436" stroke="#1e3a5f" stroke-width="2" stroke-dasharray="4 6" opacity="0.35"/>
+
+    <!-- Dynamic Telemetry Waveform Nodes -->
+    <path d="M80 256 L150 256 L185 190 L220 330 L260 140 L300 370 L340 220 L375 256 L432 256" 
+          fill="none" stroke="url(#vis-pulse)" stroke-width="18" stroke-linecap="round" stroke-linejoin="round"/>
+    
+    <!-- Luminous Vertex Datapoints -->
+    <circle cx="185" cy="190" r="12" fill="url(#vis-core)" stroke="#070c18" stroke-width="4"/>
+    <circle cx="220" cy="330" r="12" fill="url(#vis-core)" stroke="#070c18" stroke-width="4"/>
+    <circle cx="260" cy="140" r="16" fill="#ffffff" stroke="#13c2c2" stroke-width="5"/>
+    <circle cx="300" cy="370" r="14" fill="url(#vis-core)" stroke="#070c18" stroke-width="4"/>
+    <circle cx="340" cy="220" r="12" fill="url(#vis-core)" stroke="#070c18" stroke-width="4"/>
+
+    <!-- Glass Highlights -->
+    <ellipse cx="210" cy="120" rx="55" ry="20" fill="url(#vis-sheen)" transform="rotate(-20 210 120)"/>
+  </g>
+</svg>

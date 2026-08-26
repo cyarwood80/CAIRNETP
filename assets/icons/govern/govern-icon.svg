@@ -1,0 +1,50 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NIST GOVERN">
+  <defs>
+    <linearGradient id="gov-plate" x1="0" y1="0" x2="0.6" y2="1">
+      <stop offset="0" stop-color="#111a2f"/>
+      <stop offset="0.55" stop-color="#0b1222"/>
+      <stop offset="1" stop-color="#070c18"/>
+    </linearGradient>
+    <linearGradient id="gov-sheen" x1="0" y1="0" x2="0.7" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.6"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gov-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#efdbff"/>
+      <stop offset="0.45" stop-color="#b37feb"/>
+      <stop offset="1" stop-color="#531dab"/>
+    </linearGradient>
+    <linearGradient id="gov-sapphire" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6f4ff"/>
+      <stop offset="0.5" stop-color="#3f8bf7"/>
+      <stop offset="1" stop-color="#1d5fe0"/>
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="512" height="512" rx="114" ry="114" fill="url(#gov-plate)"/>
+  <g transform="translate(256 256) scale(0.74) translate(-256 -256)">
+    <!-- Central Scales of Governance Pillar -->
+    <rect x="246" y="110" width="20" height="260" rx="6" fill="url(#gov-sapphire)"/>
+    <rect x="180" y="360" width="152" height="24" rx="8" fill="url(#gov-grad)"/>
+    <rect x="150" y="380" width="212" height="18" rx="6" fill="#0c1728" stroke="url(#gov-grad)" stroke-width="4"/>
+
+    <!-- Balance Fulcrum Arm -->
+    <path d="M120 160 L256 130 L392 160" fill="none" stroke="url(#gov-grad)" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="256" cy="130" r="16" fill="#ffffff" stroke="url(#gov-sapphire)" stroke-width="6"/>
+
+    <!-- Left Balance Pan -->
+    <line x1="120" y1="160" x2="90" y2="250" stroke="url(#gov-grad)" stroke-width="6"/>
+    <line x1="120" y1="160" x2="150" y2="250" stroke="url(#gov-grad)" stroke-width="6"/>
+    <path d="M80 250 Q120 280 160 250 Z" fill="url(#gov-sapphire)" stroke="#0c1728" stroke-width="4"/>
+
+    <!-- Right Balance Pan -->
+    <line x1="392" y1="160" x2="362" y2="250" stroke="url(#gov-grad)" stroke-width="6"/>
+    <line x1="392" y1="160" x2="422" y2="250" stroke="url(#gov-grad)" stroke-width="6"/>
+    <path d="M352 250 Q392 280 432 250 Z" fill="url(#gov-sapphire)" stroke="#0c1728" stroke-width="4"/>
+
+    <!-- Authority Diamond Core -->
+    <polygon points="256,180 280,210 256,240 232,210" fill="url(#gov-grad)" stroke="#ffffff" stroke-width="3"/>
+
+    <!-- Glass Specular Highlight -->
+    <ellipse cx="200" cy="110" rx="45" ry="15" fill="url(#gov-sheen)" transform="rotate(-15 200 110)"/>
+  </g>
+</svg>

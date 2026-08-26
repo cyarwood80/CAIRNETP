@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Automate at Scale Mark">
+  <defs>
+    <linearGradient id="autm-grad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffe58f"/>
+      <stop offset="0.3" stop-color="#ff7a45"/>
+      <stop offset="0.7" stop-color="#36cfc9"/>
+      <stop offset="1" stop-color="#13c2c2"/>
+    </linearGradient>
+    <linearGradient id="autm-cyan" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6fffb"/>
+      <stop offset="0.5" stop-color="#36cfc9"/>
+      <stop offset="1" stop-color="#006d75"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(256 256) scale(0.9) translate(-256 -256)">
+    <path d="M120 390 L120 270 C120 210, 170 170, 230 170 L340 170" fill="none" stroke="url(#autm-cyan)" stroke-width="18" stroke-linecap="round"/>
+    <path d="M230 170 C230 120, 280 90, 350 90 L390 90" fill="none" stroke="url(#autm-grad)" stroke-width="16" stroke-linecap="round"/>
+    <path d="M230 170 C230 230, 280 260, 350 260 L390 260" fill="none" stroke="url(#autm-cyan)" stroke-width="16" stroke-linecap="round"/>
+
+    <polygon points="400,90 370,72 376,90 370,108" fill="url(#autm-grad)"/>
+    <polygon points="400,260 370,242 376,260 370,278" fill="url(#autm-cyan)"/>
+    
+    <g transform="translate(190 310)">
+      <circle cx="0" cy="0" r="75" fill="#0c1728" stroke="url(#autm-grad)" stroke-width="14"/>
+      <rect x="-10" y="-88" width="20" height="24" rx="4" fill="url(#autm-grad)"/>
+      <rect x="-10" y="64" width="20" height="24" rx="4" fill="url(#autm-grad)"/>
+      <rect x="-88" y="-10" width="24" height="20" rx="4" fill="url(#autm-grad)"/>
+      <rect x="64" y="-10" width="24" height="20" rx="4" fill="url(#autm-grad)"/>
+      <rect x="-65" y="-65" width="20" height="20" rx="4" fill="url(#autm-grad)" transform="rotate(45)"/>
+      <rect x="45" y="-65" width="20" height="20" rx="4" fill="url(#autm-grad)" transform="rotate(45)"/>
+      <rect x="-65" y="45" width="20" height="20" rx="4" fill="url(#autm-grad)" transform="rotate(45)"/>
+      <rect x="45" y="45" width="20" height="20" rx="4" fill="url(#autm-grad)" transform="rotate(45)"/>
+      <circle cx="0" cy="0" r="36" fill="url(#autm-cyan)" stroke="#070c18" stroke-width="6"/>
+      <circle cx="0" cy="0" r="14" fill="#070c18"/>
+    </g>
+
+    <circle cx="120" cy="390" r="16" fill="url(#autm-grad)"/>
+    <circle cx="340" cy="170" r="14" fill="url(#autm-cyan)"/>
+  </g>
+</svg>

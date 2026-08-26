@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="NIST MEASURE Mark">
+  <defs>
+    <linearGradient id="meam-gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#fffbe6"/>
+      <stop offset="0.4" stop-color="#ffc53d"/>
+      <stop offset="1" stop-color="#d48806"/>
+    </linearGradient>
+    <linearGradient id="meam-emerald" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#e6fffb"/>
+      <stop offset="0.5" stop-color="#00e599"/>
+      <stop offset="1" stop-color="#008c5e"/>
+    </linearGradient>
+  </defs>
+  <g transform="translate(256 256) scale(0.9) translate(-256 -256)">
+    <path d="M110 320 A 170 170 0 1 1 402 320" fill="none" stroke="#122540" stroke-width="26" stroke-linecap="round"/>
+    <path d="M110 320 A 170 170 0 0 1 310 95" fill="none" stroke="url(#meam-gold)" stroke-width="26" stroke-linecap="round"/>
+    
+    <circle cx="256" cy="270" r="48" fill="#091424" stroke="url(#meam-gold)" stroke-width="8"/>
+    <circle cx="256" cy="270" r="20" fill="url(#meam-emerald)"/>
+
+    <polygon points="250,270 262,270 340,140 330,135" fill="url(#meam-emerald)" stroke="#ffffff" stroke-width="2"/>
+
+    <rect x="200" y="350" width="112" height="34" rx="8" fill="#061220" stroke="url(#meam-gold)" stroke-width="3"/>
+    <circle cx="225" cy="367" r="5" fill="url(#meam-emerald)"/>
+    <rect x="245" y="364" width="45" height="6" rx="3" fill="url(#meam-gold)"/>
+  </g>
+</svg>
