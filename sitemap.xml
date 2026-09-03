@@ -5,32 +5,32 @@
         http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   <url>
     <loc>https://cairnetp.com/</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>weekly</changefreq>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>daily</changefreq>
     <priority>1.00</priority>
   </url>
   <url>
-    <loc>https://cairnetp.com/book.html</loc>
-    <lastmod>2026-07-29</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.85</priority>
-  </url>
-  <url>
-    <loc>https://cairnetp.com/licensing.html</loc>
-    <lastmod>2026-08-02</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.90</priority>
-  </url>
-  <url>
     <loc>https://cairnetp.com/compliance.html</loc>
-    <lastmod>2026-08-06</lastmod>
+    <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://cairnetp.com/licensing.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://cairnetp.com/gallery.html</loc>
-    <lastmod>2026-08-02</lastmod>
-    <changefreq>monthly</changefreq>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+  </url>
+  <url>
+    <loc>https://cairnetp.com/book.html</loc>
+    <lastmod>2026-08-29</lastmod>
+    <changefreq>weekly</changefreq>
     <priority>0.85</priority>
   </url>
 </urlset>

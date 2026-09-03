@@ -1,0 +1,20 @@
+# CAIRN Trust Fabric
+
+> Deterministic enterprise trust fabric providing default-deny governance, dual-runtime execution sandboxes (Docker + Windows Sandbox VM), and cryptographic audit provenance for enterprise AI agent systems.
+
+## Overview
+CAIRN inserts a deterministic governance and dual-runtime verification plane between enterprise user intent and model execution. While large language models are inherently probabilistic, CAIRN enforces deterministic boundary checks, parameter schemas, autonomy ceilings, and tamper-evident SHA-256 decision ledgers at sub-millisecond latency (0.20–0.26 ms).
+
+## Core Capabilities & Features
+- [The Seven Pillars of CAIRN](https://cairnetp.com/#seven-pillars): Fixed 7-stage deterministic execution pipeline (PATH, CAIRN, COMPASS, ATLAS, FORGE, CRUCIBLE, BEACON).
+- [Dual-Runtime Sandbox Execution](https://cairnetp.com/#architecture): Ephemeral Linux Docker containers with read-only rootfs and Windows Sandbox Hyper-V micro-VM hardware virtualization.
+- [6-Tier Verification Assurance Ladder](https://cairnetp.com/#assurance): Progressive assurance grading from Tier 0 (Unverified LLM output) to Tier 5 (Idempotent, state-verified execution).
+- [Enterprise Compliance & Regulatory Mapping](https://cairnetp.com/compliance.html): Native alignment with EU AI Act (Articles 9, 14, 15, 17), NIST AI RMF 1.0, ISO/IEC 42001, SOC 2 Type II, and DORA.
+- [Model Context Protocol (MCP) Security Gateway](https://cairnetp.com/#ecosystem): Inbound MCP governance ensuring Claude Code, Cursor, and enterprise MCP clients execute tool actions within sandboxed boundaries.
+- [Licensing & Sovereign Deployment Models](https://cairnetp.com/licensing.html): Air-gapped, on-premises, and sovereign cloud licensing editions (Developer, Professional, Enterprise Site License).
+- [Architecture & UI Gallery](https://cairnetp.com/gallery.html): Visual captures of the 7 enterprise pillars, telemetry interfaces, and control plane.
+- [Official Architecture Book](https://cairnetp.com/book.html): *CAIRN: Engineering a Sovereign AI Agent Platform* by Chris Yarwood (Amazon ISBN: B0H9JHP73Z).
+- [GitHub Repository](https://github.com/cairn-trust-fabric/cairn): Source-available distribution, Ed25519-signed SHA256 checksums, and release binaries.
+
+## Detailed Technical Documentation
+For full architectural specifications, policy schemas, threat model analysis, and JSONL audit ledger formats, see [Full LLMs Documentation](https://cairnetp.com/llms-full.txt).

@@ -4,39 +4,117 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>Enterprise Compliance & Regulatory Framework Mapping — CAIRN ETP</title>
+  <title>EU AI Act &amp; NIST AI RMF Compliance Framework Mapping — CAIRN ETP</title>
   <meta name="description"
-    content="CAIRN ETP translates complex regulatory directives (EU AI Act, NIST AI RMF 1.0, ISO/IEC 42001, SOC 2, DORA) into cryptographic, runtime-enforced boundary checks.">
+    content="Deterministic AI governance mapping for EU AI Act (Articles 9-15), NIST AI RMF 1.0, ISO/IEC 42001, SOC 2, and DORA. Cryptographic runtime boundary checks for autonomous agent fleets.">
+  <meta name="keywords"
+    content="EU AI Act compliance, NIST AI RMF 1.0 mapping, ISO 42001 AI governance, DORA AI compliance, SOC 2 AI agents, deterministic AI safety, AI audit trail, SHA-256 decision ledger, high-risk AI system obligations, AI risk management">
+  <meta name="author" content="Chris Yarwood">
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
   <link rel="canonical" href="https://cairnetp.com/compliance.html">
 
-  <!-- JSON-LD Structured Data Schema -->
+  <!-- JSON-LD Multi-Entity Knowledge Graph Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "TechArticle",
-    "headline": "Enterprise Compliance & Regulatory Framework Mapping",
-    "description": "Deterministic AI Governance by Design: Mapping CAIRN ETP to EU AI Act, NIST AI RMF 1.0, ISO/IEC 42001, and Financial Services Regulations.",
-    "url": "https://cairnetp.com/compliance.html",
-    "author": {
-      "@type": "Person",
-      "name": "Chris Yarwood"
-    },
-    "publisher": {
-      "@type": "Organization",
-      "name": "CAIRN ETP",
-      "url": "https://cairnetp.com/"
-    }
+    "@graph": [
+      {
+        "@type": "BreadcrumbList",
+        "@id": "https://cairnetp.com/compliance.html#breadcrumb",
+        "itemListElement": [
+          {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Platform",
+            "item": "https://cairnetp.com/"
+          },
+          {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Compliance & Regulatory Framework",
+            "item": "https://cairnetp.com/compliance.html"
+          }
+        ]
+      },
+      {
+        "@type": "TechArticle",
+        "@id": "https://cairnetp.com/compliance.html#article",
+        "headline": "Enterprise Compliance & Regulatory Framework Mapping — Deterministic AI Governance by Design",
+        "description": "Article-by-article regulatory mapping of CAIRN ETP to EU AI Act (Regulation EU 2024/1689), NIST AI RMF 1.0, ISO/IEC 42001:2023, SOC 2 Type II, and DORA.",
+        "url": "https://cairnetp.com/compliance.html",
+        "inLanguage": "en-GB",
+        "author": {
+          "@type": "Person",
+          "name": "Chris Yarwood",
+          "sameAs": "https://www.linkedin.com/in/chris-yarwood/"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "CAIRN ETP",
+          "url": "https://cairnetp.com/",
+          "logo": "https://cairnetp.com/assets/cairn-logo-lockup.png"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "https://cairnetp.com/compliance.html#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "How does CAIRN satisfy EU AI Act Article 9 (Risk Management)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CAIRN evaluates tool requests through pre-execution AST parsing, parameter schema validation, and default-deny gatekeepers (CAIRN & PATH pillars), blocking high-risk execution vectors prior to model invocation."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does CAIRN enforce EU AI Act Article 14 (Human Oversight)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CAIRN provides configurable autonomy ceilings and explicit operator approval gates. High-risk operations (such as destructive file operations or external API calls) pause execution deterministically until confirmed by an authorized human operator."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How does CAIRN align with NIST AI RMF 1.0 GOVERN and MEASURE functions?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CAIRN utilizes Ed25519-signed policy manifests for centralized governance, and produces sub-millisecond telemetry graded across 6 deterministic assurance tiers (Tier 0 to Tier 5) with structured JSONL audit logs."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "What audit evidence does CAIRN generate for ISO/IEC 42001 and SOC 2 audits?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "CAIRN records immutable SHA-256 Merkle hash-chained decision records containing context hashes, AST parse results, policy decisions, and sandbox execution deltas that auditors can independently verify without running CAIRN."
+            }
+          }
+        ]
+      }
+    ]
   }
   </script>
 
   <!-- OpenGraph Social Cards -->
   <meta property="og:site_name" content="CAIRN ETP">
-  <meta property="og:title" content="Enterprise Compliance & Regulatory Framework Mapping — CAIRN ETP">
+  <meta property="og:title" content="EU AI Act &amp; NIST AI RMF Compliance Framework Mapping — CAIRN ETP">
   <meta property="og:description"
     content="Deterministic AI Governance by Design. Cryptographic runtime boundary checks for EU AI Act, NIST AI RMF, ISO 42001, and DORA.">
+  <meta property="og:image" content="https://cairnetp.com/assets/cairn-branding-board.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
   <meta property="og:url" content="https://cairnetp.com/compliance.html">
   <meta property="og:type" content="article">
+
+  <!-- Twitter Social Cards -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@cyarwood">
+  <meta name="twitter:title" content="EU AI Act &amp; NIST AI RMF Compliance Framework Mapping — CAIRN ETP">
+  <meta name="twitter:description"
+    content="Deterministic AI Governance by Design. Cryptographic runtime boundary checks for EU AI Act, NIST AI RMF, ISO 42001, and DORA.">
+  <meta name="twitter:image" content="https://cairnetp.com/assets/cairn-branding-board.png">
 
   <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">

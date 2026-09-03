@@ -33,7 +33,7 @@ const FALLBACK_SCENARIOS = {
     logs: [
       { type: "info", text: "<i class='fas fa-terminal'></i> [FASTAPI BE] Evaluating incoming tool call: 'get_pc_diagnostics'" },
       { type: "pass", text: "<i class='fas fa-shield-check'></i> [STRIX AST SCAN] Security verification PASSED (0 risk vectors found)." },
-      { type: "pass", text: "<i class='fas fa-check-circle'></i> [TRUST FABRIC] Policy Whitelist Check: APPROVED (Signature: v2.4.1)." },
+      { type: "pass", text: "<i class='fas fa-check-circle'></i> [TRUST FABRIC] Policy Whitelist Check: APPROVED (Signature: Validated)." },
       { type: "pass", text: "<i class='fas fa-microchip'></i> [LOCAL FLEET] Executed on hardware worker in 12ms." },
       { type: "pass", text: "<i class='fas fa-file-contract'></i> [COMPASS LOG] Hashed audit trail entry #09843 signed by FastAPI server." }
     ]

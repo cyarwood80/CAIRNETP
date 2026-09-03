@@ -1,0 +1,151 @@
+/* ==========================================================================
+   CAIRN Trust Fabric — Unified Styling Additions (hybrid_additions.css)
+   Strictly adheres to:
+   - Typography: Plus Jakarta Sans (headings, body), IBM Plex Mono (code, data)
+   - Layout: Uniform 1240px container width across all sections
+   - Palette: Deep Space (#061220), Cairn Blue (#2562EB), Trust Teal (#14C8A6), Gold Accent (#E5A93C)
+   ========================================================================== */
+
+/* Hero Title Accent Highlights (Matching Plus Jakarta Sans Font Family) */
+.hero-title-unified {
+  font-family: var(--font-heading);
+  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-weight: 800;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--color-glacier);
+  margin-bottom: 1.25rem;
+}
+
+.text-gold-accent {
+  color: #E5A93C;
+  font-weight: 800;
+}
+
+.text-teal-accent {
+  color: var(--color-teal-signal);
+  font-weight: 800;
+}
+
+/* Conviction Callout Quote */
+.conviction-quote-unified {
+  border-left: 3px solid var(--color-teal-signal);
+  padding: 0.75rem 1.25rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: 1.02rem;
+  line-height: 1.6;
+  color: var(--color-glacier);
+  background: rgba(20, 200, 166, 0.05);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Hero Telemetry Strip */
+.hero-telemetry-strip-unified {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.telemetry-item-unified {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: 0.71rem;
+  white-space: nowrap;
+}
+
+.telemetry-value-unified {
+  font-weight: 700;
+  font-size: 0.95rem;
+  color: var(--color-glacier);
+}
+
+.telemetry-label-unified {
+  color: var(--color-stone-grey);
+}
+
+/* Problem Section Contrast Cards */
+.problem-contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contrast-box {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.contrast-box:hover {
+  transform: translateY(-2px);
+}
+
+.contrast-box-highlight {
+  border-color: rgba(20, 200, 166, 0.35);
+  background: rgba(13, 31, 58, 0.85);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(20, 200, 166, 0.03);
+}
+
+.contrast-badge-flawed {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #F87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.contrast-badge-verified {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+  background: var(--color-teal-dim);
+  border: 1px solid var(--color-teal-border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.contrast-title {
+  font-family: var(--font-heading);
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-glacier);
+  margin-bottom: 0.6rem;
+}
+
+.contrast-desc {
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-stone-grey);
+}
+
+@media (max-width: 768px) {
+  .problem-contrast-grid {
+    grid-template-columns: 1fr;
+  }
+}

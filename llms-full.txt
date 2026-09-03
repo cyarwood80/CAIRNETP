@@ -1,0 +1,151 @@
+# CAIRN Trust Fabric — Comprehensive Technical Specification & Knowledge Dossier
+
+```
+Author: Chris Yarwood
+Platform: CAIRN Trust Fabric (CAIRN ETP)
+Category: Enterprise AI Trust Fabric & Deterministic Agent Governance
+Website: https://cairnetp.com
+Repository: https://github.com/cairn-trust-fabric/cairn
+License: Business Source License (BUSL 1.1)
+```
+
+## 1. Executive Summary & Problem Definition
+
+Autonomous AI agents and Large Language Models (LLMs) are probabilistic systems. In enterprise environments (financial services, defense, healthcare, critical infrastructure), probabilistic systems cannot be granted unmediated access to operating system APIs, internal databases, or production networks. 
+
+Conventional guardrails operate purely at the prompt layer using regex filters or secondary LLM evaluators. These approaches suffer from:
+1. Non-determinism (evaluator hallucinations and jailbreak vulnerability).
+2. Latency overhead (500ms–2000ms LLM round-trips).
+3. Zero execution containment (if an agent generates a malicious shell command or SQL injection, it executes unisolated on the host).
+
+CAIRN solves this by decoupling *model reasoning* from *action execution*. CAIRN inserts a deterministic governance layer and dual-runtime hardware sandbox between the agent's proposed intent and host system execution.
+
+---
+
+## 2. Core Architectural Principles
+
+1. **Default-Deny Execution Gate**: All tool calls, system commands, and outbound egress requests are denied by default unless matching an explicit, cryptographically signed policy manifest.
+2. **Deterministic Governance vs. Probabilistic Models**: Model generation remains probabilistic; the policy decision whether to allow, sandbox, modify, or block an action is 100% deterministic (evaluated in 0.20–0.26 ms).
+3. **Dual-Runtime Hardware Isolation**:
+   - **Linux**: Ephemeral Docker containers instantiated with read-only root filesystems (`--read-only`), dropped capabilities (`--cap-drop=ALL`), zero networking (`--network=none`), and memory/CPU limits.
+   - **Windows**: Native Windows Sandbox Hyper-V micro-VMs providing hardware-level kernel isolation.
+4. **Tamper-Evident SHA-256 Decision Ledgers**: Every intent ingress, AST parse, policy evaluation, sandbox execution delta, and egress check is hashed into a cryptographic Merkle-chain stored as structured JSONL for SIEM ingestion.
+
+---
+
+## 3. The Seven Pillars of CAIRN (Execution Pipeline)
+
+Execution flows through a strict, unidirectional 7-stage pipeline:
+
+```
+[Prompt Ingress]
+       │
+       ▼
+1. PATH       (Workflow Intelligence & Model Router)
+       │
+       ▼
+2. CAIRN      (Enterprise Trust & Security Gate — BLOCKING)
+       │
+       ▼
+3. COMPASS    (Governance Intelligence & Audit Provenance)
+       │
+       ▼
+4. ATLAS      (Knowledge Infrastructure & Graph Memory)
+       │
+       ▼
+5. FORGE      (Integration Platform & Sanitized Code Generator — BLOCKING)
+       │
+       ▼
+6. CRUCIBLE   (Isolated Execution & Dual-Runtime Sandbox Engine — BLOCKING)
+       │
+       ▼
+7. BEACON     (Operational Awareness & Structured JSONL Telemetry)
+       │
+       ▼
+[Verified Egress / SIEM Output]
+```
+
+### Pillar Detail:
+- **PATH (Router)**: Generates multi-step execution plans and routes workloads dynamically across local (Ollama, vLLM, llama.cpp) or sovereign cloud backends.
+- **CAIRN (Security Gate)**: Validates input parameter schemas, runs AST parsing on code snippets, enforces autonomy ceilings, and blocks unauthorized shell/API attempts.
+- **COMPASS (Audit Provenance)**: Evaluates signed organisational policies and writes SHA-256 hash-chained checkpoints into the immutable decision ledger.
+- **ATLAS (Knowledge Infrastructure)**: Retrieves verified institutional context, vector embeddings, and persistent graph memory without leaking cross-tenant data.
+- **FORGE (Sanitization & Code Generator)**: Synthesizes sanitized tool call wrappers, eliminates shell piping injection vectors (CWE-78), and prepares isolated execution manifests.
+- **CRUCIBLE (Sandbox Engine)**: Dispatches workloads to ephemeral Docker containers or Hyper-V Windows Sandbox micro-VMs, capturing filesystem deltas and state output.
+- **BEACON (Telemetry & SIEM Gateway)**: Surfaces final verified responses and streams structured JSONL audit logs to SIEM pipelines (Splunk, Elastic, Sentinel).
+
+---
+
+## 4. The 6-Tier Verification Assurance Ladder
+
+Actions processed by CAIRN are deterministically graded across 6 assurance tiers:
+
+| Tier | Grade | Description | Verification Backend |
+|---|---|---|---|
+| **Tier 0** | **Unverified (Untrusted)** | Raw LLM output string or unparsed script. | None |
+| **Tier 1** | **Static Checked** | Syntax validated, AST parsed, secret patterns redacted. | Static Analyzer (AST) |
+| **Tier 2** | **Sandbox Executed** | Executed in ephemeral container with read-only rootfs. | Docker / Hyper-V VM |
+| **Tier 3** | **Behaviour Checked** | Zero network egress and disk deltas verified. | Runtime Monitor |
+| **Tier 4** | **Deterministic** | Identical output reproduced across multi-run seed tests. | Multi-Pass Verifier |
+| **Tier 5** | **Idempotent** | Safely repeatable without cross-run state mutation. | State Delta Ledger |
+
+---
+
+## 5. Model Context Protocol (MCP) Security Gateway
+
+CAIRN functions as an enterprise security gateway for Anthropic's Model Context Protocol (MCP):
+- Intercepts tool execution requests from Claude Code, Cursor, Copilot, and custom MCP clients.
+- Enforces strict JSON Schema validation on MCP tool parameters before passing to local tools.
+- Executes untrusted MCP tool implementations inside CRUCIBLE sandboxes.
+- Redacts sensitive credentials (API keys, session tokens, passwords) before MCP responses are returned to the model context.
+
+---
+
+## 6. Enterprise Compliance & Regulatory Framework Mapping
+
+### EU AI Act (Regulation EU 2024/1689)
+- **Article 9 (Risk Management System)**: Continuous pre-execution risk classification and blocking via CAIRN Security Gate.
+- **Article 14 (Human Oversight)**: Configurable operator autonomy ceilings requiring explicit human approval for high-risk tool operations.
+- **Article 15 (Accuracy, Robustness & Cybersecurity)**: Hardware sandboxing prevents model hallucinations from corrupting host operating systems.
+- **Article 17 (Quality Management & Post-Market Monitoring)**: Structured JSONL audit trails capture full decision lineage.
+
+### NIST AI Risk Management Framework (NIST AI RMF 1.0)
+- **GOVERN**: Centralized policy manifests signed with Ed25519.
+- **MAP**: Explicit mapping of model tool capabilities and boundary rules.
+- **MEASURE**: Sub-millisecond telemetry and 6-tier assurance grading.
+- **MANAGE**: Automated fallback, circuit-breakers, and ephemeral container destruction upon error.
+
+### ISO/IEC 42001:2023 (Artificial Intelligence Management System)
+- Controls for AI lifecycle management, data governance, operational containment, and auditability.
+
+### Financial Services Regulations (DORA & SOC 2 Type II)
+- Digital Operational Resilience Act (DORA) compliance through fault-isolated micro-VM runtimes and immutable logging for regulatory audits.
+
+---
+
+## 7. Performance Benchmarks
+
+- **Policy Evaluation Latency**: 0.20 ms – 0.26 ms (zero external network round-trips).
+- **AST Parsing & Secret Redaction**: < 1.10 ms for scripts up to 50KB.
+- **Docker Container Provision & Teardown**: ~180 ms ephemeral cycle.
+- **Windows Sandbox VM Session Isolation**: Hardware Hyper-V isolation with zero persistent host disk footprint.
+
+---
+
+## 8. Official Book & Educational Resources
+
+*Title*: **CAIRN: Engineering a Sovereign AI Agent Platform — Architecture, Orchestration, Local LLMs and Enterprise Automation**  
+*Author*: Chris Yarwood  
+*Amazon ASIN/ISBN*: B0H9JHP73Z  
+*URL*: https://www.amazon.co.uk/dp/B0H9JHP73Z  
+*Topics*: Sovereign enterprise AI architecture, deterministic safety gates, local LLM orchestration (Ollama, vLLM), hardware sandboxing, and compliance implementation.
+
+---
+
+## 9. Contact & Enterprise Engagement
+
+- **Official Website**: https://cairnetp.com
+- **Enterprise Access**: enterprise@cairnetp.com
+- **Security Inquiries**: security@cairnetp.com
+- **LinkedIn**: https://www.linkedin.com/in/chris-yarwood/
+- **GitHub**: https://github.com/cairn-trust-fabric/cairn

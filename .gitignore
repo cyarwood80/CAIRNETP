@@ -8,3 +8,11 @@ scratch/
 
 .vercel
 .env*
+
+# Local mockups & scratch utilities
+mockup_*.html
+css/editorial_*.css
+seo_dashboard.html
+start_seo_dashboard.bat
+launch_seo_hidden.vbs
+data/

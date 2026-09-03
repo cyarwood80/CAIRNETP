@@ -1,6 +1,65 @@
+# ==============================================================================
+# CAIRN Trust Fabric (cairnetp.com) — Robots & Crawler Directives
+# Deterministic AI Governance, Dual-Runtime Sandboxing & Enterprise Trust Plane
+# ==============================================================================
+
 User-agent: *
 Allow: /
 Disallow: /api/private/
 
-# Sitemap location for Googlebot, Bingbot, DuckDuckBot, YandexBot, Baiduspider
+# Explicitly permit and optimize for Search Engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: DuckDuckBot
+Allow: /
+
+User-agent: YandexBot
+Allow: /
+
+User-agent: Baiduspider
+Allow: /
+
+# Explicitly permit and optimize for AI Answer Engines & Generative Indexers
+User-agent: GPTBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: PerplexityBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-Web
+Allow: /
+
+User-agent: Google-Extended
+Allow: /
+
+User-agent: Applebot-Extended
+Allow: /
+
+User-agent: cohere-ai
+Allow: /
+
+User-agent: Amazonbot
+Allow: /
+
+User-agent: Bytespider
+Allow: /
+
+User-agent: Meta-ExternalAgent
+Allow: /
+
+# Standard LLM Discovery Files
+# https://cairnetp.com/llms.txt
+# https://cairnetp.com/llms-full.txt
+
+# Sitemaps
 Sitemap: https://cairnetp.com/sitemap.xml
