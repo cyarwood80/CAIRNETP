@@ -12,7 +12,7 @@
     "trackedClaims": {
       "value": "143",
       "label": "claims in the public register",
-      "basis": "rows in docs/CLAIMS.md rated Works, Partial, Never, Roadmap or Deferred"
+      "basis": "rows in docs/CLAIMS.md rated Works, Partial, Never, Roadmap or Deferred; register.html is generated from the same file by scripts/build-register.mjs and reports the same total"
     },
     "deployment": {
       "value": "Local-first",
@@ -21,6 +21,6 @@
     }
   },
   "_removed": {
-    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 — a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading."
+    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 \u2014 a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading."
   }
 }

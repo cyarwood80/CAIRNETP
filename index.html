@@ -47,6 +47,7 @@
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
           <li><a href="#assurance" class="nav-link">Assurance</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
+          <li><a href="register.html" class="nav-link">Register</a></li>
           <li><a href="compliance.html" class="nav-link">Compliance</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
           <li><a href="book.html" class="nav-link">Book</a></li>
@@ -203,66 +204,30 @@
     </div>
   </section>
 
-  <!-- Trio Pillar Cards Section (Preserved Live Site Branding) -->
-  <section class="trio-cards-section">
-    <div class="container">
-      <div class="trio-grid">
+    <!-- The three generic benefit cards were removed on 2026-09-06.
+       "Zero Trust by Design / Complete Visibility / Automate at Scale" is a
+       heading set every vendor in this segment could put their name on, and the
+       Architecture section below makes the same three points with real pillar
+       names, the real sandbox mechanism and a measured evaluation cost. Two
+       versions of one argument, and the specific one is better.
 
-        <!-- Pillar 1: Zero Trust by Design -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <img src="assets/icons/zero-trust/zero-trust-icon.svg" alt="Zero Trust by Design Icon">
-          </div>
-          <h3 class="pillar-title">Zero Trust by Design</h3>
-          <div class="pillar-tagline">Security built in, not bolted on.</div>
-          <p class="pillar-desc">
-            Default-deny governance intercepts every model action, script, and API call before host execution. Where Docker or Windows Sandbox is present, unverified code runs in an ephemeral sandbox instead of on the host.
-          </p>
-        </div>
+       Restore from git if the generic framing is wanted for a campaign; the
+       point of removing it is that the page was asking a reader to read the
+       same thing twice before reaching anything only CAIRN can say. -->
 
-        <!-- Pillar 2: Complete Visibility -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <img src="assets/icons/visibility/visibility-icon.svg" alt="Complete Visibility Icon">
-          </div>
-          <h3 class="pillar-title">Complete Visibility</h3>
-          <div class="pillar-tagline">Know, verify, govern.</div>
-          <p class="pillar-desc">
-            End-to-end telemetry across all agent runtimes, LLM endpoints, token expenditures, and cryptographic verification ledgers in one cohesive control plane.
-          </p>
-        </div>
-
-        <!-- Pillar 3: Automate at Scale -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <img src="assets/icons/automate/automate-icon.svg" alt="Automate at Scale Icon">
-          </div>
-          <h3 class="pillar-title">Automate at Scale</h3>
-          <div class="pillar-tagline">From policy to action.</div>
-          <p class="pillar-desc">
-            Turn high-level compliance mandates into runtime policies with tiered assurance and structured JSONL audit output your SIEM can ingest.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- Engineered for Sovereign & Critical Environments Bar -->
-  <section class="sectors-bar">
-    <div class="container">
-      <div class="sectors-inner">
-        <div class="sectors-label">Engineered for Sovereign &amp; Critical Environments</div>
-        <div class="sectors-list">
-          <div class="sector-chip"><i class="fas fa-building-columns"></i> Financial Services</div>
-          <div class="sector-chip"><i class="fas fa-landmark"></i> Government &amp; Defense</div>
-          <div class="sector-chip"><i class="fas fa-hospital"></i> Healthcare &amp; Life Sciences</div>
-          <div class="sector-chip"><i class="fas fa-bolt"></i> Critical Infrastructure</div>
-          <div class="sector-chip"><i class="fas fa-scale-balanced"></i> Regulated Enterprise</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- The sector strip was removed on 2026-09-06. It listed Financial
+       Services, Government & Defense, Healthcare, Critical Infrastructure and
+       Regulated Enterprise under "Engineered for Sovereign & Critical
+       Environments" -- a list of target markets, set in the visual grammar of a
+       customer logo strip, on a page arguing that every claim is checkable.
+
+       No organisation in any of those sectors runs CAIRN. docs/CLAIMS.md says
+       so and the download section now says so in words. A reader who works out
+       that the strip means "we would like these customers" trusts the rest of
+       the page less, and they are right to. -->
+
 
   <!-- CAIRN ARCHITECTURE: PLACED DIRECTLY UNDERNEATH SECTORS BAR -->
   <section id="architecture" class="section-spacing" style="background: rgba(3, 9, 19, 0.6); border-bottom: 1px solid var(--border-card);">
@@ -400,46 +365,24 @@
     </div>
   </section>
 
-  <!-- Ecosystem & Enterprise Interoperability (Preserved Live Site) -->
-  <section id="ecosystem" class="section-spacing" style="background: rgba(3, 9, 19, 0.4);">
-    <div class="container">
-      <div class="section-title-wrap">
-        <div class="status-pill">
-          <i class="fas fa-plug"></i> ENTERPRISE INTEGRATIONS
-        </div>
-        <h2 class="section-title">Ecosystem &amp; Interoperability</h2>
-        <p class="section-subtitle">
-          CAIRN integrates natively with your existing security perimeter, SIEM pipelines, and sovereign cloud infrastructure.
-        </p>
-      </div>
+    <!-- The Ecosystem & Interoperability section was removed on 2026-09-06.
 
-      <div class="ecosystem-grid">
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fab fa-windows"></i></div>
-          <h4 class="eco-title">Windows Sandbox VM</h4>
-          <p class="eco-desc">Native Hyper-V micro-VM hardware virtualization on Windows 11 &amp; Windows Server.</p>
-        </div>
+       It said CAIRN "integrates natively with your existing security perimeter,
+       SIEM pipelines, and sovereign cloud infrastructure" and then listed
+       Windows Sandbox, Docker and JSONL audit output. The three facts are true
+       and all three are already stated where they carry more weight: the sandbox
+       mechanism in the Architecture section, and the audit format in the
+       Assurance ladder.
 
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fab fa-docker"></i></div>
-          <h4 class="eco-title">Docker and Windows Sandbox</h4>
-          <p class="eco-desc">Linux containers with a read-only rootfs and no network, or a disposable Hyper-V micro-VM on Windows.</p>
-        </div>
+       What the section added was the WORD "ecosystem", which in this segment
+       means partnerships and certifications that do not exist here. A reader who
+       goes looking for the integration catalogue finds three capabilities they
+       had already read about, and trusts the page slightly less.
 
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fas fa-shield-virus"></i></div>
-          <h4 class="eco-title">SIEM-ready audit output</h4>
-          <p class="eco-desc">Every decision is written as structured JSONL suitable for shipping to a SIEM or log pipeline.</p>
-        </div>
+       Restore from git if a genuine integrations page is ever warranted; it
+       should be its own page with real detail rather than a strip on the
+       homepage. -->
 
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fab fa-github"></i></div>
-          <h4 class="eco-title">GitHub and MCP</h4>
-          <p class="eco-desc">A GitHub evidence connector, plus an inbound MCP gateway so Claude Code and other MCP clients call CAIRN-governed tools.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FAQ Section (Preserved Live Site) -->
   <section id="faq" class="section-spacing faq-section">

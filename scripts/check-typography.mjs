@@ -62,6 +62,18 @@ export function declaredTokens(css) {
  * would have to be maintained by whoever just added the thing it excludes.
  */
 export function rawSizes(src) {
+    // ── COMMENTS ARE NOT DECLARATIONS ───────────────────────────────────────
+    // Stripped first, because the moment this file existed a comment explaining
+    // why a rule has no `font-size` was itself reported as a `font-size` outside
+    // the type system. That is the assertion-matching-its-own-explanation trap,
+    // committed by the checker written to enforce discipline -- the seventh time
+    // this project has hit it.
+    //
+    // Replaced with spaces rather than removed, so the line numbers in every
+    // report still point at the real line.
+    const blank = (m) => m.replace(/[^\n]/g, ' ');
+    src = src.replace(/\/\*[\s\S]*?\*\//g, blank).replace(/<!--[\s\S]*?-->/g, blank);
+
     const out = [];
     const re = /font-size:\s*([^;}"']+)/g;
     let m;
