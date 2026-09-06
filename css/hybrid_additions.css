@@ -9,7 +9,7 @@
 /* Hero Title Accent Highlights (Matching Plus Jakarta Sans Font Family) */
 .hero-title-unified {
   font-family: var(--font-heading);
-  font-size: clamp(2.4rem, 4.2vw, 3.8rem);
+  font-size: var(--text-fluid-hero);
   font-weight: 800;
   line-height: 1.15;
   letter-spacing: -0.035em;
@@ -34,7 +34,7 @@
   margin: 1.75rem 0;
   font-family: var(--font-body);
   font-style: italic;
-  font-size: 1.02rem;
+  font-size: var(--text-md);
   line-height: 1.6;
   color: var(--color-glacier);
   background: rgba(20, 200, 166, 0.05);
@@ -57,13 +57,13 @@
   align-items: baseline;
   gap: 0.35rem;
   font-family: var(--font-mono);
-  font-size: 0.71rem;
+  font-size: var(--text-2xs);
   white-space: nowrap;
 }
 
 .telemetry-value-unified {
   font-weight: 700;
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   color: var(--color-glacier);
 }
 
@@ -102,7 +102,7 @@
 .contrast-badge-flawed {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -117,7 +117,7 @@
 .contrast-badge-verified {
   display: inline-block;
   font-family: var(--font-mono);
-  font-size: 0.72rem;
+  font-size: var(--text-2xs);
   font-weight: 600;
   letter-spacing: 0.06em;
   text-transform: uppercase;
@@ -131,7 +131,7 @@
 
 .contrast-title {
   font-family: var(--font-heading);
-  font-size: 1.2rem;
+  font-size: var(--text-lg);
   font-weight: 700;
   color: var(--color-glacier);
   margin-bottom: 0.6rem;
@@ -139,7 +139,7 @@
 
 .contrast-desc {
   font-family: var(--font-body);
-  font-size: 0.95rem;
+  font-size: var(--text-base);
   line-height: 1.65;
   color: var(--color-stone-grey);
 }
@@ -148,4 +148,139 @@
   .problem-contrast-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ── REFUSAL SPECIMENS ──────────────────────────────────────────────────────
+   Real output, set as evidence rather than as decoration.
+
+   This replaced a "governance simulator" whose logs were hardcoded strings —
+   "[COMPASS LOG] Hashed audit trail entry #09843", "executed in 12ms" — none of
+   which had happened. On a product whose proposition is that its records can be
+   trusted, an invented record on the marketing page was the worst thing the site
+   carried.
+
+   Everything in these blocks is copied verbatim from a running CAIRN. That is
+   the point, and it is also why they are styled as terminal output and not as
+   prose: a reader should be able to tell at a glance that they are looking at
+   what the product said, not at what a copywriter said it says.
+*/
+.refusal-specimen {
+  background: var(--bg-space-dark);
+  border: 1px solid var(--border-card);
+  border-left: 3px solid var(--color-teal-signal);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.75;
+  color: var(--color-glacier-dim);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.refusal-specimen .refusal-verdict {
+  color: var(--color-teal-signal);
+  font-weight: 600;
+}
+
+.refusal-specimen .refusal-remedy {
+  color: var(--color-glacier);
+}
+
+.refusal-caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-stone-grey);
+  margin-bottom: 0.6rem;
+}
+
+.specimen-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+/* ── THE TWO PATHS ─────────────────────────────────────────────────────────
+   An enterprise reviewer and a developer on one laptop want opposite proofs.
+   The reviewer wants the register and the mapping; the developer wants to see it
+   run, and wants to be told the awkward parts before they meet them. Presenting
+   one download for both left the second audience with nothing addressed to them.
+*/
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.path-card {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.path-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.35rem;
+}
+
+.path-card .path-for {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+  margin-bottom: 0.9rem;
+}
+
+.path-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.path-card li {
+  font-size: var(--text-sm);
+  color: var(--color-glacier-dim);
+  line-height: 1.6;
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.path-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cairn-blue-light);
+}
+
+.path-card .path-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.path-honesty {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-glass);
+  font-size: var(--text-2xs);
+  line-height: 1.7;
+  color: var(--color-stone-grey);
 }

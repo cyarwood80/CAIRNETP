@@ -6,8 +6,10 @@
   "scripts": {
     "dev": "npx serve -l 3000",
     "start": "npx serve -l 3000",
-    "build": "node scripts/check-metrics.mjs",
-    "metrics:check": "node scripts/check-metrics.mjs"
+    "build": "npm run check",
+    "metrics:check": "node scripts/check-metrics.mjs",
+    "typography:check": "node scripts/check-typography.mjs",
+    "check": "npm run metrics:check && npm run typography:check"
   },
   "keywords": [
     "cairn",

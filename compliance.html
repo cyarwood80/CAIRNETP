@@ -182,11 +182,11 @@
           GOVERNANCE SPECIFICATION • REGULATORY ASSURANCE
         </div>
 
-        <h1 style="font-size: 2.75rem; font-weight: 700; margin-bottom: 0.75rem; line-height: 1.15; color: #ffffff;">
+        <h1 style="font-size: var(--text-5xl); font-weight: 700; margin-bottom: 0.75rem; line-height: 1.15; color: #ffffff;">
           Enterprise Compliance & Regulatory Framework Mapping
         </h1>
         
-        <h2 style="font-size: 1.35rem; font-weight: 500; color: #38bdf8; font-family: var(--font-mono); margin-bottom: 1rem;">
+        <h2 style="font-size: var(--text-xl); font-weight: 500; color: #38bdf8; font-family: var(--font-mono); margin-bottom: 1rem;">
           Deterministic AI Governance by Design
         </h2>
 
@@ -209,7 +209,7 @@
           <div class="framework-badge-num">1</div>
           <div>
             <h3 class="framework-heading">EU Artificial Intelligence Act (EU AI Act)</h3>
-            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: var(--text-base); margin-top: 0.25rem;">
               CAIRN ETP produces technical and record-keeping evidence relevant to the obligations placed on High-Risk AI Systems (Articles 9–15). The mapping below is a starting point for a conversation with your assessor — compliance is a property of your organisation, established by an auditor, not of a tool.
             </p>
           </div>
@@ -231,7 +231,7 @@
                 <td>
                   <div class="pillar-map-tag"><img src="assets/pillars/cairn/cairn-mark.svg" class="inline-pillar-mark" alt=""> Pillar 01 (CAIRN)</div>
                   <div class="pillar-map-tag"><img src="assets/pillars/path/path-mark.svg" class="inline-pillar-mark" alt=""> Pillar 02 (PATH)</div>
-                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                  <p style="margin-top: 0.4rem; color: var(--color-stone-grey);">
                     AST scan checks and default-deny gatekeepers evaluate and block high-risk execution vectors prior to model invocation.
                   </p>
                 </td>
@@ -241,7 +241,7 @@
                 <td><strong>Data & Data Governance</strong><br>Strict data provenance, authorized context boundaries, and protection against bias/poisoning.</td>
                 <td>
                   <div class="pillar-map-tag"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" alt=""> Pillar 05 (ATLAS)</div>
-                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                  <p style="margin-top: 0.4rem; color: var(--color-stone-grey);">
                     Versioned document grounding with deterministic vector retrieval ensuring strict context authorization.
                   </p>
                 </td>
@@ -251,7 +251,7 @@
                 <td><strong>Record-Keeping & Traceability</strong><br>Automatic, tamper-evident recording of events, decisions, and system logs throughout system operation.</td>
                 <td>
                   <div class="pillar-map-tag"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" alt=""> Pillar 04 (COMPASS)</div>
-                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                  <p style="margin-top: 0.4rem; color: var(--color-stone-grey);">
                     SHA-256 hash-chained decision records with signed checkpoints, tracking inputs, context hashes and the decision reached.
                   </p>
                 </td>
@@ -261,7 +261,7 @@
                 <td><strong>Human Oversight</strong><br>Ability for human operators to intervene, override, or halt automated AI agent execution safely.</td>
                 <td>
                   <div class="pillar-map-tag"><img src="assets/pillars/beacon/beacon-mark.svg" class="inline-pillar-mark" alt=""> Pillar 03 (BEACON)</div>
-                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                  <p style="margin-top: 0.4rem; color: var(--color-stone-grey);">
                     Real-time telemetry broadcasting coupled with configurable human-in-the-loop (HITL) authorization gates.
                   </p>
                 </td>
@@ -271,7 +271,7 @@
                 <td><strong>Cybersecurity & Accuracy</strong><br>Resilience against unauthorized access, prompt injection, data exfiltration, and unexpected agent drift.</td>
                 <td>
                   <div class="pillar-map-tag"><img src="assets/pillars/crucible/crucible-mark.svg" class="inline-pillar-mark" alt=""> Pillar 07 (CRUCIBLE)</div>
-                  <p style="margin-top: 0.4rem; color: var(--text-secondary);">
+                  <p style="margin-top: 0.4rem; color: var(--color-stone-grey);">
                     Tool execution is contained in a Docker container or a Windows Sandbox micro-VM with no network (<code>--network none</code>). <strong>Where neither runtime is present the isolation is absent</strong>, and CAIRN records the result as static-only rather than reporting a pass.
                   </p>
                 </td>
@@ -287,7 +287,7 @@
           <div class="framework-badge-num">2</div>
           <div>
             <h3 class="framework-heading">NIST AI Risk Management Framework (NIST AI RMF 1.0)</h3>
-            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: var(--text-base); margin-top: 0.25rem;">
               CAIRN ETP maps directly across the four core functions of the NIST AI RMF, enabling organizations to manage risks associated with agentic AI systems.
             </p>
           </div>
@@ -400,7 +400,7 @@
           <div class="framework-badge-num">3</div>
           <div>
             <h3 class="framework-heading">ISO/IEC 42001:2023 (Artificial Intelligence Management System)</h3>
-            <p style="color: var(--color-stone-grey); font-size: 0.95rem; margin-top: 0.25rem;">
+            <p style="color: var(--color-stone-grey); font-size: var(--text-base); margin-top: 0.25rem;">
               CAIRN ETP provides infrastructure that supports an organisation implementing and maintaining an ISO/IEC 42001 AI management system. The certification is the organisation’s, not CAIRN’s.
             </p>
           </div>
@@ -454,8 +454,8 @@
         <div class="framework-title-wrap" style="flex-direction: column; align-items: center; text-align: center; margin-bottom: 2rem;">
           <div class="framework-badge-num" style="margin-bottom: 0.75rem;">4</div>
           <div>
-            <h3 class="framework-heading" style="font-size: 1.6rem; margin-bottom: 0.4rem;">Financial Services & Enterprise Security Alignments</h3>
-            <p style="color: var(--color-stone-grey); font-size: 0.98rem; max-width: 680px; margin: 0 auto;">
+            <h3 class="framework-heading" style="font-size: var(--text-xl); margin-bottom: 0.4rem;">Financial Services & Enterprise Security Alignments</h3>
+            <p style="color: var(--color-stone-grey); font-size: var(--text-base); max-width: 680px; margin: 0 auto;">
               In addition to dedicated AI frameworks, CAIRN ETP reinforces existing enterprise security and banking standards.
             </p>
           </div>
@@ -499,16 +499,16 @@
           <img src="assets/cairn-symbol.png" alt="CAIRN Symbol" style="height: 32px;">
           <span>CAIRN<span class="text-oxide"> ETP</span></span>
         </div>
-        <p style="color: var(--color-stone-grey); font-size: 0.9rem; margin-bottom: 1.5rem; max-width: 320px;">
+        <p style="color: var(--color-stone-grey); font-size: var(--text-sm); margin-bottom: 1.5rem; max-width: 320px;">
           We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
         </p>
-        <p style="color: var(--color-stone-dark); font-size: 0.8rem;">
+        <p style="color: var(--color-stone-dark); font-size: var(--text-xs);">
           &copy; 2026 CAIRN Enterprise Systems. CAIRN Trust Fabric is source-available under BUSL 1.1.
         </p>
       </div>
 
       <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Platform</h4>
+        <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Platform</h4>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="index.html#outcomes" class="nav-link" style="padding: 0;">Business Outcomes</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="index.html#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
@@ -518,7 +518,7 @@
       </div>
 
       <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Governance & Legal</h4>
+        <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Governance & Legal</h4>
         <ul style="list-style: none; padding: 0;">
           <li style="margin-bottom: 0.5rem;"><a href="compliance.html" class="nav-link" style="padding: 0;">Compliance Mapping</a></li>
           <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
@@ -527,11 +527,11 @@
       </div>
 
       <div>
-        <h4 style="font-size: 0.9rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Contact & Access</h4>
+        <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Contact & Access</h4>
         <button class="btn btn-primary open-demo-btn" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
           Register Interest <i class="fas fa-arrow-right"></i>
         </button>
-        <p style="font-size: 0.8rem; color: var(--color-stone-dark); text-align: center;">
+        <p style="font-size: var(--text-xs); color: var(--color-stone-dark); text-align: center;">
           Air-gapped and sovereign cloud deployment options available.
         </p>
       </div>
@@ -546,8 +546,8 @@
       <div class="status-pill status-pill-teal" style="margin-bottom: 0.75rem;">
         <i class="fas fa-key"></i> ENTERPRISE ACCESS
       </div>
-      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Find out more</h3>
-      <p style="font-size: 0.92rem; color: var(--color-stone-grey); margin-bottom: 1.5rem;">
+      <h3 style="font-size: var(--text-xl); margin-bottom: 0.5rem;">Find out more</h3>
+      <p style="font-size: var(--text-base); color: var(--color-stone-grey); margin-bottom: 1.5rem;">
         Connect with our team to discuss pilot access, sovereign air-gapped deployment, and enterprise node licensing.
       </p>
 
