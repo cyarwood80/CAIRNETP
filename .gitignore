@@ -21,3 +21,8 @@ launch_seo_hidden.vbs
 # ignored source of truth is not a source of truth.
 data/*
 !data/site-metrics.json
+
+# Left behind by `vercel build`'s Python builder (uv). Not project sources.
+.python-version
+pyproject.toml
+uv.lock
