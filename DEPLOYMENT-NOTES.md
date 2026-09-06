@@ -41,7 +41,32 @@ Run against `vercel dev` on a detached worktree of the branch:
 | `api/index.py` reports the right version | `/api/health` → `2.10.1` |
 | `vercel.json` passes Vercel's own schema | an earlier revision carried a `"// note"` key as a comment; the CLI rejected it, and it would have failed the real deploy |
 
-## What is NOT verified
+## Verified in production, 2026-09-06
+
+After the merge, against `https://www.cairnetp.com`:
+
+```
+css/styles.css        Cache-Control: public, max-age=3600
+assets/cairn-logo.svg Cache-Control: public, max-age=31536000, immutable
+```
+
+**So the route-level `Cache-Control` headers do work**, and `vercel dev` was the
+thing reporting otherwise. The section below is kept as written rather than
+deleted, because the reasoning it records — that a local tool returning
+`max-age=0` cannot distinguish a working header from a dropped one — is why the
+claim was held back, and holding it back was right.
+
+All five security headers were confirmed on the live homepage at the same time.
+
+**And two files 404'd on that first production deploy.** `register.html` and
+`evidence/ledger.jsonl` were not in the `builds` list, so the homepage verifier —
+the one thing on the site that proves rather than asserts — displayed *"Could not
+check the bundle: the ledger returned 404."* The note below said a forgotten line
+would fail loudly with a 404. It did, on the next deploy, and saying so had
+prevented nothing. `scripts/check-deployable.mjs` now runs in the build and
+refuses a page that references a file no `builds` entry covers.
+
+## What was NOT verified before the merge
 
 **The `Cache-Control` headers on `/assets/*`, `/css/*` and `/js/*`.**
 `vercel dev` returns `public, max-age=0, must-revalidate` for every static file
