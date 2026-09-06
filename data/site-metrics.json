@@ -1,0 +1,26 @@
+{
+  "_comment": "The ONE place the homepage figures are set. scripts/check-metrics.mjs fails the build if index.html disagrees with this file, so a number cannot drift in the page without drifting here first. Update this, run `npm run metrics:check`, then edit the page.",
+  "measuredAt": "2026-09-06",
+  "measuredAgainst": "CAIRN Trust Fabric 2.10.1",
+  "source": "docs/CLAIMS.md and the pillar list in the CAIRN source repository",
+  "figures": {
+    "governedPillars": {
+      "value": "7",
+      "label": "governed pillars",
+      "basis": "PATH, CAIRN, COMPASS, ATLAS, FORGE, CRUCIBLE, BEACON"
+    },
+    "trackedClaims": {
+      "value": "143",
+      "label": "claims in the public register",
+      "basis": "rows in docs/CLAIMS.md rated Works, Partial, Never, Roadmap or Deferred; register.html is generated from the same file by scripts/build-register.mjs and reports the same total"
+    },
+    "deployment": {
+      "value": "Local-first",
+      "label": "deployment",
+      "basis": "no CAIRN-operated server is involved in a customer deployment"
+    }
+  },
+  "_removed": {
+    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 \u2014 a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading."
+  }
+}

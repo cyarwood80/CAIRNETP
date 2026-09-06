@@ -1,0 +1,9 @@
+{
+  "verifiedAt": "2026-09-06T16:30:42.301Z",
+  "ledgerChainValid": true,
+  "ledgerRecordsInChain": 25,
+  "legacyUnchainedRecords": 0,
+  "firstBrokenRecord": null,
+  "detail": null,
+  "interpretation": "The decision ledger chain verified intact at export time. Each record cryptographically commits to its predecessor, so any alteration or deletion of an earlier record would have been detected."
+}

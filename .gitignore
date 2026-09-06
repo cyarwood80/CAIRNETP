@@ -15,4 +15,14 @@ css/editorial_*.css
 seo_dashboard.html
 start_seo_dashboard.bat
 launch_seo_hidden.vbs
-data/
+# `data/` holds generated SEO snapshots, which are noise. The metrics file is
+# NOT noise: it is the declared source for the homepage figures, and
+# scripts/check-metrics.mjs fails the build when the page disagrees with it. An
+# ignored source of truth is not a source of truth.
+data/*
+!data/site-metrics.json
+
+# Left behind by `vercel build`'s Python builder (uv). Not project sources.
+.python-version
+pyproject.toml
+uv.lock

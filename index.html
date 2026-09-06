@@ -47,6 +47,7 @@
           <li><a href="#architecture" class="nav-link">Architecture</a></li>
           <li><a href="#assurance" class="nav-link">Assurance</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
+          <li><a href="register.html" class="nav-link">Register</a></li>
           <li><a href="compliance.html" class="nav-link">Compliance</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
           <li><a href="book.html" class="nav-link">Book</a></li>
@@ -103,40 +104,63 @@
             </button>
           </div>
 
-          <!-- Live Telemetry Strip -->
-          <div class="hero-telemetry-strip-unified">
+          <!-- ── HERO FIGURES ────────────────────────────────────────────
+               NOT telemetry. Nothing here is live, and it must not be labelled
+               as though it were: this strip said "Live Telemetry" while showing
+               a hand-typed test count that had drifted by 447.
+
+               Every value below is set in data/site-metrics.json and checked by
+               `npm run metrics:check`, which fails when the page and that file
+               disagree. Change the file first.
+          -->
+          <div class="hero-telemetry-strip-unified" data-metrics-source="data/site-metrics.json">
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">7</span>
+              <span class="telemetry-value-unified" data-metric="governedPillars">7</span>
               <span class="telemetry-label-unified">governed pillars</span>
             </div>
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">133</span>
-              <span class="telemetry-label-unified">tracked claims</span>
+              <span class="telemetry-value-unified" data-metric="trackedClaims">143</span>
+              <span class="telemetry-label-unified">claims in the public register</span>
             </div>
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">2,856</span>
-              <span class="telemetry-label-unified">automated tests</span>
-            </div>
-            <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">Local-first</span>
+              <span class="telemetry-value-unified" data-metric="deployment">Local-first</span>
               <span class="telemetry-label-unified">deployment</span>
             </div>
           </div>
         </div>
 
-        <!-- Right Column: Preserved 3D Cairn Stage -->
+        <!-- ── RIGHT COLUMN: THE PRODUCT, NOT A PICTURE OF IT ─────────────
+             This held a 3D render of the cairn with two decorative pills
+             reading "Default-Deny Gate Active" and "SHA-256 Chained
+             Provenance". Both were claims, in a typeface, next to an
+             illustration -- exactly the kind of assertion the product exists to
+             replace with evidence.
+
+             It now holds a real evidence bundle and the reader's own browser
+             checking it. See js/chain-verify.js for why this rather than a
+             hosted instance: a CAIRN running on our server would contradict the
+             local-first claim it exists to demonstrate.
+        -->
         <div class="hero-stage">
-          <div class="hero-cairn-container">
-            <img src="assets/cairn-symbol-3d.png" alt="3D Cairn Trust Fabric Stack" class="hero-3d-cairn-img" onerror="this.src='assets/cairn-logo.svg'">
-            
-            <div class="floating-telemetry-pill pill-top-right">
-              <i class="fas fa-shield-check text-teal"></i>
-              <span>Default-Deny Gate Active</span>
+          <div class="chain-verifier" id="chain-verifier">
+            <div class="chain-verifier-head">
+              <span class="chain-verifier-title">Evidence ledger &middot; verified in your browser</span>
             </div>
 
-            <div class="floating-telemetry-pill pill-bottom-left">
-              <i class="fas fa-fingerprint text-teal"></i>
-              <span>SHA-256 Chained Provenance</span>
+            <div class="chain-status chain-status-working" id="chain-status">Loading the bundle&hellip;</div>
+
+            <div class="chain-progress"><div class="chain-progress-bar" id="chain-progress-bar"></div></div>
+
+            <div class="chain-detail" id="chain-detail">
+              A real bundle exported by CAIRN. Every hash is recomputed here, on your machine.
+            </div>
+
+            <div class="chain-actions">
+              <button type="button" class="chain-btn" id="chain-tamper">Alter a record and re-check</button>
+              <button type="button" class="chain-btn" id="chain-repair" hidden>Now repair its hash</button>
+              <button type="button" class="chain-btn" id="chain-reset" hidden>Restore the original</button>
+              <a class="chain-btn chain-btn-link" href="evidence/ledger.jsonl" download>Download the ledger</a>
+              <a class="chain-btn chain-btn-link" href="evidence/VERIFY.md">How to check it offline</a>
             </div>
           </div>
         </div>
@@ -180,66 +204,30 @@
     </div>
   </section>
 
-  <!-- Trio Pillar Cards Section (Preserved Live Site Branding) -->
-  <section class="trio-cards-section">
-    <div class="container">
-      <div class="trio-grid">
+    <!-- The three generic benefit cards were removed on 2026-09-06.
+       "Zero Trust by Design / Complete Visibility / Automate at Scale" is a
+       heading set every vendor in this segment could put their name on, and the
+       Architecture section below makes the same three points with real pillar
+       names, the real sandbox mechanism and a measured evaluation cost. Two
+       versions of one argument, and the specific one is better.
 
-        <!-- Pillar 1: Zero Trust by Design -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <img src="assets/icons/zero-trust/zero-trust-icon.svg" alt="Zero Trust by Design Icon">
-          </div>
-          <h3 class="pillar-title">Zero Trust by Design</h3>
-          <div class="pillar-tagline">Security built in, not bolted on.</div>
-          <p class="pillar-desc">
-            Default-deny governance intercepts every model action, script, and API call before host execution. Where Docker or Windows Sandbox is present, unverified code runs in an ephemeral sandbox instead of on the host.
-          </p>
-        </div>
+       Restore from git if the generic framing is wanted for a campaign; the
+       point of removing it is that the page was asking a reader to read the
+       same thing twice before reaching anything only CAIRN can say. -->
 
-        <!-- Pillar 2: Complete Visibility -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <img src="assets/icons/visibility/visibility-icon.svg" alt="Complete Visibility Icon">
-          </div>
-          <h3 class="pillar-title">Complete Visibility</h3>
-          <div class="pillar-tagline">Know, verify, govern.</div>
-          <p class="pillar-desc">
-            End-to-end telemetry across all agent runtimes, LLM endpoints, token expenditures, and cryptographic verification ledgers in one cohesive control plane.
-          </p>
-        </div>
-
-        <!-- Pillar 3: Automate at Scale -->
-        <div class="pillar-card">
-          <div class="pillar-icon-box">
-            <img src="assets/icons/automate/automate-icon.svg" alt="Automate at Scale Icon">
-          </div>
-          <h3 class="pillar-title">Automate at Scale</h3>
-          <div class="pillar-tagline">From policy to action.</div>
-          <p class="pillar-desc">
-            Turn high-level compliance mandates into runtime policies with tiered assurance and structured JSONL audit output your SIEM can ingest.
-          </p>
-        </div>
-
-      </div>
-    </div>
-  </section>
 
   <!-- Engineered for Sovereign & Critical Environments Bar -->
-  <section class="sectors-bar">
-    <div class="container">
-      <div class="sectors-inner">
-        <div class="sectors-label">Engineered for Sovereign &amp; Critical Environments</div>
-        <div class="sectors-list">
-          <div class="sector-chip"><i class="fas fa-building-columns"></i> Financial Services</div>
-          <div class="sector-chip"><i class="fas fa-landmark"></i> Government &amp; Defense</div>
-          <div class="sector-chip"><i class="fas fa-hospital"></i> Healthcare &amp; Life Sciences</div>
-          <div class="sector-chip"><i class="fas fa-bolt"></i> Critical Infrastructure</div>
-          <div class="sector-chip"><i class="fas fa-scale-balanced"></i> Regulated Enterprise</div>
-        </div>
-      </div>
-    </div>
-  </section>
+    <!-- The sector strip was removed on 2026-09-06. It listed Financial
+       Services, Government & Defense, Healthcare, Critical Infrastructure and
+       Regulated Enterprise under "Engineered for Sovereign & Critical
+       Environments" -- a list of target markets, set in the visual grammar of a
+       customer logo strip, on a page arguing that every claim is checkable.
+
+       No organisation in any of those sectors runs CAIRN. docs/CLAIMS.md says
+       so and the download section now says so in words. A reader who works out
+       that the strip means "we would like these customers" trusts the rest of
+       the page less, and they are right to. -->
+
 
   <!-- CAIRN ARCHITECTURE: PLACED DIRECTLY UNDERNEATH SECTORS BAR -->
   <section id="architecture" class="section-spacing" style="background: rgba(3, 9, 19, 0.6); border-bottom: 1px solid var(--border-card);">
@@ -263,8 +251,8 @@
             <h4 class="layer-title">1. Intent &amp; Ingress Gate</h4>
             <p class="layer-desc">Schema validation, AST parsing, and prompt injection filters before code touches any system.</p>
             <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/cairn/cairn-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CAIRN (Blocking Gate)</span>
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/path/path-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> PATH (Router)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/cairn/cairn-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CAIRN (Blocking Gate)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/path/path-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> PATH (Router)</span>
             </div>
           </div>
 
@@ -273,8 +261,8 @@
             <h4 class="layer-title">2. Policy &amp; Governance Engine</h4>
             <p class="layer-desc">Operator-declared autonomy ceilings, egress allow-listing, and secret redaction — evaluated in 0.20–0.26 ms.</p>
             <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Policy)</span>
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> ATLAS (RAG Memory)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Policy)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> ATLAS (RAG Memory)</span>
             </div>
           </div>
 
@@ -283,8 +271,8 @@
             <h4 class="layer-title">3. Dual-Runtime Sandbox</h4>
             <p class="layer-desc">Dynamic hardware-isolated dispatch to Linux Docker or Windows Sandbox Hyper-V micro-VMs.</p>
             <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/crucible/crucible-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CRUCIBLE (Blocking Sandbox)</span>
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/forge/forge-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> FORGE (Zero-Failure Loop)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/crucible/crucible-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CRUCIBLE (Blocking Sandbox)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/forge/forge-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> FORGE (Zero-Failure Loop)</span>
             </div>
           </div>
 
@@ -293,8 +281,8 @@
             <h4 class="layer-title">4. Cryptographic Evidence Ledger</h4>
             <p class="layer-desc">Tamper-evident SQLite SHA-256 decision records, heartbeat gap tracking, and SIEM structured JSONL streams.</p>
             <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/beacon/beacon-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> BEACON (Live Telemetry)</span>
-              <span class="pillar-map-tag" style="font-size: 0.72rem; padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Audit Ledger)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/beacon/beacon-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> BEACON (Live Telemetry)</span>
+              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Audit Ledger)</span>
             </div>
           </div>
         </div>
@@ -303,7 +291,7 @@
         <div class="dashboard-card" style="padding: 2.5rem; justify-content: center; align-items: center; text-align: center;">
           <img src="assets/cairn-symbol-3d.png" alt="Stacked Cairn Layers" style="width: 220px; height: auto; margin-bottom: 2rem; filter: drop-shadow(0 15px 30px rgba(37, 98, 235, 0.4));" onerror="this.src='assets/cairn-logo.svg'">
           <h3 style="margin-bottom: 0.75rem;">Layered Trust Composition</h3>
-          <p style="font-size: 0.95rem; max-width: 440px; margin: 0 auto 1.5rem auto;">
+          <p style="font-size: var(--text-base); max-width: 440px; margin: 0 auto 1.5rem auto;">
             Seven cooperating subsystems (PATH, CAIRN, COMPASS, ATLAS, FORGE, CRUCIBLE, BEACON) execute across the 4 physical stones bounded by a default-deny gate nothing bypasses.
           </p>
         </div>
@@ -330,46 +318,46 @@
           <div class="ladder-step-num">TIER 0</div>
           <div class="ladder-step-title">Unverified</div>
           <span class="ladder-step-status" style="background: rgba(239, 68, 68, 0.15); color: #f87171; border-color: rgba(239, 68, 68, 0.3);">Untrusted</span>
-          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Raw LLM string or unparsed script.</p>
+          <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">Raw LLM string or unparsed script.</p>
         </div>
 
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 1</div>
           <div class="ladder-step-title">Static Checked</div>
           <span class="ladder-step-status" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Inspected</span>
-          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">AST syntax parsing and secret regex scan.</p>
+          <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">AST syntax parsing and secret regex scan.</p>
         </div>
 
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 2</div>
           <div class="ladder-step-title">Sandbox Executed</div>
           <span class="ladder-step-status">Isolated</span>
-          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Ephemeral container run with read-only root.</p>
+          <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">Ephemeral container run with read-only root.</p>
         </div>
 
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 3</div>
           <div class="ladder-step-title">Behaviour Checked</div>
           <span class="ladder-step-status">Observed</span>
-          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Zero network egress &amp; disk delta confirmed.</p>
+          <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">Zero network egress &amp; disk delta confirmed.</p>
         </div>
 
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 4</div>
           <div class="ladder-step-title">Deterministic</div>
           <span class="ladder-step-status">Reproducible</span>
-          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Identical output across multi-run seed tests.</p>
+          <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">Identical output across multi-run seed tests.</p>
         </div>
 
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 5</div>
           <div class="ladder-step-title">Idempotent</div>
           <span class="ladder-step-status" style="background: rgba(20, 200, 166, 0.25); border-color: #14c8a6;">Verified</span>
-          <p style="font-size: 0.8rem; color: var(--color-stone-grey); margin-top: 0.5rem;">Safely repeatable without state corruption.</p>
+          <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">Safely repeatable without state corruption.</p>
         </div>
       </div>
 
-      <p style="max-width: 52rem; margin: 2rem auto 0; font-size: 0.9rem; line-height: 1.7; color: var(--color-stone-grey); text-align: center;">
+      <p style="max-width: 52rem; margin: 2rem auto 0; font-size: var(--text-sm); line-height: 1.7; color: var(--color-stone-grey); text-align: center;">
         These are grades an action is <strong>assigned</strong>, not stages every action passes through.
         Tier 2 and above require Docker or Windows Sandbox to be present; where neither is, the result is
         recorded as static-only with the reason, never downgraded silently to a pass.
@@ -377,46 +365,24 @@
     </div>
   </section>
 
-  <!-- Ecosystem & Enterprise Interoperability (Preserved Live Site) -->
-  <section id="ecosystem" class="section-spacing" style="background: rgba(3, 9, 19, 0.4);">
-    <div class="container">
-      <div class="section-title-wrap">
-        <div class="status-pill">
-          <i class="fas fa-plug"></i> ENTERPRISE INTEGRATIONS
-        </div>
-        <h2 class="section-title">Ecosystem &amp; Interoperability</h2>
-        <p class="section-subtitle">
-          CAIRN integrates natively with your existing security perimeter, SIEM pipelines, and sovereign cloud infrastructure.
-        </p>
-      </div>
+    <!-- The Ecosystem & Interoperability section was removed on 2026-09-06.
 
-      <div class="ecosystem-grid">
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fab fa-windows"></i></div>
-          <h4 class="eco-title">Windows Sandbox VM</h4>
-          <p class="eco-desc">Native Hyper-V micro-VM hardware virtualization on Windows 11 &amp; Windows Server.</p>
-        </div>
+       It said CAIRN "integrates natively with your existing security perimeter,
+       SIEM pipelines, and sovereign cloud infrastructure" and then listed
+       Windows Sandbox, Docker and JSONL audit output. The three facts are true
+       and all three are already stated where they carry more weight: the sandbox
+       mechanism in the Architecture section, and the audit format in the
+       Assurance ladder.
 
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fab fa-docker"></i></div>
-          <h4 class="eco-title">Docker and Windows Sandbox</h4>
-          <p class="eco-desc">Linux containers with a read-only rootfs and no network, or a disposable Hyper-V micro-VM on Windows.</p>
-        </div>
+       What the section added was the WORD "ecosystem", which in this segment
+       means partnerships and certifications that do not exist here. A reader who
+       goes looking for the integration catalogue finds three capabilities they
+       had already read about, and trusts the page slightly less.
 
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fas fa-shield-virus"></i></div>
-          <h4 class="eco-title">SIEM-ready audit output</h4>
-          <p class="eco-desc">Every decision is written as structured JSONL suitable for shipping to a SIEM or log pipeline.</p>
-        </div>
+       Restore from git if a genuine integrations page is ever warranted; it
+       should be its own page with real detail rather than a strip on the
+       homepage. -->
 
-        <div class="eco-card">
-          <div class="eco-icon"><i class="fab fa-github"></i></div>
-          <h4 class="eco-title">GitHub and MCP</h4>
-          <p class="eco-desc">A GitHub evidence connector, plus an inbound MCP gateway so Claude Code and other MCP clients call CAIRN-governed tools.</p>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <!-- FAQ Section (Preserved Live Site) -->
   <section id="faq" class="section-spacing faq-section">
@@ -466,40 +432,149 @@
   </section>
 
   <!-- Download Section (Preserved Live Site) -->
+  <!-- ── WHAT A REFUSAL ACTUALLY LOOKS LIKE ─────────────────────────────────
+       Verbatim output from a running CAIRN. Nothing here is written for the
+       page. It replaces a "governance simulator" whose logs were invented.
+  -->
+  <section id="refusals" class="section-spacing">
+    <div class="container">
+      <div class="status-pill status-pill-teal" style="margin-bottom: 1.25rem;">
+        <i class="fas fa-ban"></i> WHAT A REFUSAL LOOKS LIKE
+      </div>
+      <h2 style="font-size: var(--text-4xl); margin-bottom: 1rem;">The product tells you what it stopped, and what to do about it.</h2>
+      <p style="color: var(--color-stone-grey); font-size: var(--text-md); max-width: 760px; line-height: 1.7;">
+        These are copied from a running instance, unedited. A refusal that only says what happened
+        leaves an operator stuck; each of these names the file to change and the decision they are
+        making by changing it.
+      </p>
+
+      <div class="specimen-grid">
+        <div>
+          <div class="refusal-caption">Destination outside the declared scope</div>
+          <div class="refusal-specimen"><span class="refusal-verdict">EGRESS BLOCKED:</span> 'claude-code' may address example.com and 'email_send' was directed at elsewhere.net. Nothing was sent. <span class="refusal-remedy">Add elsewhere.net to this client's `domains` in vault/mcpInboundClients.json if it should be reachable.</span></div>
+        </div>
+
+        <div>
+          <div class="refusal-caption">Content, where the destination was fine</div>
+          <div class="refusal-specimen"><span class="refusal-verdict">EGRESS BLOCKED:</span> secret_like may not be sent to a "cloud" endpoint. Detected: high-entropy token of length 62. Nothing was sent by 'email_send' for 'claude-code'. <span class="refusal-remedy">This is the content, not the destination: the host was in scope. If this data is meant to leave, move its tag out of `deny` for the "cloud" boundary in vault/egress_policy.json — deliberately, since that decision applies to every tool and client on this node.</span></div>
+        </div>
+
+        <div>
+          <div class="refusal-caption">A destructive command, refused before it runs</div>
+          <div class="refusal-specimen"><span class="refusal-verdict">GOVERNANCE BLOCK:</span> 'execute_command' was not authorised.
+  - Policy Breach [SECURITY | No High-Risk Payload on the Host]
+  - Static risk CRITICAL forbids direct host execution of 'execute_command' (FS_RECURSIVE_DELETE_PS). It must be repaired, or run only in an isolated sandbox.
+
+This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-remedy">and cannot be overridden by approval.</span></div>
+        </div>
+
+        <div>
+          <div class="refusal-caption">A grade withheld, because the result contradicted itself</div>
+          <div class="refusal-specimen">Verification — measured by the system, not written by the model.
+
+- Assurance grade: <span class="refusal-verdict">WITHHELD</span> — the verification result is internally inconsistent.
+  <span class="refusal-remedy">It reports execution in a container while grading the run `static_only` ("nothing was executed"). Those cannot both be true, so no grade is stated. The captured output below is real; what it certifies is not established. Please report this — it is a defect in CAIRN, not in your script.</span></div>
+        </div>
+      </div>
+
+      <p style="color: var(--color-stone-grey); font-size: var(--text-sm); max-width: 760px; line-height: 1.7; margin-top: 2rem;">
+        The last one is the one worth reading twice. CAIRN would rather print
+        <strong style="color: var(--color-glacier);">no grade at all</strong> than a grade it cannot stand behind,
+        and it tells you the fault is its own.
+      </p>
+    </div>
+  </section>
+
+  <!-- ── TWO PATHS, BECAUSE THERE ARE TWO READERS ───────────────────────────
+       A procurement reviewer and a developer on one laptop want opposite
+       proofs. The reviewer wants the register and the mapping; the developer
+       wants to run it and be told the awkward parts before meeting them. One
+       download button served the first and left the second nothing.
+  -->
   <section id="download" class="section-spacing">
     <div class="container">
-      <div class="download-card-wrap">
-        <div class="download-content-box">
-          <div class="status-pill status-pill-teal" style="margin-bottom: 1.25rem;">
-            <i class="fab fa-github"></i> GITHUB RELEASES DISTRIBUTION
-          </div>
-          <h2 style="font-size: 2.3rem; margin-bottom: 1rem;">Download CAIRN Trust Fabric</h2>
-          <p style="color: var(--color-stone-grey); font-size: 1.08rem; max-width: 680px; margin: 0 auto 2rem auto; line-height: 1.7;">
-            Distributed under Business Source License 1.1 (converting to Apache 2.0 on 2030-08-23). Access documentation, architecture guides, and releases on GitHub.
+      <div class="status-pill status-pill-teal" style="margin-bottom: 1.25rem;">
+        <i class="fab fa-github"></i> GITHUB RELEASES DISTRIBUTION
+      </div>
+      <h2 style="font-size: var(--text-4xl); margin-bottom: 1rem;">Two ways in</h2>
+      <p style="color: var(--color-stone-grey); font-size: var(--text-md); max-width: 720px; line-height: 1.7;">
+        Business Source License 1.1, converting to Apache 2.0 on 2030-08-23.
+      </p>
+
+      <div class="path-grid">
+
+        <div class="path-card">
+          <div class="path-for">Evaluate for your organisation</div>
+          <h3>Start with the register, not the download</h3>
+          <p style="color: var(--color-stone-grey); font-size: var(--text-sm); line-height: 1.7;">
+            Every capability CAIRN claims is written down with its status and its limits — including
+            the ones rated <code>Partial</code> and <code>Never</code>. Read that before you read any
+            marketing, this page included.
           </p>
-
-          <div class="download-cta-group">
-            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.9rem 1.75rem; font-size: 0.95rem;">
-              <i class="fab fa-windows"></i> Windows Setup (.exe)
+          <ul>
+            <li>A public claims register, with what each control does <em>not</em> cover stated in the row</li>
+            <li>Six assurance tiers, mapped to what was actually verified rather than to confidence</li>
+            <li>NIST AI RMF and EU AI Act mapping, per pillar</li>
+            <li>Evidence bundles a reviewer can verify without installing anything</li>
+          </ul>
+          <div class="path-actions">
+            <a href="compliance.html" class="btn btn-primary" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <i class="fas fa-clipboard-check"></i> Compliance mapping
             </a>
-            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary" style="padding: 0.9rem 1.75rem; font-size: 0.95rem;">
-              <i class="fab fa-linux"></i> Linux (.AppImage / .deb)
-            </a>
-            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline" style="padding: 0.9rem 1.5rem; font-size: 0.95rem;">
-              <i class="fab fa-github"></i> GitHub Repository
+            <a href="javascript:void(0)" class="btn btn-secondary open-demo-btn" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <i class="fas fa-envelope-open-text"></i> Request a pilot
             </a>
           </div>
-
-          <div class="download-verify-note">
-            <div class="download-verify-text">
-              <i class="fas fa-shield-check text-teal" style="margin-right: 0.5rem;"></i>
-              <strong>Cryptographic Integrity &amp; Verification:</strong> The checksum manifest (<code>SHA256SUMS.txt</code>) is signed with Ed25519 and published with every release. The binaries themselves are not code-signed by a commercial CA yet, and Windows will warn on download.
-            </div>
-            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: 0.82rem; padding: 0.5rem 1rem; white-space: nowrap;">
-              <i class="fas fa-arrow-up-right-from-square"></i> View Latest Release
-            </a>
+          <div class="path-honesty">
+            <strong style="color: var(--color-glacier);">Stated plainly:</strong> no third party has audited
+            CAIRN, and no customer is running it in production yet. The register says so.
           </div>
         </div>
+
+        <div class="path-card">
+          <div class="path-for">Run it on your machine</div>
+          <h3>One installer, and an honest first hour</h3>
+          <p style="color: var(--color-stone-grey); font-size: var(--text-sm); line-height: 1.7;">
+            Local-first: no account, no CAIRN-operated server, nothing leaves the machine unless you
+            configure a cloud model and the egress policy permits it.
+          </p>
+          <ul>
+            <li><strong style="color: var(--color-glacier);">Windows will warn you.</strong> "Windows protected your PC" — the binaries are not code-signed by a CA yet. That warning means the publisher has not paid for an identity check, not that the file is dangerous</li>
+            <li>Six setup screens: Prerequisites → API Key → Hardware &amp; Goal → Fleet Intelligence → Install Models → Complete</li>
+            <li>Three fields to type into, and six prerequisites checked for you</li>
+            <li>A fresh vault has no model assigned to any of the seven pillars until the fleet assessment runs</li>
+          </ul>
+          <div class="path-actions">
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-primary" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <i class="fab fa-windows"></i> Windows (.exe)
+            </a>
+            <a href="https://github.com/cairn-trust-fabric/cairn/releases/latest" target="_blank" rel="noopener" class="btn btn-secondary" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <i class="fab fa-linux"></i> Linux (.AppImage / .deb)
+            </a>
+            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener" class="btn btn-outline" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <i class="fab fa-github"></i> Source
+            </a>
+          </div>
+          <div class="path-honesty">
+            <strong style="color: var(--color-glacier);">Verify it before you trust it.</strong> Every release
+            ships a dependency-free verifier. You do not need to install CAIRN, or trust it, to run the check:
+            <div class="refusal-specimen" style="margin-top: 0.75rem;">node verify-release.cjs
+
+  Signature over the file list           <span class="refusal-verdict">OK</span>
+  CAIRN-Trust-Fabric-Setup-2.10.1.exe    <span class="refusal-verdict">OK</span>
+  CAIRN-Trust-Fabric-2.10.1.AppImage     <span class="refusal-verdict">OK</span>
+  cairn-trust-fabric_2.10.1_amd64.deb    <span class="refusal-verdict">OK</span>
+
+  <span class="refusal-verdict">PASSED</span>  3 file(s) verified.</div>
+            <p style="margin-top: 0.75rem; font-size: var(--text-2xs); line-height: 1.7;">
+              This proves the files have not changed since they were built and that the same key signed
+              them as signed previous releases. It does <strong>not</strong> prove who holds that key —
+              it is a self-published Ed25519 key, not a CA certificate. Compare the fingerprint the
+              verifier prints against the one in the repository before trusting a first download.
+            </p>
+          </div>
+        </div>
+
       </div>
     </div>
   </section>
@@ -514,8 +589,8 @@
           <a href="/" class="brand-logo" style="margin-bottom: 1rem;">
             <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" style="height: 32px;" onerror="this.src='assets/cairn-logo.svg'">
             <div class="brand-name-group">
-              <span class="brand-title" style="font-size: 1.1rem;">C<span class="dot-a">A</span>IRN</span>
-              <span class="brand-tagline" style="font-size: 0.62rem;">Trust Fabric</span>
+              <span class="brand-title" style="font-size: var(--text-md);">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline" style="font-size: var(--text-2xs);">Trust Fabric</span>
             </div>
           </a>
           <p>
@@ -582,12 +657,18 @@
       <div class="status-pill status-pill-teal" style="margin-bottom: 0.75rem;">
         <i class="fas fa-key"></i> ENTERPRISE ACCESS
       </div>
-      <h3 style="font-size: 1.5rem; margin-bottom: 0.5rem;">Contact CAIRN Enterprise</h3>
-      <p style="font-size: 0.92rem; color: var(--color-stone-grey); margin-bottom: 1.5rem;">
+      <h3 style="font-size: var(--text-xl); margin-bottom: 0.5rem;">Contact CAIRN Enterprise</h3>
+      <p style="font-size: var(--text-base); color: var(--color-stone-grey); margin-bottom: 1.5rem;">
         Connect with our team to discuss pilot access, sovereign air-gapped deployment, and enterprise licensing.
       </p>
 
-      <form id="enterprise-lead-form">
+      <!-- `action` and `method` are the fallback, not the mechanism: main.js
+           calls preventDefault and POSTs JSON. They matter for the case that
+           already happened once — the script missing — where a form with
+           neither GETs this page and puts a prospect's name, work email and
+           company into the URL, the history and the access log. A visible error
+           is better than a silently lost lead and a leaked address. -->
+      <form id="enterprise-lead-form" action="/api/register-interest" method="post">
         <div class="form-group">
           <label class="form-label" for="lead-name">Full Name</label>
           <input type="text" id="lead-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
@@ -610,29 +691,26 @@
     </div>
   </div>
 
-  <!-- Modal Logic Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const openBtns = document.querySelectorAll('.open-demo-btn');
-      const modal = document.getElementById('demo-modal');
-      const closeBtn = document.getElementById('modal-close-btn');
+  <!-- ── THE PAGE'S BEHAVIOUR LIVES IN main.js, LIKE EVERY OTHER PAGE ──────
+       This was missing, and three things on the homepage were dead because of it:
 
-      openBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (modal) modal.classList.add('active');
-        });
-      });
+         * The enterprise pilot form. It has no `action` and no `method`, so with
+           no handler the browser GETs this page with the prospect's name, work
+           email and company in the query string. The lead reached nobody, and the
+           details landed in browser history, the Referer header and the access
+           log.
+         * The mobile menu. The hamburger renders, the nav is hidden below 768px,
+           and clicking did nothing — the toggle is wired in main.js.
+         * The hero mesh, the copy buttons and the architecture card interactions.
 
-      if (closeBtn && modal) {
-        closeBtn.addEventListener('click', () => {
-          modal.classList.remove('active');
-        });
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) modal.classList.remove('active');
-        });
-      }
-    });
-  </script>
+       book/compliance/gallery/licensing all load this and all work; only the
+       homepage did not, because it was rebuilt from a mockup and the include was
+       lost. The inline modal handler that used to sit here is gone with it —
+       main.js binds the same three elements, and two handlers on one button is
+       how a modal opens and shuts itself.
+  -->
+  <script src="js/main.js" defer></script>
+  <script src="js/chain-verify.js" defer></script>
 
 </body>
 </html>

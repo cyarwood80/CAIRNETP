@@ -1,0 +1,13 @@
+{
+  "supported": true,
+  "coverage": {
+    "checkpoints": 0,
+    "anchored": 0,
+    "unanchored": 0,
+    "stored": 0,
+    "oldestAnchored": null,
+    "newestAnchored": null
+  },
+  "note": "CAIRN obtained these tokens and stored them verbatim. CAIRN did NOT validate them. Validation is yours to perform, against roots you chose - see VERIFY.md.",
+  "tokens": []
+}
