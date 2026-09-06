@@ -1,12 +1,13 @@
 {
   "name": "cairn-etp-website",
-  "version": "2.4.0",
-  "description": "Website for CAIRN ETP — The Enterprise Trust Platform for Agentic AI (cairnetp.com)",
+  "version": "2.10.1",
+  "description": "Website for CAIRN ETP \u2014 The Enterprise Trust Platform for Agentic AI (cairnetp.com)",
   "main": "index.html",
   "scripts": {
     "dev": "npx serve -l 3000",
     "start": "npx serve -l 3000",
-    "build": "echo 'Static web build ready for Vercel deployment'"
+    "build": "node scripts/check-metrics.mjs",
+    "metrics:check": "node scripts/check-metrics.mjs"
   },
   "keywords": [
     "cairn",

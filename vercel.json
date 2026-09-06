@@ -1,14 +1,59 @@
 {
   "builds": [
-    {
-      "src": "api/index.py",
-      "use": "@vercel/python"
-    }
+    { "src": "api/index.py", "use": "@vercel/python" },
+    { "src": "index.html", "use": "@vercel/static" },
+    { "src": "*.html", "use": "@vercel/static" },
+    { "src": "*.txt", "use": "@vercel/static" },
+    { "src": "*.xml", "use": "@vercel/static" },
+    { "src": "css/**", "use": "@vercel/static" },
+    { "src": "js/**", "use": "@vercel/static" },
+    { "src": "assets/**", "use": "@vercel/static" }
   ],
   "routes": [
     {
       "src": "/(.*)",
-      "dest": "api/index.py"
-    }
+      "headers": {
+        "X-Content-Type-Options": "nosniff",
+        "X-Frame-Options": "DENY",
+        "Referrer-Policy": "strict-origin-when-cross-origin",
+        "Permissions-Policy": "camera=(), microphone=(), geolocation=(), payment=(), usb=()",
+        "Content-Security-Policy": "default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://cdnjs.cloudflare.com; font-src 'self' data: https://fonts.gstatic.com https://cdnjs.cloudflare.com; img-src 'self' data:; connect-src 'self'; frame-ancestors 'none'; base-uri 'self'; form-action 'self'; object-src 'none'"
+      },
+      "continue": true
+    },
+
+    {
+      "src": "/assets/(.*)",
+      "headers": { "Cache-Control": "public, max-age=31536000, immutable" },
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "/css/(.*)",
+      "headers": { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" },
+      "dest": "/css/$1"
+    },
+    {
+      "src": "/js/(.*)",
+      "headers": { "Cache-Control": "public, max-age=3600, stale-while-revalidate=86400" },
+      "dest": "/js/$1"
+    },
+
+    { "src": "/api/(.*)", "dest": "api/index.py" },
+    { "src": "/docs(\\.html)?", "dest": "api/index.py" },
+
+    { "src": "/", "dest": "/index.html" },
+    { "src": "/index(\\.html)?", "dest": "/index.html" },
+    { "src": "/book(\\.html)?", "dest": "/book.html" },
+    { "src": "/licensing(\\.html)?", "dest": "/licensing.html" },
+    { "src": "/gallery(\\.html)?", "dest": "/gallery.html" },
+    { "src": "/compliance(\\.html)?", "dest": "/compliance.html" },
+
+    { "src": "/robots\\.txt", "dest": "/robots.txt" },
+    { "src": "/sitemap\\.xml", "dest": "/sitemap.xml" },
+    { "src": "/llms\\.txt", "dest": "/llms.txt" },
+    { "src": "/llms-full\\.txt", "dest": "/llms-full.txt" },
+    { "src": "/google8eb8f6cf1990c7bc\\.html", "dest": "/google8eb8f6cf1990c7bc.html" },
+
+    { "src": "/(.*)", "dest": "api/index.py" }
   ]
 }

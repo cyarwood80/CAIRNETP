@@ -103,22 +103,26 @@
             </button>
           </div>
 
-          <!-- Live Telemetry Strip -->
-          <div class="hero-telemetry-strip-unified">
+          <!-- ── HERO FIGURES ────────────────────────────────────────────
+               NOT telemetry. Nothing here is live, and it must not be labelled
+               as though it were: this strip said "Live Telemetry" while showing
+               a hand-typed test count that had drifted by 447.
+
+               Every value below is set in data/site-metrics.json and checked by
+               `npm run metrics:check`, which fails when the page and that file
+               disagree. Change the file first.
+          -->
+          <div class="hero-telemetry-strip-unified" data-metrics-source="data/site-metrics.json">
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">7</span>
+              <span class="telemetry-value-unified" data-metric="governedPillars">7</span>
               <span class="telemetry-label-unified">governed pillars</span>
             </div>
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">133</span>
-              <span class="telemetry-label-unified">tracked claims</span>
+              <span class="telemetry-value-unified" data-metric="trackedClaims">143</span>
+              <span class="telemetry-label-unified">claims in the public register</span>
             </div>
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">2,856</span>
-              <span class="telemetry-label-unified">automated tests</span>
-            </div>
-            <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified">Local-first</span>
+              <span class="telemetry-value-unified" data-metric="deployment">Local-first</span>
               <span class="telemetry-label-unified">deployment</span>
             </div>
           </div>
