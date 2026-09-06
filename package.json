@@ -1,7 +1,7 @@
 {
   "name": "cairn-etp-website",
   "version": "2.10.1",
-  "description": "Website for CAIRN ETP \u2014 The Enterprise Trust Platform for Agentic AI (cairnetp.com)",
+  "description": "Website for CAIRN ETP — The Enterprise Trust Platform for Agentic AI (cairnetp.com)",
   "main": "index.html",
   "scripts": {
     "dev": "npx serve -l 3000",
@@ -9,8 +9,10 @@
     "build": "npm run check",
     "metrics:check": "node scripts/check-metrics.mjs",
     "typography:check": "node scripts/check-typography.mjs",
-    "check": "npm run metrics:check && npm run typography:check && npm run deployable:check",
-    "deployable:check": "node scripts/check-deployable.mjs"
+    "check": "npm run metrics:check && npm run typography:check && npm run icons:check && npm run deployable:check",
+    "deployable:check": "node scripts/check-deployable.mjs",
+    "icons:sync": "node scripts/sync-icons.mjs",
+    "icons:check": "node scripts/sync-icons.mjs --check"
   },
   "keywords": [
     "cairn",

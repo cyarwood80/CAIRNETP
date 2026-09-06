@@ -325,7 +325,7 @@
   border-radius: var(--radius-lg);
   padding: 1.35rem 1.5rem;
   font-family: var(--font-mono);
-  max-width: 560px;
+  max-width: 720px;
 }
 
 .chain-verifier-head {
@@ -399,12 +399,6 @@
 .chain-btn:hover {
   border-color: var(--color-teal-border);
   color: var(--color-glacier);
-}
-
-.chain-btn-link {
-  border-color: transparent;
-  text-decoration: underline;
-  text-underline-offset: 3px;
 }
 
 /* ── THE CLAIMS REGISTER ───────────────────────────────────────────────────
@@ -520,3 +514,404 @@
 }
 
 .reg-notes { padding-top: 0.6rem; border-top: 1px solid var(--border-glass); }
+
+/* ── THE HEADER HAD NO NAVIGATION ON A PHONE ───────────────────────────────
+   Found 2026-09-06 by measuring, not by looking. At 375px the header row lays
+   out to 471px: the brand lockup is 186px, and the Contact button, the GitHub
+   button and the hamburger are laid out after it. The hamburger's left edge sat
+   at x=429 on a 375px viewport, 96px past the right of the screen, and because
+   the page clips horizontal overflow there was no scrollbar to reveal it.
+
+   So the mobile toggle rendered, was enabled, was wired in main.js — and could
+   not be touched. Every nav link on the site is inside `.nav-links`, which is
+   `display: none` below 1024px and only opens from that button. A visitor on a
+   phone had the homepage and nothing else.
+
+   The 2026-09-06 header fix moved the collapse from 768px to 1024px and measured
+   the DESKTOP row at 917px. It measured the wrong end: widening the breakpoint
+   makes the hamburger appear EARLIER, and nothing had ever measured what the row
+   costs once it does.
+
+   The fix drops the GitHub icon (it is in the footer, and in the download
+   section, on every page) and tightens the lockup and the gutter. Measured
+   after: 331px on a 375px viewport.
+*/
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .site-header .nav-wrap {
+    height: 64px;
+  }
+
+  .site-header .header-logo-img {
+    height: 32px;
+  }
+
+  .site-header .header-actions {
+    gap: 0.5rem;
+  }
+
+  /* The GitHub link, not the Contact button: a first-time visitor on a phone is
+     more likely to want to reach a person than a repository, and the repository
+     is linked twice more on the page below. */
+  .site-header .header-actions .btn-outline {
+    display: none;
+  }
+
+  .site-header .header-actions .open-demo-btn {
+    padding: 0.5rem 0.85rem;
+    font-size: var(--text-xs);
+  }
+
+  .nav-links {
+    top: 63px;
+  }
+}
+
+/* The open mobile panel sat at `z-index: auto` inside a header that establishes
+   its own stacking context via `backdrop-filter`. It resolved on top, but only
+   by document order, and its 0.98 background left the hero heading faintly
+   legible through the menu. Both are cheap to state outright. */
+@media (max-width: 1024px) {
+  .nav-links.open {
+    z-index: 1001;
+    background: var(--bg-deep-space);
+    box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.75);
+  }
+}
+
+/* ==========================================================================
+   W4 — THE DESIGN PASS, 2026-09-06
+   ==========================================================================
+
+   The critique this answers, in one line each:
+
+   1. ONE TEXTURE FOR 7,200px. Eight sections, every one of them: pill, title,
+      subtitle, grid of boxes on a dark rectangle. Nothing changes, so nothing
+      is emphasised, so a reader skims. The page now has three surfaces —
+      SPACE (the default dark), PAPER (light, for the register extract) and
+      INK (near-black, type only, for the refusals). Two changes of tempo in a
+      long page is not decoration; it is the only way a long page has emphasis.
+
+   2. THE HIERARCHY WAS INVERTED. The loudest thing on the page was a marketing
+      headline; the most credible things — the refusals and the register — were
+      small mono in dark boxes. PAPER and INK exist to swap that round: the
+      evidence gets the biggest surfaces on the page and the argument gets to be
+      quiet.
+
+   3. IT LOOKED LIKE THE CATEGORY. Glassmorphic cards, pulsing dots and a
+      floating render are what every vendor in this segment ships. What none of
+      them ship is a page that opens with what the product cannot do. That is
+      the design as much as it is the copy — hence `.register-extract`, which is
+      set as a reference document rather than as a feature grid.
+*/
+
+:root {
+  /* PAPER — a warm off-white, not a white. A pure white next to #061220 reads
+     as a broken stylesheet; this reads as paper. */
+  --paper-bg: #f1eee8;
+  --paper-bg-raised: #f8f6f2;
+  --paper-ink: #131b25;
+  --paper-ink-soft: #4f5964;
+  --paper-rule: rgba(19, 27, 37, 0.13);
+  --paper-rule-strong: rgba(19, 27, 37, 0.28);
+
+  /* INK — below the page's own background. The refusals section drops out of
+     the surrounding surface rather than sitting on it. */
+  --ink-bg: #010509;
+}
+
+/* ── SURFACE: PAPER ───────────────────────────────────────────────────────── */
+
+.section-paper {
+  position: relative;
+  z-index: 1;
+  background: var(--paper-bg);
+  color: var(--paper-ink);
+  padding: 7rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-paper .container {
+  max-width: 1040px;
+}
+
+.paper-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-ink-soft);
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--paper-rule-strong);
+  margin-bottom: 2.5rem;
+}
+
+.paper-title {
+  font-size: var(--text-fluid-section);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--paper-ink);
+  max-width: 20ch;
+  margin-bottom: 1.5rem;
+}
+
+.paper-lede {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--paper-ink-soft);
+  max-width: 62ch;
+}
+
+.paper-lede strong {
+  color: var(--paper-ink);
+  font-weight: 600;
+}
+
+/* The tally. Three figures, checked by `npm run metrics:check` like every other
+   number on this page — see data/site-metrics.json. */
+.paper-tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.75rem;
+  margin: 2.75rem 0 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--paper-rule);
+}
+
+.paper-tally-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.paper-tally-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 500;
+  line-height: 1;
+  color: var(--paper-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.paper-tally-label {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-ink-soft);
+}
+
+/* Measured against --paper-bg: 7.0:1 for the red and 5.3:1 for the amber, so
+   both clear AA at the 2xs size these labels are set in. The amber started at
+   #8a6a10 and came in at 4.37:1 — under the bar, and invisible to anyone
+   choosing it by eye. */
+.paper-tally-item.is-never .paper-tally-value {
+  color: #8a3324;
+}
+
+.paper-tally-item.is-partial .paper-tally-value {
+  color: #7a5c0a;
+}
+
+/* ── THE REGISTER EXTRACT ─────────────────────────────────────────────────── */
+
+.register-extract {
+  border-top: 1px solid var(--paper-rule-strong);
+}
+
+.register-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0 1.75rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--paper-rule);
+}
+
+.register-row-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding-top: 0.28rem;
+}
+
+.register-row-status.is-never {
+  color: #8a3324;
+}
+
+.register-row-status.is-partial {
+  color: #7a5c0a;
+}
+
+.register-row-claim {
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--paper-ink);
+  letter-spacing: -0.005em;
+}
+
+.register-row-limit {
+  grid-column: 2;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--paper-ink-soft);
+  margin-top: 0.5rem;
+  max-width: 68ch;
+}
+
+.register-row-limit code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  background: rgba(19, 27, 37, 0.06);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+}
+
+.paper-outro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.75rem;
+}
+
+.paper-note {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--paper-ink-soft);
+  max-width: 54ch;
+}
+
+.paper-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--paper-ink);
+  text-decoration: none;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--paper-rule-strong);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.paper-link:hover {
+  background: var(--paper-ink);
+  border-color: var(--paper-ink);
+  color: var(--paper-bg);
+}
+
+@media (max-width: 700px) {
+  .section-paper {
+    padding: 4.5rem 0;
+  }
+  .register-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .register-row-limit {
+    grid-column: 1;
+  }
+  .paper-tally {
+    gap: 1.75rem;
+  }
+}
+
+/* ── SURFACE: INK ─────────────────────────────────────────────────────────── */
+
+.section-ink {
+  position: relative;
+  z-index: 1;
+  background: var(--ink-bg);
+  padding: 7rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-ink .container {
+  max-width: 1040px;
+}
+
+.ink-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+  margin-bottom: 2rem;
+}
+
+.ink-title {
+  font-size: var(--text-fluid-section);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 24ch;
+  margin-bottom: 1.25rem;
+}
+
+.ink-lede {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--color-stone-grey);
+  max-width: 64ch;
+}
+
+@media (max-width: 700px) {
+  .section-ink {
+    padding: 4.5rem 0;
+  }
+}
+
+/* ── RHYTHM ───────────────────────────────────────────────────────────────── */
+
+/* Section headers were a pill, a title and a subtitle, centred, at identical
+   spacing eight times over. Left-aligning the ones that carry an argument and
+   holding the lede to a real measure is most of what separates a page that
+   reads from a page that is scanned. */
+.section-title-wrap.is-left {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-title-wrap.is-left .section-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 64ch;
+}
+
+/* ── FOOTER: WORDS WHERE TRADEMARKS USED TO BE ────────────────────────────── */
+
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 1.25rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-sm);
+  color: var(--color-stone-grey);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-social a:hover {
+  color: var(--color-glacier);
+}

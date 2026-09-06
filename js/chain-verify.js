@@ -14,7 +14,7 @@
  * So the page ships the ARTEFACT instead, and the reader's browser checks it.
  * `evidence/ledger.jsonl` is a real bundle, exported by a real CAIRN, from a
  * throwaway vault driven through the real gates. Every hash below is recomputed
- * here, on their machine, from bytes they can download. Nothing is asserted.
+ * here, on their machine, from the bytes this page loaded. Nothing is asserted.
  *
  * The tamper control is the part that matters. A verifier that only ever says
  * PASSED is indistinguishable from a picture of a verifier saying PASSED — so
@@ -120,7 +120,7 @@
             status.className = 'chain-status chain-status-ok';
             if (detail)
                 detail.textContent =
-                    'Every hash was recomputed in this browser from the bundle you just downloaded. Nothing was taken on trust — including from us.';
+                    'Every hash was recomputed in this browser, on your machine. Nothing was taken on trust — including from us.';
         } else {
             const first = broken[0];
             status.textContent = `Chain broken at record ${first.index + 1} of ${state.total}`;

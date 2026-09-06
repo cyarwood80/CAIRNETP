@@ -18,9 +18,29 @@
       "value": "Local-first",
       "label": "deployment",
       "basis": "no CAIRN-operated server is involved in a customer deployment"
+    },
+    "claimsWorks": {
+      "value": "92",
+      "label": "Works",
+      "basis": "rows rated Works in docs/CLAIMS.md, counted from register.html which is generated from it"
+    },
+    "claimsPartial": {
+      "value": "37",
+      "label": "Partial",
+      "basis": "rows rated Partial; each carries its limitation in the row"
+    },
+    "claimsNever": {
+      "value": "5",
+      "label": "Never",
+      "basis": "rows rated Never — capabilities deliberately not built, and which must never be implied"
+    },
+    "claimsRoadmap": {
+      "value": "9",
+      "label": "Roadmap",
+      "basis": "rows rated Roadmap — named, unbuilt, and not sellable until they are"
     }
   },
   "_removed": {
-    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 \u2014 a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading."
+    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 — a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading."
   }
 }

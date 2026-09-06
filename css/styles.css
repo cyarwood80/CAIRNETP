@@ -4,7 +4,11 @@
    Typography: Plus Jakarta Sans, IBM Plex Mono
    ========================================================================== */
 
-@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:ital,wght@0,400;0,500;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+/* The @import that used to sit here re-requested the two families the <link>
+   in every page's <head> already loads, and an @import inside a stylesheet is
+   discovered only after that stylesheet has parsed -- a second render-blocking
+   round trip for fonts the browser was already fetching. The <link> is the one
+   copy. Removed 2026-09-06. */
 
 :root {
   /* Core Brand Palette */
@@ -111,6 +115,24 @@
   --transition-fast: 0.15s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-normal: 0.25s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ── THE ICON BASE ─────────────────────────────────────────────────────────
+   Marks are inline SVG from a per-page sprite (scripts/icons.mjs). Sized in
+   `em` so they scale with the type beside them and so the handful of rules that
+   used to set `font-size` on an `<i>` keep working unchanged.
+
+   This lives HERE, in the sheet every page loads, and not in
+   hybrid_additions.css -- which only two of the six pages load. It spent one
+   render in the wrong file and the licensing matrix came out as a column of
+   300x150 circles, because an SVG with no width rule takes its intrinsic size.
+*/
+.icon {
+  width: 1em;
+  height: 1em;
+  display: inline-block;
+  vertical-align: -0.135em;
+  flex-shrink: 0;
 }
 
 /* Base Resets */
@@ -759,7 +781,7 @@ code, pre {
   color: var(--color-glacier);
 }
 
-.sector-chip i {
+.sector-chip .icon {
   color: var(--color-cairn-blue-light);
 }
 
@@ -2180,7 +2202,7 @@ code, pre {
   line-height: 1.55;
 }
 
-.nist-control-item i {
+.nist-control-item .icon {
   color: var(--color-teal-signal);
   margin-top: 0.25rem;
   font-size: var(--text-sm);
@@ -2355,7 +2377,7 @@ code, pre {
   color: var(--color-glacier-dim);
 }
 
-.license-feature-item.included i {
+.license-feature-item.included .icon {
   color: var(--color-teal-signal);
   font-size: var(--text-xs);
   margin-top: 0.25rem;
@@ -2367,7 +2389,7 @@ code, pre {
   font-weight: 600;
 }
 
-.license-feature-item.highlighted i {
+.license-feature-item.highlighted .icon {
   color: var(--color-teal-signal);
   font-size: var(--text-sm);
   margin-top: 0.25rem;
@@ -2378,7 +2400,7 @@ code, pre {
   color: var(--color-stone-dark);
 }
 
-.license-feature-item.disabled i {
+.license-feature-item.disabled .icon {
   color: var(--color-stone-dark);
   font-size: var(--text-2xs);
   margin-top: 0.25rem;
