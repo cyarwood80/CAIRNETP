@@ -1,0 +1,163 @@
+{
+  "mapVersion": 1,
+  "asOf": "2026-08-20",
+  "product": "CAIRN Trust Fabric",
+  "whatThisIs": "A statement of which artefacts in this evidence bundle relate to which control, so an auditor does not have to reverse-engineer it. It is a starting point for a conversation with an assessor, not a compliance verdict.",
+  "whatThisIsNot": [
+    "This is NOT a certification. CAIRN holds no SOC 2 report and no ISO 27001 certificate, and none is in progress.",
+    "This is NOT an assertion that the organisation using CAIRN meets any control. The artefacts evidence what this software did; the control belongs to the organisation and its assessor decides whether the evidence satisfies it.",
+    "This is NOT a complete control set. Controls that a locally installed developer tool cannot speak to are listed as not-evidenced rather than omitted, because a map showing only the flattering controls is worse than no map.",
+    "Control titles are paraphrased for orientation. The authoritative text is the framework's, not this file's."
+  ],
+  "operatorOverride": "Copy this file to vault/controlMap.json to amend it. The bundle records which copy it used, and the amended file is hashed and signed with the rest of the bundle.",
+  "controls": [
+    {
+      "id": "EU-AI-ACT-ART-12",
+      "framework": "EU AI Act",
+      "title": "Record-keeping — automatic recording of events over the system's lifetime",
+      "status": "evidenced",
+      "evidencedBy": [
+        "ledger.jsonl — every authorisation decision, allow and deny alike, hash-chained to its predecessor",
+        "spans.jsonl — what executed after each decision, correlated by traceId",
+        "audit.jsonl — the surrounding event narrative for the same window",
+        "integrity.json — whether the chain verified at export time"
+      ],
+      "doesNotEvidence": [
+        "Completeness. Hashing a ledger detects alteration of what is present; it cannot detect a record that was never written. Completeness rests on the governance gate being the sole execution path.",
+        "When a record was written. Timestamps are asserted by the host clock and are not externally attested, so sequence is evidence and wall-clock time is not."
+      ]
+    },
+    {
+      "id": "EU-AI-ACT-ART-14",
+      "framework": "EU AI Act",
+      "title": "Human oversight — the system is designed so a person can oversee, intervene and interrupt",
+      "status": "partial",
+      "evidencedBy": [
+        "ledger.jsonl — decisions refused by policy, recorded with the rule that refused them and not overridable by user approval",
+        "ledger.jsonl — payload.policyContext.corporatePolicy.mandatoryApproval, naming the human who approved or refused an action a signed policy required approval for",
+        "audit.jsonl — CORPORATE_APPROVAL_GRANTED and CORPORATE_APPROVAL_REFUSED events"
+      ],
+      "doesNotEvidence": [
+        "Graduated autonomy. There is no autonomy ladder; an action is permitted or refused, and there is no per-action maximum autonomy level derived from policy.",
+        "That the oversight was well-informed. CAIRN grades risk from the mechanism of an action — the tool's capability class and a static scan of the code — and not from what the action would affect. A person approving a MEDIUM-risk script is not being told its blast radius, because the system does not model one."
+      ]
+    },
+    {
+      "id": "EU-AI-ACT-ART-15",
+      "framework": "EU AI Act",
+      "title": "Accuracy, robustness and cybersecurity",
+      "status": "partial",
+      "evidencedBy": [
+        "ledger.jsonl — payload.findings, the static-scan findings that raised an action's risk grade",
+        "ledger.jsonl — refusals where code could not be read and was therefore graded unsafe rather than assumed safe",
+        "spans.jsonl — execution outcome and duration, including failures"
+      ],
+      "doesNotEvidence": [
+        "Accuracy of model output. Nothing in this bundle establishes that an answer was correct. CAIRN's assurance grades describe how thoroughly an action was VERIFIED — static-only, sandbox-executed, deterministic — which is a statement about execution, not about truth.",
+        "Robustness under adversarial input. No adversarial evaluation has been run against this installation."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.1",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Logical access security — identification, authentication and protection of information assets",
+      "status": "partial",
+      "evidencedBy": [
+        "ledger.jsonl — actor, resolved from the operating system principal (Windows SID where available) and not from anything the model can influence",
+        "ledger.jsonl — payload.capability, the capability class the action required and the principal held"
+      ],
+      "doesNotEvidence": [
+        "Authentication strength. CAIRN is a single-user desktop application; it inherits the operating system session and performs no authentication of its own. There is no SSO, no MFA and no session management."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.2",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Registration and authorisation of new users before access is issued",
+      "status": "not-evidenced",
+      "evidencedBy": [],
+      "doesNotEvidence": [
+        "There is no user provisioning in CAIRN. No accounts are created, granted or revoked, so no artefact in this bundle speaks to this control."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.3",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Least privilege — access to data and functions based on role, and its modification and removal",
+      "status": "partial",
+      "evidencedBy": [
+        "ledger.jsonl — capability classes (read / write / execute), with an unclassified tool treated as the most restrictive",
+        "ledger.jsonl — corporate policy refusals for forbiddenPaths and allowedPathPrefixes, where an organisation confined work to declared roots",
+        "ledger.jsonl — package capability refusals, where an installed package attempted something it had not declared"
+      ],
+      "doesNotEvidence": [
+        "Role-based access control. Roles exist as a local label only; `rbac.local` is an entitlement string with no implementation behind it.",
+        "Segregation of duties. There is one principal, so there is nothing to segregate."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.4",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Physical access to facilities and protected information assets",
+      "status": "not-evidenced",
+      "evidencedBy": [],
+      "doesNotEvidence": [
+        "A physical control. Software running on an operator's own machine cannot evidence it, and the organisation's own facility controls apply instead."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.5",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Disposal of physical assets containing protected information",
+      "status": "not-evidenced",
+      "evidencedBy": [],
+      "doesNotEvidence": [
+        "A physical control, as above. Note that the ledger, audit stream and vault live on the host, so the host's disposal procedure governs them."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.6",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Logical access measures against threats from outside the system boundary",
+      "status": "partial",
+      "evidencedBy": [
+        "ledger.jsonl — every tool invocation passed a default-deny gate before running; a tool cannot execute without traversing it",
+        "audit.jsonl — egress decisions, including refusals where a payload matched a secret pattern",
+        "ledger.jsonl — corporate policy lockdown refusals where a signed policy could not be verified"
+      ],
+      "doesNotEvidence": [
+        "Network boundary controls. CAIRN does not manage firewalls, network segmentation or inbound access, and no artefact here describes them."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.7",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Restriction of the transmission, movement and removal of information",
+      "status": "partial",
+      "evidencedBy": [
+        "audit.jsonl — cloud egress decisions with the classification that produced them, and the refusals",
+        "ledger.jsonl — CLOUD_SPEND records showing which provider and model were reached, and at what cost"
+      ],
+      "doesNotEvidence": [
+        "That transmission was encrypted. Providers are reached over HTTPS, but this bundle collects no evidence of the transport used.",
+        "That nothing left the machine. Local-first is a posture, not a default: unless the operator has configured otherwise, the routing prompt — which carries the user's message and the vault index — is sent to a cloud router on each turn. The privacy posture in the product states the live setting."
+      ]
+    },
+    {
+      "id": "SOC2-CC6.8",
+      "framework": "SOC 2 (Trust Services Criteria, Common Criteria)",
+      "title": "Prevention or detection of unauthorised or malicious software",
+      "status": "partial",
+      "evidencedBy": [
+        "ledger.jsonl — payload.findings from the static scan of what an invocation would actually run, including the resolved contents of a script invoked by name",
+        "ledger.jsonl — refusals where an EXECUTE action referenced code the gate could not read, which is graded unsafe rather than assumed safe",
+        "audit.jsonl — script integrity events, where a vault script changed against its recorded hash",
+        "ledger.jsonl — corporate blocklist refusals, where a signed policy forbade a command found in the resolved payload"
+      ],
+      "doesNotEvidence": [
+        "Anti-malware coverage of the host. CAIRN inspects what it is asked to run; it does not scan the machine.",
+        "That the static scan is complete. It is advisory and pattern-based: a clean scan means these specific checks did not fire, not that the code is safe. That sentence is in the scan output itself."
+      ]
+    }
+  ]
+}

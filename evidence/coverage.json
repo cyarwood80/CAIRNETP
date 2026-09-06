@@ -1,0 +1,15 @@
+{
+  "supported": true,
+  "window": {
+    "from": "beginning-of-record",
+    "to": "now"
+  },
+  "gaps": [],
+  "gapCount": 0,
+  "unobservedMs": 0,
+  "currentRun": null,
+  "heartbeatMs": 60000,
+  "basis": "Recorded gaps only. Each is an interval CAIRN was not running and therefore did not observe; none is a claim that nothing happened during it. Gaps whose boundary is \"heartbeat\" or \"ledger-tail\" are stated no smaller than they were — see each record. The absence of a gap record evidences coverage only from the first LEDGER_COVERAGE_OPEN onward.",
+  "unobserved": "0s",
+  "interpretation": "No coverage gap is recorded in this window. That means no interval was recorded in which CAIRN was not running — it does not by itself prove continuous coverage, which begins only at the first LEDGER_COVERAGE_OPEN record in the ledger."
+}

@@ -1,0 +1,269 @@
+{
+  "supported": true,
+  "boundary": "2.6.0",
+  "summary": {
+    "total": 25,
+    "principal": 25,
+    "os-login": 0,
+    "unstamped": 0,
+    "authenticated": 0,
+    "boundary": "2.6.0",
+    "subjects": {
+      "total": 25,
+      "byKind": {
+        "person": 20,
+        "pillar": 5,
+        "pillars": 0,
+        "subsystem": 0,
+        "placeholder": 0,
+        "unknown": 0
+      },
+      "byBasis": {
+        "stamped": 25,
+        "writer": 0,
+        "shape": 0,
+        "none": 0
+      },
+      "people": {
+        "records": 20,
+        "distinctActors": 1,
+        "actors": [
+          "demo-operator"
+        ],
+        "reconciled": 1,
+        "unstamped": 0
+      },
+      "note": "1 distinct person/people across 20 record(s). Every one carries the actor stamp, so records keyed differently for the same human are reconciled by username rather than counted twice."
+    },
+    "note": "0 of 25 record(s) predate 2.6.0 and name a login session rather than a principal. Their actor is genuine and the chain over them is intact — the field simply meant something weaker when it was written, and it is not rewritten, because a hashed field that changed would be indistinguishable from tampering."
+  },
+  "records": [
+    {
+      "id": "dec-375df0dcf09afa56",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-7e90f4f4f5eb7799",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-834b2cf55b5b8385",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-e24a003d75eb6966",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-ead159bf88a44ba5",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-a851d3121e85e013",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-f4ee5e9ec3015743",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-38916b5fbfa9090a",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-9817d88ca1585863",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-0f3ee705b3ce8432",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-ecc81ced45fd6475",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-6e0e42338fa9ec3d",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-281cb8c57d526148",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-d3b20eda260dfcff",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-a64c773a01fd870c",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-16f2aea0a2e23db3",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-e0424519bfab34ad",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-7dea5e758abb21e3",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-25cb069f16947bab",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-bb97aecf8c526676",
+      "actor": "demo-operator",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "person",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-8d194e74fea8af2d",
+      "actor": "PATH",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "pillar",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-0f1136f302805449",
+      "actor": "PATH",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "pillar",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-8efd82eced2b70a3",
+      "actor": "PATH",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "pillar",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-3a639d81577e1502",
+      "actor": "PATH",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "pillar",
+      "subjectBasis": "stamped"
+    },
+    {
+      "id": "dec-c48e033d66852728",
+      "actor": "PATH",
+      "era": "principal",
+      "build": "2.10.1",
+      "basis": null,
+      "subject": "pillar",
+      "subjectBasis": "stamped"
+    }
+  ],
+  "interpretation": "Every record in this window was written at or after 2.6.0, so each names an acting principal.",
+  "authenticationNote": "No record in any CAIRN bundle is authenticated in the SSO sense. A principal is established from the operating system and from operator-declared vault files, and the record states which. `authenticated` here means every identity attribute the autonomy decision consumed was one of those - it does NOT mean an identity provider verified anybody. Read it as \"the basis is recorded\", not \"the person was checked\"."
+}
