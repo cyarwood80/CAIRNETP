@@ -623,6 +623,23 @@
   --ink-bg: #010509;
 }
 
+/* ── SURFACE: PAPER — CURRENTLY UNUSED ─────────────────────────────────────
+   The one section that used this, `#register-extract`, was removed on
+   2026-09-06 with register.html: the homepage is a commercial surface and a
+   list of what the product cannot do belongs behind an evaluation conversation.
+
+   The rules are KEPT, and that is a decision rather than an oversight. Paper was
+   half of W4's structural argument — the page had one texture for 7,200px, and
+   two changes of tempo is what gives a long page emphasis. With this section
+   gone there is one break left (INK, under the refusals), and the page is
+   flatter than it was. The surface is content-neutral and would work under the
+   assurance ladder or the two-ways-in section without carrying any of the copy
+   that was removed with it.
+
+   If a light section is never wanted, delete from here to "SURFACE: INK" —
+   about 150 lines — rather than leaving it to rot quietly.
+*/
+
 /* ── SURFACE: PAPER ───────────────────────────────────────────────────────── */
 
 .section-paper {

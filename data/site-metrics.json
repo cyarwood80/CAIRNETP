@@ -9,38 +9,20 @@
       "label": "governed pillars",
       "basis": "PATH, CAIRN, COMPASS, ATLAS, FORGE, CRUCIBLE, BEACON"
     },
-    "trackedClaims": {
-      "value": "143",
-      "label": "claims in the public register",
-      "basis": "rows in docs/CLAIMS.md rated Works, Partial, Never, Roadmap or Deferred; register.html is generated from the same file by scripts/build-register.mjs and reports the same total"
-    },
     "deployment": {
       "value": "Local-first",
       "label": "deployment",
       "basis": "no CAIRN-operated server is involved in a customer deployment"
     },
-    "claimsWorks": {
-      "value": "92",
-      "label": "Works",
-      "basis": "rows rated Works in docs/CLAIMS.md, counted from register.html which is generated from it"
-    },
-    "claimsPartial": {
-      "value": "37",
-      "label": "Partial",
-      "basis": "rows rated Partial; each carries its limitation in the row"
-    },
-    "claimsNever": {
-      "value": "5",
-      "label": "Never",
-      "basis": "rows rated Never — capabilities deliberately not built, and which must never be implied"
-    },
-    "claimsRoadmap": {
-      "value": "9",
-      "label": "Roadmap",
-      "basis": "rows rated Roadmap — named, unbuilt, and not sellable until they are"
+    "gateCost": {
+      "value": "0.20–0.26 ms",
+      "label": "to evaluate a policy decision",
+      "basis": "measured with the published gate-cost methodology against CAIRN Trust Fabric 2.10.1; the same figure the Architecture section states"
     }
   },
   "_removed": {
-    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 — a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading."
+    "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 — a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading.",
+    "trackedClaims": "Removed 2026-09-06 with register.html. The strip read '143 claims in the public register' and there is no public register any more, so the figure described a surface a reader cannot reach. A number that is accurate about an internal document and false about this site is the defect this file exists to prevent.",
+    "claimsBreakdown": "Removed 2026-09-06 with the homepage register extract: Works 92, Partial 37, Never 5, Roadmap 9. Kept here so a later session can see what the figures were rather than recounting."
   }
 }

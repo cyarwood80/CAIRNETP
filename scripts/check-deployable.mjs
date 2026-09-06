@@ -45,7 +45,7 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNCHECKED = 2;
 
-const PAGES = ['index.html', 'register.html', 'compliance.html', 'gallery.html', 'licensing.html', 'book.html'];
+const PAGES = ['index.html', 'compliance.html', 'gallery.html', 'licensing.html', 'book.html'];
 const SCRIPTS = ['js/main.js', 'js/chain-verify.js'];
 
 /** Turn a `builds` src into a test for whether it covers a given path. */

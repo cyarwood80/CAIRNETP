@@ -25,10 +25,6 @@
       "use": "@vercel/static"
     },
     {
-      "src": "register.html",
-      "use": "@vercel/static"
-    },
-    {
       "src": "evidence/**",
       "use": "@vercel/static"
     },
@@ -129,10 +125,6 @@
     {
       "src": "/compliance(\\.html)?",
       "dest": "/compliance.html"
-    },
-    {
-      "src": "/register(\\.html)?",
-      "dest": "/register.html"
     },
     {
       "src": "/evidence/(.*)",
