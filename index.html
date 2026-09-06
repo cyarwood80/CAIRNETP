@@ -591,7 +591,13 @@
         Connect with our team to discuss pilot access, sovereign air-gapped deployment, and enterprise licensing.
       </p>
 
-      <form id="enterprise-lead-form">
+      <!-- `action` and `method` are the fallback, not the mechanism: main.js
+           calls preventDefault and POSTs JSON. They matter for the case that
+           already happened once — the script missing — where a form with
+           neither GETs this page and puts a prospect's name, work email and
+           company into the URL, the history and the access log. A visible error
+           is better than a silently lost lead and a leaked address. -->
+      <form id="enterprise-lead-form" action="/api/register-interest" method="post">
         <div class="form-group">
           <label class="form-label" for="lead-name">Full Name</label>
           <input type="text" id="lead-name" class="form-input" placeholder="e.g. Sarah Jenkins" required>
@@ -614,29 +620,25 @@
     </div>
   </div>
 
-  <!-- Modal Logic Script -->
-  <script>
-    document.addEventListener('DOMContentLoaded', () => {
-      const openBtns = document.querySelectorAll('.open-demo-btn');
-      const modal = document.getElementById('demo-modal');
-      const closeBtn = document.getElementById('modal-close-btn');
+  <!-- ── THE PAGE'S BEHAVIOUR LIVES IN main.js, LIKE EVERY OTHER PAGE ──────
+       This was missing, and three things on the homepage were dead because of it:
 
-      openBtns.forEach(btn => {
-        btn.addEventListener('click', () => {
-          if (modal) modal.classList.add('active');
-        });
-      });
+         * The enterprise pilot form. It has no `action` and no `method`, so with
+           no handler the browser GETs this page with the prospect's name, work
+           email and company in the query string. The lead reached nobody, and the
+           details landed in browser history, the Referer header and the access
+           log.
+         * The mobile menu. The hamburger renders, the nav is hidden below 768px,
+           and clicking did nothing — the toggle is wired in main.js.
+         * The hero mesh, the copy buttons and the architecture card interactions.
 
-      if (closeBtn && modal) {
-        closeBtn.addEventListener('click', () => {
-          modal.classList.remove('active');
-        });
-        modal.addEventListener('click', (e) => {
-          if (e.target === modal) modal.classList.remove('active');
-        });
-      }
-    });
-  </script>
+       book/compliance/gallery/licensing all load this and all work; only the
+       homepage did not, because it was rebuilt from a mockup and the include was
+       lost. The inline modal handler that used to sit here is gone with it —
+       main.js binds the same three elements, and two handlers on one button is
+       how a modal opens and shuts itself.
+  -->
+  <script src="js/main.js" defer></script>
 
 </body>
 </html>
