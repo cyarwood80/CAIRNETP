@@ -9,10 +9,11 @@
     "build": "npm run check",
     "metrics:check": "node scripts/check-metrics.mjs",
     "typography:check": "node scripts/check-typography.mjs",
-    "check": "npm run metrics:check && npm run typography:check && npm run icons:check && npm run deployable:check",
+    "check": "npm run metrics:check && npm run typography:check && npm run icons:check && npm run footer:check && npm run deployable:check",
     "deployable:check": "node scripts/check-deployable.mjs",
     "icons:sync": "node scripts/sync-icons.mjs",
-    "icons:check": "node scripts/sync-icons.mjs --check"
+    "icons:check": "node scripts/sync-icons.mjs --check",
+    "footer:check": "node scripts/check-footer.mjs"
   },
   "keywords": [
     "cairn",

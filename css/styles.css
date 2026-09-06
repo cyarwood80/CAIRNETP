@@ -103,7 +103,11 @@
   /* Fluid heading sizes, deliberately not snapped: these are ranges, and
      replacing a range with a fixed step removes the behaviour rather than
      tidying it. */
-  --text-fluid-hero: clamp(2.4rem, 4.5vw, 3.8rem);
+  /* Reduced from a 3.8rem cap with A1. The new headline is two sentences and
+     twelve words against the old one's eight, and at 3.8rem in a 1.15fr column
+     it set as three lines with "do." alone on the third. A clamp is a range, so
+     the fix belongs in the range and not in a one-off override. */
+  --text-fluid-hero: clamp(2.25rem, 3.9vw, 3.25rem);
   --text-fluid-section: clamp(1.8rem, 3.2vw, 2.5rem);
   --text-fluid-lead: clamp(1.25rem, 2vw, 1.5rem);
 
@@ -217,7 +221,7 @@ h1, h2, h3, h4, h5, h6 {
   letter-spacing: -0.025em;
 }
 
-h1 { font-size: var(--text-fluid-hero); font-weight: 800; letter-spacing: -0.035em; }
+h1 { font-size: var(--text-fluid-hero); font-weight: 700; letter-spacing: -0.035em; }
 h2 { font-size: var(--text-fluid-section); letter-spacing: -0.025em; }
 h3 { font-size: var(--text-fluid-lead); }
 h4 { font-size: var(--text-lg); }
@@ -384,7 +388,7 @@ code, pre {
 
 .nav-link {
   font-size: var(--text-base);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-stone-grey);
   padding: 0.35rem 0.5rem;
   position: relative;
@@ -505,8 +509,8 @@ code, pre {
 
 .hero-grid {
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
-  gap: 3.5rem;
+  grid-template-columns: 1.25fr 0.75fr;
+  gap: 3rem;
   align-items: center;
 }
 
@@ -777,7 +781,7 @@ code, pre {
   align-items: center;
   gap: 0.55rem;
   font-size: var(--text-sm);
-  font-weight: 500;
+  font-weight: 400;
   color: var(--color-glacier);
 }
 
@@ -837,7 +841,7 @@ code, pre {
 .metric-value {
   font-family: var(--font-heading);
   font-size: var(--text-2xl);
-  font-weight: 800;
+  font-weight: 700;
   color: var(--color-teal-signal);
   line-height: 1.1;
   display: flex;
@@ -1198,6 +1202,7 @@ code, pre {
 }
 
 .modal-close-btn {
+  font-family: var(--font-body);
   position: absolute;
   top: 1.25rem;
   right: 1.25rem;
@@ -1243,41 +1248,56 @@ code, pre {
 }
 
 /* Site Footer */
+/* ── THE FOOTER WAS A THIRD OF A SCREEN OF NOTHING ────────────────────────
+   4.5rem of padding, a 3.5rem gap under the grid, another 3rem between
+   columns and a 32px mark rendering at its natural size because the height was
+   set inline on one page and not on the others. On a 1440px screen it occupied
+   ~540px to carry twelve links. Halved throughout, and the mark is now 22px and
+   set HERE rather than inline, so it is the same size on all five pages.
+*/
 .site-footer {
   background: var(--bg-space-dark);
   border-top: 1px solid var(--border-glass);
-  padding: 4.5rem 0 2.5rem 0;
+  padding: 2.75rem 0 1.5rem 0;
   position: relative;
   z-index: 1;
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.5fr 1fr 1fr 1fr;
-  gap: 3rem;
-  margin-bottom: 3.5rem;
+  grid-template-columns: 1.6fr 1fr 1fr 1fr;
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.footer-mark img {
+  height: 22px;
+  width: auto;
+  display: block;
 }
 
 .footer-brand p {
-  margin-top: 1rem;
-  font-size: var(--text-base);
-  max-width: 320px;
+  margin-top: 0.85rem;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  max-width: 300px;
+  color: var(--color-stone-grey);
 }
 
 .footer-col-title {
-  font-size: var(--text-base);
-  font-weight: 700;
+  font-size: var(--text-2xs);
+  font-weight: 600;
   color: var(--color-glacier);
-  margin-bottom: 1.25rem;
+  margin-bottom: 0.85rem;
   text-transform: uppercase;
-  letter-spacing: 0.05em;
+  letter-spacing: 0.11em;
 }
 
 .footer-links {
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 
 .footer-links a {
@@ -1294,9 +1314,9 @@ code, pre {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-top: 2rem;
+  padding-top: 1.25rem;
   border-top: 1px solid rgba(255, 255, 255, 0.05);
-  font-size: var(--text-sm);
+  font-size: var(--text-2xs);
   color: var(--color-stone-dark);
 }
 
@@ -2174,7 +2194,7 @@ code, pre {
   background: var(--color-cairn-blue-dim);
   border: 1px solid rgba(37, 98, 235, 0.4);
   color: var(--color-cairn-blue-light);
-  font-weight: 500;
+  font-weight: 400;
 }
 
 .nist-card-summary {

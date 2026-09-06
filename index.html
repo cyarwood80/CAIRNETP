@@ -4,16 +4,22 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
-  <title>CAIRN Trust Fabric — Deterministic AI Governance &amp; Execution Layer</title>
+  <title>CAIRN Trust Fabric — Prove What Your AI Agents Actually Did</title>
   <meta name="description"
-    content="Most AI governance is a policy document. This is an enforcement layer. CAIRN provides deterministic AI governance, dual-runtime sandboxes, and tamper-evident decision ledgers.">
+    content="Governance defines what an AI is allowed to do. CAIRN proves it did only that — a runtime enforcement layer with dual-runtime sandboxes and a hash-chained decision ledger a reviewer can verify in their own browser.">
   <link rel="canonical" href="https://cairnetp.com/">
 
   <!-- Google Fonts & FontAwesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Two families, three weights each, and the request is identical on every
+       page. It was not: index.html and book.html asked for eight Jakarta weights
+       and the other three asked for seven, so a reader moving between pages
+       re-fetched a stylesheet that should have been a cache hit. Weights 500 and
+       800 were dropped after measuring: between them they styled six elements on
+       the whole site, and each was a file on the critical path. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Existing Live Site Stylesheets -->
@@ -100,13 +106,25 @@
             CAIRN TRUST FABRIC · RUNTIME ENFORCEMENT LAYER
           </div>
 
+          <!-- ── A1, 2026-09-06 ────────────────────────────────────────
+               The line is the competitive assessment's, verbatim, and it is
+               better than anything that was on the site because it concedes the
+               category and then takes the half of it nobody else can hold.
+               "Most AI governance is a policy document" argued with a strawman
+               that stopped being true this year: Credo, Holistic and Prisma AIRS
+               all enforce at runtime now. Claiming enforcement as the
+               differentiator dates the page. Claiming PROOF does not.
+          -->
           <h1 class="hero-title-unified">
-            Most AI governance is a <span class="text-gold-accent">policy document</span>.<br>
-            This is an <span class="text-teal-accent">enforcement layer</span>.
+            Governance defines what an AI is <span class="text-gold-accent">allowed</span> to do.<br>
+            CAIRN proves it <span class="text-teal-accent">did only that</span>.
           </h1>
 
           <p class="hero-desc">
-            CAIRN sits between an AI agent and anything it can affect — verifying, recording, and, where warranted, refusing — ensuring that critical enterprise operations run within provable, deterministic boundaries.
+            CAIRN sits between an AI agent and anything it can affect — verifying, recording, and,
+            where warranted, refusing. Every decision it makes is written to a hash-chained ledger
+            that a reviewer can check without installing CAIRN, and without taking our word for any
+            of it.
           </p>
 
           <!-- Conviction Callout Quote -->
@@ -740,27 +758,38 @@ This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-
     </div>
   </section>
 
-  <!-- Site Footer (EXACT MATCH TO SCREENSHOT 3) -->
+  <!-- ── ONE FOOTER, ON EVERY PAGE ─────────────────────────────────────────
+       There were FOUR. index.html used `.footer-col-title` and `.footer-links`;
+       licensing, gallery and book used a bare `<h4>` and a plain `<ul>` inside
+       `.footer-col`, which has no rules at all — so those lists rendered with
+       browser default bullets and default blue links, and read as a different
+       typeface on a page that loads exactly two. compliance.html was a fourth
+       shape again.
+
+       Every anchor here is ABSOLUTE (`/#architecture`). The relative form was a
+       dead link on four pages out of five, which is the defect the header fix
+       hit on 2026-09-06 and it had simply gone unnoticed down here. gallery.html
+       also pointed at `index.html#trust-plane`, an id that has never existed.
+
+       If this block is edited, edit it in all five pages. `npm run
+       footer:check` fails the build if they drift apart.
+  -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
 
-        <!-- Col 1: Brand & Identity (Exact match to screenshot 3) -->
         <div class="footer-brand">
-          <a href="/" class="brand-logo" style="margin-bottom: 1rem;">
-            <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" style="height: 32px;" onerror="this.src='assets/cairn-logo.svg'">
+          <a href="/" class="brand-logo footer-mark" title="CAIRN Trust Fabric">
+            <img src="assets/cairn-symbol-3d.png" alt="" onerror="this.src='assets/cairn-logo.svg'">
             <div class="brand-name-group">
-              <span class="brand-title" style="font-size: var(--text-md);">C<span class="dot-a">A</span>IRN</span>
-              <span class="brand-tagline" style="font-size: var(--text-2xs);">Trust Fabric</span>
+              <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline">Trust Fabric</span>
             </div>
           </a>
           <p>
-            The Enterprise Trust Fabric for deterministic AI governance, dual-runtime isolation, and verifiable decision ledgers.
+            The runtime enforcement layer for enterprise AI: verified, recorded, and refused
+            where warranted.
           </p>
-          <!-- Two unlabelled icon chips became two labelled links when the
-               LinkedIn mark went: it is a trademark Simple Icons no longer
-               publishes, and an approximation of a trademark is a worse answer
-               than the word. -->
           <div class="footer-social">
             <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener">
               <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg> GitHub
@@ -769,45 +798,40 @@ This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-
           </div>
         </div>
 
-        <!-- Col 2: Platform (Exact match to screenshot 3) -->
         <div>
-          <div class="footer-col-title">PLATFORM</div>
+          <div class="footer-col-title">Platform</div>
           <ul class="footer-links">
-            <li><a href="#architecture">Pillars</a></li>
-            <li><a href="#architecture">4-Tier Cairn System</a></li>
-            <li><a href="#assurance">Assurance Ladder</a></li>
-            <li><a href="#evidence">Verify the evidence</a></li>
-            <li><a href="#faq">Architecture FAQ</a></li>
-            <li><a href="#download">Download CAIRN</a></li>
+            <li><a href="/#architecture">Architecture</a></li>
+            <li><a href="/#assurance">Assurance ladder</a></li>
+            <li><a href="/#refusals">What a refusal looks like</a></li>
+            <li><a href="/#evidence">Verify the evidence</a></li>
+            <li><a href="/#download">Download CAIRN</a></li>
           </ul>
         </div>
 
-        <!-- Col 3: Governance (Exact match to screenshot 3) -->
         <div>
-          <div class="footer-col-title">GOVERNANCE</div>
+          <div class="footer-col-title">Company</div>
           <ul class="footer-links">
-            <li><a href="compliance.html">Compliance Mappings</a></li>
-            <li><a href="licensing.html">Licensing &amp; Tiers</a></li>
-            <li><a href="gallery.html">Product UI Gallery</a></li>
-            <li><a href="book.html">CAIRN: Engineering a Sovereign AI Agent Platform</a></li>
+            <li><a href="compliance.html">Compliance mapping</a></li>
+            <li><a href="licensing.html">Licensing &amp; tiers</a></li>
+            <li><a href="gallery.html">UI gallery</a></li>
+            <li><a href="book.html">The book</a></li>
           </ul>
         </div>
 
-        <!-- Col 4: Enterprise (Exact match to screenshot 3) -->
         <div>
-          <div class="footer-col-title">ENTERPRISE</div>
+          <div class="footer-col-title">Contact</div>
           <ul class="footer-links">
+            <li><a href="javascript:void(0)" class="open-demo-btn">Request a pilot</a></li>
             <li><a href="mailto:enterprise@cairnetp.com">enterprise@cairnetp.com</a></li>
             <li><a href="mailto:security@cairnetp.com">security@cairnetp.com</a></li>
-            <li><a href="javascript:void(0)" class="open-demo-btn">Request a pilot</a></li>
-            <li><a href="https://cairnetp.com">cairnetp.com</a></li>
           </ul>
         </div>
 
       </div>
 
       <div class="footer-bottom">
-        <p>&copy; 2026 CAIRN ETP. Created by Chris Yarwood. Licensed under BUSL 1.1 converting to Apache 2.0 in 2030.</p>
+        <p>&copy; CAIRN Trust Fabric</p>
       </div>
     </div>
   </footer>

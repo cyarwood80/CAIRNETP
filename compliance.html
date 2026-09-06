@@ -119,8 +119,14 @@
   <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Two families, three weights each, and the request is identical on every
+       page. It was not: index.html and book.html asked for eight Jakarta weights
+       and the other three asked for seven, so a reader moving between pages
+       re-fetched a stylesheet that should have been a cache hit. Weights 500 and
+       800 were dropped after measuring: between them they styled six elements on
+       the whole site, and each was a file on the critical path. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome Icons -->
@@ -196,7 +202,7 @@
           Enterprise Compliance & Regulatory Framework Mapping
         </h1>
         
-        <h2 style="font-size: var(--text-xl); font-weight: 500; color: #38bdf8; font-family: var(--font-mono); margin-bottom: 1rem;">
+        <h2 style="font-size: var(--text-xl); font-weight: 400; color: #38bdf8; font-family: var(--font-mono); margin-bottom: 1rem;">
           Deterministic AI Governance by Design
         </h2>
 
@@ -501,49 +507,80 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ── ONE FOOTER, ON EVERY PAGE ─────────────────────────────────────────
+       There were FOUR. index.html used `.footer-col-title` and `.footer-links`;
+       licensing, gallery and book used a bare `<h4>` and a plain `<ul>` inside
+       `.footer-col`, which has no rules at all — so those lists rendered with
+       browser default bullets and default blue links, and read as a different
+       typeface on a page that loads exactly two. compliance.html was a fourth
+       shape again.
+
+       Every anchor here is ABSOLUTE (`/#architecture`). The relative form was a
+       dead link on four pages out of five, which is the defect the header fix
+       hit on 2026-09-06 and it had simply gone unnoticed down here. gallery.html
+       also pointed at `index.html#trust-plane`, an id that has never existed.
+
+       If this block is edited, edit it in all five pages. `npm run
+       footer:check` fails the build if they drift apart.
+  -->
   <footer class="site-footer">
-    <div class="container footer-grid">
-      <div>
-        <div class="brand-logo" style="margin-bottom: 1rem;">
-          <img src="assets/cairn-symbol.png" alt="CAIRN Symbol" style="height: 32px;">
-          <span>CAIRN<span class="text-oxide"> ETP</span></span>
+    <div class="container">
+      <div class="footer-grid">
+
+        <div class="footer-brand">
+          <a href="/" class="brand-logo footer-mark" title="CAIRN Trust Fabric">
+            <img src="assets/cairn-symbol-3d.png" alt="" onerror="this.src='assets/cairn-logo.svg'">
+            <div class="brand-name-group">
+              <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline">Trust Fabric</span>
+            </div>
+          </a>
+          <p>
+            The runtime enforcement layer for enterprise AI: verified, recorded, and refused
+            where warranted.
+          </p>
+          <div class="footer-social">
+            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
-        <p style="color: var(--color-stone-grey); font-size: var(--text-sm); margin-bottom: 1.5rem; max-width: 320px;">
-          We help organisations trust AI. The deterministic trust plane for enterprise intelligence.
-        </p>
-        <p style="color: var(--color-stone-dark); font-size: var(--text-xs);">
-          &copy; 2026 CAIRN Enterprise Systems. CAIRN Trust Fabric is source-available under BUSL 1.1.
-        </p>
+
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <ul class="footer-links">
+            <li><a href="/#architecture">Architecture</a></li>
+            <li><a href="/#assurance">Assurance ladder</a></li>
+            <li><a href="/#refusals">What a refusal looks like</a></li>
+            <li><a href="/#evidence">Verify the evidence</a></li>
+            <li><a href="/#download">Download CAIRN</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="compliance.html">Compliance mapping</a></li>
+            <li><a href="licensing.html">Licensing &amp; tiers</a></li>
+            <li><a href="gallery.html">UI gallery</a></li>
+            <li><a href="book.html">The book</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" class="open-demo-btn">Request a pilot</a></li>
+            <li><a href="mailto:enterprise@cairnetp.com">enterprise@cairnetp.com</a></li>
+            <li><a href="mailto:security@cairnetp.com">security@cairnetp.com</a></li>
+          </ul>
+        </div>
+
       </div>
 
-      <div>
-        <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Platform</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="index.html#outcomes" class="nav-link" style="padding: 0;">Business Outcomes</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="index.html#trust-plane" class="nav-link" style="padding: 0;">Trust Layer</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="index.html#architecture" class="nav-link" style="padding: 0;">Architecture</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="licensing.html" class="nav-link" style="padding: 0;">Licensing</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Governance & Legal</h4>
-        <ul style="list-style: none; padding: 0;">
-          <li style="margin-bottom: 0.5rem;"><a href="compliance.html" class="nav-link" style="padding: 0;">Compliance Mapping</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="gallery.html" class="nav-link" style="padding: 0;">UI Interface Gallery</a></li>
-          <li style="margin-bottom: 0.5rem;"><a href="book.html" class="nav-link" style="padding: 0;">CAIRN: Engineering a Sovereign AI Agent Platform</a></li>
-        </ul>
-      </div>
-
-      <div>
-        <h4 style="font-size: var(--text-sm); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 1rem; color: var(--color-glacier);">Contact & Access</h4>
-        <button class="btn btn-primary open-demo-btn" style="width: 100%; justify-content: center; margin-bottom: 1rem;">
-          Request a pilot <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-        </button>
-        <p style="font-size: var(--text-xs); color: var(--color-stone-dark); text-align: center;">
-          Air-gapped and sovereign cloud deployment options available.
-        </p>
+      <div class="footer-bottom">
+        <p>&copy; CAIRN Trust Fabric</p>
       </div>
     </div>
   </footer>

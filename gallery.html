@@ -79,8 +79,14 @@
   <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <!-- Two families, three weights each, and the request is identical on every
+       page. It was not: index.html and book.html asked for eight Jakarta weights
+       and the other three asked for seven, so a reader moving between pages
+       re-fetched a stylesheet that should have been a cache hit. Weights 500 and
+       800 were dropped after measuring: between them they styled six elements on
+       the whole site, and each was a file on the critical path. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
     rel="stylesheet">
 
   <!-- Font Awesome Icons -->
@@ -102,7 +108,6 @@
     <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
     <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.1" cy="15.4" r="3.35"/><path d="M10.5 13 20 3.5"/><path d="m16.8 6.7 2.3 2.3"/><path d="m14.3 9.2 2.3 2.3"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
-    <symbol id="i-message" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 5.6v8.2a1.6 1.6 0 0 1-1.6 1.6H9.6L5 19.4v-3.9h-.4A1.6 1.6 0 0 1 3 13.8V5.6A1.6 1.6 0 0 1 4.6 4h14.3a1.6 1.6 0 0 1 1.6 1.6Z"/></symbol>
     <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9.2" y="3.2" width="5.6" height="4.4" rx="1"/><rect x="2.6" y="16.4" width="5.6" height="4.4" rx="1"/><rect x="15.8" y="16.4" width="5.6" height="4.4" rx="1"/><path d="M12 7.6v3.2M5.4 16.4v-2.4h13.2v2.4M12 10.8v3.2"/></symbol>
     <symbol id="i-sliders" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7.2h8.6M17.4 7.2H20M4 16.8h4.6M13.4 16.8H20"/><circle cx="15" cy="7.2" r="2.4"/><circle cx="11" cy="16.8" r="2.4"/></symbol>
   </svg>
@@ -710,55 +715,80 @@
     </div>
   </div>
 
-  <!-- Footer -->
+  <!-- ── ONE FOOTER, ON EVERY PAGE ─────────────────────────────────────────
+       There were FOUR. index.html used `.footer-col-title` and `.footer-links`;
+       licensing, gallery and book used a bare `<h4>` and a plain `<ul>` inside
+       `.footer-col`, which has no rules at all — so those lists rendered with
+       browser default bullets and default blue links, and read as a different
+       typeface on a page that loads exactly two. compliance.html was a fourth
+       shape again.
+
+       Every anchor here is ABSOLUTE (`/#architecture`). The relative form was a
+       dead link on four pages out of five, which is the defect the header fix
+       hit on 2026-09-06 and it had simply gone unnoticed down here. gallery.html
+       also pointed at `index.html#trust-plane`, an id that has never existed.
+
+       If this block is edited, edit it in all five pages. `npm run
+       footer:check` fails the build if they drift apart.
+  -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
-          <a href="/" class="brand-logo" title="CAIRN Trust Fabric">
-        <img src="assets/cairn-symbol-3d.png" alt="CAIRN Symbol" onerror="this.src='assets/cairn-logo.svg'">
-        <div class="brand-name-group">
-          <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
-          <span class="brand-tagline">Trust Fabric</span>
-        </div>
-      </a>
+          <a href="/" class="brand-logo footer-mark" title="CAIRN Trust Fabric">
+            <img src="assets/cairn-symbol-3d.png" alt="" onerror="this.src='assets/cairn-logo.svg'">
+            <div class="brand-name-group">
+              <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline">Trust Fabric</span>
+            </div>
+          </a>
           <p>
-            CAIRN is the trust plane for enterprise intelligence. We help organisations trust AI.
+            The runtime enforcement layer for enterprise AI: verified, recorded, and refused
+            where warranted.
           </p>
+          <div class="footer-social">
+            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
 
-        <div class="footer-col">
-          <h4>Platform</h4>
-          <ul>
-            <li><a href="index.html#trust-plane">Trust Layer</a></li>
-            <li><a href="licensing.html">Licensing & Tiers</a></li>
-            <li><a href="gallery.html">Architecture & Gallery</a></li>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <ul class="footer-links">
+            <li><a href="/#architecture">Architecture</a></li>
+            <li><a href="/#assurance">Assurance ladder</a></li>
+            <li><a href="/#refusals">What a refusal looks like</a></li>
+            <li><a href="/#evidence">Verify the evidence</a></li>
+            <li><a href="/#download">Download CAIRN</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>Publications</h4>
-          <ul>
-            <li><a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener">Order Book on Amazon</a>
-            </li>
-            <li><a href="book.html">CAIRN: Engineering a Sovereign AI Agent Platform</a></li>
-            <li><a href="book.html#about-author">About Chris Yarwood</a></li>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="compliance.html">Compliance mapping</a></li>
+            <li><a href="licensing.html">Licensing &amp; tiers</a></li>
+            <li><a href="gallery.html">UI gallery</a></li>
+            <li><a href="book.html">The book</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4>Connect</h4>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"> Chris Yarwood (LinkedIn)</a></li>
-            <li><a href="#" class="open-demo-btn"><svg class="icon text-oxide" aria-hidden="true"><use href="#i-message"></use></svg> Request a pilot</a></li>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" class="open-demo-btn">Request a pilot</a></li>
+            <li><a href="mailto:enterprise@cairnetp.com">enterprise@cairnetp.com</a></li>
+            <li><a href="mailto:security@cairnetp.com">security@cairnetp.com</a></li>
           </ul>
         </div>
+
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 CAIRN ETP. Hosted on Vercel at cairnetp.com.</div>
-        <div>Author: <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"
-            style="color: var(--color-oxide-green); text-decoration: none;">Chris Yarwood (LinkedIn)</a></div>
+        <p>&copy; CAIRN Trust Fabric</p>
       </div>
     </div>
   </footer>

@@ -88,7 +88,15 @@
   <!-- Google Fonts: IBM Plex Sans, Inter, IBM Plex Mono -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <!-- Two families, three weights each, and the request is identical on every
+       page. It was not: index.html and book.html asked for eight Jakarta weights
+       and the other three asked for seven, so a reader moving between pages
+       re-fetched a stylesheet that should have been a cache hit. Weights 500 and
+       800 were dropped after measuring: between them they styled six elements on
+       the whole site, and each was a file on the critical path. -->
+  <link
+    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    rel="stylesheet">
   
   <!-- Font Awesome Icons -->
   
@@ -166,7 +174,7 @@
             Engineering a Sovereign AI Agent Platform
           </h2>
 
-          <h3 style="font-size: var(--text-lg); font-weight: 500; color: var(--color-teal-signal); margin-bottom: 1.75rem;">
+          <h3 style="font-size: var(--text-lg); font-weight: 400; color: var(--color-teal-signal); margin-bottom: 1.75rem;">
             Architecture, Orchestration, Local LLMs and Enterprise Automation
           </h3>
 
@@ -248,51 +256,80 @@
     </div>
   </section>
 
-  <!-- Footer -->
+  <!-- ── ONE FOOTER, ON EVERY PAGE ─────────────────────────────────────────
+       There were FOUR. index.html used `.footer-col-title` and `.footer-links`;
+       licensing, gallery and book used a bare `<h4>` and a plain `<ul>` inside
+       `.footer-col`, which has no rules at all — so those lists rendered with
+       browser default bullets and default blue links, and read as a different
+       typeface on a page that loads exactly two. compliance.html was a fourth
+       shape again.
+
+       Every anchor here is ABSOLUTE (`/#architecture`). The relative form was a
+       dead link on four pages out of five, which is the defect the header fix
+       hit on 2026-09-06 and it had simply gone unnoticed down here. gallery.html
+       also pointed at `index.html#trust-plane`, an id that has never existed.
+
+       If this block is edited, edit it in all five pages. `npm run
+       footer:check` fails the build if they drift apart.
+  -->
   <footer class="site-footer">
     <div class="container">
       <div class="footer-grid">
+
         <div class="footer-brand">
-          <a href="/" class="brand-logo">
-            <img src="assets/cairn-symbol.png" alt="CAIRN Symbol" style="height: 32px;">
-            <span>CAIRN<span class="text-oxide"> ETP</span></span>
+          <a href="/" class="brand-logo footer-mark" title="CAIRN Trust Fabric">
+            <img src="assets/cairn-symbol-3d.png" alt="" onerror="this.src='assets/cairn-logo.svg'">
+            <div class="brand-name-group">
+              <span class="brand-title">C<span class="dot-a">A</span>IRN</span>
+              <span class="brand-tagline">Trust Fabric</span>
+            </div>
           </a>
-          <p style="color: var(--color-stone-grey);">
-            CAIRN: Engineering a Sovereign AI Agent Platform. Written by Chris Yarwood.
+          <p>
+            The runtime enforcement layer for enterprise AI: verified, recorded, and refused
+            where warranted.
           </p>
+          <div class="footer-social">
+            <a href="https://github.com/cairn-trust-fabric/cairn" target="_blank" rel="noopener">
+              <svg class="icon" aria-hidden="true"><use href="#i-github"></use></svg> GitHub
+            </a>
+            <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
         </div>
 
-        <div class="footer-col">
-          <h4 style="color: var(--color-glacier);">Platform</h4>
-          <ul>
-            <li><a href="/">CAIRN ETP Homepage</a></li>
-            <li><a href="/#trust-plane">Trust Layer</a></li>
-            <li><a href="/#architecture">Enterprise Architecture</a></li>
-            <li><a href="licensing.html">Licensing & Tiers</a></li>
-            <li><a href="gallery.html">UI Gallery</a></li>
+        <div>
+          <div class="footer-col-title">Platform</div>
+          <ul class="footer-links">
+            <li><a href="/#architecture">Architecture</a></li>
+            <li><a href="/#assurance">Assurance ladder</a></li>
+            <li><a href="/#refusals">What a refusal looks like</a></li>
+            <li><a href="/#evidence">Verify the evidence</a></li>
+            <li><a href="/#download">Download CAIRN</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4 style="color: var(--color-glacier);">Book Navigation</h4>
-          <ul>
-            <li><a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener">Order on Amazon UK</a></li>
-            <li><a href="#about-author">About Chris Yarwood</a></li>
+        <div>
+          <div class="footer-col-title">Company</div>
+          <ul class="footer-links">
+            <li><a href="compliance.html">Compliance mapping</a></li>
+            <li><a href="licensing.html">Licensing &amp; tiers</a></li>
+            <li><a href="gallery.html">UI gallery</a></li>
+            <li><a href="book.html">The book</a></li>
           </ul>
         </div>
 
-        <div class="footer-col">
-          <h4 style="color: var(--color-glacier);">Connect</h4>
-          <ul>
-            <li><a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener"> Chris Yarwood LinkedIn</a></li>
-            <li><a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener"> Amazon UK Paperback</a></li>
+        <div>
+          <div class="footer-col-title">Contact</div>
+          <ul class="footer-links">
+            <li><a href="javascript:void(0)" class="open-demo-btn">Request a pilot</a></li>
+            <li><a href="mailto:enterprise@cairnetp.com">enterprise@cairnetp.com</a></li>
+            <li><a href="mailto:security@cairnetp.com">security@cairnetp.com</a></li>
           </ul>
         </div>
+
       </div>
 
       <div class="footer-bottom">
-        <div>© 2026 CAIRN ETP. Hosted on Vercel at cairnetp.com.</div>
-        <div>Author: <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--color-teal-signal); text-decoration: none;">Chris Yarwood</a></div>
+        <p>&copy; CAIRN Trust Fabric</p>
       </div>
     </div>
   </footer>
