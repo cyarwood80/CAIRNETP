@@ -9,7 +9,8 @@
     "build": "npm run check",
     "metrics:check": "node scripts/check-metrics.mjs",
     "typography:check": "node scripts/check-typography.mjs",
-    "check": "npm run metrics:check && npm run typography:check"
+    "check": "npm run metrics:check && npm run typography:check && npm run deployable:check",
+    "deployable:check": "node scripts/check-deployable.mjs"
   },
   "keywords": [
     "cairn",

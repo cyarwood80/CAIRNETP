@@ -1313,7 +1313,17 @@ code, pre {
   }
 }
 
-@media (max-width: 768px) {
+/* ── THE HEADER COLLAPSES BEFORE IT OVERFLOWS, NOT AFTER ──────────────────
+   The nav only became a hamburger below 768px while the header needed 1139px to
+   lay out (748 nav + 186 logo + 206 actions). Every window between 769 and about
+   1180 therefore rendered an over-full header, and adding a "Register" link was
+   what pushed it over on a normal laptop.
+
+   Two changes together: the nav is six destinations rather than eight items --
+   the two that went were homepage anchors, which pointed at nothing on the other
+   five pages -- and the collapse now happens at 1024px, above the width the
+   remaining items need rather than far below it. */
+@media (max-width: 1024px) {
   .nav-links {
     display: none;
     position: absolute;

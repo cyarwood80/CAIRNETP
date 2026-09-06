@@ -195,13 +195,38 @@
   text-transform: uppercase;
   color: var(--color-stone-grey);
   margin-bottom: 0.6rem;
+  /* Two lines of caption on one card and one on its neighbour left the two
+     blocks starting at different heights. A fixed two-line box keeps the tops
+     aligned without shortening any caption. */
+  min-height: 2.6em;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-end;
 }
 
 .specimen-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
-  gap: 1.5rem;
+  /* TWO columns, not auto-fit.
+     `auto-fit, minmax(340px, 1fr)` gave three columns on a desktop, so four
+     specimens of very different lengths sat as an uneven row of three with the
+     fourth orphaned underneath, and the longest one squeezed into the narrowest
+     measure. Four items want two columns. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
   margin-top: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .specimen-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The caption is a label for the block beneath it, so it must not wrap into two
+   lines and then sit closer to the block above. */
+.specimen-grid > div {
+  min-width: 0;
 }
 
 /* ── THE TWO PATHS ─────────────────────────────────────────────────────────
