@@ -70,7 +70,7 @@ const WEIGHTS = new Set(['400', '600', '700', 'normal', 'bold', 'inherit']);
 
 /** Every page sends the same request, or the second page pays for the first. */
 const FONT_REQUEST =
-    'https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap';
+    'https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400;600&display=swap';
 
 const PAGES = ['index.html', 'compliance.html', 'gallery.html', 'licensing.html', 'book.html'];
 
@@ -205,7 +205,7 @@ async function main() {
     console.log(`\n  ${declarations} font-size declaration(s) · ${tokens.size} tokens declared · ${used.size} used\n`);
 
     if (problems.length === 0) {
-        console.log('  One scale, one weight set (400/600/700), two families, one font request.\n');
+        console.log('  One scale, one weight set (400/600/700), three families, one font request.\n');
         const unused = [...tokens].filter((t) => !used.has(t));
         if (unused.length) console.log(`  Declared and unused: ${unused.join(', ')}\n`);
         return;

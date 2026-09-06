@@ -19,7 +19,7 @@
        800 were dropped after measuring: between them they styled six elements on
        the whole site, and each was a file on the critical path. -->
   <link
-    href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Plus+Jakarta+Sans:wght@400;600;700&display=swap"
+    href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400;600&display=swap"
     rel="stylesheet">
 
   <!-- Existing Live Site Stylesheets -->
@@ -38,7 +38,6 @@
   <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
     <symbol id="i-alert-circle" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.75"/><path d="M12 7.5v5.25"/><circle cx="12" cy="16.4" r=".85" fill="currentColor" stroke="none"/></symbol>
     <symbol id="i-arrow-right" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 12h14.5"/><path d="M12.75 6.25 19 12l-6.25 5.75"/></symbol>
-    <symbol id="i-ban" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.75"/><path d="M5.8 5.8 18.2 18.2"/></symbol>
     <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M13.6 2.75 5.5 13.4h5.6l-1.1 7.85 8.5-10.9h-5.7z"/></symbol>
     <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="m6.5 9.75 5.5 5.25 5.5-5.25"/></symbol>
     <symbol id="i-clipboard-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.2 4.2h5.6v2.9H9.2z"/><path d="M14.8 5.6h2.9v14.2H6.3V5.6h2.9"/><path d="m8.9 12.9 2.2 2.2 3.9-4.1"/></symbol>
@@ -52,6 +51,7 @@
     <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.4" width="18" height="12.2" rx="1.6"/><path d="M9.4 20.2h5.2M12 16.6v3.6"/></symbol>
     <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9.2" y="3.2" width="5.6" height="4.4" rx="1"/><rect x="2.6" y="16.4" width="5.6" height="4.4" rx="1"/><rect x="15.8" y="16.4" width="5.6" height="4.4" rx="1"/><path d="M12 7.6v3.2M5.4 16.4v-2.4h13.2v2.4M12 10.8v3.2"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19.4 5.9v5.5c0 4.4-3 7.9-7.4 9.6-4.4-1.7-7.4-5.2-7.4-9.6V5.9z"/></symbol>
+    <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19.4 5.9v5.5c0 4.4-3 7.9-7.4 9.6-4.4-1.7-7.4-5.2-7.4-9.6V5.9z"/><path d="m8.7 11.8 2.4 2.4 4.2-4.4"/></symbol>
     <symbol id="i-stairs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 20.2v-3.9h4.4v-3.9h4.4V8.5h4.4V4.6h3.9"/></symbol>
     <symbol id="i-terminal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.4" width="18" height="15.2" rx="1.8"/><path d="m7.6 9.6 2.8 2.6-2.8 2.6"/><path d="M13 15h3.6"/></symbol>
   </svg>
@@ -96,6 +96,11 @@
 
   <!-- Hero Section -->
   <section class="hero-section" id="hero">
+    <!-- The product, at rest. Requests arrive from the left, most cross the
+         seam and dim, some are stopped at it. It runs on load, so the first
+         frame a visitor sees is the thing working rather than a picture of it.
+         js/gate.js -->
+    <canvas id="gate-canvas" aria-hidden="true"></canvas>
     <div class="container">
       <div class="hero-grid">
 
@@ -191,7 +196,7 @@
   </section>
 
   <!-- Problem Section (Consistent Width, Font, and Hierarchy) -->
-  <section id="problem" class="section-spacing" style="background: rgba(3, 9, 19, 0.4); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
+  <section id="problem" class="section-spacing" style="background: rgba(5, 8, 10, 0.4); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
     <div class="container">
       <div class="section-title-wrap is-left">
         <div class="status-pill status-pill-teal">
@@ -265,7 +270,7 @@
        without reintroducing the page. -->
 
   <!-- CAIRN ARCHITECTURE: PLACED DIRECTLY UNDERNEATH SECTORS BAR -->
-  <section id="architecture" class="section-spacing" style="background: rgba(3, 9, 19, 0.6); border-bottom: 1px solid var(--border-card);">
+  <section id="architecture" class="section-spacing" style="background: rgba(5, 8, 10, 0.6); border-bottom: 1px solid var(--border-card);">
     <div class="container">
       
       <div class="section-title-wrap is-left">
@@ -324,7 +329,7 @@
 
         <!-- Right: 3D Stack Visual -->
         <div class="dashboard-card" style="padding: 2.5rem; justify-content: center; align-items: center; text-align: center;">
-          <img src="assets/cairn-symbol-3d.png" alt="Stacked Cairn Layers" style="width: 220px; height: auto; margin-bottom: 2rem; filter: drop-shadow(0 15px 30px rgba(37, 98, 235, 0.4));" onerror="this.src='assets/cairn-logo.svg'">
+          <img src="assets/cairn-symbol-3d.png" alt="Stacked Cairn Layers" style="width: 220px; height: auto; margin-bottom: 2rem; filter: drop-shadow(0 15px 30px rgba(232, 130, 60, 0.4));" onerror="this.src='assets/cairn-logo.svg'">
           <h3 style="margin-bottom: 0.75rem;">Layered Trust Composition</h3>
           <p style="font-size: var(--text-base); max-width: 440px; margin: 0 auto 1.5rem auto;">
             Seven cooperating subsystems (PATH, CAIRN, COMPASS, ATLAS, FORGE, CRUCIBLE, BEACON) execute across the 4 physical stones bounded by a default-deny gate nothing bypasses.
@@ -359,7 +364,7 @@
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 1</div>
           <div class="ladder-step-title">Static Checked</div>
-          <span class="ladder-step-status" style="background: rgba(245, 158, 11, 0.15); color: #fbbf24; border-color: rgba(245, 158, 11, 0.3);">Inspected</span>
+          <span class="ladder-step-status" style="background: rgba(135, 149, 156, 0.14); color: var(--color-glacier-dim); border-color: rgba(135, 149, 156, 0.32);">Inspected</span>
           <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">AST syntax parsing and secret regex scan.</p>
         </div>
 
@@ -387,7 +392,7 @@
         <div class="ladder-step">
           <div class="ladder-step-num">TIER 5</div>
           <div class="ladder-step-title">Idempotent</div>
-          <span class="ladder-step-status" style="background: rgba(20, 200, 166, 0.25); border-color: #14c8a6;">Verified</span>
+          <span class="ladder-step-status" style="background: rgba(127, 212, 193, 0.25); border-color: #7fd4c1;">Verified</span>
           <p style="font-size: var(--text-xs); color: var(--color-stone-grey); margin-top: 0.5rem;">Safely repeatable without state corruption.</p>
         </div>
       </div>
@@ -548,56 +553,78 @@
     </div>
   </section>
 
-  <!-- Download Section (Preserved Live Site) -->
-  <!-- ── WHAT A REFUSAL ACTUALLY LOOKS LIKE ─────────────────────────────────
-       Verbatim output from a running CAIRN. Nothing here is written for the
-       page. It replaces a "governance simulator" whose logs were invented.
+  <!-- ── THE GATE, RUNNING ─────────────────────────────────────────────────
+       Replaces four static boxes headed "what a refusal looks like", 2026-09-07.
+
+       The evidence is identical and the frame is the opposite. Those boxes were
+       a list of what CAIRN stops, read top to bottom, and a reader arrived at
+       the end of them with an impression of a product defined by what it
+       refuses. This is the same four refusals plus the case that matters most
+       commercially -- one that is ALLOWED -- presented as what it actually is:
+       every action gets a decision, and here is the decision, the reason, the
+       remedy and the timing.
+
+       The four refusals are verbatim from a running instance, unedited. The
+       allowed case carries no invented prose, only the fields the record holds:
+       writing plausible CAIRN output onto a marketing page would be exactly the
+       thing this product exists to stop other people doing.
+
+       Each decision is appended to a chain and hashed in the reader's browser.
+       js/gate.js.
   -->
-  <section id="refusals" class="section-ink">
+  <section id="gate" class="section-ink">
     <div class="container">
       <div class="ink-eyebrow">
-        <svg class="icon" aria-hidden="true"><use href="#i-ban"></use></svg> What a refusal looks like
+        <svg class="icon" aria-hidden="true"><use href="#i-shield-check"></use></svg> Enforcement, demonstrated
       </div>
-      <h2 class="ink-title">The product tells you what it stopped, and what to do about it.</h2>
+      <h2 class="ink-title">Every action gets a decision. Pick one and watch it happen.</h2>
       <p class="ink-lede">
-        These are copied from a running instance, unedited. A refusal that only says what happened
-        leaves an operator stuck; each of these names the file to change and the decision they are
-        making by changing it.
+        Five requests from a real agent session. The verdict, the reason, the remedy and the timing
+        are what CAIRN prints — and every decision is appended to the ledger below, hashed to the one
+        before it, in your browser.
       </p>
 
-      <div class="specimen-grid">
-        <div>
-          <div class="refusal-caption">Destination outside the declared scope</div>
-          <div class="refusal-specimen"><span class="refusal-verdict">EGRESS BLOCKED:</span> 'claude-code' may address example.com and 'email_send' was directed at elsewhere.net. Nothing was sent. <span class="refusal-remedy">Add elsewhere.net to this client's `domains` in vault/mcpInboundClients.json if it should be reachable.</span></div>
+      <div class="gate-chips" role="group" aria-label="Choose a request">
+        <button type="button" class="gate-chip" data-i="0" data-verdict="allowed" aria-pressed="true"><span class="gate-dot"></span>Read a project file</button>
+        <button type="button" class="gate-chip" data-i="1" data-verdict="blocked" aria-pressed="false"><span class="gate-dot"></span>Send outside the declared scope</button>
+        <button type="button" class="gate-chip" data-i="2" data-verdict="blocked" aria-pressed="false"><span class="gate-dot"></span>A credential in the payload</button>
+        <button type="button" class="gate-chip" data-i="3" data-verdict="blocked" aria-pressed="false"><span class="gate-dot"></span>Delete a directory on the host</button>
+        <button type="button" class="gate-chip" data-i="4" data-verdict="blocked" aria-pressed="false"><span class="gate-dot"></span>A result that contradicts itself</button>
+      </div>
+
+      <div class="gate-stage" id="gate-stage">
+        <div class="gate-side">
+          <div class="gate-label">The request</div>
+          <div class="gate-req" id="gate-req"></div>
+          <div class="gate-track"><i></i></div>
         </div>
 
-        <div>
-          <div class="refusal-caption">Content, where the destination was fine</div>
-          <div class="refusal-specimen"><span class="refusal-verdict">EGRESS BLOCKED:</span> secret_like may not be sent to a "cloud" endpoint. Detected: high-entropy token of length 62. Nothing was sent by 'email_send' for 'claude-code'. <span class="refusal-remedy">This is the content, not the destination: the host was in scope. If this data is meant to leave, move its tag out of `deny` for the "cloud" boundary in vault/egress_policy.json — deliberately, since that decision applies to every tool and client on this node.</span></div>
+        <div class="gate-seam" aria-hidden="true"></div>
+
+        <div class="gate-side">
+          <div class="gate-label">The decision</div>
+          <div class="gate-verdict" id="gate-verdict" data-kind="allowed">ALLOWED</div>
+          <div class="gate-timing" id="gate-timing"></div>
+          <pre class="gate-output" id="gate-output"></pre>
         </div>
+      </div>
 
-        <div>
-          <div class="refusal-caption">A destructive command, refused before it runs</div>
-          <div class="refusal-specimen"><span class="refusal-verdict">GOVERNANCE BLOCK:</span> 'execute_command' was not authorised.
-  - Policy Breach [SECURITY | No High-Risk Payload on the Host]
-  - Static risk CRITICAL forbids direct host execution of 'execute_command' (FS_RECURSIVE_DELETE_PS). It must be repaired, or run only in an isolated sandbox.
-
-This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-remedy">and cannot be overridden by approval.</span></div>
+      <div class="gate-ledger">
+        <div class="gate-ledger-head">
+          <span>Decision ledger &middot; SHA-256, chained</span>
+          <span class="gate-actions">
+            <button type="button" class="gate-mini" id="gate-tamper">Alter a record</button>
+            <button type="button" class="gate-mini" id="gate-reset">Restore</button>
+          </span>
         </div>
-
-        <div>
-          <div class="refusal-caption">A grade withheld, because the result contradicted itself</div>
-          <div class="refusal-specimen">Verification — measured by the system, not written by the model.
-
-- Assurance grade: <span class="refusal-verdict">WITHHELD</span> — the verification result is internally inconsistent.
-  <span class="refusal-remedy">It reports execution in a container while grading the run `static_only` ("nothing was executed"). Those cannot both be true, so no grade is stated. The captured output below is real; what it certifies is not established. Please report this — it is a defect in CAIRN, not in your script.</span></div>
-        </div>
+        <div class="gate-rows" id="gate-rows"></div>
+        <div class="gate-foot" id="gate-foot">&nbsp;</div>
       </div>
 
       <p style="color: var(--color-stone-grey); font-size: var(--text-sm); max-width: 760px; line-height: 1.7; margin-top: 2rem;">
-        The last one is the one worth reading twice. CAIRN would rather print
-        <strong style="color: var(--color-glacier);">no grade at all</strong> than a grade it cannot stand behind,
-        and it tells you the fault is its own.
+        A refusal that only says what happened leaves an operator stuck. Each of these names the file
+        to change and the decision they are making by changing it — which is the difference between a
+        control that blocks work and one that governs it.
       </p>
     </div>
   </section>
@@ -621,16 +648,17 @@ This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-
        CAIRN exports, so what runs here and what an auditor runs offline are the
        same check.
   -->
-  <section id="evidence" class="section-spacing" style="background: rgba(3, 9, 19, 0.6); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
+  <section id="evidence" class="section-spacing" style="background: rgba(5, 8, 10, 0.6); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
     <div class="container">
       <div class="status-pill status-pill-teal" style="margin-bottom: 1.25rem;">
-        <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg> VERIFIED IN YOUR BROWSER
+        <svg class="icon" aria-hidden="true"><use href="#i-link"></use></svg> A REAL BUNDLE, VERIFIED IN YOUR BROWSER
       </div>
-      <h2 style="font-size: var(--text-4xl); margin-bottom: 1rem;">Do not take our word for the record. Break it.</h2>
+      <h2 style="font-size: var(--text-4xl); margin-bottom: 1rem;">This is what your auditor receives.</h2>
       <p style="color: var(--color-stone-grey); font-size: var(--text-md); max-width: 760px; line-height: 1.7; margin-bottom: 2rem;">
-        Below is a real evidence bundle exported by CAIRN — a throwaway vault driven through the real
-        gates, with a real hash chain. Your browser recomputes every hash on your machine; nothing here
-        runs on a CAIRN server, because in a customer deployment there is no CAIRN server.
+        The decisions above were made on this page. <strong style="color: var(--color-glacier);">This is a
+        real evidence bundle</strong> — a vault driven through the real gates and exported by the real
+        exporter, with the hash chain it shipped with. Your browser recomputes every hash on your
+        machine; nothing here runs on a CAIRN server, because in a customer deployment there is none.
         <strong style="color: var(--color-glacier);">Alter a record and the chain says so. Repair its hash and it still says so.</strong>
         There is no edit that leaves the chain intact, and you can prove that here rather than believe it.
       </p>
@@ -803,7 +831,7 @@ This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-
           <ul class="footer-links">
             <li><a href="/#architecture">Architecture</a></li>
             <li><a href="/#assurance">Assurance ladder</a></li>
-            <li><a href="/#refusals">What a refusal looks like</a></li>
+            <li><a href="/#gate">Watch a decision</a></li>
             <li><a href="/#evidence">Verify the evidence</a></li>
             <li><a href="/#download">Download CAIRN</a></li>
           </ul>
@@ -898,6 +926,7 @@ This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-
   -->
   <script src="js/main.js" defer></script>
   <script src="js/chain-verify.js" defer></script>
+  <script src="js/gate.js" defer></script>
 
 </body>
 </html>
