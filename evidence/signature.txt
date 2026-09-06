@@ -1,0 +1,1 @@
+UNSIGNED — no signing key was supplied at export time. File hashes in manifest.json still detect accidental corruption, but cannot prove origin.

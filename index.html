@@ -128,19 +128,38 @@
           </div>
         </div>
 
-        <!-- Right Column: Preserved 3D Cairn Stage -->
+        <!-- ── RIGHT COLUMN: THE PRODUCT, NOT A PICTURE OF IT ─────────────
+             This held a 3D render of the cairn with two decorative pills
+             reading "Default-Deny Gate Active" and "SHA-256 Chained
+             Provenance". Both were claims, in a typeface, next to an
+             illustration -- exactly the kind of assertion the product exists to
+             replace with evidence.
+
+             It now holds a real evidence bundle and the reader's own browser
+             checking it. See js/chain-verify.js for why this rather than a
+             hosted instance: a CAIRN running on our server would contradict the
+             local-first claim it exists to demonstrate.
+        -->
         <div class="hero-stage">
-          <div class="hero-cairn-container">
-            <img src="assets/cairn-symbol-3d.png" alt="3D Cairn Trust Fabric Stack" class="hero-3d-cairn-img" onerror="this.src='assets/cairn-logo.svg'">
-            
-            <div class="floating-telemetry-pill pill-top-right">
-              <i class="fas fa-shield-check text-teal"></i>
-              <span>Default-Deny Gate Active</span>
+          <div class="chain-verifier" id="chain-verifier">
+            <div class="chain-verifier-head">
+              <span class="chain-verifier-title">Evidence ledger &middot; verified in your browser</span>
             </div>
 
-            <div class="floating-telemetry-pill pill-bottom-left">
-              <i class="fas fa-fingerprint text-teal"></i>
-              <span>SHA-256 Chained Provenance</span>
+            <div class="chain-status chain-status-working" id="chain-status">Loading the bundle&hellip;</div>
+
+            <div class="chain-progress"><div class="chain-progress-bar" id="chain-progress-bar"></div></div>
+
+            <div class="chain-detail" id="chain-detail">
+              A real bundle exported by CAIRN. Every hash is recomputed here, on your machine.
+            </div>
+
+            <div class="chain-actions">
+              <button type="button" class="chain-btn" id="chain-tamper">Alter a record and re-check</button>
+              <button type="button" class="chain-btn" id="chain-repair" hidden>Now repair its hash</button>
+              <button type="button" class="chain-btn" id="chain-reset" hidden>Restore the original</button>
+              <a class="chain-btn chain-btn-link" href="evidence/ledger.jsonl" download>Download the ledger</a>
+              <a class="chain-btn chain-btn-link" href="evidence/VERIFY.md">How to check it offline</a>
             </div>
           </div>
         </div>
@@ -748,6 +767,7 @@ This decision was recorded (decision dec-7220b61df20289c0) <span class="refusal-
        how a modal opens and shuts itself.
   -->
   <script src="js/main.js" defer></script>
+  <script src="js/chain-verify.js" defer></script>
 
 </body>
 </html>

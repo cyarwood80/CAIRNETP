@@ -284,3 +284,100 @@
   line-height: 1.7;
   color: var(--color-stone-grey);
 }
+
+/* ── THE CHAIN VERIFIER ────────────────────────────────────────────────────
+   The product surface, above the fold, doing the one thing that cannot be
+   faked: recomputing hashes over a real bundle in the reader's own browser.
+
+   Styled as instrument rather than as marketing — mono, tabular, a progress
+   bar that actually tracks work. It replaced a decorative 3D render in the hero
+   position, which is a fair trade: the render said "trust product" and this
+   says "here is the trust, check it".
+*/
+.chain-verifier {
+  background: var(--bg-space-dark);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.5rem;
+  font-family: var(--font-mono);
+  max-width: 560px;
+}
+
+.chain-verifier-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.chain-verifier-title {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-stone-grey);
+}
+
+.chain-status {
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.chain-status-working { color: var(--color-glacier-dim); }
+.chain-status-ok      { color: var(--color-teal-signal); }
+.chain-status-broken  { color: #ffc53d; }
+
+.chain-progress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: 0.9rem 0;
+}
+
+.chain-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--color-teal-signal);
+  transition: width 0.12s linear;
+}
+
+.chain-detail {
+  font-size: var(--text-2xs);
+  line-height: 1.7;
+  color: var(--color-stone-grey);
+  min-height: 3.4em;
+}
+
+.chain-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.chain-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+  background: transparent;
+  color: var(--color-glacier-dim);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.chain-btn:hover {
+  border-color: var(--color-teal-border);
+  color: var(--color-glacier);
+}
+
+.chain-btn-link {
+  border-color: transparent;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}

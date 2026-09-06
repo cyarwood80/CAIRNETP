@@ -1,0 +1,65 @@
+{
+  "bundleVersion": 1,
+  "product": "CAIRN Trust Fabric",
+  "node": {
+    "name": null,
+    "fingerprint": "0e9ddc9f0fa3b1d9614675caea4cf0c9",
+    "state": "UNNAMED",
+    "nameBasis": null
+  },
+  "generatedAt": "2026-09-06T16:30:42.318Z",
+  "window": {
+    "from": "beginning-of-record",
+    "to": "now"
+  },
+  "reason": "Scheduled compliance export",
+  "counts": {
+    "decisions": 25,
+    "spans": 0,
+    "auditEvents": 20,
+    "coverageGaps": 0,
+    "recordsPredatingIdentityModel": 0,
+    "distinctPersonActorsUpperBound": 1,
+    "personRecordsWithoutActorStamp": 0
+  },
+  "ledgerChainValid": true,
+  "controlMap": {
+    "source": "bundled",
+    "version": 1,
+    "asOf": "2026-08-20"
+  },
+  "files": {
+    "ledger.jsonl": {
+      "sha256": "9e4fbaa801e03e983da83010a6026c1a97c2dd8694609080ff0c965b217d7429",
+      "bytes": 51301
+    },
+    "spans.jsonl": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "audit.jsonl": {
+      "sha256": "e0c8317b9eacd47017b1caf67fc0340fc761ff737178c342edf1eebf4841a49d",
+      "bytes": 7457
+    },
+    "integrity.json": {
+      "sha256": "403b671804b280f062a554994c211c04f0e02ba893475a745b3faf54794a49fa",
+      "bytes": 398
+    },
+    "anchors.json": {
+      "sha256": "3dfccd9c2058b72a3c649296706a02b29ae5ced0619fba1dbcedd4afe0c302cc",
+      "bytes": 363
+    },
+    "coverage.json": {
+      "sha256": "1c7eeeba8b2ee8fa71071d5f9510b8994614374f057408b9242303b9027153d0",
+      "bytes": 840
+    },
+    "attribution.json": {
+      "sha256": "53e386ade996409142bfaa727c97f877b342923cabda9f2f50d2ed43ae4d3f3d",
+      "bytes": 7047
+    },
+    "controls.json": {
+      "sha256": "1663a3ab43c4c8d3ac7d14ea5abd1ae36acb13543a9f496b98b4f1ced8aa95f1",
+      "bytes": 10297
+    }
+  }
+}
