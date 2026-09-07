@@ -156,6 +156,14 @@
   flex-shrink: 0;
 }
 
+/* Nothing on this site should ever be wider than the box it is in. The gallery
+   spent its life as a 186px ribbon for want of this one rule. */
+img,
+svg,
+video {
+  max-width: 100%;
+}
+
 /* Base Resets */
 *, *::before, *::after {
   box-sizing: border-box;
@@ -1900,7 +1908,8 @@ code, pre {
   border-radius: var(--radius-lg);
   padding: 2.25rem;
   display: grid;
-  grid-template-columns: 1.15fr 0.85fr;
+  /* minmax(0, …), not bare fr: see the note above `img { max-width }`. */
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
   gap: 2.5rem;
   align-items: flex-start;
   position: relative;
@@ -2582,3 +2591,1468 @@ code, pre {
 }
 
 
+
+/* ==========================================================================
+   MERGED FROM css/hybrid_additions.css — 2026-09-07
+   ==========================================================================
+
+   There were two stylesheets and only index.html loaded the second one. Four
+   pages out of five were therefore missing every rule in it, silently, and the
+   failure mode is invisible: an unstyled element does not error, it just looks
+   slightly wrong in a way nobody can name.
+
+   It had already cost twice. `.icon` went in there on 2026-09-06 and the
+   licensing matrix rendered as a column of 300x150 circles because nothing
+   matched. The gallery and book rules went in there on 2026-09-07 and did
+   nothing at all on the two pages they were written for.
+
+   Twice is a pattern, so the split is gone rather than the link being added to
+   four more pages. One stylesheet cannot be loaded by some pages and not
+   others.
+   ========================================================================== */
+/* ==========================================================================
+   CAIRN Trust Fabric — Unified Styling Additions (hybrid_additions.css)
+   Strictly adheres to:
+   - Typography: Plus Jakarta Sans (headings, body), IBM Plex Mono (code, data)
+   - Layout: Uniform 1240px container width across all sections
+   - Palette: Deep Space (#0a0e11), Cairn Blue (#E8823C), Trust Teal (#7FD4C1), Gold Accent (#E5A93C)
+   ========================================================================== */
+
+/* Hero Title Accent Highlights (Matching Plus Jakarta Sans Font Family) */
+.hero-title-unified {
+  font-family: var(--font-heading);
+  font-size: var(--text-fluid-hero);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.035em;
+  color: var(--color-glacier);
+  margin-bottom: 1.25rem;
+}
+
+.text-gold-accent {
+  color: #E5A93C;
+  font-weight: 700;
+}
+
+.text-teal-accent {
+  color: var(--color-teal-signal);
+  font-weight: 700;
+}
+
+/* Conviction Callout Quote */
+.conviction-quote-unified {
+  border-left: 3px solid var(--color-teal-signal);
+  padding: 0.75rem 1.25rem;
+  margin: 1.75rem 0;
+  font-family: var(--font-body);
+  font-style: italic;
+  font-size: var(--text-md);
+  line-height: 1.6;
+  color: var(--color-glacier);
+  background: rgba(127, 212, 193, 0.05);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+}
+
+/* Hero Telemetry Strip */
+.hero-telemetry-strip-unified {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: space-between;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.telemetry-item-unified {
+  display: flex;
+  align-items: baseline;
+  gap: 0.35rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  white-space: nowrap;
+}
+
+.telemetry-value-unified {
+  font-weight: 700;
+  font-size: var(--text-base);
+  color: var(--color-glacier);
+}
+
+.telemetry-label-unified {
+  color: var(--color-stone-grey);
+}
+
+/* Problem Section Contrast Cards */
+.problem-contrast-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.75rem;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.contrast-box {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  padding: 2rem;
+  backdrop-filter: blur(12px);
+  transition: transform var(--transition-fast), border-color var(--transition-fast);
+}
+
+.contrast-box:hover {
+  transform: translateY(-2px);
+}
+
+.contrast-box-highlight {
+  border-color: rgba(127, 212, 193, 0.35);
+  background: rgba(17, 23, 27, 0.85);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3), inset 0 0 20px rgba(127, 212, 193, 0.03);
+}
+
+.contrast-badge-flawed {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #F87171;
+  background: rgba(239, 68, 68, 0.12);
+  border: 1px solid rgba(239, 68, 68, 0.25);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.contrast-badge-verified {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+  background: var(--color-teal-dim);
+  border: 1px solid var(--color-teal-border);
+  padding: 0.25rem 0.6rem;
+  border-radius: 4px;
+  margin-bottom: 0.85rem;
+}
+
+.contrast-title {
+  font-family: var(--font-heading);
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-glacier);
+  margin-bottom: 0.6rem;
+}
+
+.contrast-desc {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-stone-grey);
+}
+
+@media (max-width: 768px) {
+  .problem-contrast-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ── REFUSAL SPECIMENS ──────────────────────────────────────────────────────
+   Real output, set as evidence rather than as decoration.
+
+   This replaced a "governance simulator" whose logs were hardcoded strings —
+   "[COMPASS LOG] Hashed audit trail entry #09843", "executed in 12ms" — none of
+   which had happened. On a product whose proposition is that its records can be
+   trusted, an invented record on the marketing page was the worst thing the site
+   carried.
+
+   Everything in these blocks is copied verbatim from a running CAIRN. That is
+   the point, and it is also why they are styled as terminal output and not as
+   prose: a reader should be able to tell at a glance that they are looking at
+   what the product said, not at what a copywriter said it says.
+*/
+.refusal-specimen {
+  background: var(--bg-space-dark);
+  border: 1px solid var(--border-card);
+  border-left: 3px solid var(--color-teal-signal);
+  border-radius: var(--radius-md);
+  padding: 1.15rem 1.35rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.75;
+  color: var(--color-glacier-dim);
+  overflow-x: auto;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.refusal-specimen .refusal-verdict {
+  color: var(--color-teal-signal);
+  font-weight: 600;
+}
+
+.refusal-specimen .refusal-remedy {
+  color: var(--color-glacier);
+}
+
+.refusal-caption {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-stone-grey);
+  margin-bottom: 0.6rem;
+  /* Two lines of caption on one card and one on its neighbour left the two
+     blocks starting at different heights. A fixed two-line box keeps the tops
+     aligned without shortening any caption. */
+  min-height: 2.6em;
+  line-height: 1.3;
+  display: flex;
+  align-items: flex-end;
+}
+
+.specimen-grid {
+  display: grid;
+  /* TWO columns, not auto-fit.
+     `auto-fit, minmax(340px, 1fr)` gave three columns on a desktop, so four
+     specimens of very different lengths sat as an uneven row of three with the
+     fourth orphaned underneath, and the longest one squeezed into the narrowest
+     measure. Four items want two columns. */
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-top: 2rem;
+  align-items: start;
+}
+
+@media (max-width: 900px) {
+  .specimen-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The caption is a label for the block beneath it, so it must not wrap into two
+   lines and then sit closer to the block above. */
+.specimen-grid > div {
+  min-width: 0;
+}
+
+/* ── THE TWO PATHS ─────────────────────────────────────────────────────────
+   An enterprise reviewer and a developer on one laptop want opposite proofs.
+   The reviewer wants the register and the mapping; the developer wants to see it
+   run, and wants to be told the awkward parts before they meet them. Presenting
+   one download for both left the second audience with nothing addressed to them.
+*/
+.path-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(380px, 1fr));
+  gap: 1.75rem;
+  margin-top: 2.5rem;
+  text-align: left;
+}
+
+.path-card {
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.path-card h3 {
+  font-size: var(--text-lg);
+  margin-bottom: 0.35rem;
+}
+
+.path-card .path-for {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+  margin-bottom: 0.9rem;
+}
+
+.path-card ul {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0 1.5rem 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.path-card li {
+  font-size: var(--text-sm);
+  color: var(--color-glacier-dim);
+  line-height: 1.6;
+  padding-left: 1.4rem;
+  position: relative;
+}
+
+.path-card li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--color-cairn-blue-light);
+}
+
+.path-card .path-actions {
+  margin-top: auto;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.path-honesty {
+  margin-top: 1.25rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--border-glass);
+  font-size: var(--text-2xs);
+  line-height: 1.7;
+  color: var(--color-stone-grey);
+}
+
+/* ── THE CHAIN VERIFIER ────────────────────────────────────────────────────
+   The product surface, above the fold, doing the one thing that cannot be
+   faked: recomputing hashes over a real bundle in the reader's own browser.
+
+   Styled as instrument rather than as marketing — mono, tabular, a progress
+   bar that actually tracks work. It replaced a decorative 3D render in the hero
+   position, which is a fair trade: the render said "trust product" and this
+   says "here is the trust, check it".
+*/
+.chain-verifier {
+  background: var(--bg-space-dark);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  padding: 1.35rem 1.5rem;
+  font-family: var(--font-mono);
+  max-width: 720px;
+}
+
+.chain-verifier-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  flex-wrap: wrap;
+}
+
+.chain-verifier-title {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-stone-grey);
+}
+
+.chain-status {
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.4;
+}
+
+.chain-status-working { color: var(--color-glacier-dim); }
+.chain-status-ok      { color: var(--color-teal-signal); }
+.chain-status-broken  { color: #ffc53d; }
+
+.chain-progress {
+  height: 3px;
+  background: rgba(255, 255, 255, 0.07);
+  border-radius: var(--radius-pill);
+  overflow: hidden;
+  margin: 0.9rem 0;
+}
+
+.chain-progress-bar {
+  height: 100%;
+  width: 0;
+  background: var(--color-teal-signal);
+  transition: width 0.12s linear;
+}
+
+.chain-detail {
+  font-size: var(--text-2xs);
+  line-height: 1.7;
+  color: var(--color-stone-grey);
+  min-height: 3.4em;
+}
+
+.chain-actions {
+  display: flex;
+  gap: 0.6rem;
+  margin-top: 1.1rem;
+  flex-wrap: wrap;
+}
+
+.chain-btn {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.04em;
+  padding: 0.5rem 0.9rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-glass);
+  background: transparent;
+  color: var(--color-glacier-dim);
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+
+.chain-btn:hover {
+  border-color: var(--color-teal-border);
+  color: var(--color-glacier);
+}
+
+/* ── THE CLAIMS REGISTER ───────────────────────────────────────────────────
+   Set as a reference document rather than as marketing: one column, generous
+   measure, status carried by a chip and a left border so the failures are as
+   scannable as the successes. A page that made the Partial rows harder to find
+   than the Works rows would be a highlight reel with a register's typography.
+*/
+.reg-summary {
+  display: flex;
+  align-items: baseline;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  margin-top: 2rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-card);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+}
+
+.reg-total { font-size: var(--text-md); color: var(--color-glacier); }
+.reg-total strong { font-size: var(--text-xl); }
+.reg-counts { display: flex; gap: 1rem; flex-wrap: wrap; }
+.reg-count { color: var(--color-stone-grey); }
+.reg-count strong { color: var(--color-glacier); }
+.reg-count-works strong { color: var(--color-teal-signal); }
+.reg-count-partial strong { color: #ffc53d; }
+.reg-count-roadmap strong { color: var(--color-cairn-blue-light); }
+.reg-count-never strong { color: var(--color-stone-grey); }
+.reg-reconciled { margin-left: auto; color: var(--color-stone-grey); }
+
+.reg-why {
+  margin-top: 1.25rem;
+  padding: 1rem 1.25rem;
+  border-left: 3px solid var(--color-cairn-blue);
+  background: var(--bg-surface-card);
+  border-radius: var(--radius-sm);
+  font-size: var(--text-sm);
+  line-height: 1.75;
+  color: var(--color-stone-grey);
+  max-width: 820px;
+}
+
+.reg-section { margin-top: 3rem; }
+.reg-section h2 {
+  font-size: var(--text-xl);
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.reg-rows { display: flex; flex-direction: column; gap: 0.9rem; }
+
+.reg-row {
+  border: 1px solid var(--border-card);
+  border-left: 3px solid var(--color-stone-dark);
+  border-radius: var(--radius-md);
+  padding: 1rem 1.25rem;
+  background: var(--bg-surface-card);
+}
+
+.reg-row.reg-works   { border-left-color: var(--color-teal-signal); }
+.reg-row.reg-partial { border-left-color: #ffc53d; }
+.reg-row.reg-roadmap { border-left-color: var(--color-cairn-blue-light); }
+.reg-row.reg-never   { border-left-color: var(--color-stone-dark); }
+
+.reg-row-head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.reg-row-head h3 {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-glacier);
+  margin: 0;
+  line-height: 1.5;
+}
+
+.reg-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 0.2rem 0.55rem;
+  border-radius: var(--radius-pill);
+  white-space: nowrap;
+  border: 1px solid var(--border-glass);
+  color: var(--color-stone-grey);
+}
+
+.reg-status-works   { color: var(--color-teal-signal); border-color: var(--color-teal-border); }
+.reg-status-partial { color: #ffc53d; border-color: rgba(255, 197, 61, 0.4); }
+.reg-status-roadmap { color: var(--color-cairn-blue-light); border-color: var(--border-highlight); }
+
+.reg-impl, .reg-notes {
+  margin-top: 0.6rem;
+  font-size: var(--text-2xs);
+  line-height: 1.75;
+  color: var(--color-stone-grey);
+}
+
+.reg-impl code, .reg-notes code {
+  font-family: var(--font-mono);
+  /* No font-size: inline code inherits the row it sits in. A relative size here
+     would be a fifteenth distinct value, which is how the 45 started. */
+  color: var(--color-glacier-dim);
+}
+
+.reg-notes { padding-top: 0.6rem; border-top: 1px solid var(--border-glass); }
+
+/* ── THE HEADER HAD NO NAVIGATION ON A PHONE ───────────────────────────────
+   Found 2026-09-06 by measuring, not by looking. At 375px the header row lays
+   out to 471px: the brand lockup is 186px, and the Contact button, the GitHub
+   button and the hamburger are laid out after it. The hamburger's left edge sat
+   at x=429 on a 375px viewport, 96px past the right of the screen, and because
+   the page clips horizontal overflow there was no scrollbar to reveal it.
+
+   So the mobile toggle rendered, was enabled, was wired in main.js — and could
+   not be touched. Every nav link on the site is inside `.nav-links`, which is
+   `display: none` below 1024px and only opens from that button. A visitor on a
+   phone had the homepage and nothing else.
+
+   The 2026-09-06 header fix moved the collapse from 768px to 1024px and measured
+   the DESKTOP row at 917px. It measured the wrong end: widening the breakpoint
+   makes the hamburger appear EARLIER, and nothing had ever measured what the row
+   costs once it does.
+
+   The fix drops the GitHub icon (it is in the footer, and in the download
+   section, on every page) and tightens the lockup and the gutter. Measured
+   after: 331px on a 375px viewport.
+*/
+@media (max-width: 640px) {
+  .container {
+    padding: 0 1rem;
+  }
+
+  .site-header .nav-wrap {
+    height: 64px;
+  }
+
+  .site-header .header-logo-img {
+    height: 32px;
+  }
+
+  .site-header .header-actions {
+    gap: 0.5rem;
+  }
+
+  /* The GitHub link, not the Contact button: a first-time visitor on a phone is
+     more likely to want to reach a person than a repository, and the repository
+     is linked twice more on the page below. */
+  .site-header .header-actions .btn-outline {
+    display: none;
+  }
+
+  .site-header .header-actions .open-demo-btn {
+    padding: 0.5rem 0.85rem;
+    font-size: var(--text-xs);
+  }
+
+  .nav-links {
+    top: 63px;
+  }
+}
+
+/* The open mobile panel sat at `z-index: auto` inside a header that establishes
+   its own stacking context via `backdrop-filter`. It resolved on top, but only
+   by document order, and its 0.98 background left the hero heading faintly
+   legible through the menu. Both are cheap to state outright. */
+@media (max-width: 1024px) {
+  .nav-links.open {
+    z-index: 1001;
+    background: var(--bg-deep-space);
+    box-shadow: 0 18px 40px -12px rgba(0, 0, 0, 0.75);
+  }
+}
+
+/* ==========================================================================
+   W4 — THE DESIGN PASS, 2026-09-06
+   ==========================================================================
+
+   The critique this answers, in one line each:
+
+   1. ONE TEXTURE FOR 7,200px. Eight sections, every one of them: pill, title,
+      subtitle, grid of boxes on a dark rectangle. Nothing changes, so nothing
+      is emphasised, so a reader skims. The page now has three surfaces —
+      SPACE (the default dark), PAPER (light, for the register extract) and
+      INK (near-black, type only, for the refusals). Two changes of tempo in a
+      long page is not decoration; it is the only way a long page has emphasis.
+
+   2. THE HIERARCHY WAS INVERTED. The loudest thing on the page was a marketing
+      headline; the most credible things — the refusals and the register — were
+      small mono in dark boxes. PAPER and INK exist to swap that round: the
+      evidence gets the biggest surfaces on the page and the argument gets to be
+      quiet.
+
+   3. IT LOOKED LIKE THE CATEGORY. Glassmorphic cards, pulsing dots and a
+      floating render are what every vendor in this segment ships. What none of
+      them ship is a page that opens with what the product cannot do. That is
+      the design as much as it is the copy — hence `.register-extract`, which is
+      set as a reference document rather than as a feature grid.
+*/
+
+:root {
+  /* PAPER — a warm off-white, not a white. A pure white next to #0a0e11 reads
+     as a broken stylesheet; this reads as paper. */
+  --paper-bg: #f1eee8;
+  --paper-bg-raised: #f8f6f2;
+  --paper-ink: #131b25;
+  --paper-ink-soft: #4f5964;
+  --paper-rule: rgba(19, 27, 37, 0.13);
+  --paper-rule-strong: rgba(19, 27, 37, 0.28);
+
+  /* INK — below the page's own background. The refusals section drops out of
+     the surrounding surface rather than sitting on it. */
+  --ink-bg: #010509;
+}
+
+/* ── SURFACE: PAPER — CURRENTLY UNUSED ─────────────────────────────────────
+   The one section that used this, `#register-extract`, was removed on
+   2026-09-06 with register.html: the homepage is a commercial surface and a
+   list of what the product cannot do belongs behind an evaluation conversation.
+
+   The rules are KEPT, and that is a decision rather than an oversight. Paper was
+   half of W4's structural argument — the page had one texture for 7,200px, and
+   two changes of tempo is what gives a long page emphasis. With this section
+   gone there is one break left (INK, under the refusals), and the page is
+   flatter than it was. The surface is content-neutral and would work under the
+   assurance ladder or the two-ways-in section without carrying any of the copy
+   that was removed with it.
+
+   If a light section is never wanted, delete from here to "SURFACE: INK" —
+   about 150 lines — rather than leaving it to rot quietly.
+*/
+
+/* ── SURFACE: PAPER ───────────────────────────────────────────────────────── */
+
+.section-paper {
+  position: relative;
+  z-index: 1;
+  background: var(--paper-bg);
+  color: var(--paper-ink);
+  padding: 7rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.06);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+}
+
+.section-paper .container {
+  max-width: 1040px;
+}
+
+.paper-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--paper-ink-soft);
+  padding-bottom: 0.9rem;
+  border-bottom: 1px solid var(--paper-rule-strong);
+  margin-bottom: 2.5rem;
+}
+
+.paper-title {
+  font-size: var(--text-fluid-section);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  color: var(--paper-ink);
+  max-width: 20ch;
+  margin-bottom: 1.5rem;
+}
+
+.paper-lede {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--paper-ink-soft);
+  max-width: 62ch;
+}
+
+.paper-lede strong {
+  color: var(--paper-ink);
+  font-weight: 600;
+}
+
+/* The tally. Three figures, checked by `npm run metrics:check` like every other
+   number on this page — see data/site-metrics.json. */
+.paper-tally {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.75rem;
+  margin: 2.75rem 0 3.5rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--paper-rule);
+}
+
+.paper-tally-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.paper-tally-value {
+  font-family: var(--font-mono);
+  font-size: var(--text-3xl);
+  font-weight: 400;
+  line-height: 1;
+  color: var(--paper-ink);
+  font-variant-numeric: tabular-nums;
+}
+
+.paper-tally-label {
+  font-size: var(--text-2xs);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: var(--paper-ink-soft);
+}
+
+/* Measured against --paper-bg: 7.0:1 for the red and 5.3:1 for the amber, so
+   both clear AA at the 2xs size these labels are set in. The amber started at
+   #8a6a10 and came in at 4.37:1 — under the bar, and invisible to anyone
+   choosing it by eye. */
+.paper-tally-item.is-never .paper-tally-value {
+  color: #8a3324;
+}
+
+.paper-tally-item.is-partial .paper-tally-value {
+  color: #7a5c0a;
+}
+
+/* ── THE REGISTER EXTRACT ─────────────────────────────────────────────────── */
+
+.register-extract {
+  border-top: 1px solid var(--paper-rule-strong);
+}
+
+.register-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0 1.75rem;
+  padding: 1.6rem 0;
+  border-bottom: 1px solid var(--paper-rule);
+}
+
+.register-row-status {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+  padding-top: 0.28rem;
+}
+
+.register-row-status.is-never {
+  color: #8a3324;
+}
+
+.register-row-status.is-partial {
+  color: #7a5c0a;
+}
+
+.register-row-claim {
+  font-size: var(--text-md);
+  font-weight: 600;
+  line-height: 1.45;
+  color: var(--paper-ink);
+  letter-spacing: -0.005em;
+}
+
+.register-row-limit {
+  grid-column: 2;
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--paper-ink-soft);
+  margin-top: 0.5rem;
+  max-width: 68ch;
+}
+
+.register-row-limit code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  background: rgba(19, 27, 37, 0.06);
+  border-radius: 4px;
+  padding: 0.08em 0.35em;
+}
+
+.paper-outro {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  margin-top: 2.75rem;
+}
+
+.paper-note {
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  color: var(--paper-ink-soft);
+  max-width: 54ch;
+}
+
+.paper-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--paper-ink);
+  text-decoration: none;
+  padding: 0.8rem 1.4rem;
+  border: 1px solid var(--paper-rule-strong);
+  border-radius: var(--radius-sm);
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.paper-link:hover {
+  background: var(--paper-ink);
+  border-color: var(--paper-ink);
+  color: var(--paper-bg);
+}
+
+@media (max-width: 700px) {
+  .section-paper {
+    padding: 4.5rem 0;
+  }
+  .register-row {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  .register-row-limit {
+    grid-column: 1;
+  }
+  .paper-tally {
+    gap: 1.75rem;
+  }
+}
+
+/* ── SURFACE: INK ─────────────────────────────────────────────────────────── */
+
+.section-ink {
+  position: relative;
+  z-index: 1;
+  background: var(--ink-bg);
+  padding: 7rem 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.section-ink .container {
+  max-width: 1040px;
+}
+
+.ink-eyebrow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+  margin-bottom: 2rem;
+}
+
+.ink-title {
+  font-size: var(--text-fluid-section);
+  font-weight: 700;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  max-width: 24ch;
+  margin-bottom: 1.25rem;
+}
+
+.ink-lede {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--color-stone-grey);
+  max-width: 64ch;
+}
+
+@media (max-width: 700px) {
+  .section-ink {
+    padding: 4.5rem 0;
+  }
+}
+
+/* ── RHYTHM ───────────────────────────────────────────────────────────────── */
+
+/* Section headers were a pill, a title and a subtitle, centred, at identical
+   spacing eight times over. Left-aligning the ones that carry an argument and
+   holding the lede to a real measure is most of what separates a page that
+   reads from a page that is scanned. */
+.section-title-wrap.is-left {
+  text-align: left;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+.section-title-wrap.is-left .section-subtitle {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 64ch;
+}
+
+/* ── FOOTER: WORDS WHERE TRADEMARKS USED TO BE ────────────────────────────── */
+
+.footer-social {
+  display: flex;
+  gap: 1.25rem;
+  margin-top: 0.9rem;
+}
+
+.footer-social a {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: var(--text-xs);
+  color: var(--color-stone-grey);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+.footer-social a:hover {
+  color: var(--color-glacier);
+}
+
+/* ==========================================================================
+   THE GATE — 2026-09-07
+   ==========================================================================
+
+   One device carries the direction: a vertical SEAM with the request on one
+   side and the decision on the other. That is the product as a layout, and it
+   is why the amber belongs to the boundary rather than to buttons in general.
+
+   This replaces `.specimen-grid`, four static boxes headed "what a refusal
+   looks like". The evidence is the same and the frame is the opposite: not a
+   list of what CAIRN stops, but a demonstration of how every action is decided,
+   opening on one that is allowed.
+*/
+
+/* ── THE HERO CANVAS ──────────────────────────────────────────────────────
+   Sits behind both hero columns. Requests come in on the left, the seam falls
+   in the gutter, and the mark stands on the far side of it. */
+#gate-canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  z-index: 0;
+  pointer-events: none;
+}
+
+.hero-section {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── SCENARIO CHIPS ───────────────────────────────────────────────────── */
+
+.gate-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.75rem;
+}
+
+.gate-chip {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-stone-grey);
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  padding: 0.45rem 0.95rem;
+  cursor: pointer;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.55rem;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.gate-chip:hover {
+  color: var(--color-glacier);
+  border-color: var(--color-stone-grey);
+}
+
+.gate-chip[aria-pressed="true"] {
+  color: var(--color-glacier);
+  border-color: var(--color-cairn-blue);
+  background: var(--color-cairn-blue-dim);
+}
+
+.gate-chip .gate-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--color-cairn-blue);
+}
+
+.gate-chip[data-verdict="allowed"] .gate-dot {
+  background: var(--color-teal-signal);
+}
+
+/* ── THE STAGE ────────────────────────────────────────────────────────── */
+
+.gate-stage {
+  display: grid;
+  grid-template-columns: 1fr 1px 1.25fr;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  min-height: 19rem;
+}
+
+.gate-side {
+  padding: 1.5rem clamp(1.1rem, 2.4vw, 1.9rem);
+  display: grid;
+  align-content: start;
+  gap: 1rem;
+}
+
+.gate-label {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--color-stone-dark);
+}
+
+/* The seam itself. The one place the accent is spent at full strength. */
+.gate-seam {
+  position: relative;
+  background: var(--border-card);
+}
+
+.gate-seam::after {
+  content: "";
+  position: absolute;
+  left: -1px;
+  right: -1px;
+  top: 50%;
+  height: 0;
+  background: var(--color-cairn-blue);
+  box-shadow: 0 0 18px 3px var(--color-cairn-blue);
+}
+
+.gate-stage.is-firing .gate-seam::after {
+  animation: gate-strike 720ms cubic-bezier(0.2, 0.7, 0.2, 1) forwards;
+}
+
+@keyframes gate-strike {
+  0% { top: 50%; height: 0; opacity: 0; }
+  25% { opacity: 1; }
+  60% { top: 0; height: 100%; opacity: 1; }
+  100% { top: 0; height: 100%; opacity: 0.42; }
+}
+
+.gate-req {
+  display: grid;
+  gap: 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.gate-req-row {
+  display: grid;
+  grid-template-columns: 5.5rem 1fr;
+  gap: 0.75rem;
+  align-items: baseline;
+}
+
+.gate-req-row span:first-child { color: var(--color-stone-dark); }
+.gate-req-row span:last-child { color: var(--color-glacier-dim); word-break: break-word; }
+.gate-req-row b { color: var(--color-glacier); font-weight: 600; }
+
+.gate-track {
+  position: relative;
+  height: 2px;
+  background: var(--border-card);
+  border-radius: 2px;
+  overflow: hidden;
+  margin-top: 0.4rem;
+}
+
+.gate-track i {
+  position: absolute;
+  inset-block: 0;
+  left: -32%;
+  width: 32%;
+  background: linear-gradient(90deg, transparent, var(--color-cairn-blue));
+  opacity: 0;
+}
+
+.gate-stage.is-firing .gate-track i {
+  animation: gate-run 620ms cubic-bezier(0.5, 0, 0.3, 1) forwards;
+}
+
+@keyframes gate-run {
+  0% { left: -32%; opacity: 1; }
+  100% { left: 100%; opacity: 1; }
+}
+
+/* ── THE VERDICT ──────────────────────────────────────────────────────── */
+
+.gate-verdict {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-heading);
+  font-weight: 700;
+  font-size: var(--text-xl);
+  letter-spacing: -0.01em;
+  padding: 0.45rem 0.95rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--color-cairn-blue);
+  color: var(--color-cairn-blue);
+  background: var(--color-cairn-blue-dim);
+  justify-self: start;
+  transform-origin: left center;
+}
+
+.gate-verdict[data-kind="allowed"] {
+  border-color: var(--color-teal-signal);
+  color: var(--color-teal-signal);
+  background: var(--color-teal-dim);
+}
+
+.gate-stage.is-firing .gate-verdict {
+  animation: gate-stamp 380ms cubic-bezier(0.2, 1.5, 0.4, 1) 640ms both;
+}
+
+@keyframes gate-stamp {
+  0% { transform: scale(1.5); opacity: 0; filter: blur(3px); }
+  100% { transform: scale(1); opacity: 1; filter: blur(0); }
+}
+
+.gate-timing {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-stone-grey);
+  font-variant-numeric: tabular-nums;
+}
+
+.gate-timing b { color: var(--color-glacier); font-weight: 600; }
+
+.gate-output {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.75;
+  color: var(--color-glacier-dim);
+  white-space: pre-wrap;
+  overflow-x: auto;
+  margin: 0;
+  min-height: 8rem;
+}
+
+.gate-output .gate-v { color: var(--color-cairn-blue); font-weight: 600; }
+.gate-output .gate-ok { color: var(--color-teal-signal); font-weight: 600; }
+.gate-output .gate-fix { color: var(--color-stone-grey); }
+
+.gate-caret {
+  display: inline-block;
+  width: 7px;
+  height: 1em;
+  background: var(--color-cairn-blue);
+  vertical-align: -0.15em;
+  animation: gate-blink 1s steps(2) infinite;
+}
+
+@keyframes gate-blink { 50% { opacity: 0; } }
+
+/* ── THE LEDGER ───────────────────────────────────────────────────────── */
+
+.gate-ledger {
+  margin-top: 1.5rem;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-sm);
+  background: var(--bg-surface);
+  overflow: hidden;
+}
+
+.gate-ledger-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem;
+  padding: 0.85rem 1.25rem;
+  border-bottom: 1px solid var(--border-card);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-stone-grey);
+}
+
+.gate-ledger-head .gate-actions { margin-left: auto; display: flex; gap: 0.5rem; }
+
+.gate-mini {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  padding: 0.35rem 0.7rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+  background: transparent;
+  color: var(--color-glacier-dim);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast);
+}
+
+.gate-mini:hover { color: var(--color-glacier); border-color: var(--color-stone-grey); }
+
+.gate-rows { max-height: 15rem; overflow-y: auto; }
+
+.gate-row {
+  display: grid;
+  grid-template-columns: 2.5rem 1fr auto;
+  gap: 1rem;
+  align-items: center;
+  padding: 0.6rem 1.25rem;
+  border-bottom: 1px solid var(--border-glass);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-stone-grey);
+  animation: gate-row-in 340ms ease both;
+}
+
+@keyframes gate-row-in { from { opacity: 0; transform: translateY(-6px); } }
+
+.gate-row:last-child { border-bottom: 0; }
+.gate-row .gate-n { color: var(--color-stone-dark); font-variant-numeric: tabular-nums; }
+.gate-row .gate-what { color: var(--color-glacier-dim); }
+.gate-row .gate-hash { color: var(--color-stone-dark); }
+.gate-row .gate-badge { color: var(--color-cairn-blue); }
+.gate-row[data-kind="allowed"] .gate-badge { color: var(--color-teal-signal); }
+.gate-row.is-broken { background: var(--color-cairn-blue-dim); }
+.gate-row.is-broken .gate-hash { color: var(--color-cairn-blue); }
+
+.gate-foot {
+  padding: 0.85rem 1.25rem;
+  border-top: 1px solid var(--border-card);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--color-stone-grey);
+}
+
+.gate-foot.is-ok { color: var(--color-teal-signal); }
+.gate-foot.is-bad { color: var(--color-cairn-blue); }
+
+.gate-empty {
+  padding: 2.5rem 1.25rem;
+  text-align: center;
+  color: var(--color-stone-dark);
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 900px) {
+  .gate-stage { grid-template-columns: 1fr; }
+  .gate-seam { height: 1px; }
+  .gate-stage.is-firing .gate-seam::after { animation: none; top: 0; height: 100%; opacity: 0.5; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .gate-stage.is-firing .gate-seam::after,
+  .gate-stage.is-firing .gate-track i,
+  .gate-stage.is-firing .gate-verdict,
+  .gate-row,
+  .gate-caret {
+    animation: none;
+  }
+}
+
+/* ── THE MARK, BROUGHT INTO THE PALETTE ───────────────────────────────────
+   The cairn artwork is a blue PNG and the ground is now slate and amber, so
+   the mark read as a leftover from the previous design rather than as the
+   brand. Rotated into the accent rather than redrawn: the artwork is the
+   brand asset, and replacing it with an approximation to fix a colour would
+   trade a real mark for a copy of one.
+
+   221 degrees (the old Cairn Blue) to 25 (the seam) is a 164 degree rotation.
+   Saturation is lifted slightly because a hue rotation flattens it.
+*/
+.header-logo-img,
+.hero-3d-cairn-img,
+.footer-mark img,
+.dashboard-card img[alt="Stacked Cairn Layers"] {
+  filter: hue-rotate(164deg) saturate(1.12);
+}
+
+.hero-3d-cairn-img {
+  filter: hue-rotate(164deg) saturate(1.12) drop-shadow(0 20px 40px rgba(232, 130, 60, 0.32));
+}
+
+.dashboard-card img[alt="Stacked Cairn Layers"] {
+  filter: hue-rotate(164deg) saturate(1.12) drop-shadow(0 15px 30px rgba(232, 130, 60, 0.3));
+}
+
+/* On a phone the hero copy is full-width and centred, so the packets crossed
+   the paragraph and read as strikethrough. On desktop they pass behind a
+   left-hand text column and never touch it. Faded where the collision is real
+   rather than removed, because the motion is the point of the hero. */
+@media (max-width: 900px) {
+  #gate-canvas { opacity: 0.3; }
+}
+
+@media (max-width: 620px) {
+  #gate-canvas { opacity: 0.18; }
+}
+
+/* ==========================================================================
+   GALLERY & BOOK — 2026-09-07
+   ========================================================================== */
+
+/* ── THE PILLAR INDEX ─────────────────────────────────────────────────────
+   Ten long sections with no way to skip is a page people leave. */
+.gallery-hero {
+  padding-bottom: clamp(2.5rem, 5vw, 4rem);
+}
+
+.pillar-index {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  padding-top: 1.75rem;
+  border-top: 1px solid var(--border-card);
+}
+
+.pillar-index a {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  color: var(--color-stone-grey);
+  text-decoration: none;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-pill);
+  padding: 0.35rem 0.8rem;
+  transition: color var(--transition-fast), border-color var(--transition-fast),
+    background var(--transition-fast);
+}
+
+.pillar-index a:hover,
+.pillar-index a:focus-visible {
+  color: var(--color-glacier);
+  border-color: var(--color-cairn-blue);
+  background: var(--color-cairn-blue-dim);
+}
+
+/* ── THE CAPTION BELONGS UNDER THE PICTURE ────────────────────────────────
+   "WHAT AM I LOOKING AT?" sat ABOVE the screenshots in a bordered box, so a
+   reader was told what they were about to see and then had to hold it in mind
+   while they looked. A caption is read against the thing it describes.
+
+   Moved with `order` rather than by moving the markup: the column is already
+   a flex container, and reordering ten blocks of hand-written HTML to achieve
+   what one declaration does is how a page acquires ten slightly different
+   blocks. */
+.gartner-pillar-visual .executive-caption-box {
+  order: 2;
+  background: transparent;
+  border: 0;
+  border-top: 1px solid var(--border-card);
+  border-radius: 0;
+  padding: 0.9rem 0 0 0;
+  margin-bottom: 0;
+}
+
+.executive-caption-title {
+  font-weight: 600;
+}
+
+/* The pillar hue is the section's identity; it does not need to also be the
+   caption's rule and its title colour and its card border. Kept on the card
+   edge, dropped here, so the amber stays the only accent that means anything. */
+.gartner-pillar-visual .executive-caption-title {
+  color: var(--color-stone-grey);
+}
+
+.gartner-pillar-visual img {
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
+}
+
+.gartner-pillar-card {
+  scroll-margin-top: 90px;
+}
+
+/* ── THE BOOK PAGE ────────────────────────────────────────────────────────
+   The cover is the only real image on the page and it was one of three things
+   competing at the same weight. */
+.book-hero-grid {
+  align-items: center;
+}
+
+.book-cover-stage img {
+  border-radius: var(--radius-sm);
+  box-shadow: 0 40px 80px -30px rgba(0, 0, 0, 0.8);
+}
+
+.book-quote {
+  border-left: 2px solid var(--color-cairn-blue);
+  padding: 0.25rem 0 0.25rem 1.25rem;
+  font-size: var(--text-md);
+  line-height: 1.7;
+  color: var(--color-glacier-dim);
+  max-width: 54ch;
+}
+
+.book-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.75rem;
+  padding-top: 1.5rem;
+  margin-top: 1.75rem;
+  border-top: 1px solid var(--border-card);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--color-stone-grey);
+}
+
+.book-meta b {
+  display: block;
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--color-glacier);
+  letter-spacing: -0.01em;
+}
+
+/* The cover is a 2958x2050 render capped at 320px in a 458px column, so the
+   one real image on the page sat smaller than the paragraph beside it. It is
+   the reason a reader is here. */
+.book-cover-stage .book-cover-image {
+  width: 100%;
+  max-width: 460px;
+  height: auto;
+}

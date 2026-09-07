@@ -151,30 +151,47 @@
   </header>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <!-- Reworked 2026-09-07 with the rest of the direction. It was centred, and
+       the copy led with how the system is organised ("10 formal Enterprise
+       Pillars") rather than with what a reader is about to look at. The index
+       below it exists because ten long sections with no way to skip is a page
+       people leave. -->
+  <section class="hero-section gallery-hero">
     <div class="container">
-
-      <div class="status-pill-container">
-        <span class="status-pulse-dot"></span>
-        THE 10 ENTERPRISE PILLARS & ARCHITECTURE SHOWCASE
+      <div class="ink-eyebrow" style="margin-bottom: 1.5rem;">
+        <svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg> The product, screen by screen
       </div>
 
-      <h1 class="category-statement">
-        Pillar Architecture & Control Plane.
+      <h1 class="ink-title" style="max-width: 20ch; margin-bottom: 1.25rem;">
+        Every screenshot below is the real thing, running.
       </h1>
 
-      <p class="solution-statement" style="max-width: 840px; margin-left: auto; margin-right: auto; margin-bottom: 2rem;">
-        CAIRN structures system capabilities into 10 formal Enterprise Pillars and control plane components. Below are direct captures and architectural specifications from the running CAIRN Trust Fabric local orchestration engine, sovereign desktop client, and enterprise control plane.
+      <p class="ink-lede" style="margin-bottom: 2rem;">
+        Ten pillars, each one a working part of the trust fabric rather than a module on a diagram.
+        These are direct captures from the desktop client and the local orchestration engine &mdash;
+        no mockups, no composites, and nothing rendered for this page.
       </p>
 
-      <div class="hero-cta-wrap">
-        <button class="btn btn-primary open-demo-btn" style="padding: 0.85rem 2.25rem; font-size: var(--text-md);">Request a pilot<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
-        </button>
-        <a href="#pillars-detail" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: var(--text-md);">
-          Explore All 10 Pillars
-        </a>
+      <div class="pillar-index">
+        <a href="#p-cairn">CAIRN</a>
+        <a href="#p-path">PATH</a>
+        <a href="#p-beacon">BEACON</a>
+        <a href="#p-compass">COMPASS</a>
+        <a href="#p-atlas">ATLAS</a>
+        <a href="#p-forge">FORGE</a>
+        <a href="#p-crucible">CRUCIBLE</a>
+        <a href="#p-accelerator">ACCELERATOR</a>
+        <a href="#p-fleet">MODEL FLEET</a>
+        <a href="#p-settings">SETTINGS</a>
       </div>
 
+      <div class="hero-cta-wrap" style="justify-content: flex-start; margin-top: 2rem;">
+        <button class="btn btn-primary open-demo-btn" style="padding: 0.85rem 2.25rem; font-size: var(--text-md);">Request a pilot<svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+        </button>
+        <a href="/#download" class="btn btn-secondary" style="padding: 0.85rem 1.75rem; font-size: var(--text-md);">
+          Download CAIRN
+        </a>
+      </div>
     </div>
   </section>
 
@@ -182,16 +199,17 @@
   <section id="pillars-detail" class="section-spacing">
     <div class="container">
       <div class="section-title-wrap">
-        <h2 class="section-title">Enterprise Pillar Architecture</h2>
+        <h2 class="section-title">Ten pillars, ten screens</h2>
         <p class="section-subtitle">
-          Core evaluation, execution, compute, and operational interfaces across CAIRN's enterprise governance system.
+          Evaluation, execution, compute and operations. Each one names what it does, and shows you
+          the surface an operator actually works in.
         </p>
       </div>
 
       <div style="display: flex; flex-direction: column; gap: 3.5rem;">
 
         <!-- Pillar 1: CAIRN -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-cairn);">
+        <div class="gartner-pillar-card" id="p-cairn" style="--pillar-color: var(--pillar-cairn);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -200,10 +218,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">CAIRN</h3>
                 <div class="gartner-pillar-role">Pillar 01 • Enterprise Trust & Policy Gatekeeper</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-cairn); box-shadow: 0 0 6px var(--pillar-cairn);"></span>
-                  #3F8BF7 &bull; Sapphire
-                </div>
               </div>
             </div>
 
@@ -219,12 +233,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">cairn-icon.svg</span>
-              <span class="pillar-format-tag highlight">cairn-mark.svg</span>
-              <span class="pillar-format-tag">cairn.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual" style="display: flex; flex-direction: column; gap: 1rem;">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-cairn);">
@@ -239,7 +247,7 @@
         </div>
 
         <!-- Pillar 2: PATH -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-path);">
+        <div class="gartner-pillar-card" id="p-path" style="--pillar-color: var(--pillar-path);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -248,10 +256,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">PATH</h3>
                 <div class="gartner-pillar-role">Pillar 02 • Workflow Intelligence & Task Router</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-path); box-shadow: 0 0 6px var(--pillar-path);"></span>
-                  #36CFC9 &bull; Kinetic Cyan
-                </div>
               </div>
             </div>
 
@@ -267,12 +271,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">path-icon.svg</span>
-              <span class="pillar-format-tag highlight">path-mark.svg</span>
-              <span class="pillar-format-tag">path.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-path);">
@@ -286,7 +284,7 @@
         </div>
 
         <!-- Pillar 3: BEACON -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-beacon);">
+        <div class="gartner-pillar-card" id="p-beacon" style="--pillar-color: var(--pillar-beacon);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -295,10 +293,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">BEACON</h3>
                 <div class="gartner-pillar-role">Pillar 03 • Operational Awareness & Real-Time Event Broadcast</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-beacon); box-shadow: 0 0 6px var(--pillar-beacon);"></span>
-                  #FFC53D &bull; Solar Amber
-                </div>
               </div>
             </div>
 
@@ -314,12 +308,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">beacon-icon.svg</span>
-              <span class="pillar-format-tag highlight">beacon-mark.svg</span>
-              <span class="pillar-format-tag">beacon.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-beacon);">
@@ -333,7 +321,7 @@
         </div>
 
         <!-- Pillar 4: COMPASS -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-compass);">
+        <div class="gartner-pillar-card" id="p-compass" style="--pillar-color: var(--pillar-compass);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -342,10 +330,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">COMPASS</h3>
                 <div class="gartner-pillar-role">Pillar 04 • Governance Intelligence & Audit Provenance</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-compass); box-shadow: 0 0 6px var(--pillar-compass);"></span>
-                  #B37FEB &bull; Royal Amethyst
-                </div>
               </div>
             </div>
 
@@ -361,12 +345,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">compass-icon.svg</span>
-              <span class="pillar-format-tag highlight">compass-mark.svg</span>
-              <span class="pillar-format-tag">compass.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-compass);">
@@ -380,7 +358,7 @@
         </div>
 
         <!-- Pillar 5: ATLAS -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-atlas);">
+        <div class="gartner-pillar-card" id="p-atlas" style="--pillar-color: var(--pillar-atlas);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -389,10 +367,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">ATLAS</h3>
                 <div class="gartner-pillar-role">Pillar 05 • Knowledge Infrastructure & Memory Fabric</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-atlas); box-shadow: 0 0 6px var(--pillar-atlas);"></span>
-                  #40A9FF &bull; Cobalt Blue
-                </div>
               </div>
             </div>
 
@@ -408,12 +382,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">atlas-icon.svg</span>
-              <span class="pillar-format-tag highlight">atlas-mark.svg</span>
-              <span class="pillar-format-tag">atlas.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-atlas);">
@@ -427,7 +395,7 @@
         </div>
 
         <!-- Pillar 6: FORGE -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-forge);">
+        <div class="gartner-pillar-card" id="p-forge" style="--pillar-color: var(--pillar-forge);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -436,10 +404,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">FORGE</h3>
                 <div class="gartner-pillar-role">Pillar 06 • Integration Platform & Autonomous Code Engine</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-forge); box-shadow: 0 0 6px var(--pillar-forge);"></span>
-                  #FF7A45 &bull; Vulcan Orange
-                </div>
               </div>
             </div>
 
@@ -452,12 +416,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">forge-icon.svg</span>
-              <span class="pillar-format-tag highlight">forge-mark.svg</span>
-              <span class="pillar-format-tag">forge.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-forge);">
@@ -471,7 +429,7 @@
         </div>
 
         <!-- Pillar 7: CRUCIBLE -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-crucible);">
+        <div class="gartner-pillar-card" id="p-crucible" style="--pillar-color: var(--pillar-crucible);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -480,10 +438,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">CRUCIBLE</h3>
                 <div class="gartner-pillar-role">Pillar 07 • Isolated Execution Engine & Docker Sandbox Verification</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-crucible); box-shadow: 0 0 6px var(--pillar-crucible);"></span>
-                  #F759AB &bull; Plasma Magenta
-                </div>
               </div>
             </div>
 
@@ -499,12 +453,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">crucible-icon.svg</span>
-              <span class="pillar-format-tag highlight">crucible-mark.svg</span>
-              <span class="pillar-format-tag">crucible.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-crucible);">
@@ -518,7 +466,7 @@
         </div>
 
         <!-- Pillar 8: ACCELERATOR -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-accelerator);">
+        <div class="gartner-pillar-card" id="p-accelerator" style="--pillar-color: var(--pillar-accelerator);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -527,10 +475,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">ACCELERATOR</h3>
                 <div class="gartner-pillar-role">Pillar 08 • Local & LAN Hardware Neural Acceleration</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-accelerator); box-shadow: 0 0 6px var(--pillar-accelerator);"></span>
-                  #00E599 &bull; Tensor Emerald
-                </div>
               </div>
             </div>
 
@@ -546,12 +490,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">accelerator-icon.svg</span>
-              <span class="pillar-format-tag highlight">accelerator-mark.svg</span>
-              <span class="pillar-format-tag">accelerator.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-accelerator);">
@@ -565,7 +503,7 @@
         </div>
 
         <!-- Pillar 9: MODEL FLEET -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-fleet);">
+        <div class="gartner-pillar-card" id="p-fleet" style="--pillar-color: var(--pillar-fleet);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -574,10 +512,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">MODEL FLEET</h3>
                 <div class="gartner-pillar-role">Pillar 09 • Local & Distributed AI Model Orchestration</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-fleet); box-shadow: 0 0 6px var(--pillar-fleet);"></span>
-                  #13C2C2 &bull; Electric Cyan
-                </div>
               </div>
             </div>
 
@@ -593,12 +527,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">fleet-icon.svg</span>
-              <span class="pillar-format-tag highlight">fleet-mark.svg</span>
-              <span class="pillar-format-tag">fleet.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-fleet);">
@@ -612,7 +540,7 @@
         </div>
 
         <!-- Pillar 10: SETTINGS -->
-        <div class="gartner-pillar-card" style="--pillar-color: var(--pillar-settings);">
+        <div class="gartner-pillar-card" id="p-settings" style="--pillar-color: var(--pillar-settings);">
           <div class="gartner-pillar-content">
             <div class="pillar-showcase-header">
               <div class="pillar-squircle-preview">
@@ -621,10 +549,6 @@
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">SETTINGS</h3>
                 <div class="gartner-pillar-role">Pillar 10 • System Configuration & Control Plane Preferences</div>
-                <div class="pillar-palette-chip">
-                  <span class="chip-dot" style="background: var(--pillar-settings); box-shadow: 0 0 6px var(--pillar-settings);"></span>
-                  #597EF7 &bull; Steel Blue
-                </div>
               </div>
             </div>
 
@@ -640,12 +564,6 @@
               </p>
             </div>
 
-            <div class="pillar-format-tags">
-              <span class="pillar-format-tag highlight">settings-icon.svg</span>
-              <span class="pillar-format-tag highlight">settings-mark.svg</span>
-              <span class="pillar-format-tag">settings.ico</span>
-              <span class="pillar-format-tag">PNG 16–512px</span>
-            </div>
           </div>
           <div class="gartner-pillar-visual">
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-settings);">

@@ -76,7 +76,6 @@ const PAGES = ['index.html', 'compliance.html', 'gallery.html', 'licensing.html'
 
 const FILES = [
     'css/styles.css',
-    'css/hybrid_additions.css',
     'index.html',
     'compliance.html',
     'gallery.html',

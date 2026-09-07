@@ -114,6 +114,7 @@
     <symbol id="i-github" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
     <symbol id="i-key" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="8.1" cy="15.4" r="3.35"/><path d="M10.5 13 20 3.5"/><path d="m16.8 6.7 2.3 2.3"/><path d="m14.3 9.2 2.3 2.3"/></symbol>
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
+    <symbol id="i-quote" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M9.6 6.4C6.8 7.5 5 9.7 5 12.6v5h5.6v-6.2H7.9c.2-1.4 1-2.4 2.4-3z"/><path d="M20 6.4c-2.8 1.1-4.6 3.3-4.6 6.2v5H21v-6.2h-2.7c.2-1.4 1-2.4 2.4-3z"/></symbol>
   </svg>
   <!-- /ICON SPRITE -->
 
@@ -161,28 +162,29 @@
         
         <!-- Book Information -->
         <div>
-          <div class="status-pill-container" style="margin-bottom: 1.25rem;">
-            <span class="status-pulse-dot"></span>
-            Official Publication • Amazon UK
+          <div class="ink-eyebrow" style="margin-bottom: 1.5rem;">
+            <svg class="icon" aria-hidden="true"><use href="#i-quote"></use></svg> Published &middot; Amazon UK
           </div>
 
-          <h1 style="font-size: var(--text-display); margin-bottom: 0.75rem; line-height: 1.1;">
-            <span class="text-oxide">CAIRN</span>
+          <h1 style="font-size: var(--text-fluid-section); margin-bottom: 0.85rem; line-height: 1.1; letter-spacing: -0.025em;">
+            <span class="text-oxide">CAIRN:</span> Engineering a Sovereign AI Agent Platform
           </h1>
-          
-          <h2 style="font-size: var(--text-2xl); font-weight: 600; color: var(--color-glacier); margin-bottom: 0.5rem;">
-            Engineering a Sovereign AI Agent Platform
-          </h2>
 
-          <h3 style="font-size: var(--text-lg); font-weight: 400; color: var(--color-teal-signal); margin-bottom: 1.75rem;">
-            Architecture, Orchestration, Local LLMs and Enterprise Automation
-          </h3>
-
-          <p style="font-size: var(--text-md); color: var(--color-stone-grey); margin-bottom: 2.25rem; line-height: 1.7;">
-            By <strong>Chris Yarwood</strong> (<a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--color-teal-signal); text-decoration: none;"> LinkedIn Profile</a>)
-            <br><br>
-            <i>"Whether you are building autonomous agents, designing enterprise automation platforms or simply exploring the future of local AI, I believe the next generation of intelligent systems will be defined less by the models they contain and more by the way those models are orchestrated. This book is my contribution to that conversation."</i>
+          <p style="font-size: var(--text-md); color: var(--color-stone-grey); margin-bottom: 1.75rem; line-height: 1.7; max-width: 46ch;">
+            Architecture, orchestration, local LLMs and enterprise automation &mdash; the book behind the
+            product, written while it was being built.
           </p>
+
+          <p class="book-quote" style="margin-bottom: 1.75rem;">
+            &ldquo;The next generation of intelligent systems will be defined less by the models they
+            contain and more by the way those models are orchestrated.&rdquo;
+          </p>
+
+          <div class="book-meta" style="margin-bottom: 2.25rem;">
+            <div><b>Chris Yarwood</b>Author &middot; <a href="https://www.linkedin.com/in/chris-yarwood/" target="_blank" rel="noopener" style="color: var(--color-teal-signal); text-decoration: none;">LinkedIn</a></div>
+            <div><b>Paperback</b>Amazon UK</div>
+            <div><b>Enterprise AI</b>Architecture &amp; orchestration</div>
+          </div>
 
           <div style="display: flex; gap: 1rem; flex-wrap: wrap;">
             <a href="https://www.amazon.co.uk/dp/B0H9JHP73Z" target="_blank" rel="noopener" class="btn btn-primary" style="padding: 0.85rem 1.75rem;">
@@ -204,12 +206,12 @@
   </section>
 
   <!-- Core Thesis Section -->
-  <section class="section-spacing" style="background: #14171c;">
+  <section class="section-spacing" style="background: var(--bg-space-dark); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
     <div class="container">
       <div class="section-title-wrap">
-        <h2 class="section-title">The Shift to Enterprise Utility</h2>
+        <h2 class="section-title">The shift to enterprise utility</h2>
         <p class="section-subtitle">
-          From the preface of <i>CAIRN: Engineering a Sovereign AI Agent Platform</i> by Chris Yarwood.
+          From the preface, in full.
         </p>
       </div>
 

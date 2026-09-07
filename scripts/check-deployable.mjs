@@ -45,6 +45,22 @@ import { fileURLToPath } from 'node:url';
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNCHECKED = 2;
 
+/**
+ * Every page loads the same stylesheets and the same behaviour.
+ *
+ * ── ADDED 2026-09-07, AFTER THE SECOND OCCURRENCE ──────────────────────────
+ * `css/hybrid_additions.css` was loaded by index.html and by no other page, so
+ * four pages out of five silently missed every rule in it. It cost twice: the
+ * licensing matrix rendered as a column of 300x150 circles when `.icon` landed
+ * there, and the gallery and book rules did nothing at all on the two pages
+ * they were written for.
+ *
+ * The sheets are merged now, and this is what stops them drifting apart again:
+ * `check-deployable` already proves a referenced file EXISTS. It never proved
+ * a page referenced the file it needed.
+ */
+const REQUIRED_ASSETS = ['css/styles.css', 'js/main.js'];
+
 const PAGES = ['index.html', 'compliance.html', 'gallery.html', 'licensing.html', 'book.html'];
 const SCRIPTS = ['js/main.js', 'js/chain-verify.js'];
 
@@ -120,6 +136,16 @@ async function main() {
 
             if (!onDisk) problems.push(`${rel} -> ${ref}  (no such file)`);
             else if (!covered(clean)) problems.push(`${rel} -> ${ref}  (exists, but no builds entry covers it — it will 404 in production)`);
+        }
+
+        // Existing is not the same as being asked for. See REQUIRED_ASSETS.
+        // Pages only: this loop also walks the scripts, and a script has no
+        // business loading a stylesheet.
+        for (const asset of PAGES.includes(rel) ? REQUIRED_ASSETS : []) {
+            if (!src.includes(asset))
+                problems.push(
+                    `${rel} does not load ${asset}  (every page loads the same stylesheet and the same script)`,
+                );
         }
     }
 
