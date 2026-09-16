@@ -159,8 +159,8 @@
               <span class="telemetry-label-unified">governed pillars</span>
             </div>
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified" data-metric="gateCost">0.20–0.26 ms</span>
-              <span class="telemetry-label-unified">to evaluate a policy decision</span>
+              <span class="telemetry-value-unified" data-metric="gateCost">0.2–2.2 ms</span>
+              <span class="telemetry-label-unified">per decision that runs no code</span>
             </div>
             <div class="telemetry-item-unified">
               <span class="telemetry-value-unified" data-metric="deployment">Local-first</span>
@@ -297,7 +297,7 @@
           <div class="cairn-layer-card" data-layer="governance" id="layer-governance">
             <div class="layer-badge">Stone 2 • Governance</div>
             <h4 class="layer-title">2. Policy &amp; Governance Engine</h4>
-            <p class="layer-desc">Operator-declared autonomy ceilings, egress allow-listing, and secret redaction — evaluated in 0.20–0.26 ms.</p>
+            <p class="layer-desc">Operator-declared autonomy ceilings, egress allow-listing, and secret redaction — decided before the tool runs, and recorded either way.</p>
             <div style="margin-top: 0.5rem;">
               <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Policy)</span>
               <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> ATLAS (RAG Memory)</span>
@@ -467,7 +467,7 @@
           </summary>
           <div class="faq-answer">
             <p>
-              CAIRN evaluates all tool calls through its schema-contracted pillars. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and evaluate in <strong>0.20–0.26 ms</strong> without relying on secondary LLM judges.
+              CAIRN evaluates all tool calls through its schema-contracted pillars. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.1 a decision that runs no code takes <strong>0.2–2.2 ms</strong>; one that must first parse a PowerShell script on Windows takes about <strong>330 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
             </p>
           </div>
         </details>
