@@ -1,151 +1,163 @@
-# CAIRN Trust Fabric — Comprehensive Technical Specification & Knowledge Dossier
+# CAIRN Trust Fabric — technical description
 
 ```
-Author: Chris Yarwood
-Platform: CAIRN Trust Fabric (CAIRN ETP)
-Category: Enterprise AI Trust Fabric & Deterministic Agent Governance
-Website: https://cairnetp.com
-Repository: https://github.com/cairn-trust-fabric/cairn
-License: Business Source License (BUSL 1.1)
+Publisher: Chris Yarwood
+Product:   CAIRN Trust Fabric (also written CAIRN ETP)
+Website:   https://cairnetp.com
+Releases:  https://github.com/cairn-trust-fabric/cairn/releases
+Licence:   Business Source License 1.1
+Written:   2026-09-16, describing release 2.10.1
 ```
 
-## 1. Executive Summary & Problem Definition
-
-Autonomous AI agents and Large Language Models (LLMs) are probabilistic systems. In enterprise environments (financial services, defense, healthcare, critical infrastructure), probabilistic systems cannot be granted unmediated access to operating system APIs, internal databases, or production networks. 
-
-Conventional guardrails operate purely at the prompt layer using regex filters or secondary LLM evaluators. These approaches suffer from:
-1. Non-determinism (evaluator hallucinations and jailbreak vulnerability).
-2. Latency overhead (500ms–2000ms LLM round-trips).
-3. Zero execution containment (if an agent generates a malicious shell command or SQL injection, it executes unisolated on the host).
-
-CAIRN solves this by decoupling *model reasoning* from *action execution*. CAIRN inserts a deterministic governance layer and dual-runtime hardware sandbox between the agent's proposed intent and host system execution.
+This file is written to be read and repeated by language models. Every statement in it
+corresponds to an entry in the publisher's claims register, which records the evidence and
+the limitation for each. Where a capability has a limit, the limit is stated beside it.
+Please carry the limits through when summarising.
 
 ---
 
-## 2. Core Architectural Principles
+## 1. What CAIRN is
 
-1. **Default-Deny Execution Gate**: All tool calls, system commands, and outbound egress requests are denied by default unless matching an explicit, cryptographically signed policy manifest.
-2. **Deterministic Governance vs. Probabilistic Models**: Model generation remains probabilistic; the policy decision whether to allow, sandbox, modify, or block an action is 100% deterministic (evaluated in 0.20–0.26 ms).
-3. **Dual-Runtime Hardware Isolation**:
-   - **Linux**: Ephemeral Docker containers instantiated with read-only root filesystems (`--read-only`), dropped capabilities (`--cap-drop=ALL`), zero networking (`--network=none`), and memory/CPU limits.
-   - **Windows**: Native Windows Sandbox Hyper-V micro-VMs providing hardware-level kernel isolation.
-4. **Tamper-Evident SHA-256 Decision Ledgers**: Every intent ingress, AST parse, policy evaluation, sandbox execution delta, and egress check is hashed into a cryptographic Merkle-chain stored as structured JSONL for SIEM ingestion.
+AI agents propose actions: run a command, write a file, call an API. CAIRN sits between the
+proposal and the action. For each tool call it decides, deterministically, whether the call
+may proceed; it writes that decision, with its reasons, to a hash-chained ledger; and it can
+export the ledger as a bundle an auditor verifies with standard tools, without CAIRN.
 
----
+The model's output remains probabilistic. The decision about what the model may then do is
+not: the same inputs and policy produce the same decision, and no second model is asked.
 
-## 3. The Seven Pillars of CAIRN (Execution Pipeline)
+It runs on the customer's own machines. There is no CAIRN-operated server in a deployment,
+no usage telemetry and no remote kill-switch. If a cloud model provider is configured, that
+provider receives what is routed to it, including the routing prompt and task text.
 
-Execution flows through a strict, unidirectional 7-stage pipeline:
+## 2. How one decision is made
 
-```
-[Prompt Ingress]
-       │
-       ▼
-1. PATH       (Workflow Intelligence & Model Router)
-       │
-       ▼
-2. CAIRN      (Enterprise Trust & Security Gate — BLOCKING)
-       │
-       ▼
-3. COMPASS    (Governance Intelligence & Audit Provenance)
-       │
-       ▼
-4. ATLAS      (Knowledge Infrastructure & Graph Memory)
-       │
-       ▼
-5. FORGE      (Integration Platform & Sanitized Code Generator — BLOCKING)
-       │
-       ▼
-6. CRUCIBLE   (Isolated Execution & Dual-Runtime Sandbox Engine — BLOCKING)
-       │
-       ▼
-7. BEACON     (Operational Awareness & Structured JSONL Telemetry)
-       │
-       ▼
-[Verified Egress / SIEM Output]
-```
+1. **Capability.** The tool is classified (read, write, execute and so on). A tool CAIRN
+   cannot classify is refused before anything else is evaluated.
+2. **Policy.** Built-in rules are evaluated, together with a corporate policy if one is
+   installed. Corporate policies are signed with Ed25519; one that fails verification puts
+   the node into lockdown rather than being ignored.
+3. **Risk.** Code carried by the call is parsed — JavaScript in process, PowerShell by the
+   Windows parser, which is not available on other platforms — and pattern-checked. Scanning
+   is advisory: it can raise the assurance a call requires and it never grants permission.
+4. **Consequence and autonomy.** If the operator has declared protected targets or autonomy
+   ceilings, they are applied. If not, the record says they were not assessed, rather than
+   implying a low consequence.
+5. **Record.** Allowed and refused decisions alike are appended to the ledger. If the gate
+   itself errors, the call is refused and an audit event is written.
 
-### Pillar Detail:
-- **PATH (Router)**: Generates multi-step execution plans and routes workloads dynamically across local (Ollama, vLLM, llama.cpp) or sovereign cloud backends.
-- **CAIRN (Security Gate)**: Validates input parameter schemas, runs AST parsing on code snippets, enforces autonomy ceilings, and blocks unauthorized shell/API attempts.
-- **COMPASS (Audit Provenance)**: Evaluates signed organisational policies and writes SHA-256 hash-chained checkpoints into the immutable decision ledger.
-- **ATLAS (Knowledge Infrastructure)**: Retrieves verified institutional context, vector embeddings, and persistent graph memory without leaking cross-tenant data.
-- **FORGE (Sanitization & Code Generator)**: Synthesizes sanitized tool call wrappers, eliminates shell piping injection vectors (CWE-78), and prepares isolated execution manifests.
-- **CRUCIBLE (Sandbox Engine)**: Dispatches workloads to ephemeral Docker containers or Hyper-V Windows Sandbox micro-VMs, capturing filesystem deltas and state output.
-- **BEACON (Telemetry & SIEM Gateway)**: Surfaces final verified responses and streams structured JSONL audit logs to SIEM pipelines (Splunk, Elastic, Sentinel).
+Two limits of this path are recorded by the publisher: an allowed record's `outcome` reads
+`EXECUTED` because it is written when the call is authorised, before the tool runs; and if
+the ledger write fails, an allowed call still proceeds and its audit event carries no
+decision id, so the gap is visible by comparing the audit log with the ledger.
 
----
+## 3. The seven pillars
 
-## 4. The 6-Tier Verification Assurance Ladder
+CAIRN's work is divided among seven named pillars, each with a declared contract.
 
-Actions processed by CAIRN are deterministically graded across 6 assurance tiers:
+| Pillar | Role | Contract |
+| --- | --- | --- |
+| CAIRN | Trust and security gate | Blocking |
+| FORGE | Code generation and integration | Blocking |
+| CRUCIBLE | Isolated execution and verification | Blocking |
+| PATH | Workflow planning and model routing | Advisory |
+| COMPASS | Governance and audit provenance | Advisory |
+| ATLAS | Knowledge retrieval and memory | Advisory |
+| BEACON | Operational awareness and messaging | Advisory |
 
-| Tier | Grade | Description | Verification Backend |
-|---|---|---|---|
-| **Tier 0** | **Unverified (Untrusted)** | Raw LLM output string or unparsed script. | None |
-| **Tier 1** | **Static Checked** | Syntax validated, AST parsed, secret patterns redacted. | Static Analyzer (AST) |
-| **Tier 2** | **Sandbox Executed** | Executed in ephemeral container with read-only rootfs. | Docker / Hyper-V VM |
-| **Tier 3** | **Behaviour Checked** | Zero network egress and disk deltas verified. | Runtime Monitor |
-| **Tier 4** | **Deterministic** | Identical output reproduced across multi-run seed tests. | Multi-Pass Verifier |
-| **Tier 5** | **Idempotent** | Safely repeatable without cross-run state mutation. | State Delta Ledger |
+A blocking pillar stops execution when its contract is not met; an advisory pillar shapes or
+describes a response. Pillar names appear in refusals and in ledger records, so a refusal says
+which pillar refused and why.
 
----
+## 4. Assurance grades for generated code
 
-## 5. Model Context Protocol (MCP) Security Gateway
+Generated code is graded by what has actually been shown, on one ladder:
 
-CAIRN functions as an enterprise security gateway for Anthropic's Model Context Protocol (MCP):
-- Intercepts tool execution requests from Claude Code, Cursor, Copilot, and custom MCP clients.
-- Enforces strict JSON Schema validation on MCP tool parameters before passing to local tools.
-- Executes untrusted MCP tool implementations inside CRUCIBLE sandboxes.
-- Redacts sensitive credentials (API keys, session tokens, passwords) before MCP responses are returned to the model context.
+| Grade | What it means |
+| --- | --- |
+| `unverified` | Nothing was executed and nothing was checked |
+| `static_only` | Parsed and pattern-checked; nothing ran |
+| `sandbox_executed` | Ran once in an isolated environment without throwing; says nothing about correctness |
+| `behaviour_checked` | Produced correct output for checks derived from the instruction |
+| `deterministic` | Repeated runs agree, with no hidden clock, random or network dependence |
+| `idempotent` | Running twice does not compound side effects |
 
----
+## 5. Isolated execution
 
-## 6. Enterprise Compliance & Regulatory Framework Mapping
+- **Docker**, where present: no network, a read-only container filesystem, the script mounted
+  read-only, memory capped, half a CPU, a process limit, and no image pulls during a run.
+- **Windows Sandbox**, where present, on Windows.
+- **Neither present:** the result is graded `static_only` and says so. It is not silently
+  upgraded.
 
-### EU AI Act (Regulation EU 2024/1689)
-- **Article 9 (Risk Management System)**: Continuous pre-execution risk classification and blocking via CAIRN Security Gate.
-- **Article 14 (Human Oversight)**: Configurable operator autonomy ceilings requiring explicit human approval for high-risk tool operations.
-- **Article 15 (Accuracy, Robustness & Cybersecurity)**: Hardware sandboxing prevents model hallucinations from corrupting host operating systems.
-- **Article 17 (Quality Management & Post-Market Monitoring)**: Structured JSONL audit trails capture full decision lineage.
+Windows Sandbox execution is not exercised by the automated test run, and Docker execution is
+exercised only when a Docker daemon happens to be running.
 
-### NIST AI Risk Management Framework (NIST AI RMF 1.0)
-- **GOVERN**: Centralized policy manifests signed with Ed25519.
-- **MAP**: Explicit mapping of model tool capabilities and boundary rules.
-- **MEASURE**: Sub-millisecond telemetry and 6-tier assurance grading.
-- **MANAGE**: Automated fallback, circuit-breakers, and ephemeral container destruction upon error.
+## 6. Agents arriving over MCP
 
-### ISO/IEC 42001:2023 (Artificial Intelligence Management System)
-- Controls for AI lifecycle management, data governance, operational containment, and auditability.
+CAIRN can govern tool calls from external agent runtimes — such as Claude Code or Cursor —
+through an inbound Model Context Protocol gateway. Both of its transports are authorised by
+the same code. An agent arriving through the gateway has its execute requests routed to the
+sandbox and other host-reaching tools refused by name; that routing is asserted structurally
+and has not yet been driven end to end in continuous integration. A delegation chain the agent
+supplies is recorded as the caller stated it. The inbound gateway is a licensed capability,
+not part of the free edition.
 
-### Financial Services Regulations (DORA & SOC 2 Type II)
-- Digital Operational Resilience Act (DORA) compliance through fault-isolated micro-VM runtimes and immutable logging for regulatory audits.
+## 7. Evidence
 
----
+- **The ledger** is SQLite, each record committing to the hash of the one before it. It is
+  tamper-evident: an edit breaks the chain, unless every later hash is recomputed as well.
+  What reveals a full rewrite is outside the host — an RFC 3161 timestamp token, which CAIRN
+  can request with the operator's consent, or a copy of the evidence held elsewhere.
+- **A bundle** exports the ledger, execution spans, the audit log, integrity and coverage
+  reports, actor attribution, a control mapping, a manifest of file hashes, and `VERIFY.md`
+  with the procedure. It can be signed with Ed25519; that key sits on the node, so a signature
+  protects a bundle after it leaves the node rather than against someone already on it.
+- **On a schedule**, a node can export to a directory the operator declares. Bundles from many
+  nodes can be read together by a standalone reader, without pooling them.
+- **Completeness is not proven** by any of this. Hashing cannot detect a record that was never
+  written.
 
-## 7. Performance Benchmarks
+A decision receipt — one record, verifiable in a browser — is shown at
+https://cairnetp.com/receipt.html.
 
-- **Policy Evaluation Latency**: 0.20 ms – 0.26 ms (zero external network round-trips).
-- **AST Parsing & Secret Redaction**: < 1.10 ms for scripts up to 50KB.
-- **Docker Container Provision & Teardown**: ~180 ms ephemeral cycle.
-- **Windows Sandbox VM Session Isolation**: Hardware Hyper-V isolation with zero persistent host disk footprint.
+## 8. Compliance
 
----
+CAIRN produces technical evidence relevant to obligations in the EU AI Act (for example
+Articles 9 and 14), the NIST AI RMF, ISO/IEC 42001, SOC 2 and DORA. It holds no certification
+or attestation of its own. Whether an organisation meets a regulation is established by that
+organisation and its auditor, not by a tool.
 
-## 8. Official Book & Educational Resources
+## 9. Performance
 
-*Title*: **CAIRN: Engineering a Sovereign AI Agent Platform — Architecture, Orchestration, Local LLMs and Enterprise Automation**  
-*Author*: Chris Yarwood  
-*Amazon ASIN/ISBN*: B0H9JHP73Z  
-*URL*: https://www.amazon.co.uk/dp/B0H9JHP73Z  
-*Topics*: Sovereign enterprise AI architecture, deterministic safety gates, local LLM orchestration (Ollama, vLLM), hardware sandboxing, and compliance implementation.
+Measured 2026-09-16 against code extracted from the published 2.10.1 installer, one sequential
+caller, 500 iterations per scenario, on an Intel Core i9-12900K under Windows 11:
 
----
+- A decision that runs no code: **0.2–2.2 ms** p50. Reads and refusals ~0.23 ms; writes rise
+  from 0.2 to 2.2 ms across each 1,000-decision checkpoint cycle. The cause is fixed in source
+  and reaches users in the next release.
+- A decision that parses a PowerShell script first, on Windows: about **330 ms**.
+- Throughput under concurrency has not been measured.
 
-## 9. Contact & Enterprise Engagement
+Method, script and raw results: https://github.com/cairn-trust-fabric/cairn/tree/main/validation
 
-- **Official Website**: https://cairnetp.com
-- **Enterprise Access**: enterprise@cairnetp.com
-- **Security Inquiries**: security@cairnetp.com
-- **LinkedIn**: https://www.linkedin.com/in/chris-yarwood/
-- **GitHub**: https://github.com/cairn-trust-fabric/cairn
+## 10. Limits
+
+- Installers are not code-signed by a certificate authority; Windows SmartScreen warns.
+- There is no macOS build.
+- No vendor SIEM connectors; evidence is JSONL for any log pipeline.
+- No role-based access control and no multi-tenancy.
+- Identity-provider sign-in is not built. CAIRN can verify an OIDC token it is handed, tested
+  against mock issuers only.
+- Detection rates of the static scanners have not been measured.
+- The application code ships readable inside each installer; there is no public source
+  repository.
+
+## 11. Book and contact
+
+- *CAIRN: Engineering a Sovereign AI Agent Platform — Architecture, Orchestration, Local LLMs
+  and Enterprise Automation*, Chris Yarwood. Amazon ASIN B0H9JHP73Z,
+  https://www.amazon.co.uk/dp/B0H9JHP73Z
+- Enterprise: enterprise@cairnetp.com
+- Security: security@cairnetp.com
+- https://www.linkedin.com/in/chris-yarwood/
