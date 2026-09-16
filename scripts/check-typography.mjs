@@ -57,6 +57,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PAGES } from './pages.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNCHECKED = 2;
@@ -72,16 +73,8 @@ const WEIGHTS = new Set(['400', '600', '700', 'normal', 'bold', 'inherit']);
 const FONT_REQUEST =
     'https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&family=Instrument+Sans:wght@400;600&display=swap';
 
-const PAGES = ['index.html', 'compliance.html', 'gallery.html', 'licensing.html', 'book.html'];
 
-const FILES = [
-    'css/styles.css',
-    'index.html',
-    'compliance.html',
-    'gallery.html',
-    'licensing.html',
-    'book.html',
-];
+const FILES = ['css/styles.css', ...PAGES];
 
 /** Token names declared in `:root`, from the stylesheet itself. */
 export function declaredTokens(css) {
@@ -182,6 +175,10 @@ async function main() {
         try {
             src = await fs.readFile(path.join(ROOT, rel), 'utf8');
         } catch {
+            // A declared page that is not on disk is a failure, not a skip. Until
+            // 2026-09-16 this was `continue`, so a page named in scripts/pages.mjs
+            // and never created passed this check with nothing compared.
+            problems.push(`${rel}  is declared in scripts/pages.mjs and could not be read`);
             continue;
         }
         const requests = [...src.matchAll(/https:\/\/fonts\.googleapis\.com\/css2\?[^"']+/g)].map(

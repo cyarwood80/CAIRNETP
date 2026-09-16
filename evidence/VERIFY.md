@@ -1,5 +1,15 @@
 # Verifying this evidence bundle
 
+> **Publisher's note, 2026-09-16.** This bundle is published exactly as CAIRN 2.10.1
+> exported it, except for this note. Section 3 says that any alteration or deletion of an
+> earlier record would have been detected. **That is withdrawn.** Altering a record and
+> recomputing every hash after it produces a chain that verifies; only an external timestamp
+> token or an earlier copy of the bundle held elsewhere reveals it. It is demonstrated, in your
+> browser, at https://cairnetp.com/receipt.html#check. The sentence is corrected in CAIRN's
+> source and the correction ships with the next release.
+>
+> **Corrected claims:** `chain-absolute`
+
 Generated 2026-09-06T16:30:42.318Z by CAIRN Trust Fabric.
 Window: beginning-of-record → now
 Reason: Scheduled compliance export

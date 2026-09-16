@@ -41,12 +41,13 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PAGES as ALL_PAGES } from './pages.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNCHECKED = 2;
 
 const CANONICAL = 'index.html';
-const PAGES = ['compliance.html', 'licensing.html', 'gallery.html', 'book.html'];
+const PAGES = ALL_PAGES.filter((p) => p !== CANONICAL);
 
 function footerOf(html) {
     const start = html.indexOf('<footer class="site-footer">');
@@ -77,6 +78,10 @@ async function main() {
         try {
             html = await fs.readFile(path.join(ROOT, page), 'utf8');
         } catch {
+            // A declared page that is not on disk is a failure, not a skip. Until
+            // 2026-09-16 this was `continue`, so a page named in scripts/pages.mjs
+            // and never created passed this check with nothing compared.
+            drifted.push(`${page}  is declared in scripts/pages.mjs and could not be read`);
             continue;
         }
         const f = footerOf(html);

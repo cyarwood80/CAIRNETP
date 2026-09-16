@@ -3235,7 +3235,10 @@ code, pre {
   --ink-bg: #010509;
 }
 
-/* ── SURFACE: PAPER — CURRENTLY UNUSED ─────────────────────────────────────
+/* ── SURFACE: PAPER — USED BY receipt.html SINCE 2026-09-16 ──────────────────
+   The receipts on receipt.html sit on it; see RECEIPT PAGE at the end of this
+   file. The history below is kept because the decision it records still holds.
+
    The one section that used this, `#register-extract`, was removed on
    2026-09-06 with register.html: the homepage is a commercial surface and a
    list of what the product cannot do belongs behind an evaluation conversation.
@@ -4055,4 +4058,398 @@ code, pre {
   width: 100%;
   max-width: 460px;
   height: auto;
+}
+
+/* ══════════════════════════════════════════════════════════════════════════
+   RECEIPT PAGE — receipt.html (A2, 2026-09-16)
+   ══════════════════════════════════════════════════════════════════════════
+   The receipts sit on PAPER, which had been unused since the register extract
+   was withdrawn. A receipt is a paper object; that is the whole argument for
+   the surface, and it is the first content the surface has had that needed no
+   copy from what was removed.
+
+   Colour on paper is semantic and measured, never brand: the refused stamp
+   is #8a3324 and the allowed stamp #1d5e46 — measured at 7.5:1 and 7.1:1 on the
+   raised receipt, and 7.0:1 and 6.6:1 on --paper-bg, so both clear AA at 2xs. The amber accent stays the boundary and is not used here
+   for status. */
+
+.receipt-hero {
+  position: relative;
+  z-index: 1;
+  padding: 6rem 0 5rem;
+}
+
+.receipt-hero .container,
+.receipt-narrow {
+  max-width: 880px;
+}
+
+.receipt-hero-title {
+  font-size: var(--text-fluid-hero);
+  line-height: 1.1;
+  margin: 0.5rem 0 1.5rem;
+  max-width: 18ch;
+}
+
+.receipt-hero-lede {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--color-glacier-dim);
+  max-width: 64ch;
+  margin-bottom: 1.1rem;
+}
+
+.receipt-hero-lede strong {
+  color: var(--color-glacier);
+}
+
+.receipt-hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 2rem;
+}
+
+/* ── The receipts ─────────────────────────────────────────────────────────── */
+
+.receipt-pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 1.75rem;
+  margin-top: 3rem;
+  align-items: start;
+}
+
+.receipt {
+  background: var(--paper-bg-raised);
+  border: 1px solid var(--paper-rule-strong);
+  border-radius: var(--radius-sm);
+  padding: 1.5rem 1.5rem 1.25rem;
+  color: var(--paper-ink);
+  /* The tear line of a till receipt, drawn rather than imaged. */
+  background-image: radial-gradient(circle at 8px -2px, var(--paper-bg) 5px, transparent 5.5px);
+  background-size: 16px 10px;
+  background-repeat: repeat-x;
+  background-position: 0 100%;
+}
+
+.receipt-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  padding-bottom: 0.9rem;
+  border-bottom: 1px dashed var(--paper-rule-strong);
+  margin-bottom: 1rem;
+}
+
+.receipt-stamp {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.3rem 0.6rem;
+  border: 1.5px solid currentColor;
+  border-radius: var(--radius-sm);
+}
+
+.receipt-stamp-allow {
+  color: #1d5e46;
+}
+
+.receipt-stamp-deny {
+  color: #8a3324;
+}
+
+.receipt-index {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--paper-ink-soft);
+}
+
+.receipt-decision {
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  margin-bottom: 0.75rem;
+}
+
+.receipt-reason {
+  font-size: var(--text-sm);
+  line-height: 1.6;
+  color: var(--paper-ink);
+  margin-bottom: 1.1rem;
+}
+
+.receipt-reason-key,
+.receipt-derived {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--paper-ink-soft);
+  letter-spacing: 0.06em;
+}
+
+.receipt-derived {
+  border: 1px solid var(--paper-rule-strong);
+  border-radius: var(--radius-pill);
+  padding: 0 0.4rem;
+  margin-left: 0.25rem;
+}
+
+.receipt-fields {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  margin: 0;
+}
+
+.receipt-fields dt {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  color: var(--paper-ink-soft);
+  padding-top: 0.55rem;
+  border-top: 1px solid var(--paper-rule);
+}
+
+.receipt-fields dd {
+  margin: 0.15rem 0 0.55rem;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  color: var(--paper-ink);
+  overflow-wrap: anywhere;
+}
+
+.section-paper code {
+  background: transparent;
+  color: inherit;
+}
+
+.receipt-hash {
+  word-break: break-all;
+}
+
+.receipt-foot {
+  margin-top: 0.75rem;
+  padding-top: 0.8rem;
+  border-top: 1px dashed var(--paper-rule-strong);
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  line-height: 1.6;
+  color: var(--paper-ink-soft);
+}
+
+.receipt-foot.is-ok {
+  color: #1d5e46;
+}
+
+.receipt-foot.is-broken {
+  color: #8a3324;
+}
+
+.receipt-note {
+  margin-top: 2.5rem;
+  max-width: 70ch;
+  font-size: var(--text-base);
+  line-height: 1.75;
+  color: var(--paper-ink-soft);
+  border-left: 3px solid var(--paper-rule-strong);
+  padding-left: 1.1rem;
+}
+
+.receipt-note strong {
+  color: var(--paper-ink);
+}
+
+/* ── The checks ───────────────────────────────────────────────────────────── */
+
+.receipt-check .container {
+  max-width: 1040px;
+}
+
+.receipt-section-title {
+  font-size: var(--text-fluid-section);
+  line-height: 1.15;
+  margin: 0.5rem 0 1.25rem;
+  max-width: 24ch;
+}
+
+.receipt-section-lede {
+  font-size: var(--text-md);
+  line-height: 1.75;
+  color: var(--color-glacier-dim);
+  max-width: 68ch;
+}
+
+.receipt-section-lede strong {
+  color: var(--color-glacier);
+}
+
+.receipt-note-dark {
+  color: var(--color-glacier-dim);
+  margin-top: 1rem;
+}
+
+.receipt-checks {
+  margin: 2.5rem 0;
+  border-top: 1px solid var(--border-card);
+}
+
+.receipt-check-row {
+  display: grid;
+  grid-template-columns: 9rem minmax(0, 1.2fr) minmax(0, 1fr);
+  grid-template-areas:
+    'name what   result'
+    'name limit  limit';
+  gap: 0.5rem 1.75rem;
+  padding: 1.35rem 0;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.receipt-check-name {
+  grid-area: name;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--color-glacier);
+}
+
+.receipt-check-what {
+  grid-area: what;
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-glacier-dim);
+}
+
+.receipt-check-result {
+  grid-area: result;
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  line-height: 1.6;
+  color: var(--color-stone-grey);
+}
+
+.receipt-check-result.is-ok {
+  color: var(--color-teal-signal);
+}
+
+.receipt-check-result.is-broken {
+  color: #ffc53d;
+}
+
+.receipt-check-limit {
+  grid-area: limit;
+  font-size: var(--text-sm);
+  line-height: 1.65;
+  color: var(--color-stone-grey);
+}
+
+.receipt-check-limit strong {
+  color: var(--color-glacier-dim);
+}
+
+.receipt-attack {
+  margin-top: 1rem;
+}
+
+.chain-status-warning {
+  color: var(--color-cairn-blue-light);
+}
+
+.receipt-after-attack {
+  margin-top: 2rem;
+}
+
+/* ── Proves / does not ────────────────────────────────────────────────────── */
+
+.receipt-ledger-table {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-top: 2.5rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.receipt-lt-head {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--color-stone-grey);
+  padding: 1rem 1.25rem 1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.receipt-lt-cell {
+  font-size: var(--text-base);
+  line-height: 1.65;
+  color: var(--color-glacier);
+  padding: 1.1rem 1.5rem 1.1rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.receipt-lt-cell:nth-of-type(even) {
+  color: var(--color-glacier-dim);
+}
+
+/* ── Absent fields ────────────────────────────────────────────────────────── */
+
+.receipt-absent {
+  margin-top: 2rem;
+  border-top: 1px solid var(--border-card);
+}
+
+.receipt-absent-row {
+  display: grid;
+  grid-template-columns: 11rem minmax(0, 1fr);
+  gap: 1.5rem;
+  padding: 1.25rem 0;
+  border-bottom: 1px solid var(--border-card);
+}
+
+.receipt-absent-name {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+  font-weight: 600;
+  color: var(--color-glacier);
+}
+
+.receipt-absent-body {
+  font-size: var(--text-base);
+  line-height: 1.7;
+  color: var(--color-glacier-dim);
+}
+
+.receipt-close {
+  border-top: 1px solid var(--border-card);
+}
+
+@media (max-width: 900px) {
+  .receipt-pair {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .receipt-check-row {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas: 'name' 'what' 'result' 'limit';
+  }
+}
+
+@media (max-width: 620px) {
+  .receipt-hero {
+    padding: 3.5rem 0 3rem;
+  }
+  .receipt-ledger-table {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .receipt-lt-head:nth-of-type(2) {
+    display: none;
+  }
+  .receipt-lt-cell:nth-of-type(even) {
+    padding-left: 1rem;
+    border-left: 2px solid rgba(255, 255, 255, 0.12);
+  }
+  .receipt-absent-row {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 0.4rem;
+  }
 }

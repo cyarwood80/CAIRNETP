@@ -658,7 +658,9 @@
         exporter, with the hash chain it shipped with. Your browser recomputes every hash on your
         machine; nothing here runs on a CAIRN server, because in a customer deployment there is none.
         <strong style="color: var(--color-glacier);">Alter a record and the chain says so. Repair its hash and it still says so.</strong>
-        There is no edit that leaves the chain intact, and you can prove that here rather than believe it.
+        Recompute every hash after it, though, and the chain is intact again — which is what
+        <em>tamper-evident</em> means and all it means. <a href="receipt.html#check">The receipt page</a> does
+        that rewrite in front of you, and says what catches it.
       </p>
 
       <div class="chain-verifier" id="chain-verifier">
@@ -686,6 +688,11 @@
         bundle CAIRN exports, and the code running on this page implements it verbatim. An auditor with
         the bundle and <code>openssl</code> reaches the same answer without this site, without CAIRN,
         and without trusting either.
+      </p>
+
+      <p style="color: var(--color-stone-grey); font-size: var(--text-sm); max-width: 760px; line-height: 1.7; margin-top: 1rem;">
+        <a href="receipt.html">Read one record in full</a> — an allowed call and a refused one from this bundle,
+        every field, what each receipt establishes and what it does not.
       </p>
     </div>
   </section>
@@ -831,6 +838,7 @@
             <li><a href="/#assurance">Assurance ladder</a></li>
             <li><a href="/#gate">Watch a decision</a></li>
             <li><a href="/#evidence">Verify the evidence</a></li>
+            <li><a href="receipt.html">Decision receipts</a></li>
             <li><a href="/#download">Download CAIRN</a></li>
           </ul>
         </div>

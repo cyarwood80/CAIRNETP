@@ -41,6 +41,7 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { PAGES, undeclared } from './pages.mjs';
 
 const ROOT = path.join(path.dirname(fileURLToPath(import.meta.url)), '..');
 const UNCHECKED = 2;
@@ -61,8 +62,7 @@ const UNCHECKED = 2;
  */
 const REQUIRED_ASSETS = ['css/styles.css', 'js/main.js'];
 
-const PAGES = ['index.html', 'compliance.html', 'gallery.html', 'licensing.html', 'book.html'];
-const SCRIPTS = ['js/main.js', 'js/chain-verify.js'];
+const SCRIPTS = ['js/main.js', 'js/chain-verify.js', 'js/receipt.js', 'js/receipt-page.js'];
 
 /** Turn a `builds` src into a test for whether it covers a given path. */
 export function coverage(builds) {
@@ -112,6 +112,30 @@ async function main() {
 
     const problems = [];
     let checked = 0;
+
+    // ── THE PAGE LIST ITSELF (2026-09-16) ────────────────────────────────────
+    // scripts/pages.mjs is the one list. The two places that cannot import it —
+    // vercel.json and sitemap.xml — are asserted here, and so is the direction
+    // no list can check on its own: a page on disk that nobody declared.
+    const rootNames = (await fs.readdir(ROOT, { withFileTypes: true })).filter((d) => d.isFile()).map((d) => d.name);
+    for (const name of undeclared(rootNames))
+        problems.push(`${name} is on disk and is not in scripts/pages.mjs  (declare it, or exempt it with a reason)`);
+    let sitemap = '';
+    try {
+        sitemap = await fs.readFile(path.join(ROOT, 'sitemap.xml'), 'utf8');
+    } catch {
+        problems.push('sitemap.xml could not be read');
+    }
+    for (const page of PAGES) {
+        if (!covered(page)) problems.push(`${page} has no builds entry in vercel.json  (it will 404 in production)`);
+        // A builds entry is not enough on its own: routes end in a catch-all to
+        // api/index.py, so a page with no route of its own is at the mercy of
+        // whatever Vercel matches first. Every existing page has one; so must the next.
+        if (!(config.routes || []).some((r) => r.dest === `/${page}`))
+            problems.push(`${page} has no route in vercel.json  (routes end in a catch-all to api/index.py)`);
+        const loc = page === 'index.html' ? 'https://cairnetp.com/</loc>' : `https://cairnetp.com/${page}</loc>`;
+        if (sitemap && !sitemap.includes(loc)) problems.push(`${page} is not in sitemap.xml`);
+    }
 
     for (const rel of [...PAGES, ...SCRIPTS]) {
         let src;

@@ -16,6 +16,12 @@
     <priority>0.95</priority>
   </url>
   <url>
+    <loc>https://cairnetp.com/receipt.html</loc>
+    <lastmod>2026-09-16</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.90</priority>
+  </url>
+  <url>
     <loc>https://cairnetp.com/licensing.html</loc>
     <lastmod>2026-08-29</lastmod>
     <changefreq>weekly</changefreq>
