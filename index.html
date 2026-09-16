@@ -277,7 +277,7 @@
         </div>
         <h2 class="section-title">The Cairn Architecture</h2>
         <p class="section-subtitle">
-          The stacked cairn symbol represents the physical architecture: from user intent down to cryptographic evidence. Each layer builds deterministically upon the foundations below it.
+          The stacked cairn symbol represents the physical architecture: from user intent down to cryptographic evidence. From what an agent asks to do, down to the evidence of what was decided.
         </p>
       </div>
 
@@ -286,42 +286,26 @@
         <div class="cairn-layers-visual">
           <div class="cairn-layer-card active" data-layer="intent" id="layer-intent">
             <div class="layer-badge">Stone 1 (Top) • Ingress</div>
-            <h4 class="layer-title">1. Intent &amp; Ingress Gate</h4>
-            <p class="layer-desc">Schema validation, AST parsing, and prompt injection filters before code touches any system.</p>
-            <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/cairn/cairn-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CAIRN (Blocking Gate)</span>
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/path/path-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> PATH (Router)</span>
-            </div>
+            <h4 class="layer-title">1. The Gate</h4>
+            <p class="layer-desc">A tool call is classified and checked — its arguments, any code it carries, the policy it falls under — before it reaches a tool. A tool CAIRN cannot classify is refused.</p>
           </div>
 
           <div class="cairn-layer-card" data-layer="governance" id="layer-governance">
             <div class="layer-badge">Stone 2 • Governance</div>
             <h4 class="layer-title">2. Policy &amp; Governance Engine</h4>
-            <p class="layer-desc">Operator-declared autonomy ceilings, egress allow-listing, and secret redaction — decided before the tool runs, and recorded either way.</p>
-            <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Policy)</span>
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/atlas/atlas-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> ATLAS (RAG Memory)</span>
-            </div>
+            <p class="layer-desc">Signed corporate policy, operator-declared autonomy ceilings and protected targets, and egress allow-listing — decided before the tool runs, and recorded either way.</p>
           </div>
 
           <div class="cairn-layer-card" data-layer="execution" id="layer-execution">
             <div class="layer-badge">Stone 3 • Execution</div>
-            <h4 class="layer-title">3. Dual-Runtime Sandbox</h4>
-            <p class="layer-desc">Dynamic hardware-isolated dispatch to Linux Docker or Windows Sandbox Hyper-V micro-VMs.</p>
-            <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/crucible/crucible-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> CRUCIBLE (Blocking Sandbox)</span>
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/forge/forge-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> FORGE (Zero-Failure Loop)</span>
-            </div>
+            <h4 class="layer-title">3. Isolated Execution</h4>
+            <p class="layer-desc">Code runs in a Docker container with no network and a read-only filesystem, or in Windows Sandbox, a Hyper-V virtual machine — where either is present. Where neither is, the result says static checks only.</p>
           </div>
 
           <div class="cairn-layer-card" data-layer="evidence" id="layer-evidence">
             <div class="layer-badge">Stone 4 (Base) • Foundation</div>
             <h4 class="layer-title">4. Cryptographic Evidence Ledger</h4>
-            <p class="layer-desc">Tamper-evident SQLite SHA-256 decision records, heartbeat gap tracking, and SIEM structured JSONL streams.</p>
-            <div style="margin-top: 0.5rem;">
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/beacon/beacon-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> BEACON (Live Telemetry)</span>
-              <span class="pillar-map-tag" style="font-size: var(--text-2xs); padding: 0.15rem 0.45rem;"><img src="assets/pillars/compass/compass-mark.svg" class="inline-pillar-mark" style="width: 14px; height: 14px;" alt=""> COMPASS (Audit Ledger)</span>
-            </div>
+            <p class="layer-desc">Tamper-evident SHA-256 decision records, with every interval CAIRN was not running recorded as a gap — exported as JSONL an auditor verifies without CAIRN.</p>
           </div>
         </div>
 
@@ -330,7 +314,7 @@
           <img src="assets/cairn-symbol-3d.png" alt="Stacked Cairn Layers" style="width: 220px; height: auto; margin-bottom: 2rem; filter: drop-shadow(0 15px 30px rgba(232, 130, 60, 0.4));" onerror="this.src='assets/cairn-logo.svg'">
           <h3 style="margin-bottom: 0.75rem;">Layered Trust Composition</h3>
           <p style="font-size: var(--text-base); max-width: 440px; margin: 0 auto 1.5rem auto;">
-            Seven cooperating subsystems (PATH, CAIRN, COMPASS, ATLAS, FORGE, CRUCIBLE, BEACON) execute across the 4 physical stones bounded by a default-deny gate nothing bypasses.
+            Inside the product, the work is divided among seven named components. You meet their names where they matter — a refusal says which component refused and why, and every record of a decision carries them — not before you start.
           </p>
         </div>
       </div>
@@ -427,14 +411,17 @@
     <div class="container faq-container">
       <!-- This read "ARCHITECTURAL KNOWLEDGE HUB" above two questions. A
            heading that promises a hub and delivers two entries is a small lie
-           on a page whose subject is not telling them. Four of the six below
+           on a page whose subject is not telling them. Two of the four below
            answer with a no, which is the only reason an FAQ on a vendor site is
-           worth a reader's time. -->
+           worth a reader's time. The questions on third-party audit and the Windows
+           install warning were removed from this page on 2026-09-16, on the
+           operator's instruction; both facts remain stated in the download section,
+           on the licensing page and in the register. -->
       <div class="section-title-wrap is-left">
         <div class="status-pill status-pill-teal">
           <svg class="icon" aria-hidden="true"><use href="#i-help-circle"></use></svg> Questions an evaluator asks first
         </div>
-        <h2 class="section-title">Six answers, four of them no.</h2>
+        <h2 class="section-title">Four answers, two of them no.</h2>
         <p class="section-subtitle">
           The answers below are the ones an evaluation asks for early, and they are the answers
           CAIRN gives in writing rather than in a meeting.
@@ -452,7 +439,7 @@
           </summary>
           <div class="faq-answer">
             <p>
-              <strong>CAIRN Trust Fabric</strong> is a deterministic enterprise trust plane inserted between user intent and model execution. While Large Language Models (LLMs) are probabilistic and prone to hallucination or prompt injection, CAIRN enforces default-deny governance, hardware-isolated sandbox verification, and SHA-256 decision ledgers.
+              <strong>CAIRN Trust Fabric</strong> sits between what an AI agent proposes and what actually runs. The model stays probabilistic; the decision about what it may do is not. CAIRN refuses what policy does not allow, runs code in an isolated sandbox where Docker or Windows Sandbox is present, and records every decision in a tamper-evident SHA-256 ledger an auditor can check without CAIRN.
             </p>
           </div>
         </details>
@@ -467,29 +454,11 @@
           </summary>
           <div class="faq-answer">
             <p>
-              CAIRN evaluates all tool calls through its schema-contracted pillars. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.1 a decision that runs no code takes <strong>0.2–2.2 ms</strong>; one that must first parse a PowerShell script on Windows takes about <strong>330 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
+              CAIRN evaluates every tool call it receives against schema and policy. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.1 a decision that runs no code takes <strong>0.2–2.2 ms</strong>; one that must first parse a PowerShell script on Windows takes about <strong>330 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
             </p>
           </div>
         </details>
 
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span class="faq-summary-text">
-              <svg class="icon faq-summary-icon" aria-hidden="true"><use href="#i-clipboard-check"></use></svg>
-              Has an independent third party audited CAIRN?
-            </span>
-            <svg class="icon faq-toggle-arrow" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
-          </summary>
-          <div class="faq-answer">
-            <p>
-              <strong>No.</strong> No third party has audited CAIRN, no customer is running it in
-              production, and it holds no certification — none is in progress. What exists instead is
-              a published register of every claim with its limits, a signed evidence bundle a
-              reviewer can verify without installing anything, and a build that refuses to package a
-              version whose recorded commit is not the one it was built from.
-            </p>
-          </div>
-        </details>
 
         <details class="faq-item">
           <summary class="faq-summary">
@@ -529,24 +498,6 @@
           </div>
         </details>
 
-        <details class="faq-item">
-          <summary class="faq-summary">
-            <span class="faq-summary-text">
-              <svg class="icon faq-summary-icon" aria-hidden="true"><use href="#i-alert-circle"></use></svg>
-              Will Windows warn me when I install it?
-            </span>
-            <svg class="icon faq-toggle-arrow" aria-hidden="true"><use href="#i-chevron-down"></use></svg>
-          </summary>
-          <div class="faq-answer">
-            <p>
-              <strong>Yes.</strong> "Windows protected your PC" — the binaries are not code-signed by
-              a certificate authority. That warning means the publisher has not paid for an identity
-              check, not that the file is dangerous. Every release ships a dependency-free verifier
-              you can run before installing anything, and it proves the files have not changed since
-              they were built. It does not prove who holds the key, and the download section says so.
-            </p>
-          </div>
-        </details>
       </div>
     </div>
   </section>
