@@ -167,9 +167,9 @@
       </h1>
 
       <p class="ink-lede" style="margin-bottom: 2rem;">
-        Ten pillars, each one a working part of the trust fabric rather than a module on a diagram.
-        These are direct captures from the desktop client and the local orchestration engine &mdash;
-        no mockups, no composites, and nothing rendered for this page.
+        Seven governed pillars, then the surfaces that run the compute and the configuration around
+        them. These are direct captures from the desktop client and the local orchestration engine
+        &mdash; no mockups, no composites, and nothing rendered for this page.
       </p>
 
       <div class="pillar-index">
@@ -199,10 +199,11 @@
   <section id="pillars-detail" class="section-spacing">
     <div class="container">
       <div class="section-title-wrap">
-        <h2 class="section-title">Ten pillars, ten screens</h2>
+        <h2 class="section-title">Seven pillars, and the surfaces around them</h2>
         <p class="section-subtitle">
-          Evaluation, execution, compute and operations. Each one names what it does, and shows you
-          the surface an operator actually works in.
+          Seven pillars carry the trust fabric; the last three screens are the compute, the model
+          fleet and the settings that run around them. Each names what it does and shows the surface
+          an operator works in.
         </p>
       </div>
 
@@ -223,7 +224,7 @@
 
             <div class="gartner-pillar-desc">
               <p>
-                CAIRN operates as an unyielding default-deny security boundary. Every incoming prompt instruction and proposed tool call is intercepted and evaluated against strict cryptographic policies prior to execution.
+                CAIRN is the default-deny security boundary. Every incoming prompt instruction and proposed tool call is intercepted and evaluated against strict cryptographic policies prior to execution.
               </p>
               <p>
                 By separating cloud reasoning models from direct OS tool access, CAIRN removes the path by which an injected instruction reaches a tool unreviewed: every proposed call is graded and must clear its assurance bar first.
@@ -267,7 +268,7 @@
                 Maintains model-agnostic routing, dynamically selecting local Ollama workers or cloud backbones based on hardware availability and security clearance.
               </p>
               <p>
-                Prevents model vendor lock-in while maintaining total operational continuity during external cloud outages.
+                Because routing is model-agnostic, a cloud outage falls back to a local model rather than stopping the node.
               </p>
             </div>
 
@@ -298,13 +299,13 @@
 
             <div class="gartner-pillar-desc">
               <p>
-                BEACON maintains real-time operational awareness across active agent daemons, streaming live WebSocket progress telemetry directly to enterprise dashboards.
+                BEACON streams live progress from active agent daemons over WebSocket to the local UI.
               </p>
               <p>
-                Synthesizes intermediate execution updates without exposing sensitive payload data, ensuring enterprise risk teams maintain total visibility over background tasks.
+                It relays intermediate execution updates without the payloads, so a watcher can follow a background task without its contents crossing the wire.
               </p>
               <p>
-                Acts as the central event bus connecting local hardware workers with enterprise monitoring infrastructure.
+                It is the event bus between the local workers and the UI. There is no connector to an external monitoring product; what it emits is the same JSONL the audit trail records.
               </p>
             </div>
 
@@ -313,7 +314,7 @@
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-beacon);">
               <div class="executive-caption-title"><svg class="icon" aria-hidden="true"><use href="#i-eye"></use></svg> WHAT AM I LOOKING AT?</div>
               <div class="executive-caption-text">
-                Real-time WebSocket telemetry dashboard broadcasting live agent daemon health and task execution progress without payload exposure.
+                The live WebSocket feed the local UI shows: daemon health and task progress, without the payloads.
               </div>
             </div>
             <img src="assets/cairn-app-settings.png" alt="BEACON Operational Awareness Capture" style="border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-card);">
@@ -412,7 +413,7 @@
                 FORGE synthesizes candidate scripts and automation workflows using specialized local code models. It triggers a 3-stage verification pipeline (syntax compilation check, pattern pre-filtering, and container containment).
               </p>
               <p>
-                Manages cryptographic secret protection, API credential handles, and script integrity allow-lists within the local automation vault.
+                Keeps API credentials out of logs and prompts by redacting them, and holds an allow-list of saved scripts, in the local vault.
               </p>
             </div>
 
@@ -474,19 +475,19 @@
               </div>
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">ACCELERATOR</h3>
-                <div class="gartner-pillar-role">Pillar 08 • Local & LAN Hardware Neural Acceleration</div>
+                <div class="gartner-pillar-role">Compute &amp; operations • Hardware profiling and model placement</div>
               </div>
             </div>
 
             <div class="gartner-pillar-desc">
               <p>
-                ACCELERATOR connects sovereign edge compute nodes, dedicated GPU clusters (NVIDIA DGX, Spark, VKS nodes), and LAN accelerators directly to the CAIRN trust mesh.
+                ACCELERATOR profiles the compute on a machine &mdash; a discrete GPU, integrated graphics, a VM&rsquo;s display adapter, or nothing &mdash; and tells the fleet what will fit in graphics memory and what would spill to system RAM.
               </p>
               <p>
-                Performs automated capability matching and tensor offloading, ensuring high-throughput local inference with zero latency penalty and complete hardware data isolation.
+                It does not itself accelerate anything: inference runs on whatever backend is present, and this only decides where a model can run.
               </p>
               <p>
-                Enables air-gapped high-performance model execution across private networks.
+                A machine whose graphics memory cannot be read is reported as unknown, never as zero &mdash; not knowing is not evidence that a model would spill.
               </p>
             </div>
 
@@ -495,7 +496,7 @@
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-accelerator);">
               <div class="executive-caption-title"><svg class="icon" aria-hidden="true"><use href="#i-chip"></use></svg> WHAT AM I LOOKING AT?</div>
               <div class="executive-caption-text">
-                Local and LAN Hardware Accelerator offload monitor managing GPU VRAM allocation, tensor pipeline throughput, and worker cluster sync.
+                The compute profile CAIRN read on this machine, and the per-model verdict on what fits in graphics memory and what would spill.
               </div>
             </div>
             <img src="assets/cairn-app-terminal.png" alt="ACCELERATOR Compute Terminal" style="border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-card);">
@@ -511,19 +512,19 @@
               </div>
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">MODEL FLEET</h3>
-                <div class="gartner-pillar-role">Pillar 09 • Local & Distributed AI Model Orchestration</div>
+                <div class="gartner-pillar-role">Compute &amp; operations • Local and distributed model orchestration</div>
               </div>
             </div>
 
             <div class="gartner-pillar-desc">
               <p>
-                MODEL FLEET is the distributed model worker swarm coordinator. It dynamically balances reasoning tasks across heterogeneous local model backends (Ollama, vLLM, LM Studio) and sanctioned enterprise cloud endpoints.
+                MODEL FLEET is where the models a node can reach are managed. It routes tasks to a local Ollama backend or any OpenAI-compatible endpoint the operator has configured, local or cloud.
               </p>
               <p>
-                Enforces model health heartbeats, automatic fallback chains during single-model degradation, and token budget throttling across corporate teams.
+                It heartbeats each host, discloses a failover when a host stops answering rather than switching silently, and enforces a cloud-spend budget whose action on exceeding is either fall back to local or block.
               </p>
               <p>
-                Maintains total vendor independence and operational continuity under air-gapped conditions.
+                It runs air-gapped against local models, with no dependence on any single vendor.
               </p>
             </div>
 
@@ -548,19 +549,19 @@
               </div>
               <div class="pillar-header-text">
                 <h3 class="pillar-showcase-title">SETTINGS</h3>
-                <div class="gartner-pillar-role">Pillar 10 • System Configuration & Control Plane Preferences</div>
+                <div class="gartner-pillar-role">Compute &amp; operations • Node configuration</div>
               </div>
             </div>
 
             <div class="gartner-pillar-desc">
               <p>
-                SETTINGS manages enterprise policy-as-code distributions, cryptographic root certificate stores, telemetry endpoints, and per-environment security tolerances.
+                SETTINGS is where an operator configures the node: the cloud provider and key, mail, the model fleet, evidence-anchor settings, and the installation of a signed corporate policy.
               </p>
               <p>
-                Enables platform administrators to configure air-gapped operational modes, audit ledger export schedules, and granular access boundaries with single-click verification.
+                It can schedule an evidence export to a directory the operator declares, and it runs air-gapped. Role-based access control is not built, so it draws no per-user access boundaries.
               </p>
               <p>
-                Maintains signed configuration state hashes ensuring zero configuration drift across deployed nodes.
+                There is no push distribution and no central control plane: CAIRN writes an evidence bundle, and your organisation moves it. A signed corporate policy is installed on each node by whatever channel you already use.
               </p>
             </div>
 
@@ -569,7 +570,7 @@
             <div class="executive-caption-box" style="--pillar-color: var(--pillar-settings);">
               <div class="executive-caption-title"><svg class="icon" aria-hidden="true"><use href="#i-sliders"></use></svg> WHAT AM I LOOKING AT?</div>
               <div class="executive-caption-text">
-                Enterprise Policy-as-Code & System Preferences control plane configuring security tolerances, certificate anchors, and export channels.
+                The node&rsquo;s settings: provider and key, the model fleet, evidence export, and signed-policy installation.
               </div>
             </div>
             <img src="assets/cairn-app-settings.png" alt="SETTINGS Control Plane Capture" style="border-radius: var(--radius-sm); border: 1px solid var(--border-color); box-shadow: var(--shadow-card);">
