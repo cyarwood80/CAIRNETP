@@ -1,7 +1,7 @@
 {
   "_comment": "The ONE place the homepage figures are set. scripts/check-metrics.mjs fails the build if index.html disagrees with this file, so a number cannot drift in the page without drifting here first. Update this, run `npm run metrics:check`, then edit the page.",
-  "measuredAt": "2026-09-16",
-  "measuredAgainst": "CAIRN Trust Fabric 2.10.1, extracted from the published .deb",
+  "measuredAt": "2026-09-18",
+  "measuredAgainst": "CAIRN Trust Fabric 2.10.2, extracted from the published .deb",
   "source": "docs/CLAIMS.md and the pillar list in the CAIRN source repository",
   "figures": {
     "governedPillars": {
@@ -15,15 +15,16 @@
       "basis": "no CAIRN-operated server is involved in a customer deployment"
     },
     "gateCost": {
-      "value": "0.2–2.2 ms",
+      "value": "0.22–0.29 ms",
       "label": "per decision that runs no code",
-      "basis": "Re-taken 2026-09-16 against the SHIPPED 2.10.1 with the published method in the distribution repository (validation/). p50 was 0.23 ms for reads and denials and 1.9 ms for writes, which rise from 0.2 to 2.2 ms across each 1,000-decision checkpoint cycle. A decision that parses a PowerShell script on Windows costs ~330 ms and is not included. The figure this replaced, 0.20–0.26 ms, was taken 2026-08-22 against earlier code and labelled as 2.10.1; it is true again of the source after a page-cache fix, and becomes the figure when that ships."
+      "basis": "p50, re-taken 2026-09-18 against the SHIPPED 2.10.2 extracted from the published .deb (sha256 576d8ee64b1f0e49c0365293821181d8e909196ef7d25f83dd96c868ab115780), with the published method in the distribution repository (validation/). Same host and Node as the 2.10.1 run, so the two compare: i9-12900K, 24 logical cores, Windows 11, Node 24.2.0, 500 iterations after 20 warm-up. p50 by scenario: read 0.225, denied 0.240, write 0.258, execute-already-CRITICAL 0.285. The 1.9 ms writes and the checkpoint sawtooth measured against 2.10.1 are gone — that was the page-cache fix, and this is it shipped. p99 still reaches ~2.3–2.9 ms, because a checkpoint is real work that has to happen somewhere; the headline is a p50 and says so. A decision that parses a PowerShell script on Windows costs ~344 ms and is NOT included in this figure — quoting one number for both is the mistake docs/GATE-PERFORMANCE.md exists to prevent."
     }
   },
   "_removed": {
     "automatedTests": "Removed 2026-09-06. The page carried '2,856 automated tests' under a heading reading 'Live Telemetry' while the real figure was 3,303 — a number that had drifted by 447 and was never live. It is also the one figure CAIRN's own register discipline forbids as a headline: a test count is a measurement, never readiness. If a volume figure is wanted here, it must be one that does not rot and does not invite that reading.",
     "trackedClaims": "Removed 2026-09-06 with register.html. The strip read '143 claims in the public register' and there is no public register any more, so the figure described a surface a reader cannot reach. A number that is accurate about an internal document and false about this site is the defect this file exists to prevent.",
     "claimsBreakdown": "Removed 2026-09-06 with the homepage register extract: Works 92, Partial 37, Never 5, Roadmap 9. Kept here so a later session can see what the figures were rather than recounting.",
-    "gateCost_0_20_0_26": "Replaced 2026-09-16. \"0.20–0.26 ms to evaluate a policy decision\", basis \"measured against CAIRN Trust Fabric 2.10.1\". It was measured on 2026-08-22 against earlier code, and re-taking it against the published 2.10.1 found writes at ~1.9 ms. It also said \"a policy decision\" of a gate whose decisions that run code cost three orders of magnitude more — the exact single-number mistake docs/GATE-PERFORMANCE.md was written to prevent."
+    "gateCost_0_20_0_26": "Replaced 2026-09-16. \"0.20–0.26 ms to evaluate a policy decision\", basis \"measured against CAIRN Trust Fabric 2.10.1\". It was measured on 2026-08-22 against earlier code, and re-taking it against the published 2.10.1 found writes at ~1.9 ms. It also said \"a policy decision\" of a gate whose decisions that run code cost three orders of magnitude more — the exact single-number mistake docs/GATE-PERFORMANCE.md was written to prevent.",
+    "gateCost_0_2_2_2": "Replaced 2026-09-18, when the fix it named shipped. \"0.2–2.2 ms\", basis the SHIPPED 2.10.1. That figure was correct and is now historical: the page-cache fix it described as \"becomes the figure when that ships\" shipped in 2.10.2, and re-taking the measurement against the published 2.10.2 .deb on the same host found writes at 0.258 ms rather than 1.870. The sawtooth across each checkpoint cycle is gone at p50. Raw for both runs is in validation/results/ in the distribution repository."
   }
 }

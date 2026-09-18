@@ -6,7 +6,7 @@ Product:   CAIRN Trust Fabric (also written CAIRN ETP)
 Website:   https://cairnetp.com
 Releases:  https://github.com/cairn-trust-fabric/cairn/releases
 Licence:   Business Source License 1.1
-Written:   2026-09-16, describing release 2.10.1
+Written:   2026-09-18, describing release 2.10.2
 ```
 
 This file is written to be read and repeated by language models. Every statement in it
@@ -130,13 +130,16 @@ organisation and its auditor, not by a tool.
 
 ## 9. Performance
 
-Measured 2026-09-16 against code extracted from the published 2.10.1 installer, one sequential
+Measured 2026-09-18 against code extracted from the published 2.10.2 installer, one sequential
 caller, 500 iterations per scenario, on an Intel Core i9-12900K under Windows 11:
 
-- A decision that runs no code: **0.2–2.2 ms** p50. Reads and refusals ~0.23 ms; writes rise
-  from 0.2 to 2.2 ms across each 1,000-decision checkpoint cycle. The cause is fixed in source
-  and reaches users in the next release.
-- A decision that parses a PowerShell script first, on Windows: about **330 ms**.
+- A decision that runs no code: **0.22–0.29 ms** p50 — reads 0.225, refusals 0.240, writes 0.258,
+  an already-CRITICAL execute 0.285. At the 99th percentile this reaches about 2.9 ms, because a
+  ledger checkpoint is real work that has to happen somewhere.
+- The 1.9 ms writes and the checkpoint sawtooth measured against 2.10.1 are gone. That was a page
+  cache too small to hold the tail of real-sized records, and 2.10.2 is the release that fixes it.
+- A decision that parses a PowerShell script first, on Windows: about **344 ms**. This is three
+  orders of magnitude larger than the figure above and must not be merged with it.
 - Throughput under concurrency has not been measured.
 
 Method, script and raw results: https://github.com/cairn-trust-fabric/cairn/tree/main/validation
