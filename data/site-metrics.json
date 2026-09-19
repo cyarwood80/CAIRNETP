@@ -1,7 +1,7 @@
 {
   "_comment": "The ONE place the homepage figures are set. scripts/check-metrics.mjs fails the build if index.html disagrees with this file, so a number cannot drift in the page without drifting here first. Update this, run `npm run metrics:check`, then edit the page.",
   "measuredAt": "2026-09-18",
-  "measuredAgainst": "CAIRN Trust Fabric 2.10.2, extracted from the published .deb (the gate path is unchanged in 2.10.3 and 2.10.4)",
+  "measuredAgainst": "CAIRN Trust Fabric 2.10.2, extracted from the published .deb; re-taken independently against the published 2.10.4 on 2026-09-19 and unchanged. The gate path is untouched in 2.10.3, 2.10.4 and 2.10.5.",
   "source": "docs/CLAIMS.md and the pillar list in the CAIRN source repository",
   "figures": {
     "governedPillars": {

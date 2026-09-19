@@ -454,7 +454,7 @@
           </summary>
           <div class="faq-answer">
             <p>
-              CAIRN evaluates every tool call it receives against schema and policy. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.4 a decision that runs no code takes <strong>0.22–0.29 ms</strong> at the median, reaching about 2.9 ms at the 99th percentile when the ledger checkpoints; one that must first parse a PowerShell script on Windows takes about <strong>344 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
+              CAIRN evaluates every tool call it receives against schema and policy. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.5 a decision that runs no code takes <strong>0.22–0.29 ms</strong> at the median, reaching about 2.9 ms at the 99th percentile when the ledger checkpoints; one that must first parse a PowerShell script on Windows takes about <strong>344 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
             </p>
           </div>
         </details>
@@ -724,9 +724,9 @@
             <div class="refusal-specimen" style="margin-top: 0.75rem;">node verify-release.cjs
 
   Signature over the file list           <span class="refusal-verdict">OK</span>
-  CAIRN-Trust-Fabric-Setup-2.10.4.exe    <span class="refusal-verdict">OK</span>
-  CAIRN-Trust-Fabric-2.10.4.AppImage     <span class="refusal-verdict">OK</span>
-  cairn-trust-fabric_2.10.4_amd64.deb    <span class="refusal-verdict">OK</span>
+  CAIRN-Trust-Fabric-Setup-2.10.5.exe    <span class="refusal-verdict">OK</span>
+  CAIRN-Trust-Fabric-2.10.5.AppImage     <span class="refusal-verdict">OK</span>
+  cairn-trust-fabric_2.10.5_amd64.deb    <span class="refusal-verdict">OK</span>
 
   <span class="refusal-verdict">PASSED</span>  3 file(s) verified.</div>
             <p style="margin-top: 0.75rem; font-size: var(--text-2xs); line-height: 1.7;">
