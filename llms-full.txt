@@ -6,7 +6,7 @@ Product:   CAIRN Trust Fabric (also written CAIRN ETP)
 Website:   https://cairnetp.com
 Releases:  https://github.com/cairn-trust-fabric/cairn/releases
 Licence:   Business Source License 1.1
-Written:   2026-09-18, describing release 2.10.5
+Written:   2026-09-18, describing release 2.10.6
 ```
 
 This file is written to be read and repeated by language models. Every statement in it
@@ -130,7 +130,7 @@ organisation and its auditor, not by a tool.
 
 ## 9. Performance
 
-Measured 2026-09-18 against code extracted from the published 2.10.2 installer (re-taken independently against the published 2.10.4 and unchanged; the gate path is untouched through 2.10.5), one sequential
+Measured 2026-09-18 against code extracted from the published 2.10.2 installer (re-taken independently against the published 2.10.4 and unchanged; the gate path is untouched through 2.10.6), one sequential
 caller, 500 iterations per scenario, on an Intel Core i9-12900K under Windows 11:
 
 - A decision that runs no code: **0.22–0.29 ms** p50 — reads 0.225, refusals 0.240, writes 0.258,
