@@ -12,7 +12,7 @@
  * ── 2. THE GATE, RUNNING ───────────────────────────────────────────────────
  * This replaces four static boxes headed "what a refusal looks like". Same
  * evidence, opposite frame: not a list of what CAIRN stops, but a demonstration
- * of how every action is decided — and it opens on one that is ALLOWED, which
+ * of how every action is decided, and it opens on one that is ALLOWED, which
  * is the whole difference between a page that reads as capability and one that
  * reads as confession.
  *
@@ -23,7 +23,7 @@
  *
  * Each decision is appended to a chain and hashed with WebCrypto in the
  * reader's browser, over the records on the page. `Alter a record` breaks it at
- * that row and at every row after — the same argument js/chain-verify.js makes
+ * that row and at every row after. This is the same argument js/chain-verify.js makes
  * with a real exported bundle further down, made here in four seconds.
  */
 
@@ -209,13 +209,13 @@
             ],
             what: 'verification · inconsistent',
             out:
-                'Verification — measured by the system, not written by the model.\n\n' +
-                '- Assurance grade: <span class="gate-v">WITHHELD</span> — the result is internally\n' +
+                'Verification, measured by the system, not written by the model.\n\n' +
+                '- Assurance grade: <span class="gate-v">WITHHELD</span>, the result is internally\n' +
                 '  inconsistent. It reports execution in a container while grading\n' +
                 '  the run `static_only`. Those cannot both be true, so no grade\n' +
                 '  is stated.\n\n' +
                 '<span class="gate-fix">The captured output is real; what it certifies is not established.\n' +
-                'Please report this — it is a defect in CAIRN, not in your script.</span>',
+                'Please report this, it is a defect in CAIRN, not in your script.</span>',
         },
     ];
 

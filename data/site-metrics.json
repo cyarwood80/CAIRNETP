@@ -1,7 +1,7 @@
 {
   "_comment": "The ONE place the homepage figures are set. scripts/check-metrics.mjs fails the build if index.html disagrees with this file, so a number cannot drift in the page without drifting here first. Update this, run `npm run metrics:check`, then edit the page.",
-  "measuredAt": "2026-09-18",
-  "measuredAgainst": "CAIRN Trust Fabric 2.10.2, extracted from the published .deb; re-taken independently against the published 2.10.4 on 2026-09-19 and unchanged. The gate path is untouched in 2.10.3, 2.10.4 and 2.10.5.",
+  "measuredAt": "2026-09-21",
+  "measuredAgainst": "CAIRN Trust Fabric 2.10.7, extracted from the published .deb and re-taken on the same host and Node as every earlier run in this series, so the columns compare. Re-taken rather than carried forward: 2.10.7 CHANGED the gate path. Commit 7d2440f added appName to the fields src/trust/executionPayload.js hands the gate, so the \"untouched since 2.10.2\" reasoning that covered 2.10.3 through 2.10.6 stopped applying and the figure had to be measured again.",
   "source": "docs/CLAIMS.md and the pillar list in the CAIRN source repository",
   "figures": {
     "governedPillars": {
@@ -15,9 +15,9 @@
       "basis": "no CAIRN-operated server is involved in a customer deployment"
     },
     "gateCost": {
-      "value": "0.22–0.29 ms",
+      "value": "0.20–0.26 ms",
       "label": "per decision that runs no code",
-      "basis": "p50, re-taken 2026-09-18 against the SHIPPED 2.10.2 extracted from the published .deb (sha256 576d8ee64b1f0e49c0365293821181d8e909196ef7d25f83dd96c868ab115780), with the published method in the distribution repository (validation/). Same host and Node as the 2.10.1 run, so the two compare: i9-12900K, 24 logical cores, Windows 11, Node 24.2.0, 500 iterations after 20 warm-up. p50 by scenario: read 0.225, denied 0.240, write 0.258, execute-already-CRITICAL 0.285. The 1.9 ms writes and the checkpoint sawtooth measured against 2.10.1 are gone — that was the page-cache fix, and this is it shipped. p99 still reaches ~2.3–2.9 ms, because a checkpoint is real work that has to happen somewhere; the headline is a p50 and says so. A decision that parses a PowerShell script on Windows costs ~344 ms and is NOT included in this figure — quoting one number for both is the mistake docs/GATE-PERFORMANCE.md exists to prevent."
+      "basis": "p50, re-taken 2026-09-21 against the SHIPPED 2.10.7 extracted from the published .deb (sha256 235f82bc958e312b48dc540de14f14e3c36ce78e169481257b7003526edd9766), with the published method in the distribution repository (validation/). Same host and Node as the 2.10.1 and 2.10.2 runs, so all three compare: i9-12900K, 24 logical cores, Windows 11, Node 24.2.0, 500 iterations after 20 warm-up, machine otherwise idle. p50 by scenario: read 0.201, denied 0.204, write 0.236, execute-already-CRITICAL 0.262. These sit about 10 per cent below the 2.10.2 column and that is NOT claimed as an improvement: the gap is within what host state explains, and nothing in 2.10.7 targets gate cost. What the re-take establishes is that the gate-path change in 7d2440f did not regress it. p99 reaches ~2.1-2.4 ms, because a ledger checkpoint is real work that has to happen somewhere; the headline is a p50 and says so. A decision that parses a PowerShell script on Windows costs ~313 ms and is NOT included in this figure. Quoting one number for both is the mistake docs/GATE-PERFORMANCE.md exists to prevent."
     }
   },
   "_removed": {

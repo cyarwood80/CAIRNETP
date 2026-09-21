@@ -1,5 +1,5 @@
 /* ==========================================================================
-   CAIRN ETP — Book Reader Modal Engine (book-reader.js)
+   CAIRN ETP. Book Reader Modal Engine (book-reader.js)
    Updated with excerpts from: CAIRN: Engineering a Sovereign AI Agent Platform
    Author: Chris Yarwood
    ========================================================================== */
@@ -11,7 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
 const CHAPTER_EXCERPTS = {
   ch1: {
     title: "The Shift to Enterprise Utility",
-    subtitle: "Preface — CAIRN: Engineering a Sovereign AI Agent Platform by Chris Yarwood",
+    subtitle: "Preface. CAIRN: Engineering a Sovereign AI Agent Platform by Chris Yarwood",
     content: `
       <p>Artificial intelligence is evolving at a pace unlike anything I have experienced during my career in enterprise technology. Almost every week brings a new frontier model, another benchmark, another framework or another promise that the latest release changes everything. It is an exciting time to be an engineer, but it is also an easy time to become distracted by capability while overlooking architecture.</p>
       <p>Whether you are building autonomous agents, designing enterprise automation platforms or simply exploring the future of local AI, I believe the next generation of intelligent systems will be defined less by the models they contain and more by the way those models are orchestrated. This book is my contribution to that conversation.</p>
