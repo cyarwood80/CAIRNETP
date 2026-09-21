@@ -159,7 +159,7 @@
               <span class="telemetry-label-unified">governed pillars</span>
             </div>
             <div class="telemetry-item-unified">
-              <span class="telemetry-value-unified" data-metric="gateCost">0.20–0.26 ms</span>
+              <span class="telemetry-value-unified" data-metric="gateCost">0.22–0.28 ms</span>
               <span class="telemetry-label-unified">per decision that runs no code</span>
             </div>
             <div class="telemetry-item-unified">
@@ -454,7 +454,7 @@
           </summary>
           <div class="faq-answer">
             <p>
-              CAIRN evaluates every tool call it receives against schema and policy. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.7 a decision that runs no code takes <strong>0.20–0.26 ms</strong> at the median, reaching about 2.4 ms at the 99th percentile when the ledger checkpoints; one that must first parse a PowerShell script on Windows takes about <strong>313 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
+              CAIRN evaluates every tool call it receives against schema and policy. The governance decisions (blocking, sandboxing, secret masking, and parameter schema enforcement) are <strong>100% deterministic</strong> and do not rely on a secondary LLM judge. On CAIRN 2.10.8 a decision that runs no code takes <strong>0.22–0.28 ms</strong> at the median, measured with other work running on the machine, and reaching about 3.5 ms at the 99th percentile when the ledger checkpoints; one that must first parse a PowerShell script on Windows takes about <strong>325 ms</strong>. <a href="https://github.com/cairn-trust-fabric/cairn/tree/main/validation" target="_blank" rel="noopener">Re-take both figures against the release you download.</a>
             </p>
           </div>
         </details>
@@ -723,9 +723,9 @@
             <div class="refusal-specimen" style="margin-top: 0.75rem;">node verify-release.cjs
 
   Signature over the file list           <span class="refusal-verdict">OK</span>
-  CAIRN-Trust-Fabric-Setup-2.10.7.exe    <span class="refusal-verdict">OK</span>
-  CAIRN-Trust-Fabric-2.10.7.AppImage     <span class="refusal-verdict">OK</span>
-  cairn-trust-fabric_2.10.7_amd64.deb    <span class="refusal-verdict">OK</span>
+  CAIRN-Trust-Fabric-Setup-2.10.8.exe    <span class="refusal-verdict">OK</span>
+  CAIRN-Trust-Fabric-2.10.8.AppImage     <span class="refusal-verdict">OK</span>
+  cairn-trust-fabric_2.10.8_amd64.deb    <span class="refusal-verdict">OK</span>
 
   <span class="refusal-verdict">PASSED</span>  3 file(s) verified.</div>
             <p style="margin-top: 0.75rem; font-size: var(--text-2xs); line-height: 1.7;">

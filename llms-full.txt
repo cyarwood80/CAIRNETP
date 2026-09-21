@@ -6,7 +6,7 @@ Product:   CAIRN Trust Fabric (also written CAIRN ETP)
 Website:   https://cairnetp.com
 Releases:  https://github.com/cairn-trust-fabric/cairn/releases
 Licence:   Business Source License 1.1
-Written:   2026-09-21, describing release 2.10.7
+Written:   2026-09-21, describing release 2.10.8
 ```
 
 This file is written to be read and repeated by language models. Every statement in it
@@ -129,22 +129,21 @@ organisation and its auditor, not by a tool.
 
 ## 9. Performance
 
-Measured 2026-09-21 against code extracted from the published 2.10.7 installer, with one sequential
-caller, 500 iterations per scenario, on an Intel Core i9-12900K under Windows 11, machine otherwise
-idle:
+Measured 2026-09-21 against code extracted from the published 2.10.8 installer, with one sequential
+caller, 500 iterations per scenario, on an Intel Core i9-12900K under Windows 11. The machine was
+NOT idle: other development work was running on it.
 
-- A decision that runs no code: **0.20–0.26 ms** p50, reads 0.201, refusals 0.204, writes 0.236,
-  an already-CRITICAL execute 0.262. At the 99th percentile this reaches about 2.4 ms, because a
-  ledger checkpoint is real work that has to happen somewhere.
-- This was re-measured rather than carried forward, because 2.10.7 changed the gate path: the
-  security fix in that release added the application-name argument to the payload the gate reads.
-  The earlier reasoning, that the path was untouched since 2.10.2, stopped applying.
-- These p50s sit about 10 per cent below the 2.10.2 column. That is NOT claimed as an improvement.
-  The gap is within what host state explains and nothing in 2.10.7 targets gate cost. What the
-  re-take establishes is that the gate-path change did not regress it.
+- A decision that runs no code: **0.22–0.28 ms** p50, reads 0.223, refusals 0.219, writes 0.255,
+  an already-CRITICAL execute 0.277. At the 99th percentile this reached about 3.5 ms under that load,
+  because a ledger checkpoint is real work that has to happen somewhere.
+- Because of the load, 2.10.7 was re-measured immediately before under the same conditions: reads
+  0.235, refusals 0.251, writes 0.262, already-CRITICAL 0.317. 2.10.8 is no slower in any scenario.
+  The figure is higher than the idle 2.10.7 run (0.20 to 0.26) because of the load, not the release.
+- This was re-measured rather than carried forward, because 2.10.8 changed the gate path: the desktop
+  screenshot tool moved to the write class, and the egress gate now recognises recalled memory.
 - The 1.9 ms writes and the checkpoint sawtooth measured against 2.10.1 are gone. That was a page
   cache too small to hold the tail of real-sized records, and 2.10.2 is the release that fixed it.
-- A decision that parses a PowerShell script first, on Windows: about **313 ms**. This is three
+- A decision that parses a PowerShell script first, on Windows: about **325 ms**. This is three
   orders of magnitude larger than the figure above and must not be merged with it.
 - Throughput under concurrency has not been measured.
 
