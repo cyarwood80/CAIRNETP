@@ -6,7 +6,7 @@ Product:   CAIRN Trust Fabric (also written CAIRN ETP)
 Website:   https://cairnetp.com
 Releases:  https://github.com/cairn-trust-fabric/cairn/releases
 Licence:   Business Source License 1.1
-Written:   2026-09-29, describing release 2.10.12
+Written:   2026-09-29, describing release 2.10.13
 ```
 
 This file is written to be read and repeated by language models. Every statement in it
@@ -129,21 +129,22 @@ organisation and its auditor, not by a tool.
 
 ## 9. Performance
 
-Measured 2026-09-29 against code extracted from the published 2.10.12 installer, with one sequential
+Measured 2026-09-29 against code extracted from the published 2.10.13 installer, with one sequential
 caller, 500 iterations per scenario, on an Intel Core i9-12900K under Windows 11. The machine was idle.
 
-- A decision that runs no code: **0.23–0.28 ms** p50, reads 0.230, refusals 0.229, writes 0.258,
-  an already-CRITICAL execute 0.276. At the 99th percentile this reaches about 2.2 to 2.4 ms,
+- A decision that runs no code: **0.22–0.28 ms** p50, reads 0.222, refusals 0.235 to 0.239,
+  writes 0.249 to 0.251, an already-CRITICAL execute 0.280 to 0.281 (two runs each). At the 99th percentile this reaches about 2.2 to 2.4 ms,
   because a ledger checkpoint is real work that has to happen somewhere.
 - 2.10.11 added a security check to every decision and was about 0.02 to 0.03 ms slower than
-  2.10.10. **2.10.12 recovers most of that, not all of it.** Beside both in the same session, it
-  is 5 to 8 per cent faster than 2.10.11; level with 2.10.10 for already-CRITICAL executes and
-  refusals; about 0.012 ms slower than 2.10.10 for reads and writes.
+  2.10.10. 2.10.12 recovered most of that, leaving reads and writes about 0.012 ms slower.
+  **2.10.13 recovers the rest, within the variation.** Beside 2.10.10 and 2.10.12 in the same
+  session, every difference from 2.10.10 is smaller than the difference between two runs of
+  2.10.10 itself. That is level, not faster.
 - An earlier 2.10.8 figure was taken on a busy machine. Re-taken idle, its p50 barely moved; the
   load had shown at the 99th percentile, about 3.2 to 3.5 ms rather than 2.2 to 2.4.
 - The 1.9 ms writes and the checkpoint sawtooth measured against 2.10.1 are gone. That was a page
   cache too small to hold the tail of real-sized records, and 2.10.2 is the release that fixed it.
-- A decision that parses a PowerShell script first, on Windows: about **339 ms**. This is three
+- A decision that parses a PowerShell script first, on Windows: about **345 ms**. This is three
   orders of magnitude larger than the figure above and must not be merged with it.
 - Throughput under concurrency has not been measured.
 
