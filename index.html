@@ -48,6 +48,7 @@
     <symbol id="i-menu" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M4 7h16M4 12h16M4 17h16"/></symbol>
     <symbol id="i-monitor" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.4" width="18" height="12.2" rx="1.6"/><path d="M9.4 20.2h5.2M12 16.6v3.6"/></symbol>
     <symbol id="i-network" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><rect x="9.2" y="3.2" width="5.6" height="4.4" rx="1"/><rect x="2.6" y="16.4" width="5.6" height="4.4" rx="1"/><rect x="15.8" y="16.4" width="5.6" height="4.4" rx="1"/><path d="M12 7.6v3.2M5.4 16.4v-2.4h13.2v2.4M12 10.8v3.2"/></symbol>
+    <symbol id="i-play" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="8.75"/><path d="M10.2 8.9v6.2l5.1-3.1z"/></symbol>
     <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19.4 5.9v5.5c0 4.4-3 7.9-7.4 9.6-4.4-1.7-7.4-5.2-7.4-9.6V5.9z"/></symbol>
     <symbol id="i-shield-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3 19.4 5.9v5.5c0 4.4-3 7.9-7.4 9.6-4.4-1.7-7.4-5.2-7.4-9.6V5.9z"/><path d="m8.7 11.8 2.4 2.4 4.2-4.4"/></symbol>
     <symbol id="i-stairs" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.4 20.2v-3.9h4.4v-3.9h4.4V8.5h4.4V4.6h3.9"/></symbol>
@@ -190,6 +191,49 @@
         </div>
 
       </div>
+    </div>
+  </section>
+
+  <!-- ── CAIRN IN THIRTY SECONDS ────────────────────────────────────────────
+       Added 2026-09-30. The page in miniature: the problem, the claim, the four
+       stones, three decisions and the ledger, in the order the page then argues
+       them at length. It plays when asked, never on its own: a video that starts
+       itself is decoration performing, and the hero was cleared of exactly that
+       (see the note on the mark above). No audio track; muted is not a loss.
+
+       The transcript is the video's words as page text. It is what a screen
+       reader gets, and it puts every claim the video makes in front of the
+       site's claims check, which cannot read pixels.
+  -->
+  <section id="overview" class="section-spacing video-band" aria-labelledby="overview-title">
+    <div class="container">
+      <div class="section-title-wrap is-left">
+        <div class="status-pill status-pill-teal">
+          <svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg> CAIRN IN THIRTY SECONDS
+        </div>
+        <h2 class="section-title" id="overview-title">What this page argues, in thirty seconds.</h2>
+      </div>
+      <figure class="video-figure">
+        <video class="video-frame" controls muted playsinline preload="none"
+          poster="assets/video/cairn-motion-30s-poster.jpg"
+          aria-describedby="overview-transcript">
+          <source src="assets/video/cairn-motion-30s.mp4" type="video/mp4">
+          Your browser cannot play this video. The transcript below says everything it shows.
+        </video>
+        <figcaption class="video-caption">
+          30 seconds, no sound. The figure it shows was measured for CAIRN 2.10.13; the current
+          figure is in the strip above.
+        </figcaption>
+      </figure>
+      <details class="video-transcript" id="overview-transcript">
+        <summary>Read what the video shows</summary>
+        <p>Enterprises are deploying AI agents faster than anyone can verify what they are allowed to do. Most answer with a policy document or a demo.</p>
+        <p>Governance defines what an AI is allowed to do. CAIRN proves it did only that. A runtime enforcement layer between an AI agent and anything it can affect: verifying, recording and, where warranted, refusing.</p>
+        <p>From what an agent asks to do, down to the evidence. The Gate: every tool call is checked before it reaches a tool. Policy and Governance Engine: signed policy, autonomy ceilings, egress allow-listing. Isolated Execution: Docker with no network and a read-only filesystem, or Windows Sandbox. Cryptographic Evidence Ledger: tamper-evident SHA-256 decision records, exported as JSONL.</p>
+        <p>Every action gets a decision. Read a project file: allowed, within policy, recorded to the ledger. Send outside the declared scope: refused; egress is allow-listed, and it is recorded either way. A tool CAIRN cannot classify: refused; default-deny, what cannot be verified does not run. 0.22–0.28 ms median per decision that runs no code, CAIRN 2.10.13, measured on an idle machine.</p>
+        <p>Every decision, hash-chained: four records, allowed, refused, refused, allowed. The second is altered from refused to allowed, and it and every record after it are flagged. Alter a record and the chain says so. Your auditor verifies the exported bundle with openssl, without installing CAIRN and without taking our word for any of it.</p>
+        <p>CAIRN Trust Fabric. The runtime enforcement layer for enterprise AI. Verified, recorded, and refused where warranted. cairnetp.com. Request a pilot.</p>
+      </details>
     </div>
   </section>
 
@@ -575,6 +619,58 @@
         to change and the decision they are making by changing it, which is the difference between a
         control that blocks work and one that governs it.
       </p>
+    </div>
+  </section>
+
+  <!-- ── ONE REQUEST, END TO END ────────────────────────────────────────────
+       Added 2026-09-30. The section above shows one decision at a time; this is
+       one request carried through all of them, and it ends on the bundle the
+       next section verifies. It is a stylised re-creation and says so in its
+       own first frames. Plays when asked; no audio track.
+
+       The transcript is faithful to the frames, including what they get wrong.
+       What they get wrong is stated beneath the video rather than edited out of
+       the transcript, because a transcript that silently disagrees with its
+       video is the same defect as a video that disagrees with the product.
+  -->
+  <section id="in-action" class="section-spacing video-band" aria-labelledby="in-action-title">
+    <div class="container">
+      <div class="section-title-wrap is-left">
+        <div class="status-pill status-pill-teal">
+          <svg class="icon" aria-hidden="true"><use href="#i-play"></use></svg> ONE REQUEST, END TO END
+        </div>
+        <h2 class="section-title" id="in-action-title">One request. Every decision on the way.</h2>
+        <p class="section-subtitle">
+          An agent is asked to clean a customer file and send it on. Three actions: one allowed, one
+          run only after approval inside an isolated container, one refused before anything left the
+          machine. Then the record an auditor receives.
+        </p>
+      </div>
+      <figure class="video-figure">
+        <video class="video-frame" controls muted playsinline preload="none"
+          poster="assets/video/cairn-in-action-45s-poster.jpg"
+          aria-describedby="in-action-transcript">
+          <source src="assets/video/cairn-in-action-45s.mp4" type="video/mp4">
+          Your browser cannot play this video. The transcript below says everything it shows.
+        </video>
+        <figcaption class="video-caption">
+          45 seconds, no sound. An illustrative session: the interface is simplified, and the behaviour
+          is CAIRN 2.10's. One correction to the video: a destination domain is permitted in
+          <code>vault/mcpInboundClients.json</code>, per client, not in <code>vault/egress_policy.json</code>,
+          which decides what kinds of data may leave for each boundary.
+        </figcaption>
+      </figure>
+      <details class="video-transcript" id="in-action-transcript">
+        <summary>Read what the video shows</summary>
+        <p>One request. Every decision on the way. Watch CAIRN govern an AI agent from prompt to sandbox to evidence. Illustrative session. Interface simplified; behaviour as documented for CAIRN 2.10.</p>
+        <p>The request: deduplicate customers.csv on customer ID, then upload the clean file to reports.acme-analytics.io. CAIRN: the agent has proposed 3 actions. Nothing runs until each one has been decided. Three actions, none of them run yet: read file customers.csv; run script dedupe.mjs, written by FORGE; upload file to reports.acme-analytics.io.</p>
+        <p>The Gate. Each action is checked before it reaches a tool. Read file customers.csv: allowed. A read needs ANALYSE, within the autonomy ceiling. Decided in 0.24 ms. Run script dedupe.mjs: code parsed before it runs; secrets scanned, none found; execution needs EXECUTE_WITH_APPROVAL. Approve this exact script? Approval is tied to the script's content, not its name. If it changes, CAIRN asks again. The operator approves.</p>
+        <p>Isolated execution. CRUCIBLE runs it where it cannot reach anything: Docker, node:20-alpine, ephemeral; network none; root filesystem read-only; host not exposed; no route out. 4,812 rows in, 4,650 rows out, 162 duplicate IDs removed. CRUCIBLE: sandboxed, method docker, ran, 140 ms. Assurance tier 2, sandbox executed. The tier assigned is what was actually verified; with no Docker or Windows Sandbox, it says static_only, never a silent pass.</p>
+        <p>Action 3 tries to leave the machine. Destination checked against the allow-list: refused. Refused by COMPASS, destination not allowed: reports.acme-analytics.io is not on the egress allow-list, so nothing was sent. To permit it, an operator adds the domain to vault/egress_policy.json. That is a policy decision, and it is recorded. The clean data stays on this machine. The refusal names the file to change, so the operator knows exactly what they would be deciding.</p>
+        <p>Decision ledger: SHA-256, each record chained to the one before. Record 1, read customers.csv, allowed; record 2, run dedupe.mjs, allowed, approved, Docker, tier 2; record 3, upload, refused. Allowed and refused alike. Alter any record and every link after it breaks.</p>
+        <p>Evidence. Hand your auditor the bundle, not a promise: ledger.jsonl, every decision above, hash-chained with SHA-256; VERIFY.md, the check procedure, shipped inside the bundle; a signature, signed with Ed25519, naming the machine that produced it. On the auditor's machine, with no CAIRN installed: follow VERIFY.md with openssl; 3 records, chain intact.</p>
+        <p>Governance defines what an AI is allowed to do. CAIRN proves it did only that. Verified, recorded, and refused where warranted. cairnetp.com.</p>
+      </details>
     </div>
   </section>
 

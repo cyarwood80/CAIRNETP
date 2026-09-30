@@ -57,6 +57,7 @@ export const ICONS = {
         body: '<circle cx="12" cy="12" r="8.75"/><path d="m8.1 12.2 2.75 2.75L16 9.8"/>',
     },
     minus: { body: '<path d="M6.5 12h11"/>' },
+    play: { body: '<circle cx="12" cy="12" r="8.75"/><path d="M10.2 8.9v6.2l5.1-3.1z"/>' },
     ban: { body: '<circle cx="12" cy="12" r="8.75"/><path d="M5.8 5.8 18.2 18.2"/>' },
     'alert-circle': {
         body: '<circle cx="12" cy="12" r="8.75"/><path d="M12 7.5v5.25"/><circle cx="12" cy="16.4" r=".85" fill="currentColor" stroke="none"/>',

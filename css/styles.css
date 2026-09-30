@@ -4453,3 +4453,65 @@ code, pre {
     gap: 0.4rem;
   }
 }
+
+/* ── VIDEO BANDS (2026-09-30) ──────────────────────────────────────────────
+   Two short, silent videos: #overview after the hero, #in-action between the
+   gate and the evidence. Framed like the page's other surfaces, played only
+   when asked, and each followed by its transcript, which is both the
+   accessible text and the words the claims check can read. */
+.video-band {
+  border-bottom: 1px solid var(--border-card);
+}
+
+.video-figure {
+  margin: 1.5rem 0 0;
+  max-width: 1100px;
+}
+
+.video-frame {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  background: var(--bg-space-dark);
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-lg);
+  box-shadow: 0 18px 48px rgba(0, 0, 0, 0.35);
+}
+
+.video-caption {
+  margin-top: 0.85rem;
+  max-width: 760px;
+  color: var(--color-stone-grey);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.video-caption code {
+  font-family: var(--font-mono);
+  font-size: var(--text-xs);
+}
+
+.video-transcript {
+  margin-top: 1rem;
+  max-width: 760px;
+  border: 1px solid var(--border-card);
+  border-radius: var(--radius-md);
+  background: var(--bg-surface-card);
+  padding: 0.25rem 1.1rem;
+}
+
+.video-transcript summary {
+  cursor: pointer;
+  padding: 0.75rem 0;
+  color: var(--color-teal-signal);
+  font-size: var(--text-sm);
+  font-weight: 600;
+}
+
+.video-transcript p {
+  color: var(--color-stone-grey);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+  margin: 0 0 0.9rem;
+}
