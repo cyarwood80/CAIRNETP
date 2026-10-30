@@ -2867,22 +2867,80 @@ code, pre {
   }
 }
 
-/* The hero's second door: a quiet text link under the buttons, so the
-   enterprise call to action keeps the weight. */
-.hero-audience-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  flex-basis: 100%;
-  margin-top: 0.25rem;
-  color: var(--color-stone-grey);
-  font-size: var(--text-sm);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+/* Four benefits for smaller organisations (#smaller-organisations): one row of
+   four on a wide screen, two by two on a laptop, one column on a phone. */
+.benefit-grid {
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
 }
 
-.hero-audience-link:hover {
+.benefit-desc {
+  color: var(--color-stone-grey);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+/* Choose your way in (hero, 2026-10-30): three equal doors at the foot of the
+   first screen, so every audience sees the page is for them. The middle one is
+   the smaller-organisation door and carries the accent. */
+.hero-audiences {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1rem;
+  margin-top: 2.5rem;
+}
+
+.hero-audience-tile {
+  display: flex;
+  flex-direction: column;
+  gap: 0.45rem;
+  padding: 1.15rem 1.25rem;
+  background: var(--bg-surface-card);
+  border: 1px solid var(--border-card);
+  border-radius: 12px;
+  text-decoration: none;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.hero-audience-tile:hover,
+.hero-audience-tile:focus-visible {
+  border-color: var(--color-teal-signal);
+  transform: translateY(-2px);
+}
+
+.hero-audience-tile-highlight {
+  border-color: var(--color-teal-border);
+  box-shadow: 0 0 0 1px var(--color-teal-border);
+}
+
+.hero-audience-for {
+  font-family: var(--font-mono);
+  font-size: var(--text-2xs);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--color-teal-signal);
+}
+
+.hero-audience-line {
   color: var(--color-glacier);
+  font-size: var(--text-base);
+  line-height: 1.5;
+}
+
+.hero-audience-go {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: auto;
+  color: var(--color-stone-grey);
+  font-size: var(--text-sm);
+}
+
+@media (max-width: 900px) {
+  .hero-audiences {
+    grid-template-columns: 1fr;
+  }
 }
 
 .path-card {

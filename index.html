@@ -71,6 +71,7 @@
       <nav>
         <ul class="nav-links" id="site-nav-links">
           <li><a href="/" class="nav-link active">Platform</a></li>
+          <li><a href="/#who" class="nav-link">Who it's for</a></li>
           <li><a href="compliance.html" class="nav-link">Compliance</a></li>
           <li><a href="licensing.html" class="nav-link">Licensing</a></li>
           <li><a href="gallery.html" class="nav-link">UI Gallery</a></li>
@@ -131,11 +132,12 @@
             of it.
           </p>
 
-          <!-- Conviction Callout Quote -->
-          <div class="conviction-quote-unified">
-            "Provably, immediately, and auditably wrong when we are: caught before harm, disclosed rather than hidden."
-          </div>
-
+          <!-- The buttons sit ABOVE the conviction quote (moved 2026-10-30), so
+               all three doors, including the smaller-organisation one, are on
+               the first screen of a 1366x800 laptop. Measured, not assumed: below
+               the quote, the third button wrapped to y=789 of 800. The three-way
+               chooser at the foot of the hero repeats them with the IT-provider
+               door beside them. -->
           <div class="hero-cta-group">
             <a href="#architecture" class="btn btn-primary">
               Explore Architecture <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
@@ -143,16 +145,14 @@
             <button class="btn btn-secondary open-demo-btn">
               <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg> Request a pilot
             </button>
-            <!-- ── AUDIENCES, 2026-10-30 ─────────────────────────────────────
-                 The page was written for an enterprise review team, and that
-                 reader stays first. This line opens a second door for smaller
-                 organisations, public bodies and the IT providers who look
-                 after them, without demoting the first: the same product, a
-                 different way in. Everything it leads to is in #who. -->
-            <a href="#who" class="hero-audience-link">
-              Smaller organisation, public body or IT provider? See how CAIRN fits you
-              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            <a href="#smaller-organisations" class="btn btn-outline">
+              Smaller organisation or public body? <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
             </a>
+          </div>
+
+          <!-- Conviction Callout Quote -->
+          <div class="conviction-quote-unified">
+            "Provably, immediately, and auditably wrong when we are: caught before harm, disclosed rather than hidden."
           </div>
 
           <!-- ── HERO FIGURES ────────────────────────────────────────────
@@ -201,6 +201,30 @@
         </div>
 
       </div>
+
+      <!-- ── CHOOSE YOUR WAY IN, 2026-10-30 ──────────────────────────────────
+           Three audiences, given equal weight at the foot of the hero so that
+           a council, a twelve-person practice or an IT provider sees on the
+           first screen that the page is for them too. The enterprise door is
+           first and unchanged; the other two are not an afterthought. Each
+           tile goes to the part of the page written for that reader. -->
+      <nav class="hero-audiences" aria-label="Who CAIRN is for">
+        <a href="#who" class="hero-audience-tile">
+          <span class="hero-audience-for">Enterprises and regulated organisations</span>
+          <span class="hero-audience-line">Evidence your reviewer verifies without taking our word for it</span>
+          <span class="hero-audience-go">How it fits <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+        </a>
+        <a href="#smaller-organisations" class="hero-audience-tile hero-audience-tile-highlight">
+          <span class="hero-audience-for">Smaller organisations and public bodies</span>
+          <span class="hero-audience-line">Control over your AI, and the record to show for it, without a security team</span>
+          <span class="hero-audience-go">What CAIRN does for you <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+        </a>
+        <a href="#who-partners" class="hero-audience-tile">
+          <span class="hero-audience-for">IT providers and managed service partners</span>
+          <span class="hero-audience-line">One signed policy and one evidence report for every client you look after</span>
+          <span class="hero-audience-go">Partner with us <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg></span>
+        </a>
+      </nav>
     </div>
   </section>
 
@@ -354,7 +378,7 @@
           </div>
         </div>
 
-        <div class="path-card">
+        <div class="path-card" id="who-partners">
           <div class="path-for">IT providers and managed service partners</div>
           <h3>Govern AI for every client you look after</h3>
           <ul>
@@ -381,6 +405,111 @@
         work done through it, by its own agent and by the agents you connect to it. It does not watch
         staff using AI chat services in a web browser, and it does not make an organisation compliant;
         it produces evidence that an organisation and its auditor can use.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOR SMALLER ORGANISATIONS AND PUBLIC BODIES, added 2026-10-30 ──────────
+       The operator's key demographic, given its own section rather than one card.
+       Written for a reader with no security team: what CAIRN does for them day to
+       day, what they can show for it, and how to start, in that order.
+       Each benefit is a Works row in docs/CLAIMS.md:
+         checks before it acts ............ the gate; "A policy denial cannot be
+                                             overridden by user approval"
+         asks, and records the answer ..... "A human approval decision is recorded";
+                                             "A follow-up message cannot silently
+                                             re-trigger a just-denied privileged action"
+         a record you can trust ........... "Decision ledger is durable and
+                                             tamper-evident" (NOT tamper-proof, which
+                                             is Roadmap); "A tampered ledger is
+                                             disclosed in the export"
+         says what it could not check ..... the assurance tiers; "A fast verification
+                                             is never reported as a full one"
+       The secret-egress floor and the agent's exclusion from CAIRN's own settings
+       (2.10.11) are real but have no register row yet, so they are not here. -->
+  <section id="smaller-organisations" class="section-spacing" style="background: rgba(5, 8, 10, 0.4); border-top: 1px solid var(--border-card); border-bottom: 1px solid var(--border-card);">
+    <div class="container">
+      <div class="section-title-wrap is-left">
+        <div class="status-pill status-pill-teal">
+          <svg class="icon" aria-hidden="true"><use href="#i-shield"></use></svg> FOR SMALLER ORGANISATIONS AND PUBLIC BODIES
+        </div>
+        <h2 class="section-title">
+          What CAIRN does for an organisation without a security team.
+        </h2>
+        <p class="section-subtitle">
+          You are expected to know what your AI did, to keep personal data where it belongs, and to
+          answer when a customer, an auditor or a regulator asks. CAIRN does the checking as the work
+          happens, and keeps the record, so the answer exists before anyone asks for it.
+        </p>
+      </div>
+
+      <div class="path-grid benefit-grid">
+        <div class="path-card">
+          <div class="path-for">Before anything happens</div>
+          <h3>It checks before it acts</h3>
+          <p class="benefit-desc">
+            Every action an AI agent takes through CAIRN is checked against your policy before it
+            runs. What your policy refuses does not run, and clicking "approve" cannot overrule it.
+          </p>
+        </div>
+        <div class="path-card">
+          <div class="path-for">When it matters</div>
+          <h3>It asks you, and remembers the answer</h3>
+          <p class="benefit-desc">
+            Actions that need a person are put to you first. Your yes or no is written into the
+            record, and a refused action cannot be quietly retried by the next message.
+          </p>
+        </div>
+        <div class="path-card">
+          <div class="path-for">Afterwards</div>
+          <h3>It keeps a record you can rely on</h3>
+          <p class="benefit-desc">
+            Every decision goes into a tamper-evident, hash-chained record. If the record has been
+            altered, the export says so rather than hiding it.
+          </p>
+        </div>
+        <div class="path-card">
+          <div class="path-for">Always</div>
+          <h3>It tells you what it could not check</h3>
+          <p class="benefit-desc">
+            When CAIRN cannot verify something, it says so in plain words and records it as less
+            certain, instead of reporting a success it did not establish.
+          </p>
+        </div>
+      </div>
+
+      <div class="path-grid" style="margin-top: 1.75rem;">
+        <div class="path-card">
+          <div class="path-for">What you can show</div>
+          <h3>An answer for the auditor, the customer and the questionnaire</h3>
+          <ul>
+            <li>With a licence, the record exports as an evidence bundle: what ran, what was refused and why, and what could not be checked</li>
+            <li>Whoever asks can verify that bundle themselves, without installing CAIRN or taking our word for it</li>
+            <li>Models can run on your own hardware, so what you ask them stays there; a cloud model receives only what your egress policy allows</li>
+          </ul>
+        </div>
+        <div class="path-card">
+          <div class="path-for">How to start</div>
+          <h3>Free inside your own organisation</h3>
+          <ul>
+            <li>Install it on one machine. No account, no sign-up, no CAIRN-operated server</li>
+            <li>Setup checks the machine and tells you what is missing, and what each missing piece means</li>
+            <li>CAIRN records from the first action. Add more machines, a shared policy and evidence export when you need them</li>
+          </ul>
+          <div class="path-actions">
+            <a href="#download" class="btn btn-primary" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg> Download free
+            </a>
+            <button class="btn btn-secondary open-demo-btn" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail-open"></use></svg> Talk to us
+            </button>
+          </div>
+          <div class="path-honesty">
+            <strong style="color: var(--color-glacier);">Stated plainly:</strong> setup today expects
+            someone comfortable installing software, and a machine without a graphics card runs local
+            models slowly. If you have an IT provider, they can set CAIRN up for you.
+          </div>
+        </div>
       </div>
     </div>
   </section>
