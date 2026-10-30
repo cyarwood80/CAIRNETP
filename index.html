@@ -143,6 +143,16 @@
             <button class="btn btn-secondary open-demo-btn">
               <svg class="icon" aria-hidden="true"><use href="#i-mail"></use></svg> Request a pilot
             </button>
+            <!-- ── AUDIENCES, 2026-10-30 ─────────────────────────────────────
+                 The page was written for an enterprise review team, and that
+                 reader stays first. This line opens a second door for smaller
+                 organisations, public bodies and the IT providers who look
+                 after them, without demoting the first: the same product, a
+                 different way in. Everything it leads to is in #who. -->
+            <a href="#who" class="hero-audience-link">
+              Smaller organisation, public body or IT provider? See how CAIRN fits you
+              <svg class="icon" aria-hidden="true"><use href="#i-arrow-right"></use></svg>
+            </a>
           </div>
 
           <!-- ── HERO FIGURES ────────────────────────────────────────────
@@ -245,10 +255,15 @@
           <svg class="icon" aria-hidden="true"><use href="#i-alert-circle"></use></svg> THE GOVERNANCE GAP
         </div>
         <h2 class="section-title">
-          Enterprises are deploying AI agents faster than anyone can verify what they are allowed to do.
+          Organisations are deploying AI agents faster than anyone can verify what they are allowed to do.
         </h2>
         <p class="section-subtitle">
           Every security and compliance review of an AI agent platform eventually asks the same question: <em>does this platform actually enforce what the vendor says it enforces?</em> Most answer with a policy document or a demo. Neither is something a reviewer can independently check.
+        </p>
+        <p class="section-subtitle">
+          A large enterprise has a review team to ask that question. A council, a school trust, a
+          practice of twelve people or the supplier answering a customer's questionnaire usually does
+          not, and is asked it all the same.
         </p>
       </div>
 
@@ -268,6 +283,104 @@
             Every tool invocation that enters the registry is authorised before it runs: one choke point, and a denied tool never reaches the executor. If gate arguments error or schemas fail, the system fails closed into refusal. What cannot be verified simply does not run.
           </p>
         </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── WHO CAIRN IS FOR, added 2026-10-30 ───────────────────────────────────
+       Three readers, one product. The enterprise card comes first and says what
+       it said before; the other two open the page to organisations without a
+       review team, and to the IT providers who are often that team for them.
+       Every line is a row in docs/CLAIMS.md (policy binding and distribution,
+       cross-node reading without pooling, local-first, the egress policy), and
+       the one thing a smaller buyer most often assumes, that CAIRN watches
+       browser AI use, is denied in words at the foot of the section.
+       Evidence export is a licensed capability (`audit.export`), so the
+       smaller-organisation card says "with a licence" rather than implying it
+       comes with the free edition. -->
+  <section id="who" class="section-spacing">
+    <div class="container">
+      <div class="section-title-wrap is-left">
+        <div class="status-pill status-pill-teal">
+          <svg class="icon" aria-hidden="true"><use href="#i-shield-check"></use></svg> WHO CAIRN IS FOR
+        </div>
+        <h2 class="section-title">
+          The same evidence, whether you have a security department or not.
+        </h2>
+        <p class="section-subtitle">
+          CAIRN does the same thing for every organisation: it decides what an AI agent may do,
+          records what it did, and says plainly what it could not check. What changes is who reads
+          the record, and who sets it up.
+        </p>
+      </div>
+
+      <div class="path-grid path-grid-3">
+        <div class="path-card">
+          <div class="path-for">Enterprises and regulated organisations</div>
+          <h3>Evidence your reviewer checks without us</h3>
+          <ul>
+            <li>Evidence bundles a reviewer can verify without installing anything</li>
+            <li>One signed corporate policy that binds what every machine may spend, run and reach</li>
+            <li>Records from many machines read together, without pooling them in one place</li>
+            <li>NIST AI RMF and EU AI Act mapping, per pillar</li>
+          </ul>
+          <div class="path-actions">
+            <button class="btn btn-primary open-demo-btn" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail-open"></use></svg> Request a pilot
+            </button>
+          </div>
+        </div>
+
+        <div class="path-card">
+          <div class="path-for">Smaller organisations and public bodies</div>
+          <h3>In control of your AI, without a compliance team</h3>
+          <ul>
+            <li>Free to run inside your own organisation. No account, and no CAIRN-operated server</li>
+            <li>Models can run on your own hardware, so what you ask them stays there. Use a cloud model and the egress policy decides what may be sent to it</li>
+            <li>Every action is recorded, refused when it should be, and anything CAIRN could not check is said in plain words rather than hidden</li>
+            <li>With a licence, that record exports as evidence you can hand to an auditor or use to answer a customer's security questionnaire</li>
+          </ul>
+          <div class="path-actions">
+            <a href="#download" class="btn btn-primary" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <svg class="icon" aria-hidden="true"><use href="#i-monitor"></use></svg> Download free
+            </a>
+            <button class="btn btn-secondary open-demo-btn" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail-open"></use></svg> Talk to us
+            </button>
+          </div>
+          <div class="path-honesty">
+            <strong style="color: var(--color-glacier);">Stated plainly:</strong> setting CAIRN up still
+            needs someone comfortable installing software. Reading what it tells you does not.
+          </div>
+        </div>
+
+        <div class="path-card">
+          <div class="path-for">IT providers and managed service partners</div>
+          <h3>Govern AI for every client you look after</h3>
+          <ul>
+            <li>Sign one policy and apply it to every machine in a client's estate</li>
+            <li>Read the evidence from all of a client's machines together, without pooling it in one place</li>
+            <li>Licensed per machine, so the cost follows the estate</li>
+            <li>No central console, by design: each client's record stays on that client's machines</li>
+          </ul>
+          <div class="path-actions">
+            <button class="btn btn-primary open-demo-btn" style="font-size: var(--text-base); padding: 0.85rem 1.5rem;">
+              <svg class="icon" aria-hidden="true"><use href="#i-mail-open"></use></svg> Talk to us about partnering
+            </button>
+          </div>
+          <div class="path-honesty">
+            <strong style="color: var(--color-glacier);">Stated plainly:</strong> the free licence covers
+            use inside your own organisation. Running CAIRN for clients as a managed service needs a
+            partner licence.
+          </div>
+        </div>
+      </div>
+
+      <div class="path-honesty" style="margin-top: 1.75rem; max-width: 820px;">
+        <strong style="color: var(--color-glacier);">What CAIRN does not do:</strong> it governs the
+        work done through it, by its own agent and by the agents you connect to it. It does not watch
+        staff using AI chat services in a web browser, and it does not make an organisation compliant;
+        it produces evidence that an organisation and its auditor can use.
       </div>
     </div>
   </section>

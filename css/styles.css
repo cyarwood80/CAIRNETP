@@ -2855,6 +2855,36 @@ code, pre {
   text-align: left;
 }
 
+/* Three audiences (#who, 2026-10-30): narrower minimum so the three cards sit in
+   one row on a desktop width, and stack on a phone like the two-path grid. */
+.path-grid-3 {
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+@media (max-width: 640px) {
+  .path-grid-3 {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* The hero's second door: a quiet text link under the buttons, so the
+   enterprise call to action keeps the weight. */
+.hero-audience-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-basis: 100%;
+  margin-top: 0.25rem;
+  color: var(--color-stone-grey);
+  font-size: var(--text-sm);
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.hero-audience-link:hover {
+  color: var(--color-glacier);
+}
+
 .path-card {
   background: var(--bg-surface-card);
   border: 1px solid var(--border-card);
